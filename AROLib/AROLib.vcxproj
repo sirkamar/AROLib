@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="CTP|Win32">
+      <Configuration>CTP</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CFFCB27E-C562-40EE-BB0F-384E878BD479}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>AROLib</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CTP|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='CTP|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CTP|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ARO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\AROLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CTP|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ARO_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;AROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\sirka\Workspaces\Visual Studio\AROLib\AROLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <StringPooling>true</StringPooling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="aro\aws\all.h" />
+    <ClInclude Include="aro\aws\AWSEvent.h" />
+    <ClInclude Include="aro\aws\AxisLayout.h" />
+    <ClInclude Include="aro\aws\Component.h" />
+    <ClInclude Include="aro\aws\Container.h" />
+    <ClInclude Include="aro\aws\DeckLayout.h" />
+    <ClInclude Include="aro\aws\DefaultFocusManager.h" />
+    <ClInclude Include="aro\aws\DefaultFocusPolicy.h" />
+    <ClInclude Include="aro\aws\Dialog.h" />
+    <ClInclude Include="aro\aws\Dimension.h" />
+    <ClInclude Include="aro\aws\EventDispatcher.h" />
+    <ClInclude Include="aro\aws\EventQueue.h" />
+    <ClInclude Include="aro\aws\event\ActionEvent.h" />
+    <ClInclude Include="aro\aws\event\ActionListener.h" />
+    <ClInclude Include="aro\aws\event\all.h" />
+    <ClInclude Include="aro\aws\event\ComponentEvent.h" />
+    <ClInclude Include="aro\aws\event\ComponentListener.h" />
+    <ClInclude Include="aro\aws\event\FocusAdapter.h" />
+    <ClInclude Include="aro\aws\event\FocusCausedEvent.h" />
+    <ClInclude Include="aro\aws\event\FocusEvent.h" />
+    <ClInclude Include="aro\aws\event\FocusListener.h" />
+    <ClInclude Include="aro\aws\event\InputEvent.h" />
+    <ClInclude Include="aro\aws\event\ItemEvent.h" />
+    <ClInclude Include="aro\aws\event\ItemListener.h" />
+    <ClInclude Include="aro\aws\event\KeyAdapter.h" />
+    <ClInclude Include="aro\aws\event\KeyEvent.h" />
+    <ClInclude Include="aro\aws\event\KeyListener.h" />
+    <ClInclude Include="aro\aws\event\PaintEvent.h" />
+    <ClInclude Include="aro\aws\event\PropertyEvent.h" />
+    <ClInclude Include="aro\aws\event\PropertyListener.h" />
+    <ClInclude Include="aro\aws\event\SelectionEvent.h" />
+    <ClInclude Include="aro\aws\event\SelectionListener.h" />
+    <ClInclude Include="aro\aws\event\StateEvent.h" />
+    <ClInclude Include="aro\aws\event\StateListener.h" />
+    <ClInclude Include="aro\aws\event\WindowAdapter.h" />
+    <ClInclude Include="aro\aws\event\WindowEvent.h" />
+    <ClInclude Include="aro\aws\event\WindowFocusListener.h" />
+    <ClInclude Include="aro\aws\event\WindowListener.h" />
+    <ClInclude Include="aro\aws\FocusManager.h" />
+    <ClInclude Include="aro\aws\FocusPolicy.h" />
+    <ClInclude Include="aro\aws\Frame.h" />
+    <ClInclude Include="aro\aws\Graphics.h" />
+    <ClInclude Include="aro\aws\GraphLayout.h" />
+    <ClInclude Include="aro\aws\Insets.h" />
+    <ClInclude Include="aro\aws\KeyStroke.h" />
+    <ClInclude Include="aro\aws\Layout.h" />
+    <ClInclude Include="aro\aws\ListenerList.h" />
+    <ClInclude Include="aro\aws\Point.h" />
+    <ClInclude Include="aro\aws\Rectangle.h" />
+    <ClInclude Include="aro\aws\Selectable.h" />
+    <ClInclude Include="aro\aws\SystemMonitor.h" />
+    <ClInclude Include="aro\aws\TideLayout.h" />
+    <ClInclude Include="aro\aws\Window.h" />
+    <ClInclude Include="aro\aws\ZoneLayout.h" />
+    <ClInclude Include="aro\core.h" />
+    <ClInclude Include="aro\core\ArgumentException.h" />
+    <ClInclude Include="aro\core\arm\Arm.h" />
+    <ClInclude Include="aro\core\arm\Cfg.h" />
+    <ClInclude Include="aro\core\arm\Ref.h" />
+    <ClInclude Include="aro\core\arm\RefArray.h" />
+    <ClInclude Include="aro\core\arm\RefArrayBase.h" />
+    <ClInclude Include="aro\core\arm\RefArrayBase_.h" />
+    <ClInclude Include="aro\core\arm\RefArray_.h" />
+    <ClInclude Include="aro\core\arm\RefComp.h" />
+    <ClInclude Include="aro\core\arm\RefIterator.h" />
+    <ClInclude Include="aro\core\arm\RefIterator_.h" />
+    <ClInclude Include="aro\core\arm\RefNull.h" />
+    <ClInclude Include="aro\core\arm\RefObject.h" />
+    <ClInclude Include="aro\core\arm\RefObject_.h" />
+    <ClInclude Include="aro\core\arm\RefStream.h" />
+    <ClInclude Include="aro\core\arm\RefString.h" />
+    <ClInclude Include="aro\core\arm\RefTU.h" />
+    <ClInclude Include="aro\core\arm\RefTU_.h" />
+    <ClInclude Include="aro\core\arm\RefWeak.h" />
+    <ClInclude Include="aro\core\arm\RefWeak_.h" />
+    <ClInclude Include="aro\core\arm\Ref_.h" />
+    <ClInclude Include="aro\core\arm\SyncLock.h" />
+    <ClInclude Include="aro\core\Array.h" />
+    <ClInclude Include="aro\core\ArrayBase.h" />
+    <ClInclude Include="aro\core\Array2D.h" />
+    <ClInclude Include="aro\core\Array2D_.h" />
+    <ClInclude Include="aro\core\ArrayBase_.h" />
+    <ClInclude Include="aro\core\Array_.h" />
+    <ClInclude Include="aro\core\Base.h" />
+    <ClInclude Include="aro\core\Bool.h" />
+    <ClInclude Include="aro\core\Boolean.h" />
+    <ClInclude Include="aro\core\CastException.h" />
+    <ClInclude Include="aro\core\Char.h" />
+    <ClInclude Include="aro\core\Character.h" />
+    <ClInclude Include="aro\core\Cloneable.h" />
+    <ClInclude Include="aro\core\Cloneable_.h" />
+    <ClInclude Include="aro\core\Comparable.h" />
+    <ClInclude Include="aro\core\Decimal.h" />
+    <ClInclude Include="aro\core\Double.h" />
+    <ClInclude Include="aro\core\Exception.h" />
+    <ClInclude Include="aro\core\Float.h" />
+    <ClInclude Include="aro\core\IndexException.h" />
+    <ClInclude Include="aro\core\Int.h" />
+    <ClInclude Include="aro\core\Integer.h" />
+    <ClInclude Include="aro\core\Interface.h" />
+    <ClInclude Include="aro\core\Iterable.h" />
+    <ClInclude Include="aro\core\Long.h" />
+    <ClInclude Include="aro\core\Math.h" />
+    <ClInclude Include="aro\core\utils\Class.h" />
+    <ClInclude Include="aro\core\utils\Class_.h" />
+    <ClInclude Include="aro\core\utils\ObjectFactory.h" />
+    <ClInclude Include="aro\core\Null.h" />
+    <ClInclude Include="aro\core\NullException.h" />
+    <ClInclude Include="aro\core\Number.h" />
+    <ClInclude Include="aro\core\Object.h" />
+    <ClInclude Include="aro\core\Runnable.h" />
+    <ClInclude Include="aro\core\Short.h" />
+    <ClInclude Include="aro\core\StateException.h" />
+    <ClInclude Include="aro\core\String.h" />
+    <ClInclude Include="aro\core\StringBuffer.h" />
+    <ClInclude Include="aro\core\StringBuilder.h" />
+    <ClInclude Include="aro\core\System.h" />
+    <ClInclude Include="aro\core\Thread.h" />
+    <ClInclude Include="aro\core\ThreadException.h" />
+    <ClInclude Include="aro\core\UnsupportedException.h" />
+    <ClInclude Include="aro\core\utils\Foreach.h" />
+    <ClInclude Include="aro\core\arm\Types.h" />
+    <ClInclude Include="aro\core\utils\ObjectFactory_.h" />
+    <ClInclude Include="aro\core\utils\ThreadLibrary.h" />
+    <ClInclude Include="aro\core\utils\Utils.h" />
+    <ClInclude Include="aro\core\Weak.h" />
+    <ClInclude Include="aro\core\Weak_.h" />
+    <ClInclude Include="aro\cui\CSAbstractButton.h" />
+    <ClInclude Include="aro\cui\all.h" />
+    <ClInclude Include="aro\cui\border\AbstractBorder.h" />
+    <ClInclude Include="aro\cui\border\all.h" />
+    <ClInclude Include="aro\cui\border\Border.h" />
+    <ClInclude Include="aro\cui\border\DualBorder.h" />
+    <ClInclude Include="aro\cui\border\EmptyBorder.h" />
+    <ClInclude Include="aro\cui\border\FrameBorder.h" />
+    <ClInclude Include="aro\cui\border\LineBorder.h" />
+    <ClInclude Include="aro\cui\border\StarBorder.h" />
+    <ClInclude Include="aro\cui\border\TitleBorder.h" />
+    <ClInclude Include="aro\cui\CSButton.h" />
+    <ClInclude Include="aro\cui\CSButtonGroup.h" />
+    <ClInclude Include="aro\cui\CSCheckBox.h" />
+    <ClInclude Include="aro\cui\Console.h" />
+    <ClInclude Include="aro\cui\CSComponent.h" />
+    <ClInclude Include="aro\cui\CSDialog.h" />
+    <ClInclude Include="aro\cui\CSFrame.h" />
+    <ClInclude Include="aro\cui\ConsoleGraphics.h" />
+    <ClInclude Include="aro\cui\CSWindow.h" />
+    <ClInclude Include="aro\cui\CUIConstants.h" />
+    <ClInclude Include="aro\cui\CSLabel.h" />
+    <ClInclude Include="aro\cui\CSList.h" />
+    <ClInclude Include="aro\cui\CSPanel.h" />
+    <ClInclude Include="aro\cui\CSPasswordBox.h" />
+    <ClInclude Include="aro\cui\CSProgressBar.h" />
+    <ClInclude Include="aro\cui\CSRadioButton.h" />
+    <ClInclude Include="aro\cui\CSTextArea.h" />
+    <ClInclude Include="aro\cui\CSTextBox.h" />
+    <ClInclude Include="aro\cui\event\all.h" />
+    <ClInclude Include="aro\cui\event\ChangeEvent.h" />
+    <ClInclude Include="aro\cui\event\ChangeListener.h" />
+    <ClInclude Include="aro\cui\event\TextEvent.h" />
+    <ClInclude Include="aro\cui\event\TextListener.h" />
+    <ClInclude Include="aro\cui\CSTextComponent.h" />
+    <ClInclude Include="aro\io\all.h" />
+    <ClInclude Include="aro\io\BufferedInputStream.h" />
+    <ClInclude Include="aro\io\BufferedOutputStream.h" />
+    <ClInclude Include="aro\io\BufferedReader.h" />
+    <ClInclude Include="aro\io\BufferedWriter.h" />
+    <ClInclude Include="aro\io\ByteArrayInputStream.h" />
+    <ClInclude Include="aro\io\ByteArrayOutputStream.h" />
+    <ClInclude Include="aro\io\DataInputStream.h" />
+    <ClInclude Include="aro\io\DataOutputStream.h" />
+    <ClInclude Include="aro\io\FileInputStream.h" />
+    <ClInclude Include="aro\io\FileOutputStream.h" />
+    <ClInclude Include="aro\io\FileReader.h" />
+    <ClInclude Include="aro\io\FileWriter.h" />
+    <ClInclude Include="aro\io\FilterInputStream.h" />
+    <ClInclude Include="aro\io\FilterOutputStream.h" />
+    <ClInclude Include="aro\io\FilterReader.h" />
+    <ClInclude Include="aro\io\FilterWriter.h" />
+    <ClInclude Include="aro\io\InputStream.h" />
+    <ClInclude Include="aro\io\InputStreamReader.h" />
+    <ClInclude Include="aro\io\IOException.h" />
+    <ClInclude Include="aro\io\ObjectInputStream.h" />
+    <ClInclude Include="aro\io\ObjectOutputStream.h" />
+    <ClInclude Include="aro\io\OutputStream.h" />
+    <ClInclude Include="aro\io\OutputStreamWriter.h" />
+    <ClInclude Include="aro\io\PrintStream.h" />
+    <ClInclude Include="aro\io\PrintWriter.h" />
+    <ClInclude Include="aro\io\Reader.h" />
+    <ClInclude Include="aro\io\StreamBase.h" />
+    <ClInclude Include="aro\io\Streamable.h" />
+    <ClInclude Include="aro\io\Streamable_.h" />
+    <ClInclude Include="aro\io\StringInputStream.h" />
+    <ClInclude Include="aro\io\StringOutputStream.h" />
+    <ClInclude Include="aro\io\StringReader.h" />
+    <ClInclude Include="aro\io\StringWriter.h" />
+    <ClInclude Include="aro\io\Writer.h" />
+    <ClInclude Include="aro\util\AbstractCollection.h" />
+    <ClInclude Include="aro\util\AbstractList.h" />
+    <ClInclude Include="aro\util\AbstractMap.h" />
+    <ClInclude Include="aro\util\AbstractSet.h" />
+    <ClInclude Include="aro\util\all.h" />
+    <ClInclude Include="aro\util\ArrayList.h" />
+    <ClInclude Include="aro\util\Collection.h" />
+    <ClInclude Include="aro\util\Comparator.h" />
+    <ClInclude Include="aro\util\Date.h" />
+    <ClInclude Include="aro\util\Event.h" />
+    <ClInclude Include="aro\util\HashMap.h" />
+    <ClInclude Include="aro\util\HashSet.h" />
+    <ClInclude Include="aro\util\Iterator.h" />
+    <ClInclude Include="aro\util\LinkedList.h" />
+    <ClInclude Include="aro\util\List.h" />
+    <ClInclude Include="aro\util\Listener.h" />
+    <ClInclude Include="aro\util\ListIterator.h" />
+    <ClInclude Include="aro\util\Map.h" />
+    <ClInclude Include="aro\util\Set.h" />
+    <ClInclude Include="aro\util\Stack.h" />
+    <ClInclude Include="aro\util\StringTokenizer.h" />
+    <ClInclude Include="aro\util\Time.h" />
+    <ClInclude Include="aro\util\Timestamp.h" />
+    <ClInclude Include="aro\util\Vector.h" />
+    <ClInclude Include="aro\util\WeakHashMap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="aro\aws\AWSEvent.cpp" />
+    <ClCompile Include="aro\aws\AxisLayout.cpp" />
+    <ClCompile Include="aro\aws\Component.cpp" />
+    <ClCompile Include="aro\aws\Container.cpp" />
+    <ClCompile Include="aro\aws\DeckLayout.cpp" />
+    <ClCompile Include="aro\aws\DefaultFocusManager.cpp" />
+    <ClCompile Include="aro\aws\DefaultFocusPolicy.cpp" />
+    <ClCompile Include="aro\aws\Dialog.cpp" />
+    <ClCompile Include="aro\aws\Dimension.cpp" />
+    <ClCompile Include="aro\aws\EventDispatcher.cpp" />
+    <ClCompile Include="aro\aws\EventQueue.cpp" />
+    <ClCompile Include="aro\aws\event\ActionEvent.cpp" />
+    <ClCompile Include="aro\aws\event\ComponentEvent.cpp" />
+    <ClCompile Include="aro\aws\event\FocusAdapter.cpp" />
+    <ClCompile Include="aro\aws\event\FocusCausedEvent.cpp" />
+    <ClCompile Include="aro\aws\event\FocusEvent.cpp" />
+    <ClCompile Include="aro\aws\event\InputEvent.cpp" />
+    <ClCompile Include="aro\aws\event\ItemEvent.cpp" />
+    <ClCompile Include="aro\aws\event\KeyAdapter.cpp" />
+    <ClCompile Include="aro\aws\event\KeyEvent.cpp" />
+    <ClCompile Include="aro\aws\event\PaintEvent.cpp" />
+    <ClCompile Include="aro\aws\event\PropertyEvent.cpp" />
+    <ClCompile Include="aro\aws\event\SelectionEvent.cpp" />
+    <ClCompile Include="aro\aws\event\StateEvent.cpp" />
+    <ClCompile Include="aro\aws\event\WindowAdapter.cpp" />
+    <ClCompile Include="aro\aws\event\WindowEvent.cpp" />
+    <ClCompile Include="aro\aws\FocusManager.cpp" />
+    <ClCompile Include="aro\aws\Frame.cpp" />
+    <ClCompile Include="aro\aws\GraphLayout.cpp" />
+    <ClCompile Include="aro\aws\Insets.cpp" />
+    <ClCompile Include="aro\aws\KeyStroke.cpp" />
+    <ClCompile Include="aro\aws\ListenerList.cpp" />
+    <ClCompile Include="aro\aws\Point.cpp" />
+    <ClCompile Include="aro\aws\Rectangle.cpp" />
+    <ClCompile Include="aro\aws\SystemMonitor.cpp" />
+    <ClCompile Include="aro\aws\TideLayout.cpp" />
+    <ClCompile Include="aro\aws\Window.cpp" />
+    <ClCompile Include="aro\aws\ZoneLayout.cpp" />
+    <ClCompile Include="aro\core\ArgumentException.cpp" />
+    <ClCompile Include="aro\core\arm\Arm.cpp" />
+    <ClCompile Include="aro\core\arm\Cfg.cpp" />
+    <ClCompile Include="aro\core\arm\RefArray.cpp" />
+    <ClCompile Include="aro\core\arm\RefComp.cpp" />
+    <ClCompile Include="aro\core\arm\RefNull.cpp" />
+    <ClCompile Include="aro\core\arm\RefObject.cpp" />
+    <ClCompile Include="aro\core\arm\RefStream.cpp" />
+    <ClCompile Include="aro\core\arm\RefString.cpp" />
+    <ClCompile Include="aro\core\arm\SyncLock.cpp" />
+    <ClCompile Include="aro\core\arm\Types.cpp" />
+    <ClCompile Include="aro\core\Array.cpp" />
+    <ClCompile Include="aro\core\Bool.cpp" />
+    <ClCompile Include="aro\core\Boolean.cpp" />
+    <ClCompile Include="aro\core\CastException.cpp" />
+    <ClCompile Include="aro\core\Char.cpp" />
+    <ClCompile Include="aro\core\Character.cpp" />
+    <ClCompile Include="aro\core\Decimal.cpp" />
+    <ClCompile Include="aro\core\Double.cpp" />
+    <ClCompile Include="aro\core\Exception.cpp" />
+    <ClCompile Include="aro\core\Float.cpp" />
+    <ClCompile Include="aro\core\IndexException.cpp" />
+    <ClCompile Include="aro\core\Int.cpp" />
+    <ClCompile Include="aro\core\Integer.cpp" />
+    <ClCompile Include="aro\core\Long.cpp" />
+    <ClCompile Include="aro\core\Main.cpp" />
+    <ClCompile Include="aro\core\Math.cpp" />
+    <ClCompile Include="aro\core\utils\ObjectFactory.cpp" />
+    <ClCompile Include="aro\core\NullException.cpp" />
+    <ClCompile Include="aro\core\Number.cpp" />
+    <ClCompile Include="aro\core\Object.cpp" />
+    <ClCompile Include="aro\core\Short.cpp" />
+    <ClCompile Include="aro\core\StateException.cpp" />
+    <ClCompile Include="aro\core\String.cpp" />
+    <ClCompile Include="aro\core\StringBuffer.cpp" />
+    <ClCompile Include="aro\core\StringBuilder.cpp" />
+    <ClCompile Include="aro\core\System.cpp" />
+    <ClCompile Include="aro\core\Thread.cpp" />
+    <ClCompile Include="aro\core\ThreadException.cpp" />
+    <ClCompile Include="aro\core\UnsupportedException.cpp" />
+    <ClCompile Include="aro\core\utils\ThreadLibrary.cpp" />
+    <ClCompile Include="aro\cui\CSAbstractButton.cpp" />
+    <ClCompile Include="aro\cui\border\AbstractBorder.cpp" />
+    <ClCompile Include="aro\cui\border\DualBorder.cpp" />
+    <ClCompile Include="aro\cui\border\EmptyBorder.cpp" />
+    <ClCompile Include="aro\cui\border\FrameBorder.cpp" />
+    <ClCompile Include="aro\cui\border\LineBorder.cpp" />
+    <ClCompile Include="aro\cui\border\StarBorder.cpp" />
+    <ClCompile Include="aro\cui\border\TitleBorder.cpp" />
+    <ClCompile Include="aro\cui\CSButton.cpp" />
+    <ClCompile Include="aro\cui\CSButtonGroup.cpp" />
+    <ClCompile Include="aro\cui\CSCheckBox.cpp" />
+    <ClCompile Include="aro\cui\Console.cpp" />
+    <ClCompile Include="aro\cui\CSComponent.cpp" />
+    <ClCompile Include="aro\cui\CSDialog.cpp" />
+    <ClCompile Include="aro\cui\CSFrame.cpp" />
+    <ClCompile Include="aro\cui\ConsoleGraphics.cpp" />
+    <ClCompile Include="aro\cui\CSWindow.cpp" />
+    <ClCompile Include="aro\cui\CSLabel.cpp" />
+    <ClCompile Include="aro\cui\CSList.cpp" />
+    <ClCompile Include="aro\cui\CSPanel.cpp" />
+    <ClCompile Include="aro\cui\CSPasswordBox.cpp" />
+    <ClCompile Include="aro\cui\CSProgressBar.cpp" />
+    <ClCompile Include="aro\cui\CSRadioButton.cpp" />
+    <ClCompile Include="aro\cui\CSTextArea.cpp" />
+    <ClCompile Include="aro\cui\CSTextBox.cpp" />
+    <ClCompile Include="aro\cui\event\ChangeEvent.cpp" />
+    <ClCompile Include="aro\cui\event\TextEvent.cpp" />
+    <ClCompile Include="aro\cui\CSTextComponent.cpp" />
+    <ClCompile Include="aro\io\BufferedInputStream.cpp" />
+    <ClCompile Include="aro\io\BufferedOutputStream.cpp" />
+    <ClCompile Include="aro\io\BufferedReader.cpp" />
+    <ClCompile Include="aro\io\BufferedWriter.cpp" />
+    <ClCompile Include="aro\io\ByteArrayInputStream.cpp" />
+    <ClCompile Include="aro\io\ByteArrayOutputStream.cpp" />
+    <ClCompile Include="aro\io\DataInputStream.cpp" />
+    <ClCompile Include="aro\io\DataOutputStream.cpp" />
+    <ClCompile Include="aro\io\FileInputStream.cpp" />
+    <ClCompile Include="aro\io\FileOutputStream.cpp" />
+    <ClCompile Include="aro\io\FileReader.cpp" />
+    <ClCompile Include="aro\io\FileWriter.cpp" />
+    <ClCompile Include="aro\io\FilterInputStream.cpp" />
+    <ClCompile Include="aro\io\FilterOutputStream.cpp" />
+    <ClCompile Include="aro\io\FilterReader.cpp" />
+    <ClCompile Include="aro\io\FilterWriter.cpp" />
+    <ClCompile Include="aro\io\InputStream.cpp" />
+    <ClCompile Include="aro\io\InputStreamReader.cpp" />
+    <ClCompile Include="aro\io\IOException.cpp" />
+    <ClCompile Include="aro\io\ObjectInputStream.cpp" />
+    <ClCompile Include="aro\io\ObjectOutputStream.cpp" />
+    <ClCompile Include="aro\io\OutputStream.cpp" />
+    <ClCompile Include="aro\io\OutputStreamWriter.cpp" />
+    <ClCompile Include="aro\io\PrintStream.cpp" />
+    <ClCompile Include="aro\io\PrintWriter.cpp" />
+    <ClCompile Include="aro\io\Reader.cpp" />
+    <ClCompile Include="aro\io\StringInputStream.cpp" />
+    <ClCompile Include="aro\io\StringOutputStream.cpp" />
+    <ClCompile Include="aro\io\StringReader.cpp" />
+    <ClCompile Include="aro\io\StringWriter.cpp" />
+    <ClCompile Include="aro\io\Writer.cpp" />
+    <ClCompile Include="aro\util\Date.cpp" />
+    <ClCompile Include="aro\util\Event.cpp" />
+    <ClCompile Include="aro\util\StringTokenizer.cpp" />
+    <ClCompile Include="aro\util\Time.cpp" />
+    <ClCompile Include="aro\util\Timestamp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

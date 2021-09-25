@@ -1,0 +1,23 @@
+#ifndef IO_FILEREADER_H
+#define IO_FILEREADER_H
+
+#include <aro/io/InputStreamReader.h>
+
+namespace aro {
+
+namespace io {
+
+class FileReader;
+typedef Ref<FileReader> RFileReader;
+
+class FileReader : public InputStreamReader
+{
+   public:
+      FileReader(RString file);
+};
+
+} /* namespace io */
+
+} /* namespace aro */
+
+#endif /* IO_FILEREADER_H */
