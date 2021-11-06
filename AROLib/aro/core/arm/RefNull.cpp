@@ -1,4 +1,4 @@
-#include <aro/core/Array2D_.h>
+#include <aro/core/Array2D-impl.h>
 
 namespace aro {
 

@@ -1,7 +1,7 @@
-#ifndef CORE_CLASS_IMP_H
-#define CORE_CLASS_IMP_H
+#ifndef CORE_CLASS_IMPL_H
+#define CORE_CLASS_IMPL_H
 
-#include <aro/core/Weak_.h>
+#include <aro/core/Weak-impl.h>
 //#include <aro/core/utils/Class.h>
 #include <aro/core/utils/ObjectFactory.h>
 
@@ -63,5 +63,5 @@ RObject Class<T>::clone(RObject obj)
 
 } /* namespace aro */
 
-#endif // !CORE_CLASS_IMP_H
+#endif /* CORE_CLASS_IMPL_H */
 

@@ -1,8 +1,8 @@
-#ifndef CORE_ARRAYIMP_H
-#define CORE_ARRAYIMP_H
+#ifndef CORE_ARRAY_IMPL_H
+#define CORE_ARRAY_IMPL_H
 
 //#include <aro/core/Array.h>
-#include <aro/core/ArrayBase_.h>
+#include <aro/core/ArrayBase-impl.h>
 
 namespace aro {
 
@@ -77,4 +77,4 @@ void Array<T>::writeObject(io::RObjectOutputStream os)
 
 } /* namespace aro */
 
-#endif /* CORE_ARRAYIMP_H */
+#endif /* CORE_ARRAY_IMPL_H */

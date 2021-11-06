@@ -1,5 +1,5 @@
-#ifndef CORE_UTILS_OBJECTFACTORY_IMP_H
-#define CORE_UTILS_OBJECTFACTORY_IMP_H
+#ifndef CORE_UTILS_OBJECTFACTORY_IMPL_H
+#define CORE_UTILS_OBJECTFACTORY_IMPL_H
 
 #include <aro/core/utils/ObjectFactory.h>
 
@@ -72,4 +72,4 @@ ObjectFactory::Map<Function>& ObjectFactory::getMap()
 
 } /* namespace aro */
 
-#endif // !CORE_UTILS_OBJECTFACTORY_IMP_H
+#endif /* CORE_UTILS_OBJECTFACTORY_IMPL_H */

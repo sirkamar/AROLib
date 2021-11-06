@@ -1,7 +1,7 @@
-#ifndef ARO_ARM_REFWEAKIMP_H
-#define ARO_ARM_REFWEAKIMP_H
+#ifndef ARO_ARM_REFWEAK_IMPL_H
+#define ARO_ARM_REFWEAK_IMPL_H
 
-#include <aro/core/arm/RefObject_.h>
+#include <aro/core/arm/RefObject-impl.h>
 #include <aro/core/arm/RefWeak.h>
 #include <aro/core/Weak.h>
 
@@ -172,4 +172,4 @@ void Ref<Weak<T>>::clear()
 
 } /* namespace aro */
 
-#endif /* ARO_ARM_REFWEAKIMP_H */
+#endif /* ARO_ARM_REFWEAK_IMPL_H */

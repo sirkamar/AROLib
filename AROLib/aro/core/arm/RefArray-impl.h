@@ -1,8 +1,8 @@
-#ifndef ARO_ARM_ARRAYREFIMP_H
-#define ARO_ARM_ARRAYREFIMP_H
+#ifndef ARO_ARM_ARRAYREF_IMPL_H
+#define ARO_ARM_ARRAYREF_IMPL_H
 
 #include <aro/core/arm/RefArray.h>
-#include <aro/core/arm/RefArrayBase_.h>
+#include <aro/core/arm/RefArrayBase-impl.h>
 
 namespace aro {
 
@@ -291,4 +291,4 @@ Ref<Array<T>>& Ref<Array<T>>::operator=(const Ref<Array<U>>& arrRef)
 
 } /* namespace aro */
 
-#endif /* ARO_ARM_ARRAYREFIMP_H */
+#endif /* ARO_ARM_ARRAYREF_IMPL_H */

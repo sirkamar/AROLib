@@ -1,7 +1,7 @@
-#ifndef CORE_WEAKIMP_H
-#define CORE_WEAKIMP_H
+#ifndef CORE_WEAK_IMPL_H
+#define CORE_WEAK_IMPL_H
 
-#include <aro/core/arm/RefIterator_.h>
+#include <aro/core/arm/RefIterator-impl.h>
 
 namespace aro {
 
@@ -42,4 +42,4 @@ Ref<T> Weak<T>::get()
 
 } /* namespace aro */
 
-#endif /* CORE_WEAKIMP_H */
+#endif /* CORE_WEAK_IMPL_H */

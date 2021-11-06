@@ -1,7 +1,7 @@
-#ifndef CORE_ARRAY2DIMP_H
-#define CORE_ARRAY2DIMP_H
+#ifndef CORE_ARRAY2D_IMPL_H
+#define CORE_ARRAY2D_IMPL_H
 
-#include <aro/core/Array_.h>
+#include <aro/core/Array-impl.h>
 #include <aro/core/Array2D.h>
 
 namespace aro {
@@ -156,4 +156,4 @@ void Array<Array<T>>::writeObject(io::RObjectOutputStream os)
 
 } /* namespace aro */
 
-#endif /* CORE_ARRAY2DIMP_H */
+#endif /* CORE_ARRAY2D_IMPL_H */

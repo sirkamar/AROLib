@@ -1,7 +1,7 @@
-#ifndef ARO_ARM_REFOBJECTIMP_H
-#define ARO_ARM_REFOBJECTIMP_H
+#ifndef ARO_ARM_REFOBJECT_IMPL_H
+#define ARO_ARM_REFOBJECT_IMPL_H
 
-#include <aro/core/arm/RefTU_.h>
+#include <aro/core/arm/RefTU-impl.h>
 #include <aro/core/arm/RefObject.h>
 
 namespace aro {
@@ -56,4 +56,4 @@ Ref<Object>& Ref<Object>::operator=(const Ref<T>& tRef)
 
 } /* namespace aro */
 
-#endif /* ARO_ARM_REFOBJECTIMP_H */
+#endif /* ARO_ARM_REFOBJECT_IMPL_H */

@@ -1,6 +1,6 @@
 #include <exception>
 #include <aro/core/System.h>
-#include <aro/core/Array2D_.h>
+#include <aro/core/Array2D-impl.h>
 #include <aro/core/StateException.h>
 #include <aro/core/utils/ThreadLibrary.h>
 

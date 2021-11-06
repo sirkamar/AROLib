@@ -2,7 +2,7 @@
 #define CORE_THREADLIBRARY_H
 
 #include <aro/core/Thread.h>
-#include <aro/core/Array2D_.h>
+#include <aro/core/Array2D-impl.h>
 #include <aro/util/Vector.h>
 
 int main(int argc, char **argv);

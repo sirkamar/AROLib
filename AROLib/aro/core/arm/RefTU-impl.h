@@ -1,7 +1,7 @@
-#ifndef ARM_REFTU_IMP_H
-#define ARM_REFTU_IMP_H
+#ifndef ARM_REFTU_IMPL_H
+#define ARM_REFTU_IMPL_H
 
-#include <aro/core/arm/Ref_.h>
+#include <aro/core/arm/Ref-impl.h>
 #include <aro/core/arm/RefTU.h>
 #include <aro/core/Iterable.h>
 
@@ -275,5 +275,5 @@ bool Ref<T<U>>::Itr::operator!=(typename const Ref<T<U>>::Itr& itr) const
 
 } /* namespace aro */
 
-#endif // !ARM_REFTU_IMP_H
+#endif /* ARM_REFTU_IMPL_H */
 

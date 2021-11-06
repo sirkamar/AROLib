@@ -1,5 +1,5 @@
-#ifndef CORE_ARRAYBASEIMP_H
-#define CORE_ARRAYBASEIMP_H
+#ifndef CORE_ARRAYBASE_IMPL_H
+#define CORE_ARRAYBASE_IMPL_H
 
 #include <aro/core/Math.h>
 #include <aro/core/utils/Utils.h>
@@ -161,4 +161,4 @@ void ArrayBase<T>::checkIndex(vint index) const
 
 } /* namespace aro */
 
-#endif /* CORE_ARRAYBASEIMP_H */
+#endif /* CORE_ARRAYBASE_IMPL_H */

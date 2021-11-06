@@ -1,35 +1,34 @@
-#ifndef ARO_ARM_REFIMP_H
-#define ARO_ARM_REFIMP_H
+#ifndef ARO_ARM_REFITERATOR_IMPL_H
+#define ARO_ARM_REFITERATOR_IMPL_H
 
-#include <aro/core/arm/Ref.h>
-#include <aro/core/arm/Arm.h>
-#include <aro/core/CastException.h>
-#include <aro/core/NullException.h>
+#include <aro/core/arm/RefArray-impl.h>
+#include <aro/core/arm/RefIterator.h>
+#include <aro/util/Iterator.h>
 
 namespace aro {
 
 /************************************************************************
-*                          Ref<T> Implementation                        *
+*                Ref<util::Iterator<T>> Implementation                  *
 ************************************************************************/
 
 template <class T>
-Ref<T>::Ref()
+Ref<util::Iterator<T>>::Ref()
 {
    ref = nullptr;
 }
 
 template <class T>
-Ref<T>::~Ref()
+Ref<util::Iterator<T>>::~Ref()
 {
    if(ref != nullptr && !Arm::isFinalizing())
       Arm::remove(ref, this);
 }
 
 template <class T>
-Ref<T>::Ref(T* tPtr)
+Ref<util::Iterator<T>>::Ref(util::Iterator<T>* tPtr)
 {
    if(tPtr == nullptr)
-      throw RException(new NullException("Reference null pointer initialization"));
+      throw RException(new NullException("Illegal null pointer initialization"));
    
    if(!dynamic_cast<Object*>(tPtr))
    {
@@ -44,7 +43,7 @@ Ref<T>::Ref(T* tPtr)
 }
 
 template <class T>
-Ref<T>::Ref(Ref<T>&& tRef)
+Ref<util::Iterator<T>>::Ref(Ref<util::Iterator<T>>&& tRef)
 {
    ref = tRef.ref;
 
@@ -52,7 +51,7 @@ Ref<T>::Ref(Ref<T>&& tRef)
 }
 
 template <class T> template <class U>
-Ref<T>::Ref(Ref<U>&& uRef)
+Ref<util::Iterator<T>>::Ref(Ref<U>&& uRef)
 {
    ref = uRef.ref;
 
@@ -60,7 +59,7 @@ Ref<T>::Ref(Ref<U>&& uRef)
 }
 
 template <class T>
-Ref<T>::Ref(const Ref<T>& tRef)
+Ref<util::Iterator<T>>::Ref(const Ref<util::Iterator<T>>& tRef)
 {
    ref = tRef.ref;
    
@@ -69,7 +68,7 @@ Ref<T>::Ref(const Ref<T>& tRef)
 }
 
 template <class T> template <class U>
-Ref<T>::Ref(const Ref<U>& uRef)
+Ref<util::Iterator<T>>::Ref(const Ref<U>& uRef)
 {
    ref = uRef.ref;
    
@@ -78,13 +77,13 @@ Ref<T>::Ref(const Ref<U>& uRef)
 }
 
 template <class T>
-Ref<T>::Ref(const Ref<Null>& nRef)
+Ref<util::Iterator<T>>::Ref(const Ref<Null>& nRef)
 {
    ref = nullptr;
 }
 
 template <class T>
-T* Ref<T>::operator->() const
+util::Iterator<T>* Ref<util::Iterator<T>>::operator->() const
 {
    if(ref == nullptr)
       throw RException(new NullException());
@@ -93,16 +92,16 @@ T* Ref<T>::operator->() const
 }
 
 template <class T>
-Ref<T>& Ref<T>::operator=(T* tPtr)
+Ref<util::Iterator<T>>& Ref<util::Iterator<T>>::operator=(util::Iterator<T>* tPtr)
 {
    if(tPtr == nullptr)
-      throw RException(new NullException("Reference null pointer initialization"));
+      throw RException(new NullException("Illegal null pointer initialization"));
    
    if(!dynamic_cast<Object*>(tPtr))
    {
       RString str = typeid(*tPtr).name();
       
-      throw RException(new CastException("Reference requires " +str+" to be an Object-derived class"));
+      throw RException(new CastException("Reference requires "+str+" be an Object-derived class"));
    }
    
    if(ref != nullptr)
@@ -116,7 +115,7 @@ Ref<T>& Ref<T>::operator=(T* tPtr)
 }
 
 template <class T>
-Ref<T>& Ref<T>::operator=(Ref<T>&& tRef)
+Ref<util::Iterator<T>>& Ref<util::Iterator<T>>::operator=(Ref<util::Iterator<T>>&& tRef)
 {
    if(this != &tRef)
    {
@@ -132,7 +131,7 @@ Ref<T>& Ref<T>::operator=(Ref<T>&& tRef)
 }
 
 template <class T> template <class U>
-Ref<T>& Ref<T>::operator=(Ref<U>&& uRef)
+Ref<util::Iterator<T>>& Ref<util::Iterator<T>>::operator=(Ref<U>&& uRef)
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -145,7 +144,7 @@ Ref<T>& Ref<T>::operator=(Ref<U>&& uRef)
 }
 
 template <class T>
-Ref<T>& Ref<T>::operator=(const Ref<T>& tRef)
+Ref<util::Iterator<T>>& Ref<util::Iterator<T>>::operator=(const Ref<util::Iterator<T>>& tRef)
 {
    if(this != &tRef)
    {
@@ -162,7 +161,7 @@ Ref<T>& Ref<T>::operator=(const Ref<T>& tRef)
 }
 
 template <class T> template <class U>
-Ref<T>& Ref<T>::operator=(const Ref<U>& uRef)
+Ref<util::Iterator<T>>& Ref<util::Iterator<T>>::operator=(const Ref<U>& uRef)
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -176,7 +175,7 @@ Ref<T>& Ref<T>::operator=(const Ref<U>& uRef)
 }
 
 template <class T>
-Ref<T>& Ref<T>::operator=(const Ref<Null>& nRef)
+Ref<util::Iterator<T>>& Ref<util::Iterator<T>>::operator=(const Ref<Null>& nRef)
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -187,77 +186,79 @@ Ref<T>& Ref<T>::operator=(const Ref<Null>& nRef)
 }
 
 template <class T>
-bool Ref<T>::operator==(const Ref<Object>& objRef) const
+bool Ref<util::Iterator<T>>::operator==(const Ref<Object>& objRef) const
 {
    return dynamic_cast<Object*>(ref) == objRef.ref;
 }
 
 template <class T>
-bool Ref<T>::operator!=(const Ref<Object>& objRef) const
+bool Ref<util::Iterator<T>>::operator!=(const Ref<Object>& objRef) const
 {
    return dynamic_cast<Object*>(ref) != objRef.ref;
 }
 
 template <class T>
-Base* Ref<T>::ptr() const
+Base* Ref<util::Iterator<T>>::ptr() const
 {
    return ref;
 }
 
 template <class T>
-void Ref<T>::clear()
+void Ref<util::Iterator<T>>::clear()
 {
    ref = nullptr;
 }
 
-template <template <class> class U, class V>
-typename RefItr<V> getRefItr(const Ref<U<V>>& itr) { return class RefItr<V>(itr); }
 
 template <class T>
-auto Ref<T>::begin() const
+typename Ref<util::Iterator<T>>::Itr Ref<util::Iterator<T>>::begin() const
 {
-   auto list = (*this)->iterator();;
-   
-   return getRefItr(list);
+   return Itr(*this, true);
 }
 
 template <class T>
-auto Ref<T>::end() const
+typename Ref<util::Iterator<T>>::Itr Ref<util::Iterator<T>>::end() const
 {
-   auto list = (*this)->iterator();
-   
-   list = nullref;
-   
-   return getRefItr(list);
+   return Itr(*this, false);
 }
 
-template <class U>
-const Ref<U>& RefItr<U>::operator*() const
+template <class T>
+Ref<T>* Ref<util::Iterator<T>>::Itr::operator->() const
+{
+   return cur.ref;
+}
+
+template <class T>
+const Ref<T>& Ref<util::Iterator<T>>::Itr::operator*() const
 {
    return cur;
 }
 
-template <class U>
-typename RefItr<U>& RefItr<U>::operator++()
+template <class T>
+typename Ref<util::Iterator<T>>::Itr& Ref<util::Iterator<T>>::Itr::operator++()
 {
-   cur = list->hasNext() ? list->next() : nullref;
+   if(list->hasNext())
+      cur = list->next();
+   else
+      cur = nullref;
 
    return *this;
 }
 
-template <class U>
-RefItr<U>::RefItr(const Ref<util::Iterator<U>>& lst)
+template <class T>
+Ref<util::Iterator<T>>::Itr::Itr(const Ref<util::Iterator<T>>& lst, bool start)
    :list(lst)
 {
-   cur = list != nullref && list->hasNext() ? list->next() : nullref;
+   cur = start && list->hasNext() ? list->next() : nullref;
 }
 
-template <class U>
-bool RefItr<U>::operator!=(typename const RefItr<U>& itr) const
+template <class T>
+bool Ref<util::Iterator<T>>::Itr::operator!=(typename const Ref<util::Iterator<T>>::Itr& itr) const
 {
-   return (cur != itr.cur || (list != nullref && list->hasNext()));
+   return (list.ref != itr.list.ref || cur != itr.cur);
 }
+
 
 } /* namespace aro */
 
-#endif /* ARO_ARM_REFIMP_H */
+#endif /* ARO_ARM_REFITERATOR_IMPL_H */

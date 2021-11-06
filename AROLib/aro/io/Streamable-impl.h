@@ -1,7 +1,7 @@
-#ifndef IO_STREAMABLE_IMP_H
-#define IO_STREAMABLE_IMP_H
+#ifndef IO_STREAMABLE_IMPL_H
+#define IO_STREAMABLE_IMPL_H
 
-#include <aro/core/Cloneable_.h>
+#include <aro/core/Cloneable-impl.h>
 
 namespace aro {
 
@@ -26,4 +26,4 @@ vlong Streamable<T>::getObjectVersion()
 
 } /* namespace aro */
 
-#endif /* IO_STREAMABLE_IMP_H */
+#endif /* IO_STREAMABLE_IMPL_H */

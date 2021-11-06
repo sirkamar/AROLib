@@ -1,7 +1,7 @@
-#ifndef ARO_ARM_ARRAYBASEREFIMP_H
-#define ARO_ARM_ARRAYBASEREFIMP_H
+#ifndef ARO_ARM_ARRAYBASEREF_IMPL_H
+#define ARO_ARM_ARRAYBASEREF_IMPL_H
 
-#include <aro/core/arm/RefWeak_.h>
+#include <aro/core/arm/RefWeak-impl.h>
 #include <aro/core/arm/RefArrayBase.h>
 #include <aro/core/Array.h>
 
@@ -64,4 +64,4 @@ bool RefArrayBase<T>::Itr::operator!=(typename const RefArrayBase<T>::Itr& itr) 
 
 } /* namespace aro */
 
-#endif /* ARO_ARM_ARRAYBASEREFIMP_H */
+#endif /* ARO_ARM_ARRAYBASEREF_IMPL_H */

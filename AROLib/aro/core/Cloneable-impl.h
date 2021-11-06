@@ -1,8 +1,8 @@
-#ifndef CORE_CLONEABLE_IMP_H
-#define CORE_CLONEABLE_IMP_H
+#ifndef CORE_CLONEABLE_IMPL_H
+#define CORE_CLONEABLE_IMPL_H
 
 //#include <aro/core/Cloneable.h>
-#include <aro/core/utils/Class_.h>
+#include <aro/core/utils/Class-impl.h>
 
 namespace aro {
 
@@ -17,4 +17,4 @@ Cloneable<T>::Cloneable()
 
 } /* namespace aro */
 
-#endif /* CORE_CLONEABLE_IMP_H */
+#endif /* CORE_CLONEABLE_IMPL_H */

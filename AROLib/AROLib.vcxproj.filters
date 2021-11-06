@@ -243,7 +243,7 @@
     <ClInclude Include="aro\core\Array2D.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Array2D_.h">
+    <ClInclude Include="aro\core\Array2D-impl.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Base.h">
@@ -342,7 +342,7 @@
     <ClInclude Include="aro\core\Weak.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Weak_.h">
+    <ClInclude Include="aro\core\Weak-impl.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\io\all.h">
@@ -534,13 +534,13 @@
     <ClInclude Include="aro\core\arm\Ref.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\Ref_.h">
+    <ClInclude Include="aro\core\arm\Ref-impl.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\RefArray.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefArray_.h">
+    <ClInclude Include="aro\core\arm\RefArray-impl.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\RefComp.h">
@@ -552,7 +552,7 @@
     <ClInclude Include="aro\core\arm\RefObject.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefObject_.h">
+    <ClInclude Include="aro\core\arm\RefObject-impl.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\RefStream.h">
@@ -564,7 +564,7 @@
     <ClInclude Include="aro\core\arm\RefWeak.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefWeak_.h">
+    <ClInclude Include="aro\core\arm\RefWeak-impl.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Null.h">
@@ -582,19 +582,19 @@
     <ClInclude Include="aro\core\ArrayBase.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\ArrayBase_.h">
+    <ClInclude Include="aro\core\ArrayBase-impl.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Array.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Array_.h">
+    <ClInclude Include="aro\core\Array-impl.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\RefArrayBase.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefArrayBase_.h">
+    <ClInclude Include="aro\core\arm\RefArrayBase-impl.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\Types.h">
@@ -615,10 +615,10 @@
     <ClInclude Include="aro\core\arm\RefIterator.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefIterator_.h">
+    <ClInclude Include="aro\core\arm\RefIterator-impl.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\Streamable_.h">
+    <ClInclude Include="aro\io\Streamable-impl.h">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
     <ClInclude Include="aro\io\StreamBase.h">
@@ -729,22 +729,22 @@
     <ClInclude Include="aro\core\arm\RefTU.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefTU_.h">
+    <ClInclude Include="aro\core\arm\RefTU-impl.h">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Cloneable.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Cloneable_.h">
+    <ClInclude Include="aro\core\Cloneable-impl.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\utils\Class.h">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\Class_.h">
+    <ClInclude Include="aro\core\utils\Class-impl.h">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\ObjectFactory_.h">
+    <ClInclude Include="aro\core\utils\ObjectFactory-impl.h">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
   </ItemGroup>

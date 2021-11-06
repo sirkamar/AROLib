@@ -1,7 +1,7 @@
 #ifndef CORE_UTILS_H
 #define CORE_UTILS_H
 
-#include <aro/io/Streamable_.h>
+#include <aro/io/Streamable-impl.h>
 
 
 namespace aro {
