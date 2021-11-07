@@ -20,7 +20,7 @@ enable the Streamable API to re-create an
 object instance of the class from the
 stream. The constructor may be set as
 private access, however, in such case
-class Streamable<T> must be a friend.
+interface Streamable<T> must be a friend.
 Note:
 The readObject() function doesn't actually
 violate the immutableness of immutabe objects
@@ -40,7 +40,7 @@ interface Streamable : StreamBase
       Streamable();
    
    private:
-      static const aro::Class<T> STREAMID;
+      static const aro::Class<T> TYPEID;
 };
 
 } /* namespace io */

@@ -14,9 +14,7 @@ namespace aro {
 class Object : public virtual Base
 {
    public:
-      Object();
-	  
-      virtual ~Object();
+      Object() = default;
 
       virtual vint hashCode();
       
@@ -25,6 +23,8 @@ class Object : public virtual Base
       virtual void wait() final;
 
       virtual RString toString();
+
+      virtual ~Object() = default;
 
       virtual void notify() final;
 

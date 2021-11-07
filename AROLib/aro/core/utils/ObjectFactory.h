@@ -5,13 +5,13 @@
 
 namespace aro {
 
+template <class T> class Class;
+
 namespace io {
 
 class ObjectInputStream;
 
 class ObjectOutputStream;
-
-template <class T> class Class;
 
 }
 
@@ -45,24 +45,23 @@ class ObjectFactory final
    
    template <class Function>
    static Map<Function>& getMap();
-   
+
+   template <class Function>
+   static bool containsFunc(int type);
+
    friend class io::ObjectInputStream;
    
    friend class io::ObjectOutputStream;
    
    template <class T> friend class Class;
 
-   static bool containsNewFunc(int type);
-
    static RObject createObject(int type);
 
-   static bool containsCloneFunc(int type);
+   static RObject cloneObject(RObject obj);
 
    static void add(int type, newfunc func);
    
    static void add(int type, clonefunc func);
-   
-   static RObject cloneObject(int type, RObject obj);
 };
 
 } /* namespace aro */

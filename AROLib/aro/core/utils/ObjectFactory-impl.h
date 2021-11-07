@@ -70,6 +70,15 @@ ObjectFactory::Map<Function>& ObjectFactory::getMap()
    return map;
 }
 
+template <class Function>
+bool ObjectFactory::containsFunc(int type)
+{
+   if(getMap<Function>().get(type))
+      return true;
+
+   return false;
+}
+
 } /* namespace aro */
 
 #endif /* CORE_UTILS_OBJECTFACTORY_IMPL_H */

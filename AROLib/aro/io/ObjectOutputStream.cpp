@@ -4,6 +4,8 @@
 
 namespace aro {
 
+extern const int NULLREFID;
+
 namespace io {
 
 ObjectOutputStream::ObjectOutputStream(ROutputStream os)
@@ -14,16 +16,14 @@ ObjectOutputStream::ObjectOutputStream(ROutputStream os)
 
 void ObjectOutputStream::writeObject(RObject obj)
 {
-   static const int NULLID = RString("aro::Null")->hashCode();
-
    if(obj == nullref)
-      writeInt(NULLID);
+      writeInt(NULLREFID);
    else
    {
-      int typeId = obj->getType()->hashCode();
+      vint typeId = obj->getType()->hashCode();
       
-      if(!ObjectFactory::containsNewFunc(typeId) || !type_of<StreamBase>(obj))
-         ex_throw new IOException("writeObject requires a Streamable object");
+      if(!type_of<StreamBase>(obj))
+         ex_throw new IOException("Class of object not Streamable");
       
       RStreamBase rs = type_cast<StreamBase>(obj);
       

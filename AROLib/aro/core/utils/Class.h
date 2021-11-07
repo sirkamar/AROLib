@@ -37,11 +37,10 @@ class Class : public Object
       void init() const;
    
    friend class Cloneable<T>;
-   //friend class ObjectFactory;
+   
    friend class io::Streamable<T>;
 };
 
 } /* namespace aro */
 
-#endif // !CORE_CLASS_H
-
+#endif /* CORE_CLASS_H */

@@ -7,12 +7,12 @@
 namespace aro {
 
 template <class T>
-const Class<T> Cloneable<T>::CLONEID = 1;
+const Class<T> Cloneable<T>::TYPEID = 1;
 
 template <class T>
 Cloneable<T>::Cloneable()
 {
-   CLONEID.init();
+   TYPEID.init();
 }
 
 } /* namespace aro */

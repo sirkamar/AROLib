@@ -11,12 +11,14 @@ template <class T>
 Class<T>::Class(vint source)
    :src(source)
 {
-   RString type = typeid(T).name();
+   RString name = typeid(T).name();
+
+   vint type = name->hashCode();
    
    if(src == 1)
-      ObjectFactory::add(type->hashCode(), clone);
+      ObjectFactory::add(type, clone);
    else
-      ObjectFactory::add(type->hashCode(), instantiate);
+      ObjectFactory::add(type, instantiate);
 }
 
 template <class T>

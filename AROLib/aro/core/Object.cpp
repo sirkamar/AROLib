@@ -6,21 +6,9 @@ namespace aro {
 
 using namespace std;
 
-Object::Object()
-{
-   
-}
-
-Object::~Object()
-{
-   
-}
-
 RObject Object::clone()
 {
-   vint typeId = getType()->hashCode();
-   
-   RObject obj = ObjectFactory::cloneObject(typeId, this);
+   RObject obj = ObjectFactory::cloneObject(this);
    
    if(obj == nullref)
       ex_throw new UnsupportedException("Class not cloneable");

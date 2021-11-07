@@ -8,12 +8,12 @@ namespace aro {
 namespace io {
 
 template <class T>
-const aro::Class<T> Streamable<T>::STREAMID = 2;
+const aro::Class<T> Streamable<T>::TYPEID = 2;
 
 template <class T>
 Streamable<T>::Streamable()
 {
-	STREAMID.init();
+	TYPEID.init();
 }
 
 template <class T>

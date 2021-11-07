@@ -4,6 +4,8 @@
 
 namespace aro {
 
+extern const int NULLREFID;
+
 namespace io {
 
 ObjectInputStream::ObjectInputStream(RInputStream is)
@@ -14,11 +16,9 @@ ObjectInputStream::ObjectInputStream(RInputStream is)
 
 RObject ObjectInputStream::readObject()
 {
-   static const int NULLID = RString("aro::Null")->hashCode();
+   vint typeId = readInt();
 
-   int typeId = readInt();
-
-   if(typeId == NULLID)
+   if(typeId == NULLREFID)
       return nullref;
    
    RObject obj = ObjectFactory::createObject(typeId);
