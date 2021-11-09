@@ -3,7 +3,7 @@ The Advanced References and Objects Library (AROLib) for C++
 
 
 ## Contents
-- [What is ARO?](#what-is-aro-)
+- [What is ARO?](#what-is-aro)
 - [Naming Convention](#naming-convention)
 - [Namespaces](#namespaces)
 - [Value Types and Reference Types](#value-types-and-reference-types)
@@ -26,7 +26,7 @@ The Advanced References and Objects Library (AROLib) for C++
 ## What is ARO?
 The C++ Standard Class Library, Standard Template Library and common library functions typically make the designing of user-friendly interactive applications very challenging, not to mention time consuming. With this in mind the Advanced References & Objects (ARO) Library for C++ was designed to give the programmer useful design tools to be able to focus on implementing an idea rather than trying to figure out cumbersome coding routines.
 
-The ARO Library is collection of classes (and supporting utilities) that form a class hierarchy having the class Object as its root (i.e. the base class). The class Object defines and implements behaviours (i.e. member functions) that are common to all objects (see class Object in this API). All classes in the ARO Library are derived either from class Object or from other Object-derived classes. Similarly, programmers' client classes are required to derive (i.e. inherit) from class Object or one of its derived classes in order to effectively use the ARO Library. A basic understanding of the C++ language is also required.
+The ARO Library is collection of classes (and supporting utilities) that form a class hierarchy having the class _Object_ as its root (i.e. the base class). The class _Object_ defines and implements behaviours (i.e. member functions) that are common to all objects (see class _Object_ in this API). All classes in the ARO Library are derived either from class _Object_ or from other _Object_-derived classes. Similarly, programmers' client classes are required to derive (i.e. inherit) from class _Object_ or one of its derived classes in order to effectively use the ARO Library. A basic understanding of the C++ language is also required.
 
 
 ## Naming Convention
@@ -38,29 +38,29 @@ Constants defined within the ARO Library are declared using all uppercase letter
 ## Namespaces
 All of the classes and functions in the ARO Library are categorized into groups, called namespaces, to make them easier to identify and to import. A namespace demarcates a group of classes and functions that have been designated as belonging to the same category.
 
-ARO Library namespaces correspond to folders on the file system. The folders contain the header files for all the classes and utilities categorized as belonging to a namespace. All users of the library are required to “#include <aro/core.hpp>” in their header or source files which will automatically include all the class files and related utilities belonging to aro namespace (also called the ARO Core).
+ARO Library namespaces correspond to folders on the file system. The folders contain the header files for all the classes and utilities categorized as belonging to a namespace. All users of the library are required to **_“#include <aro/core.hpp>”_** in their header or source files which will automatically include all the class files and related utilities belonging to aro namespace (also called the ARO Core).
 
-Header files in the library are typically named for the classes they contain or the utility they implement. Therefore, for example, one would use the statement “#include <aro/util/date.hpp>” to import the class aro::util::Date into a header or source file, or alternatively use the statement “#include <aro/util/all.hpp>” to import all the header files belonging to the aro::util namespace.
+Header files in the library are typically named for the classes they contain or the utility they implement. Therefore, for example, one would use the statement **_“#include <aro/util/date.hpp>”_** to import the class `aro::util::Date` into a header or source file, or alternatively use the statement **_“#include <aro/util/all.hpp>”_** to import all the header files belonging to the `aro::util` namespace.
 
-When a class is being used by other classes and functions that are not members of the same namespace, then the class name must be preceded by its namespace specifier (e.g. aro::Object) or the C++ using directive must be employed. For simplicity, this API document will hereinafter assume that the using namespace aro directive is applied to all code snippets and examples.
+When a class is being used by other classes and functions that are not members of the same namespace, then the class name must be preceded by its namespace specifier (e.g. `aro::Object`) or the C++ **_using_** directive must be employed. For simplicity, this API document will hereinafter assume that the **_using namespace aro_** directive is applied to all code snippets and examples.
 
 This document gives a detailed description of each of the namespaces and their members.
 
 
 ## Value Types and Reference Types
-Data types in the ARO Library fall into one of two categories: value types or reference types. The value types (i.e. int, char, bool, long, short, float and double) are copied when making function calls while reference types (see below) enable functions to directly access the original object, i.e. Instances are passed by reference.
+Data types in the ARO Library fall into one of two categories: value types or reference types. The value types (i.e. `int`, `char`, `bool`, `long`, `short`, `float` and `double`) are copied when making function calls while reference types (see below) enable functions to directly access the original object, i.e. instances are passed by reference.
 
 
 ## Objects and Interfaces
-Reference types in the ARO Library are divided along two separate hierarchies: the class hierarchy and the interface hierarchy, each implemented using the class and interface keywords, respectively. Each represents a different tool in the development process and are both integral to the library’s design.
+Reference types in the ARO Library are divided along two separate hierarchies: the class hierarchy and the interface hierarchy, each implemented using the **class** and **interface** keywords, respectively. Each represents a different tool in the development process and are both integral to the library’s design.
 
-A class (also called an “object class”) is an implementation of the properties and behaviours (i.e. data members and member functions) of a certain type of object. An interface, however, is a general specification of behaviours that a set of objects classes must implement. All object classes in the library have class Object as their direct or indirect base class, while all interfaces inherit from the interface Interface directly or otherwise inherit one or more existing interfaces.
+A class (also called an “object class”) is an implementation of the properties and behaviours (i.e. data members and member functions) of a certain type of object. An interface, however, is a general specification of behaviours that a set of object classes must implement. All object classes in the library have class `Object` as their direct or indirect base class, while all interfaces inherit from the interface `Interface` directly or otherwise inherit one or more existing interfaces.
 
 An interface typically includes only “pure virtual”, i.e. abstract, functions but may also include data members, which should be static constants. Note that the default access type for all member functions and data members declared in an interface is public. As a general rule, all public and protected member functions of object classes and interfaces should be declared as virtual functions.
 
-The general contract of the ARO Library is that all object classes must inherit (i.e. extend) a single object class but may inherit (i.e. implement) as many interfaces as necessary or none at all.
+The general contract of the ARO Library is that all object classes **_must_** inherit (i.e. extend) a single object class but **_may_** inherit (i.e. implement) as many interfaces as necessary or none at all.
 
-```
+```cpp
 1.  #include <aro/core.hpp>
 2.  
 3.  using namespace aro;
@@ -76,7 +76,7 @@ The general contract of the ARO Library is that all object classes must inherit 
 
 Interfaces must be applied to Object-derived classes. A class that is implementing an interface should use the syntax illustrated below.
 
-```
+```cpp
 1.  #include “MyInterface.h”
 2.  
 3.  class CustomClass : public Object, public MyInterface
@@ -116,18 +116,20 @@ The ARM facility also provides a garbage collector that is responsible for the a
 ## Reference Type Redefinition
 The ARO Library has adopted a simplified convention for handling reference types by using the C++ typedef or using syntax. For Example, given a class CustomClass the following convention is used:
 
-    1.  #include “MyInterface.h”
-    2.  
-    3.  class CustomClass; // forward declaration
-    4.  typedef Ref<CustomClass> RCustomClass; // reference type
-    5.  
-    6.  class CustomClass : public Object, public MyInterface
-    7.  {
-    8.    public:
-    9.      CustomClass(); // default constructor
-    10.     CustomClass(RCustomClass rcc); // copy constructor
-    11.     // other constructors, member functions, and data members
-    12. };
+```cpp
+1.  #include “MyInterface.h”
+2.  
+3.  class CustomClass; // forward declaration
+4.  typedef Ref<CustomClass> RCustomClass; // reference type
+5.  
+6.  class CustomClass : public Object, public MyInterface
+7.  {
+8.    public:
+9.      CustomClass(); // default constructor
+10.     CustomClass(RCustomClass rcc); // copy constructor
+11.     // other constructors, member functions, and data members
+12. };
+```
 
 As a result, declaring a reference to an instance of CustomClass may be simplified to:
 	
@@ -202,7 +204,7 @@ Operator/Operation | Description | Applies to Reference Types
 -> | Member Access | All
 != | Inequality | All
 == | Equality | All
-+ | Concatenation | String
+\+ | Concatenation | String
 += | Concatenate and Assign | String
 [] | Subscript | Array
 for(:) | Collection Iteration | Array and Iterator
@@ -223,7 +225,7 @@ for(int n : intArr)
    System::out->print(n);
 
 util::RVector<String> strVec = rnew<util::Vector<String>>(2);
-strVec->add(“A String”); strVec->add(”Another”);
+strVec->add(“A String”); strVec->add(“Another”);
 for(RString str : strVec)
    System::out->println(str);
 ```
@@ -333,7 +335,7 @@ The ARO Library provides support for data and object serialization via its Strea
 6.	class StreamObject : public Object, public io::StreamType<StreamObject>
 7.	{
 8.	   public:
-9.	      StreamObject(int id=0, RString str=””, float bal=0.0f)
+9.	      StreamObject(int id=0, RString str=“”, float bal=0.0f)
 10.	      {
 11.	         idNo=id;
 12.	         name=str;
