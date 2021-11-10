@@ -57,16 +57,19 @@ class Base
       virtual vbool equals(RObject obj) = 0;
       
       /** Notifies all waiting threads that the
-       * object is about to be available. */
+       * object is about to be available. Must
+       * be called while in a sync_lock. */
       virtual void notifyAll() = 0;
 
       /** Notifies a single waiting thread that
-       * the object is about to be available. */
+       * the object is about to be available. 
+       * Must be called in a sync_lock. */
       virtual void notify() = 0;
 
       /** Releases synchronized lock on the object
        * and waits for notifcation that the
-       * lock may be reacquired. */
+       * lock may be reacquired. Must be
+       * caled in a sync_lock. */
       virtual void wait() = 0;
    
    protected:
@@ -94,19 +97,21 @@ class Base
       Base() = default;
    
    private:
-      /** Disable the C++ default
+      /** Restrict the C++ default
       * copy constructor. Derived
       * classes should define a
       * constructor that accepts
       * a Ref<T> parameter, where
       * T is the class type name */
-      Base(const Base&) = delete;
+      Base(const Base&) = default;
       
       /** Restrict the C++ default copy operator. */
       Base& operator=(const Base&) = default;
    
    friend class Arm;
    friend class Object;
+   template <class T>
+   friend interface Cloneable;
 };
 
 } /* namespace aro*/

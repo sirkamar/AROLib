@@ -40,7 +40,14 @@ interface Streamable : StreamBase
       Streamable();
    
    private:
-      static const aro::Class<T> TYPEID;
+      struct Builder
+      {
+          Builder();
+          void init() const;
+          static RObject create();
+      };
+
+      static const Builder BUILDER;
 };
 
 } /* namespace io */

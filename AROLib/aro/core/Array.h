@@ -34,6 +34,7 @@ class Array final : public ArrayBase<Ref<T>>, public Cloneable<Array<T>>, public
    
    friend class Ref<Array<T>>;
    friend class RefArrayBase<T>;
+   friend interface Cloneable<Array<T>>;
    friend interface io::Streamable<Array<T>>;
 };
 
@@ -58,6 +59,7 @@ class Array<vint> final : public ArrayBase<vint>, public Cloneable<Array<vint>>,
    
    friend class Ref<Array<vint>>;
    friend class RefArrayBase<vint>;
+   friend interface Cloneable<Array<vint>>;
    friend interface io::Streamable<Array<vint>>;
 };
 
@@ -82,6 +84,7 @@ class Array<vchar> final : public ArrayBase<vchar>, public Cloneable<Array<vchar
    
    friend class Ref<Array<vchar>>;
    friend class RefArrayBase<vchar>;
+   friend interface Cloneable<Array<vchar>>;
    friend interface io::Streamable<Array<vchar>>;
 };
 
@@ -106,6 +109,7 @@ class Array<vbool> final : public ArrayBase<vbool>, public Cloneable<Array<vbool
    
    friend class Ref<Array<vbool>>;
    friend class RefArrayBase<vbool>;
+   friend interface Cloneable<Array<vbool>>;
    friend interface io::Streamable<Array<vbool>>;
 };
 
@@ -130,6 +134,7 @@ class Array<vlong> final : public ArrayBase<vlong>, public Cloneable<Array<vlong
    
    friend class Ref<Array<vlong>>;
    friend class RefArrayBase<vlong>;
+   friend interface Cloneable<Array<vlong>>;
    friend interface io::Streamable<Array<vlong>>;
 };
 
@@ -154,6 +159,7 @@ class Array<vfloat> final : public ArrayBase<vfloat>, public Cloneable<Array<vfl
    
    friend class Ref<Array<vfloat>>;
    friend class RefArrayBase<vfloat>;
+   friend interface Cloneable<Array<vfloat>>;
    friend interface io::Streamable<Array<vfloat>>;
 };
 
@@ -178,6 +184,7 @@ class Array<vshort> final : public ArrayBase<vshort>, public Cloneable<Array<vsh
    
    friend class Ref<Array<vshort>>;
    friend class RefArrayBase<vshort>;
+   friend interface Cloneable<Array<vshort>>;
    friend interface io::Streamable<Array<vshort>>;
 };
 
@@ -202,6 +209,7 @@ class Array<vdouble> final : public ArrayBase<vdouble>, public Cloneable<Array<v
    
    friend class Ref<Array<vdouble>>;
    friend class RefArrayBase<vdouble>;
+   friend interface Cloneable<Array<vdouble>>;
    friend interface io::Streamable<Array<vdouble>>;
 };
 

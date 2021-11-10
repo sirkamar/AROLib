@@ -738,12 +738,6 @@
     <ClInclude Include="aro\core\Cloneable-impl.h">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\Class.h">
-      <Filter>Header Files\aro\core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\utils\Class-impl.h">
-      <Filter>Header Files\aro\core\utils</Filter>
-    </ClInclude>
     <ClInclude Include="aro\core\utils\ObjectFactory-impl.h">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
@@ -1183,5 +1177,10 @@
     <Text Include="ReadMe.txt">
       <Filter>Resource Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

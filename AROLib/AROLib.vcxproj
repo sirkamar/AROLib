@@ -176,6 +176,7 @@
     <ClInclude Include="aro\core\arm\Arm.h" />
     <ClInclude Include="aro\core\arm\Cfg.h" />
     <ClInclude Include="aro\core\arm\Ref.h" />
+    <ClInclude Include="aro\core\arm\Ref-impl.h" />
     <ClInclude Include="aro\core\arm\RefArray.h" />
     <ClInclude Include="aro\core\arm\RefArrayBase.h" />
     <ClInclude Include="aro\core\arm\RefArrayBase-impl.h" />
@@ -192,7 +193,6 @@
     <ClInclude Include="aro\core\arm\RefTU-impl.h" />
     <ClInclude Include="aro\core\arm\RefWeak.h" />
     <ClInclude Include="aro\core\arm\RefWeak-impl.h" />
-    <ClInclude Include="aro\core\arm\Ref-impl.h" />
     <ClInclude Include="aro\core\arm\SyncLock.h" />
     <ClInclude Include="aro\core\Array.h" />
     <ClInclude Include="aro\core\ArrayBase.h" />
@@ -220,8 +220,6 @@
     <ClInclude Include="aro\core\Iterable.h" />
     <ClInclude Include="aro\core\Long.h" />
     <ClInclude Include="aro\core\Math.h" />
-    <ClInclude Include="aro\core\utils\Class.h" />
-    <ClInclude Include="aro\core\utils\Class-impl.h" />
     <ClInclude Include="aro\core\utils\ObjectFactory.h" />
     <ClInclude Include="aro\core\Null.h" />
     <ClInclude Include="aro\core\NullException.h" />
@@ -487,6 +485,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

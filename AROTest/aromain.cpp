@@ -430,29 +430,29 @@ void aromain(RArray<String> args)
 
 
    //Testing for_each with a Collection object
-   //util::RArrayList<String> rals = new util::ArrayList<String>(5);
-   //util::RList<String> lst = rals;
-   //lst->add("item 1");
-   //lst->add("value 2");
-   //lst->add("element 3");
-   //
-   //System::out->print("list values: ");
-   //
-   //for(RString str : lst)
-   //{
-   //   System::out->print(str + " ");
-   //}
-   //
-   //System::out->println();
-   //
-   //for_each(lst, [](RString x)
-   //{
-   //   System::out->print(x+" ");
-   //});
-   //
-   //System::out->println();
-   //
-   //System::in->read();
+   util::RArrayList<String> rals = new util::ArrayList<String>(5);
+   util::RList<String> lst = rals;
+   lst->add("item 1");
+   lst->add("value 2");
+   lst->add("element 3");
+   
+   System::out->print("list values: ");
+   
+   for(RString str : lst)
+   {
+      System::out->print(str + " ");
+   }
+   
+   System::out->println();
+   
+   for_each(lst, [](RString x)
+   {
+      System::out->print(x+" ");
+   });
+   
+   System::out->println();
+   
+   System::in->read();
    
    
    /* Test Arrays of Derived to Base assignment */
@@ -518,36 +518,36 @@ void aromain(RArray<String> args)
    //
    //Thread::sleep(4000L);
    
-   /*RComparable<Object> rcs = */class : public Object, public Comparable<Object> {
+   /*RComparable<Object> rcs = *//*class : public Object, public Comparable<Object> {
       vint compareTo(RObject o){ return 1; }
-   } a;
+   } a;*/
    
    
    //Testing the Console User Interface API
-   cui::RCSFrame win = new cui::CSFrame("Test Title");
-   
-   cui::RCSTextBox txt = new cui::CSTextBox(10);
-   
-   cui::RCSButton btn = new cui::CSButton("Exit");
-   
-   btn->addActionListener(new Listener(win));
-   
-   win->add(txt, aws::ZoneLayout::MIDDLE);
-   
-   win->add(btn, aws::ZoneLayout::BOTTOM);
-   
-   txt->setBorder(new cui::border::TitleBorder(txt->getBorder(), "Text Box"));
-   
-   //win->setSize(win->getPreferredSize());
-   win->setSize(40,20);
-   //win->pack();
-   
-   win->setLocation(1, 1);
-   
-   win->setVisible(true);
-   
-   //win->requestFocus();
-   txt->requestFocus();
+   //cui::RCSFrame win = new cui::CSFrame("Test Title");
+   //
+   //cui::RCSTextBox txt = new cui::CSTextBox(10);
+   //
+   //cui::RCSButton btn = new cui::CSButton("Exit");
+   //
+   //btn->addActionListener(new Listener(win));
+   //
+   //win->add(txt, aws::ZoneLayout::MIDDLE);
+   //
+   //win->add(btn, aws::ZoneLayout::BOTTOM);
+   //
+   //txt->setBorder(new cui::border::TitleBorder(txt->getBorder(), "Text Box"));
+   //
+   ////win->setSize(win->getPreferredSize());
+   //win->setSize(40,20);
+   ////win->pack();
+   //
+   //win->setLocation(1, 1);
+   //
+   //win->setVisible(true);
+   //
+   ////win->requestFocus();
+   //txt->requestFocus();
 }
 
 main_function = aromain;

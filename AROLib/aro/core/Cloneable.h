@@ -1,7 +1,7 @@
 #ifndef CORE_CLONEABLE_H
 #define CORE_CLONEABLE_H
 
-#include <aro/core/utils/Class.h>
+#include <aro/core/Object.h>
 
 namespace aro {
 
@@ -26,7 +26,14 @@ interface Cloneable : Interface
       Cloneable();
    
    private:
-      static const Class<T> TYPEID;
+       struct Builder
+       {
+           Builder();
+           void init() const;
+           static RObject clone(RObject);
+       };
+
+       static const Builder BUILDER;
 };
 
 } /* namespace aro */

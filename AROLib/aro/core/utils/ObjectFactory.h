@@ -52,8 +52,6 @@ class ObjectFactory final
    friend class io::ObjectInputStream;
    
    friend class io::ObjectOutputStream;
-   
-   template <class T> friend class Class;
 
    static RObject createObject(int type);
 
@@ -62,6 +60,10 @@ class ObjectFactory final
    static void add(int type, newfunc func);
    
    static void add(int type, clonefunc func);
+
+   template <class T> friend interface Cloneable;
+
+   template <class T> friend interface io::Streamable;
 };
 
 } /* namespace aro */

@@ -74,7 +74,7 @@ The general contract of the ARO Library is that all object classes **_must_** in
 11.
 ```
 
-Interfaces must be applied to Object-derived classes. A class that is implementing an interface should use the syntax illustrated below.
+Interfaces <u>must</u> be applied to Object-derived classes. A class that is implementing an interface should use the syntax illustrated below.
 
 ```cpp
 1.  #include “MyInterface.h”
@@ -92,29 +92,35 @@ Interfaces must be applied to Object-derived classes. A class that is implementi
 12. 
 ```
 
-Additionally, all interfaces implicitly include access to the public member functions from class Object, as such they can be invoked directly from references to interface types.
+Additionally, all interfaces implicitly include access to the public member functions from class `Object`, as such they can be invoked directly from references to interface types.
 
 
 ## Automatic Reference Management
-All objects created from the classes contained within or derived from the ARO Library are required to be dynamically instantiated using the C++ new operator. As such, the library provides an Automatic Reference Management (ARM) facility to simplify memory management and monitoring. The ARM facility defines the template Ref that is used to manage raw pointers from the new operator.
+All objects created from the classes contained within or derived from the ARO Library are required to be dynamically instantiated using the C++ **new** operator. As such, the library provides an Automatic Reference Management (ARM) facility to simplify memory management and monitoring. The ARM facility defines the template `Ref` that is used to manage raw pointers from the **new** operator.
 
     Ref<Object> obj = new Object();
 
-The above statement is read: “reference to an Object, obj, is assigned a new instance of class Object”. The template Ref represents a reference (i.e. a smart pointer) and allows access to the referenced object by dereferencing it using ->, i.e. the C++ arrow operator. For the purpose of clarity, unless otherwise specified, all instances of the term “reference” or “references” within this document shall hereinafter be interpreted to mean an instance or instances, respectively, of the template Ref.
+The above statement is read: “reference to an Object, obj, is assigned a new instance of class Object”. The template Ref represents a reference (i.e. a smart pointer) and allows access to the referenced object by dereferencing it using `->`, i.e. the C++ arrow operator. For the purpose of clarity, unless otherwise specified, all instances of the term “reference” or “references” within this document shall hereinafter be interpreted to mean an instance or instances, respectively, of the template `Ref`.
 
     Ref<String> str = obj->toString();
 
-To prevent accidental incorrect usage of the raw pointer returned by the new operator, the ARO Library provides a wrapper template rnew to safely instantiate and return a reference to an instance of a given class. The required constructor parameters, if any, should be specified within the parentheses as usual.
+To prevent accidental incorrect usage of the raw pointer returned by the **new** operator, the ARO Library provides a wrapper template `rnew` to safely instantiate and return a reference to an instance of a given class. The required constructor parameters, if any, should be specified within the parentheses as usual.
 
-    new String(“Text”)->toUpperCase(); // never do this, as it will cause a memory leak
+    // never do this, as it will cause a memory leak
+    new String(“Text”)->toUpperCase();
+
+    // Either do it like this
+    RString str = new String("Text");
+    str->toUpperCase();
     
-    rnew<String>(“Some text”)->toUpperCase(); // use this format for temporary references
+    // or use rnew to create a temporary reference
+    rnew<String>(“Text”)->toUpperCase();
 
-The ARM facility also provides a garbage collector that is responsible for the automatic deallocation of memory when it determines that no active references to an object remains within an application. As such users of the ARO Library should never explicitly use the delete operator on any class object defined by or derived from a class in the library. The ARM facility is included as a part of the ARO Core.
+The ARM facility also provides a garbage collector that is responsible for the automatic deallocation of memory when it determines that no active references to an object remains within an application. As such users of the ARO Library should <u>never</u> explicitly use the **delete** operator on any class object defined by or derived from a class in the library. The ARM facility is included as a part of the ARO Core.
 
 
 ## Reference Type Redefinition
-The ARO Library has adopted a simplified convention for handling reference types by using the C++ typedef or using syntax. For Example, given a class CustomClass the following convention is used:
+The ARO Library has adopted a simplified convention for handling reference types by using the C++ **typedef** or **using** syntax. For Example, given a class `CustomClass` the following convention is used:
 
 ```cpp
 1.  #include “MyInterface.h”
@@ -131,68 +137,71 @@ The ARO Library has adopted a simplified convention for handling reference types
 12. };
 ```
 
-As a result, declaring a reference to an instance of CustomClass may be simplified to:
+As a result, declaring a reference to an instance of `CustomClass` may be simplified to:
 	
-    RCustomClass rcc = rnew<CustomClass>();
+    RCustomClass rcc = new CustomClass();
 
-The reference types for all object classes and interfaces defined within the library have been similarly redefined to conform to this convention, e.g. class Object references are declared as follows:
+The reference types for all object classes and interfaces defined within the library have been similarly redefined to conform to this convention, e.g. class `Object` references are declared as follows:
 
-    RObject obj = rnew<Object>();
+    RObject obj = new Object();
 
 It is recommended that clients and users of the library also adopt this convention of reference type redefinition for use with their own object classes and interfaces.
 
 
 ## The Null Reference
-For the purpose of initialization, the ARO Library has declared and defined a single constant reference, nullref, called the null reference. It is type convertible to all reference types and may be passed as a parameter to a function or used to clear a reference from pointing to an object. By default, all uninitialized references are equivalent to the null reference unless and until an object is assigned it. Any attempt to initialize a reference with a null pointer, or to dereference an uninitialized reference (or a reference that has been assigned the null reference) will cause a NullException to be thrown.
+For the purpose of initialization, the ARO Library has declared and defined a single constant reference, `nullref`, called the null reference. It is type convertible to all reference types and may be passed as a parameter to a function or used to clear a reference from pointing to an object. By default, all uninitialized references are equivalent to the null reference unless and until an object is assigned it. Any attempt to initialize a reference with a null pointer, or to dereference an uninitialized reference (or a reference that has been assigned the null reference) will cause a `NullException` to be thrown.
 
-    RObject obj = rnew<Object>(); // declare and initialize obj
+```cpp
+    RObject obj = new Object(); // declare and initialize obj
     
     obj = nullref; // clear obj from pointing to the Object instance
     
     if(obj == nullref)
       System::out->println(“obj is null”);
+```
 
-As the throwing of a NullException is typically a runtime error caused by a flaw in program design rather than as a normal expected possible error condition, it is only listed in the @throws section of function specifications in this API document where it may be explicitly thrown by the function.
+As the throwing of a `NullException` is typically a runtime error caused by a flaw in program design rather than as a normal expected possible error condition, it is only listed in the <u>@throws</u> section of function specifications in this API document where it may be explicitly thrown by the function.
 
 ## The “this” Reference
-The C++ “this” pointer is an implicit raw pointer to an instance of a class. To avoid situations where the pointer could be improperly used, the library defines a macro constant thisref that evaluates to a reference to the object pointed to by the “this” pointer. It may be used in all contexts where the “this” pointer may be legally used.
+The C++ “this” pointer is an implicit raw pointer to an instance of a class. To avoid situations where the pointer could be improperly used, the library defines a macro constant `thisref` that evaluates to a reference to the object pointed to by the “this” pointer. It may be used in all contexts where the “this” pointer may be legally used.
 
     System::out->println(thisref->toString());
 
 ## Array References
-The ARO Library has defined the Object-derived template class Array, which represents a single dimension array. An Array class instance may be of any value type (e.g. int, float, etc.) or reference type (e.g. Object, String, etc.), or even an array of array references. The ARO Library has, however, also defined the template class Array2D to embody 2 Dimensional arrays (i.e. array of arrays). Note that, similarly to that done for value types, the type parameter for Array and Array2D instances should be the class or interface name, not the reference type name. For example:
+The ARO Library has defined the Object-derived template class `Array`, which represents a single dimension array. An `Array` class instance may be of any value type (e.g. `int`, `float`, etc.) or reference type (e.g. `Object`, `String`, etc.), or even an array of array references. The ARO Library has, however, also defined the template class `Array2D` to embody 2 Dimensional arrays (i.e. array of arrays). Note that, similarly to that done for value types, the type parameter for `Array` and `Array2D` instances should be the class or interface name, not the reference type name. For example:
 
-    Ref<Array<Object>> objArr = rnew<Array<Object>>(5); // never use “Array<RObject>”
+    Ref<Array<Object>> objArr = new Array<Object>(5); // never use “Array<RObject>”
 
 Similar to that done for other classes, `Ref<Array>` and `Ref<Array2D>` have also been type redefined as `RArray` and `RArray2D`, respectively. The following examples demonstrate how to declare references to arrays:
 
-  
+ ```cpp
     // creates a 5-element array of ints
-    RArray<int> intArr = rnew<Array<int>>(5); 
+    RArray<int> intArr = new Array<int>(5); 
     
     // creates and initializes a 4-element array of chars
     RArray<char> charArr = {‘A’, ‘B’, ‘C’, ‘D’};
     
     // creates a 10-element array of Object references (i.e. Refs, not actual objects)
-    RArray<Object> objArr = rnew<Array<Object>>(10);
+    RArray<Object> objArr = new Array<Object>(10);
     
     // creates a 3-row by 2-column (2 dimensional) array of long integers
-    RArray2D<long> lngArr = rnew<Array2D<long>>(3, 2);
+    RArray2D<long> lngArr = new Array2D<long>(3, 2);
     
     // creates and initializes a mixed-length 2-dimensional array of Strings
     RArray2D<String> strArr = { {“1”, “2”, “3”, “4”}, {“6”, “7”}, {“8”, “9”, “10”} };
+```
 
 
 ## String References
-For simplicity, the ARO Library has been customized to seamlessly interact with C++ native string literals by treating them, as much as is possible, as instances of class String. As a result, a native string literal can be used in any situation where a reference to a String object is required, such as being used as a function parameter. String literals, however, cannot be directly dereferenced and must first be assigned to a regular string reference variable in order to access any class String member functions.
+For simplicity, the ARO Library has been customized to seamlessly interact with C++ native string literals by treating them, as much as is possible, as instances of class `String`. As a result, a native string literal can be used in any situation where a reference to a `String` object is required, such as being used as a function parameter. String literals, however, cannot be directly dereferenced and must first be assigned to a regular string reference variable in order to access any class `String` member functions.
 
     // initialize explicitly via call to constructor
-    RString str = rnew<String>(“a string text”);
+    RString str = new String(“a string text”);
     
     // initialize implicitly via direct assignment
     RString str2 = “another string”;
 
-It should be noted that, performance wise, it is more efficient to initialize string references via direct assignment than via an explicit call to the constructor.
+It should be noted that, performance wise, it is more efficient to initialize `String` references via direct assignment than via an explicit call to the constructor.
 
 
 ## Operators and References
@@ -213,29 +222,31 @@ type_of | Type Checking | All
 sync_lock | Multi-threading Synchronization | All
 
 Note:
-The equality and inequality operators do not actually compare the objects being pointed to by the references but rather the system memory address (i.e. pointer value) of the objects being referenced. As such the operators are used to determine whether or not two references are pointing to the same exact object. See also Object::equals(RObject).
+The equality and inequality operators do not actually compare the objects being pointed to by the references but rather the system memory address (i.e. pointer value) of the objects being referenced. As such the operators are used to determine whether or not two references are pointing to the same exact object. See also `Object::equals(RObject)`.
 
 
 ## Collection Iteration
-For ease of use, the ARO Library has included support for the “range-based for” iteration to allow for simplified traversal over the elements of an Array, or a collection (i.e. any class that implements the Iterable interface), such as a Vector or several other members of the ARO Utilities namespace. Please note: the “range-based for” iteration provides a read-only view of the elements in the collection.
+For ease of use, the ARO Library has included support for the “range-based for” iteration to allow for simplified traversal over the elements of an `Array`, or an interable collection (i.e. any class that implements the `Iterable` interface), such as `ArrayList`, `LinkedList`, `Vector` or several other collection implementations within the ARO Utilities namespace. Please note: the “range-based for” iteration provides a <u>read-only</u> view of the elements within a collection.
 
-```
+```cpp
 RArray<int> intArr = {1, 2, 3, 4, 5};
 for(int n : intArr)
    System::out->print(n);
 
-util::RVector<String> strVec = rnew<util::Vector<String>>(2);
-strVec->add(“A String”); strVec->add(“Another”);
+util::RVector<String> strVec = new util::Vector<String>(2);
+strVec->add(“A String”);
+strVec->add(“Another”);
 for(RString str : strVec)
    System::out->println(str);
 ```
 
+
 ## Reference Type Checking and Casting
 A reference variable may be directly assigned to another reference variable of the same type or a base type. However, a base type reference cannot be directly assigned to a reference of a derived type, nor can unrelated reference types be directly assigned to each other.
 
-The ARO Library has provided the type_cast operator for explicitly converting between reference types. Reference type casting is performed along hierarchies. Attempting to cast a reference to an unrelated type causes a CastException to be thrown. As such the type_of operator is provided to check if a referenced object is of a specific type (or one of its derived types). Both operators require that the destination class or type name be given in angle brackets. 
+The ARO Library has provided the `type_cast` operator for explicitly converting between reference types. Reference type casting is performed along hierarchies. Attempting to cast a reference to an unrelated type causes a `CastException` to be thrown. As such the `type_of` operator is provided to check if a referenced object is of a specific type (or one of its derived types). Both operators require that the destination class or type name be given in angle brackets. 
 
-```
+```cpp
 RString str = “a string text”; // create a String object
 
 RObject obj = str; // direct assignment to base class reference
@@ -244,13 +255,14 @@ if(type_of<String>(obj))
    str = type_cast<String>(obj); // cast to derived class reference
 ```
 
+
 ## The Weak Reference
-The template class Weak is provided by the ARO Core as a wrapper object that maintains a weak reference to an instance of a class. The reference is considered as “weak” because it is not monitored by the ARM facility. Therefore, the existence of a weak reference to an object will not prevent the automatic deletion of memory allocated to that object. This is useful especially as it relates to preventing the circular reference problem (where two or more objects each hold active references to the other and therefore prevents any of them from being finalized and deleted even where none of them is ever otherwise actively referenced again within the program). In such instances it is more appropriate to use weak references.
+The template class `Weak` is provided by the ARO Core as a wrapper object that maintains a weak reference to an instance of a class. The reference is considered as “weak” because it is not monitored by the _ARM facility_. Therefore, the existence of a weak reference to an object will not prevent the automatic deletion of memory allocated to that object. This is useful especially as it relates to preventing the circular reference problem (where two or more objects each hold active references to the other and therefore prevents any of them from being finalized and deleted even where none of them is ever otherwise actively referenced again within the program). In such instances it is more appropriate to use weak references.
 
-```
-RObject obj = rnew<Object>();
+```cpp
+RObject obj = new Object();
 
-// RWeak<Object> wobj = rnew<Weak<Object>>(obj); // may use constructor
+// RWeak<Object> wobj = new Weak<Object>(obj); // may use constructor
 RWeak<Object> wobj = obj; // or may use direct reference assignment
 
 obj = nullref; // clear the active reference
@@ -271,13 +283,13 @@ The “args” parameter is an array of strings containing all of the arguments,
     
     main_function = ClassName::functName; // to designate a static class member function
 
-Please note: it is a link-time error to specify a main function within your application.
+<u>Please note:</u> it is a link-time error to specify a standard C++ `main` function within your application.
 
 
 ## Exception Handling
 To handle exceptions that may be thrown within a function, users of the ARO Library should wrap statements, including function calls, that may throw exceptions within an exception handling block (as demonstrated below). This enables the programmer to handle exceptions that may be thrown so as to be able to identify the exception type, retrieve the exception message, and respond appropriately.
 
-```
+```cpp
 1.  #include <aro/core.hpp>
 2.  
 3.  using namespace aro;
@@ -288,7 +300,7 @@ To handle exceptions that may be thrown within a function, users of the ARO Libr
 9.     {
 10.       // execute the body of your code here
 11.       if(args->length == 0)
-12.         ex_throw rnew<StateException>(“Args required”);
+12.         ex_throw new StateException(“Args required”);
 13.    }
 14.    ex_catch
 15.    {
@@ -312,27 +324,27 @@ To handle exceptions that may be thrown within a function, users of the ARO Libr
 33.
 ```
 
-The ex_throw operator causes an exception object to be thrown. An unhandled exception will cause the program (or the currently executing thread) to immediately enter finalization and then terminate.
+The `ex_throw` operator causes reference to an exception object to be thrown. An unhandled exception will cause the program (or the currently executing thread) to immediately enter finalization and then terminate.
 
-An ex_catch block does not automatically handle exceptions. An ex_handle block must be specified inside of the ex_catch block in order to handle a specific exception type (or one of its derived types) otherwise the exception will remain unhandled and will be passed out into to the next enclosing function block. The ex_handle operator takes as its parameter the exception class type name. It also implicitly declares a reference variable ex_var of the exception class type specified.
+An `ex_catch` block does not automatically handle exceptions. An `ex_handle` block must be specified inside of the `ex_catch` block in order to handle a specific exception type (or one of its derived types) otherwise the exception will remain unhandled and will be passed out into to the next enclosing function block. The `ex_handle` operator takes as its parameter the exception class type name. It also implicitly declares a reference variable `ex_var` of the exception class type specified.
 
-The ex_finally block doesn't handle exceptions. It is merely a mechanism to allow for carrying out of activities that must occur whether or not an exception occurs, or whether or not it was handled. If an exception wasn't handled prior to the ex_finally block it will be passed along after the ex_finally block has executed. The ex_finally block must be the last or the only block within the ex_catch block.
+The `ex_finally` block doesn't handle exceptions. It is merely a mechanism to allow for carrying out of activities that must occur whether or not an exception occurs, or whether or not it was handled. If an exception wasn't handled prior to the `ex_finally` block it will be passed along after the `ex_finally` block has executed. The `ex_finally` block must be the last or the only block within the `ex_catch` block.
 
-An ex_rethrow statement causes an exception being handled to be passed along. The ex_rethrow may only be used in an ex_handle block; it has no effect in the ex_finally block.
+An `ex_rethrow` statement causes an exception being handled to be passed along. The `ex_rethrow` may only be used in an `ex_handle` block; it has no effect in the `ex_finally` block.
 
-The ex_end statement marks the end of the exception handling block and must always be specified.
+The `ex_end` statement marks the end of the exception handling block and must always be specified.
 
 
 ## Data and Object Serialization
-The ARO Library provides support for data and object serialization via its Streaming API available in the Input/Output namespace (i.e. aro::io). The library provides built-in support for streaming of the native types int, bool, char, long, short, float and double. It also offers streaming capabilities for class objects via the StreamType template interface. By implementing the StreamType interface a class enables its instances to be written to and read from an ObjectOutputStream and an ObjectInputStream, respectively. The classes Array, Array2D, String, and the wrapper classes Int, Bool, Char, Long, Short, Float and Double all implement the StreamType interface. An attempt to transmit an object for a class that does not implement the StreamType template interface will result in an IOException being thrown indicating that the object is not a valid StreamType instance.
+The ARO Library provides support for data and object serialization via its Streaming API available in the Input/Output namespace (i.e. `aro::io`). The library provides built-in support for streaming of the native types `int`, `bool`, `char`, `long`, `short`, `float` and `double`. It also offers streaming capabilities for class objects via the `Streamable` template interface. By implementing the `Streamable` interface a class enables its instances to be written to an `ObjectOutputStream` and read from an `ObjectInputStream`. The classes `Array`, `Array2D`, `String`, and the wrapper classes `Int`, `Bool`, `Char`, `Long`, `Short`, `Float` and `Double` all implement the `Streamable` interface. An attempt to transmit an object for a class that does not implement the `Streamable` template interface will result in an `IOException` being thrown indicating that the object is not a valid `Streamable` instance.
 
-```
+```cpp
 1.	#include <aro/core.hpp>
 2.	#include <aro/io/all.hpp>
 3.	
 4.	using namespace aro;
 5.	
-6.	class StreamObject : public Object, public io::StreamType<StreamObject>
+6.	class StreamObject : public Object, public io::Streamable<StreamObject>
 7.	{
 8.	   public:
 9.	      StreamObject(int id=0, RString str=“”, float bal=0.0f)
@@ -358,7 +370,7 @@ The ARO Library provides support for data and object serialization via its Strea
 29.	         os->writeFloat(balance);
 30.	      }
 31.	
-32.	      void readObject(io::RobjectInputStream is)
+32.	      void readObject(io::RObjectInputStream is)
 33.	      {
 34.	         idNo = is->readInt();
 35.	         name = type_cast<String>(is->readObject());
@@ -409,8 +421,8 @@ The ARO Library provides support for data and object serialization via its Strea
 80.	
 ```
 
-All classes that implement the StreamType template interface are required to define the writeObject and readObject member functions. It is recommended that these be made protected or private. Additionally, all StreamType classes must provide a no-argument constructor. If a class doesn’t wish for a no-argument constructor to be made available to clients, then it may declare it as protected or private, but it must then, of necessity, declare io::StreamType<T> as a friend, where T is the class name.
+All classes that implement the `Streamable` template interface are required to define the `writeObject` and `readObject` member functions. It is recommended that these be made **protected** or **private**. Additionally, all `Streamable` classes must provide a no-argument constructor. If a class doesn’t wish for a no-argument constructor to be made available to clients, then it may declare it as protected or private, but it must then, of necessity, declare `io::Streamable<T>` as a friend, where `T` is the class name.
 
-To provide object streaming version control, StreamType classes may provide a getObjectVersion member function that returns a version number value as a long. If the member function is not provided the Streaming API assumes a default object version of 1L. When deserializing (i.e. reading) an object from a stream, if the class’ object version is different from the one in the stream, an IOException is thrown indicating a StreamType object version mismatch.
+To provide object streaming version control, `Streamable` classes may provide a `getObjectVersion` member function that returns a version number value as a `long`. If a `getObjectVersion` member function is not provided the Streaming API assumes a default object version of `1L`. When deserializing (i.e. reading) an object from a stream, if the class’ object version is different from the one in the stream, an `IOException` is thrown indicating a `Streamable` object version mismatch.
 
-The StreamType interface is a template (i.e. generic) and, when implemented by a class, it operates as a tag that registers that class type with the Streaming API. As such a class that implements the interface does not automatically pass on its streaming capabilities to derived classes. A derived class that wants to be streamable must also implement the StreamType interface for its class type and override both the readObject and writeObject member functions. The overridden member functions should either call its base class’ readObject and writeObject member functions as either the first line code in both or the last line of code in both. Mixing the order of writing data to and reading data from a stream is a logic error and will most likely lead to data corruption and/or undefined behaviour.
+The `Streamable` interface is a template (i.e. generic) and, when implemented by a class, it operates as a tag that registers that class type with the Streaming API. As such a class that implements the interface does not automatically pass on its streaming capabilities to derived classes. A derived class that wants to be streamable must also implement the `Streamable` interface for its class type and override both the `readObject` and `writeObject` member functions. The overridden member functions should either call its base class’ `readObject` and `writeObject` member functions as either the first line of code in both or the last line of code in both. Mixing the order of writing data to and reading data from a stream is a logic error and will most likely lead to data corruption and/or undefined behaviour.
