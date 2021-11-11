@@ -132,7 +132,7 @@ class Ref : public RefBase
       
       //assignment operator
       Ref& operator=(T* tPtr);
-      Ref& operator=(Ref&& tRef);
+      Ref& operator=(Ref&& tRef) noexcept;
       template <class U>
       Ref& operator=(Ref<U>&& uRef);
       Ref& operator=(const Ref& tRef);

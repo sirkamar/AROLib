@@ -2,7 +2,7 @@
 #define CORE_CLONEABLE_IMPL_H
 
 #include <aro/core/Weak-impl.h>
-#include <aro/core/utils/ObjectFactory.h>
+#include <aro/core/utils/ObjectFactory-impl.h>
 
 namespace aro {
 
@@ -34,13 +34,9 @@ void Cloneable<T>::Builder::init() const
 template <class T>
 RObject Cloneable<T>::Builder::clone(RObject obj)
 {
-	Ref<T> tmp = new T();
-
 	Ref<T> o_tmp = type_cast<T>(obj);
 
-	(*tmp.operator->()) = (*o_tmp.operator->());
-
-	return tmp;
+    return new T((*o_tmp.operator->()));
 }
 
 } /* namespace aro */

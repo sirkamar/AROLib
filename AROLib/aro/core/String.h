@@ -18,7 +18,7 @@ class String final : public Object, public Comparable<String>, public Cloneable<
       
       virtual vint length();
       
-	   virtual vint hashCode();
+	  virtual vint hashCode();
       
       virtual vbool isEmpty();
 
@@ -83,6 +83,8 @@ class String final : public Object, public Comparable<String>, public Cloneable<
       
       static vint lastIndexOf(RArray<vchar> source, vint sourceOffset, vint sourceCount,
                  RArray<vchar> target, vint targetOffset, vint targetCount, vint fromIndex);
+      
+      virtual RObject clone();
    
    protected:
       virtual void finalize();
@@ -110,7 +112,7 @@ class String final : public Object, public Comparable<String>, public Cloneable<
       String(RArray<vchar> arr, vbool shared);
       
       void getChars(RArray<vchar> dst, vint dstBegin);
-
+   
    friend class Ref<String>;
    friend class Ref<Object>;
    friend class Ref<Comparable<String>>;

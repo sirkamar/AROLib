@@ -11,6 +11,5 @@ const Ref<Null> Ref<Null>::REF_NULL;
 
 const Ref<Null>& nullref = Ref<Null>::get();
 
-const int NULLREFID = RString("aro::Null")->hashCode();
 
 } /* namespace aro */

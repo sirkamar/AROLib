@@ -116,7 +116,7 @@ Ref<T>& Ref<T>::operator=(T* tPtr)
 }
 
 template <class T>
-Ref<T>& Ref<T>::operator=(Ref<T>&& tRef)
+Ref<T>& Ref<T>::operator=(Ref<T>&& tRef) noexcept
 {
    if(this != &tRef)
    {

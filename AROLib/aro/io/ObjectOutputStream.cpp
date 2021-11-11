@@ -4,9 +4,9 @@
 
 namespace aro {
 
-extern const int NULLREFID;
-
 namespace io {
+
+const int NULLREFID = RString("aro::Null")->hashCode();
 
 ObjectOutputStream::ObjectOutputStream(ROutputStream os)
    :DataOutputStream(os)

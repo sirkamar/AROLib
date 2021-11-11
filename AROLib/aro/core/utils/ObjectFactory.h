@@ -5,8 +5,6 @@
 
 namespace aro {
 
-template <class T> class Class;
-
 namespace io {
 
 class ObjectInputStream;

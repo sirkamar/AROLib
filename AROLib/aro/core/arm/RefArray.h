@@ -43,7 +43,7 @@ class Ref<Array<T>> : public RefArrayBase<Ref<T>>
       //assignment operator
       Ref<Array<T>>& operator=(Array<T>* arrPtr);
       Ref<Array<T>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<T>>& operator=(Ref<Array<T>>&& arrRef);
+      Ref<Array<T>>& operator=(Ref<Array<T>>&& arrRef) noexcept;
       Ref<Array<T>>& operator=(const Ref<Array<T>>& arrRef);
       template <class U>
       Ref<Array<T>>& operator=(const Ref<Array<U>>& arrRef);

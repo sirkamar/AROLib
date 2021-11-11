@@ -73,12 +73,20 @@ class Base
       virtual void wait() = 0;
    
    protected:
-      /** Guarateed to be called prior to object deletion
+       /** Guarateed to be called prior to object deletion
        * by the Grabage Collector to enable objects to
        * carry out final clean up and release system
        * resources that they may hold, e.g. files. */
       virtual void finalize() = 0;
       
+      /** Restrict the C++ default
+      * copy constructor. Derived
+      * classes should define a
+      * constructor that accepts
+      * a Ref<T> parameter, where
+      * T is the class type name */
+      Base(const Base&) = default;
+
       /** The Base destructor is automatically called by the
        * Garbage Collector if it determines that there are
        * no references to the object remaining within the
@@ -97,19 +105,12 @@ class Base
       Base() = default;
    
    private:
-      /** Restrict the C++ default
-      * copy constructor. Derived
-      * classes should define a
-      * constructor that accepts
-      * a Ref<T> parameter, where
-      * T is the class type name */
-      Base(const Base&) = default;
-      
       /** Restrict the C++ default copy operator. */
-      Base& operator=(const Base&) = default;
+      Base& operator=(const Base&) = delete;
    
    friend class Arm;
    friend class Object;
+   friend interface Interface;
    template <class T>
    friend interface Cloneable;
 };

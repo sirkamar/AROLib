@@ -226,7 +226,7 @@ Ref<Array<T>>& Ref<Array<T>>::operator=(const Ref<Null>& nRef)
 }
 
 template <class T>
-Ref<Array<T>>& Ref<Array<T>>::operator=(Ref<Array<T>>&& arrRef)
+Ref<Array<T>>& Ref<Array<T>>::operator=(Ref<Array<T>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {

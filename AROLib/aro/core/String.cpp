@@ -13,7 +13,7 @@ const RString String::EMPTY_STRING = new String("");
 
 String::String()
 {
-	hash = 0;
+   hash = 0;
    initCString();
    value = empty;
 }
@@ -365,6 +365,15 @@ vbool String::equalsIgnoreCase(RString str)
 vint String::compareToIgnoreCase(RString str)
 {
 	return toLowerCase()->compareTo(str->toLowerCase());
+}
+
+RObject String::clone()
+{
+    RString str = type_cast<String>(Object::clone());
+
+    str->initCString();
+
+    return str;
 }
 
 void String::getChars(RArray<vchar> dst, vint dstBegin)

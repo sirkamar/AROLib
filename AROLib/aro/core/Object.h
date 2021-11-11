@@ -37,6 +37,10 @@ class Object : public virtual Base
    protected:
       virtual void finalize();
 
+      /** required for clone to work.
+       *  Do NOT override. */
+      Object(const Object&);
+
    private:
       struct Monitor
       {
@@ -60,6 +64,8 @@ class Object : public virtual Base
       } monitor;
    
    friend class SyncLock;
+   template <class T>
+   friend interface Cloneable;
 };
 
 } /* namespace aro */

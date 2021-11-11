@@ -240,29 +240,29 @@ void aromain(RArray<String> args)
    
    
    /* Stream input and output with inheritance */
-   //Ref<TestBase> rtb = new TestBase(15);
-   //Ref<TestBase> rtd = new TestDerived(27, 91.4f);
-   //
-   //io::RByteArrayOutputStream rsos = new io::ByteArrayOutputStream();
-   //io::RObjectOutputStream roos = new io::ObjectOutputStream(rsos);
-   //
-   //roos->writeObject(rtb);
-   //roos->writeObject(rtd);
-   //
-   //roos->close();
-   //
-   //io::RObjectInputStream rois = new io::ObjectInputStream(new io::ByteArrayInputStream(rsos->toByteArray()));
-   //
-   //rtb = type_cast<TestBase>(rois->readObject());
-   //rtd = type_cast<TestDerived>(rois->readObject());
-   //
-   //rois->close();
-   //
-   //System::out->println(rtb);
-   //System::out->println();
-   //System::out->println(rtd);
-   //
-   //System::in->read();
+   Ref<TestBase> rtb = new TestBase(15);
+   Ref<TestBase> rtd = new TestDerived(27, 91.4f);
+   
+   io::RByteArrayOutputStream rsos = new io::ByteArrayOutputStream();
+   io::RObjectOutputStream roos = new io::ObjectOutputStream(rsos);
+   
+   roos->writeObject(rtb);
+   roos->writeObject(rtd);
+   
+   roos->close();
+   
+   io::RObjectInputStream rois = new io::ObjectInputStream(new io::ByteArrayInputStream(rsos->toByteArray()));
+   
+   rtb = type_cast<TestBase>(rois->readObject());
+   rtd = type_cast<TestDerived>(rois->readObject());
+   
+   rois->close();
+   
+   System::out->println(rtb);
+   System::out->println();
+   System::out->println(rtd);
+   
+   System::in->read();
    
    
    /* Calculator Program - Testing Stream Input via System::in */
@@ -430,29 +430,29 @@ void aromain(RArray<String> args)
 
 
    //Testing for_each with a Collection object
-   util::RArrayList<String> rals = new util::ArrayList<String>(5);
-   util::RList<String> lst = rals;
-   lst->add("item 1");
-   lst->add("value 2");
-   lst->add("element 3");
-   
-   System::out->print("list values: ");
-   
-   for(RString str : lst)
-   {
-      System::out->print(str + " ");
-   }
-   
-   System::out->println();
-   
-   for_each(lst, [](RString x)
-   {
-      System::out->print(x+" ");
-   });
-   
-   System::out->println();
-   
-   System::in->read();
+   //util::RArrayList<String> rals = new util::ArrayList<String>(5);
+   //util::RList<String> lst = rals;
+   //lst->add("item 1");
+   //lst->add("value 2");
+   //lst->add("element 3");
+   //
+   //System::out->print("list values: ");
+   //
+   //for(RString str : lst)
+   //{
+   //   System::out->print(str + " ");
+   //}
+   //
+   //System::out->println();
+   //
+   //for_each(lst, [](RString x)
+   //{
+   //   System::out->print(x+" ");
+   //});
+   //
+   //System::out->println();
+   //
+   //System::in->read();
    
    
    /* Test Arrays of Derived to Base assignment */
@@ -518,11 +518,15 @@ void aromain(RArray<String> args)
    //
    //Thread::sleep(4000L);
    
-   /*RComparable<Object> rcs = *//*class : public Object, public Comparable<Object> {
-      vint compareTo(RObject o){ return 1; }
-   } a;*/
+
+   //Testing Cloneable Interface
+   //RString str = "A test value";
+
+   //RString str2 = type_cast<String>(str->clone());
+
+   //System::out->println("Orig: " + str + ", clone: " + str2);
    
-   
+
    //Testing the Console User Interface API
    //cui::RCSFrame win = new cui::CSFrame("Test Title");
    //

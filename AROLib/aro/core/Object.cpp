@@ -85,6 +85,11 @@ void Object::finalize()
    
 }
 
+Object::Object(const Object& obj)
+{
+
+}
+
 void Object::Monitor::lock()
 {
    mutex.lock();

@@ -4,9 +4,9 @@
 
 namespace aro {
 
-extern const int NULLREFID;
-
 namespace io {
+
+extern const int NULLREFID;
 
 ObjectInputStream::ObjectInputStream(RInputStream is)
    :DataInputStream(is)

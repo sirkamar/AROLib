@@ -51,7 +51,6 @@ void ObjectFactory::Map<Function>::insert(int key, Function value)
    Node* tmp = new Node();
    tmp->value = value;
    tmp->key = key;
-   tmp->src.push_back(source);
 
    if(listHead == nullptr)
       listHead = tmp;

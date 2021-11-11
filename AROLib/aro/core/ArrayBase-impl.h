@@ -76,6 +76,8 @@ RObject ArrayBase<T>::clone()
 {
    Ref<ArrayBase<T>> array = type_cast<ArrayBase<T>>(Object::clone());
    
+   array->init(); // allocate memory
+
    for(int n=0; n<array->length; n++)
       array->data[n] = data[n];
    
