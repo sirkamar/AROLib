@@ -6,7 +6,7 @@ namespace aro {
 
 namespace io {
 
-extern const int NULLREFID;
+const int NULLREFID = RString("aro::Null")->hashCode();
 
 ObjectInputStream::ObjectInputStream(RInputStream is)
    :DataInputStream(is)
