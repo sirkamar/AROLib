@@ -1,9 +1,9 @@
-#include <aro/core.h>
-#include <aro/io/FileWriter.h>
-#include <aro/io/PrintWriter.h>
-#include <aro/io/IOException.h>
-#include <aro/io/BufferedWriter.h>
-#include <aro/io/OutputStreamWriter.h>
+#include <aro/core.hpp>
+#include <aro/io/FileWriter.hpp>
+#include <aro/io/PrintWriter.hpp>
+#include <aro/io/IOException.hpp>
+#include <aro/io/BufferedWriter.hpp>
+#include <aro/io/OutputStreamWriter.hpp>
 
 namespace aro {
 

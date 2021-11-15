@@ -1,5 +1,5 @@
-#include <aro/core/utils/Foreach.h>
-#include <aro/core/UnsupportedException.h>
+#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/UnsupportedException.hpp>
 
 namespace aro {
 

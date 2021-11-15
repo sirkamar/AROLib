@@ -1,4 +1,4 @@
-#include <aro/io/IOException.h>
+#include <aro/io/IOException.hpp>
 
 namespace aro {
 

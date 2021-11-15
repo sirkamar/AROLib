@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/aws/Component.h>
-#include <aro/aws/event/ComponentEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/aws/event/ComponentEvent.hpp>
 
 namespace aro {
 

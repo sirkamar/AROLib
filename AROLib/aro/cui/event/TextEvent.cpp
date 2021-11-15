@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/cui/event/TextEvent.h>
+#include <aro/core.hpp>
+#include <aro/cui/event/TextEvent.hpp>
 
 namespace aro {
 

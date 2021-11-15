@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/aws/Selectable.h>
-#include <aro/aws/event/StateEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Selectable.hpp>
+#include <aro/aws/event/StateEvent.hpp>
 
 namespace aro {
 

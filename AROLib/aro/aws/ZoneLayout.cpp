@@ -1,7 +1,7 @@
-#include <aro/core.h>
-#include <aro/aws/Point.h>
-#include <aro/aws/Insets.h>
-#include <aro/aws/ZoneLayout.h>
+#include <aro/core.hpp>
+#include <aro/aws/Point.hpp>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/ZoneLayout.hpp>
 
 namespace aro {
 

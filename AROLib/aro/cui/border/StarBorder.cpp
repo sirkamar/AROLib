@@ -1,8 +1,8 @@
-#include <aro/aws/Insets.h>
-#include <aro/aws/Graphics.h>
-#include <aro/aws/Component.h>
-#include <aro/cui/ConsoleGraphics.h>
-#include <aro/cui/border/StarBorder.h>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/cui/ConsoleGraphics.hpp>
+#include <aro/cui/border/StarBorder.hpp>
 
 namespace aro {
 

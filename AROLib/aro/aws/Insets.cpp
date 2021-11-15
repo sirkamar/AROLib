@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/Insets.h>
+#include <aro/core.hpp>
+#include <aro/aws/Insets.hpp>
 
 namespace aro {
 

@@ -1,7 +1,7 @@
-#include <aro/core.h>
-#include <aro/aws/Window.h>
-#include <aro/core/ArgumentException.h>
-#include <aro/aws/DefaultFocusPolicy.h>
+#include <aro/core.hpp>
+#include <aro/aws/Window.hpp>
+#include <aro/core/ArgumentException.hpp>
+#include <aro/aws/DefaultFocusPolicy.hpp>
 
 namespace aro {
 

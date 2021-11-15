@@ -1,10 +1,10 @@
 #include <ctime>
 #include <iostream>
-#include <aro/core/System.h>
-#include <aro/core/utils/Foreach.h>
-#include <aro/cui/ConsoleGraphics.h>
-#include <aro/io/BufferedInputStream.h>
-#include <aro/io/BufferedOutputStream.h>
+#include <aro/core/System.hpp>
+#include <aro/core/utils/Foreach.hpp>
+#include <aro/cui/ConsoleGraphics.hpp>
+#include <aro/io/BufferedInputStream.hpp>
+#include <aro/io/BufferedOutputStream.hpp>
 
 namespace aro {
 

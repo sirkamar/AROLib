@@ -1,6 +1,6 @@
-#include <aro/core/arm/SyncLock.h>
-#include <aro/core/utils/Foreach.h>
-#include <aro/core/ThreadException.h>
+#include <aro/core/arm/SyncLock.hpp>
+#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/ThreadException.hpp>
 
 namespace aro {
 

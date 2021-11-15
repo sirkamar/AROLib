@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/io/FileWriter.h>
-#include <aro/io/FileOutputStream.h>
+#include <aro/core.hpp>
+#include <aro/io/FileWriter.hpp>
+#include <aro/io/FileOutputStream.hpp>
 
 namespace aro {
 

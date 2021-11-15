@@ -1,4 +1,4 @@
-#include <aro/cui/CSDialog.h>
+#include <aro/cui/CSDialog.hpp>
 
 namespace aro {
 

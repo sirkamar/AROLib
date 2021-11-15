@@ -1,7 +1,7 @@
-#include <aro/core.h>
-#include <aro/cui/CSLabel.h>
-#include <aro/aws/Insets.h>
-#include <aro/aws/Graphics.h>
+#include <aro/core.hpp>
+#include <aro/cui/CSLabel.hpp>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/Graphics.hpp>
 
 namespace aro {
 

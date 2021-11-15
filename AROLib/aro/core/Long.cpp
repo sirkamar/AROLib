@@ -1,7 +1,7 @@
 #include <cstdlib>
-#include <aro/core/Int.h>
-#include <aro/core/Long.h>
-#include <aro/core/utils/Foreach.h>
+#include <aro/core/Int.hpp>
+#include <aro/core/Long.hpp>
+#include <aro/core/utils/Foreach.hpp>
 
 namespace aro {
 

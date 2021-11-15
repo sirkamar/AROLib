@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/cui/CSProgressBar.h>
-#include <aro/cui/border/LineBorder.h>
+#include <aro/core.hpp>
+#include <aro/cui/CSProgressBar.hpp>
+#include <aro/cui/border/LineBorder.hpp>
 
 namespace aro {
 

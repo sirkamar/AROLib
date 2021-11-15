@@ -1,11 +1,11 @@
-#include <aro/core.h>
-#include <aro/aws/Point.h>
-#include <aro/cui/Console.h>
-#include <aro/aws/Component.h>
-#include <aro/aws/Dimension.h>
-#include <aro/aws/Rectangle.h>
-#include <aro/cui/ConsoleGraphics.h>
-#include <aro/aws/event/PaintEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Point.hpp>
+#include <aro/cui/Console.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/aws/Dimension.hpp>
+#include <aro/aws/Rectangle.hpp>
+#include <aro/cui/ConsoleGraphics.hpp>
+#include <aro/aws/event/PaintEvent.hpp>
 
 namespace aro {
 

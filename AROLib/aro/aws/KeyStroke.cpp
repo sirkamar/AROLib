@@ -1,7 +1,7 @@
-#include <aro/core.h>
-#include <aro/aws/KeyStroke.h>
-#include <aro/aws/event/KeyEvent.h>
-#include <aro/util/ArrayList.h>
+#include <aro/core.hpp>
+#include <aro/aws/KeyStroke.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
+#include <aro/util/ArrayList.hpp>
 
 namespace aro {
 

@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/event/PropertyEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/event/PropertyEvent.hpp>
 
 namespace aro {
 

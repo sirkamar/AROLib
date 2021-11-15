@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/io/FilterReader.h>
+#include <aro/core.hpp>
+#include <aro/io/FilterReader.hpp>
 
 namespace aro {
 

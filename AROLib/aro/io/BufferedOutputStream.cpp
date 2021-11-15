@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/io/BufferedOutputStream.h>
+#include <aro/core.hpp>
+#include <aro/io/BufferedOutputStream.hpp>
 
 namespace aro {
 

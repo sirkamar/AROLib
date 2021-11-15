@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/Point.h>
+#include <aro/core.hpp>
+#include <aro/aws/Point.hpp>
 
 namespace aro {
 

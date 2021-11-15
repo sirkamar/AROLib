@@ -1,4 +1,4 @@
-#include <aro/core/arm/Types.h>
+#include <aro/core/arm/Types.hpp>
 
 namespace aro {
 

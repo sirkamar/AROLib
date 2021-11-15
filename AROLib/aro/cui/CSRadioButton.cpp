@@ -1,8 +1,8 @@
-#include <aro/core.h>
-#include <aro/aws/Insets.h>
-#include <aro/aws/Graphics.h>
-#include <aro/cui/CSRadioButton.h>
-#include <aro/cui/border/LineBorder.h>
+#include <aro/core.hpp>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/cui/CSRadioButton.hpp>
+#include <aro/cui/border/LineBorder.hpp>
 
 namespace aro {
 

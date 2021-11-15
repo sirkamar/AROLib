@@ -1,5 +1,5 @@
-#include <aro/core/Bool.h>
-#include <aro/core/utils/Foreach.h>
+#include <aro/core/Bool.hpp>
+#include <aro/core/utils/Foreach.hpp>
 
 namespace aro {
 

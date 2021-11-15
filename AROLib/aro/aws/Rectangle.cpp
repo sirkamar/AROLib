@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/Rectangle.h>
+#include <aro/core.hpp>
+#include <aro/aws/Rectangle.hpp>
 
 namespace aro {
 

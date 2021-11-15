@@ -1,8 +1,8 @@
-#include <aro/core.h>
-#include <aro/aws/Insets.h>
-#include <aro/cui/CSList.h>
-#include <aro/cui/border/LineBorder.h>
-#include <aro/aws/event/SelectionEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Insets.hpp>
+#include <aro/cui/CSList.hpp>
+#include <aro/cui/border/LineBorder.hpp>
+#include <aro/aws/event/SelectionEvent.hpp>
 
 namespace aro {
 

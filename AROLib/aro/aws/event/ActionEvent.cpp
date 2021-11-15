@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/event/ActionEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/event/ActionEvent.hpp>
 
 namespace aro {
 

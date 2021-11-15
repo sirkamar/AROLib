@@ -1,8 +1,8 @@
-#include <aro/core.h>
-#include <aro/aws/Component.h>
-#include <aro/core/ArgumentException.h>
-#include <aro/core/StringBuffer.h>
-#include <aro/aws/event/KeyEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/core/ArgumentException.hpp>
+#include <aro/core/StringBuffer.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
 
 namespace aro {
 

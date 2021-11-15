@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/ListenerList.h>
+#include <aro/core.hpp>
+#include <aro/aws/ListenerList.hpp>
 
 namespace aro {
 

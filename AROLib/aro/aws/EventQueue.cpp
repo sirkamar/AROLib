@@ -1,13 +1,13 @@
-#include <aro/core.h>
-#include <aro/core/Long.h>
-#include <aro/core/System.h>
-#include <aro/aws/Component.h>
-#include <aro/aws/Rectangle.h>
-#include <aro/aws/EventQueue.h>
-#include <aro/aws/event/InputEvent.h>
-#include <aro/aws/event/PaintEvent.h>
-#include <aro/aws/event/ActionEvent.h>
-#include <aro/aws/EventDispatcher.h>
+#include <aro/core.hpp>
+#include <aro/core/Long.hpp>
+#include <aro/core/System.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/aws/Rectangle.hpp>
+#include <aro/aws/EventQueue.hpp>
+#include <aro/aws/event/InputEvent.hpp>
+#include <aro/aws/event/PaintEvent.hpp>
+#include <aro/aws/event/ActionEvent.hpp>
+#include <aro/aws/EventDispatcher.hpp>
 
 namespace aro {
 

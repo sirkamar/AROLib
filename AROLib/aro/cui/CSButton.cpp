@@ -1,9 +1,9 @@
-#include <aro/aws/Insets.h>
-#include <aro/cui/CSButton.h>
-#include <aro/aws/Graphics.h>
-#include <aro/aws/event/KeyEvent.h>
-#include <aro/aws/event/ActionEvent.h>
-#include <aro/cui/border/LineBorder.h>
+#include <aro/aws/Insets.hpp>
+#include <aro/cui/CSButton.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
+#include <aro/aws/event/ActionEvent.hpp>
+#include <aro/cui/border/LineBorder.hpp>
 
 namespace aro {
 

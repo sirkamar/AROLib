@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/cui/CSButtonGroup.h>
-#include <aro/cui/CSAbstractButton.h>
+#include <aro/core.hpp>
+#include <aro/cui/CSButtonGroup.hpp>
+#include <aro/cui/CSAbstractButton.hpp>
 
 namespace aro {
 

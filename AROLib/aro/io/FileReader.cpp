@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/io/FileReader.h>
-#include <aro/io/FileInputStream.h>
+#include <aro/core.hpp>
+#include <aro/io/FileReader.hpp>
+#include <aro/io/FileInputStream.hpp>
 
 namespace aro {
 

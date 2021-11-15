@@ -1,17 +1,17 @@
 #include <conio.h>
 #include <cstdlib>
-#include <aro/core.h>
-#include <aro/aws/Frame.h>
-#include <aro/aws/Dialog.h>
-#include <aro/aws/Window.h>
-#include <aro/aws/Graphics.h>
-#include <aro/aws/ZoneLayout.h>
-#include <aro/aws/FocusPolicy.h>
-#include <aro/aws/FocusManager.h>
-#include <aro/aws/SystemMonitor.h>
-#include <aro/aws/event/KeyEvent.h>
-#include <aro/aws/event/WindowEvent.h>
-#include <aro/aws/event/FocusCausedEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Frame.hpp>
+#include <aro/aws/Dialog.hpp>
+#include <aro/aws/Window.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/aws/ZoneLayout.hpp>
+#include <aro/aws/FocusPolicy.hpp>
+#include <aro/aws/FocusManager.hpp>
+#include <aro/aws/SystemMonitor.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
+#include <aro/aws/event/WindowEvent.hpp>
+#include <aro/aws/event/FocusCausedEvent.hpp>
 
 namespace aro {
 

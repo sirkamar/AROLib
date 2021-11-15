@@ -1,13 +1,13 @@
-#include <aro/core.h>
-#include <aro/aws/Frame.h>
-#include <aro/aws/Dialog.h>
-#include <aro/aws/KeyStroke.h>
-#include <aro/util/LinkedList.h>
-#include <aro/aws/event/KeyEvent.h>
-#include <aro/aws/event/WindowEvent.h>
-#include <aro/aws/DefaultFocusManager.h>
-#include <aro/aws/event/FocusCausedEvent.h>
-#include <aro/aws/event/FocusCausedEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Frame.hpp>
+#include <aro/aws/Dialog.hpp>
+#include <aro/aws/KeyStroke.hpp>
+#include <aro/util/LinkedList.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
+#include <aro/aws/event/WindowEvent.hpp>
+#include <aro/aws/DefaultFocusManager.hpp>
+#include <aro/aws/event/FocusCausedEvent.hpp>
+#include <aro/aws/event/FocusCausedEvent.hpp>
 
 namespace aro {
 

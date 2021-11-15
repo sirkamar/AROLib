@@ -1,7 +1,7 @@
-#include <aro/core.h>
-#include <aro/aws/Component.h>
-//#include <aro/aws/Rectangle.h>
-#include <aro/aws/event/PaintEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Component.hpp>
+//#include <aro/aws/Rectangle.hpp>
+#include <aro/aws/event/PaintEvent.hpp>
 
 namespace aro {
 

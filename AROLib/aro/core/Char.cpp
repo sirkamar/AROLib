@@ -1,6 +1,6 @@
 #include <cctype>
-#include <aro/core/Char.h>
-#include <aro/core/utils/Foreach.h>
+#include <aro/core/Char.hpp>
+#include <aro/core/utils/Foreach.hpp>
 
 namespace aro {
 

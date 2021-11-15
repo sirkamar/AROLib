@@ -1,4 +1,4 @@
-#include <aro/core/arm/Cfg.h>
+#include <aro/core/arm/Cfg.hpp>
 
 //Defines the entry point for the DLL application.
 BOOL APIENTRY DllMain( HMODULE hModule,

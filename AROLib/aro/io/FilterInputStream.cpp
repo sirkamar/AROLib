@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/io/FilterInputStream.h>
+#include <aro/core.hpp>
+#include <aro/io/FilterInputStream.hpp>
 
 namespace aro {
 

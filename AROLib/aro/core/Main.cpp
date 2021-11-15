@@ -1,8 +1,8 @@
 #include <exception>
-#include <aro/core/System.h>
-#include <aro/core/Array2D-impl.h>
-#include <aro/core/StateException.h>
-#include <aro/core/utils/ThreadLibrary.h>
+#include <aro/core/System.hpp>
+#include <aro/core/Array2D-impl.hpp>
+#include <aro/core/StateException.hpp>
+#include <aro/core/utils/ThreadLibrary.hpp>
 
 namespace aro {
 

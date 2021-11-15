@@ -1,8 +1,8 @@
-#include <aro/core.h>
-#include <aro/util/ArrayList.h>
-#include <aro/aws/FocusManager.h>
-#include <aro/aws/SystemMonitor.h>
-#include <aro/aws/event/KeyEvent.h>
+#include <aro/core.hpp>
+#include <aro/util/ArrayList.hpp>
+#include <aro/aws/FocusManager.hpp>
+#include <aro/aws/SystemMonitor.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
 
 namespace aro {
 

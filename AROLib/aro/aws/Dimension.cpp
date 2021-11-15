@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/Dimension.h>
+#include <aro/core.hpp>
+#include <aro/aws/Dimension.hpp>
 
 namespace aro {
 

@@ -1,7 +1,7 @@
-#include <aro/core.h>
-#include <aro/aws/Graphics.h>
-#include <aro/aws/TideLayout.h>
-#include <aro/cui/CSPanel.h>
+#include <aro/core.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/aws/TideLayout.hpp>
+#include <aro/cui/CSPanel.hpp>
 
 namespace aro {
 

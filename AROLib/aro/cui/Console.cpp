@@ -1,17 +1,17 @@
-//#include <conio.h>
+//#include <conio.hpp>
 #include <iostream>
-#include <aro/cui/Console.h>
-#include <aro/aws/Dimension.h>
+#include <aro/cui/Console.hpp>
+#include <aro/aws/Dimension.hpp>
 
 namespace aro {
 
 namespace cui {
 
-HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // from <windows.h>
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // from <windows.hpp>
 
 void Console::clear()
 {
-  //clrscr();     // from <conio.h>
+  //clrscr();     // from <conio.hpp>
 
   COORD coordConsole = { 0, 0 }; // here's where we'll home the cursor
   DWORD cCharsWritten;
@@ -68,7 +68,7 @@ void Console::putString(RString str)
 
 void Console::moveCursor(vint x, vint y)
 {
-   //gotoxy(x,y);    // from <conio.h>
+   //gotoxy(x,y);    // from <conio.hpp>
 
    COORD coord = { (vshort)x, (vshort)y };
    

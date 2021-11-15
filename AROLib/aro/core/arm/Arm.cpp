@@ -1,8 +1,8 @@
 #include <list>
 #include <iostream>
 #include <algorithm>
-#include <aro/core/arm/Arm.h>
-#include <aro/core/utils/Foreach.h>
+#include <aro/core/arm/Arm.hpp>
+#include <aro/core/utils/Foreach.hpp>
 
 namespace aro {
 

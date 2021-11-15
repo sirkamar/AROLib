@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/aws/AWSEvent.h>
-#include <aro/aws/event/KeyEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/AWSEvent.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
 
 namespace aro {
 

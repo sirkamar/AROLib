@@ -1,10 +1,10 @@
-//#include <stdafx.h>
+//#include <stdafx.hpp>
 //#include <iostream>
 #include <process.h>
 #include <windows.h>
 #include <DbgHelp.h>
-#include <aro/core/utils/Foreach.h>
-#include <aro/io/PrintWriter.h>
+#include <aro/core/utils/Foreach.hpp>
+#include <aro/io/PrintWriter.hpp>
 
 #pragma comment( lib, "dbghelp.lib" )
 

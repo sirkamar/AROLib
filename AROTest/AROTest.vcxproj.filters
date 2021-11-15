@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AROTester.h">
+    <ClInclude Include="AROTester.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

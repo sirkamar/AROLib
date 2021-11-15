@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/event/SelectionEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/event/SelectionEvent.hpp>
 
 namespace aro {
 

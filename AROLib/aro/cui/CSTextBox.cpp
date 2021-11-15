@@ -1,11 +1,11 @@
-#include <aro/core.h>
-#include <aro/aws/Insets.h>
-#include <aro/cui/CSTextBox.h>
-#include <aro/aws/Graphics.h>
-#include <aro/cui/border/LineBorder.h>
-#include <aro/aws/event/KeyEvent.h>
-#include <aro/aws/event/ActionEvent.h>
-#include <aro/aws/event/ActionListener.h>
+#include <aro/core.hpp>
+#include <aro/aws/Insets.hpp>
+#include <aro/cui/CSTextBox.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/cui/border/LineBorder.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
+#include <aro/aws/event/ActionEvent.hpp>
+#include <aro/aws/event/ActionListener.hpp>
 
 namespace aro {
 

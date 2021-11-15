@@ -1,7 +1,7 @@
 #include <bitset>
 #include <cstdlib>
-#include <aro/core/Float.h>
-#include <aro/core/utils/Foreach.h>
+#include <aro/core/Float.hpp>
+#include <aro/core/utils/Foreach.hpp>
 
 namespace aro {
 

@@ -1,8 +1,8 @@
-#include <aro/aws/Insets.h>
-#include <aro/aws/event/KeyEvent.h>
-#include <aro/aws/event/ItemEvent.h>
-#include <aro/aws/event/ActionEvent.h>
-#include <aro/cui/CSAbstractButton.h>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
+#include <aro/aws/event/ItemEvent.hpp>
+#include <aro/aws/event/ActionEvent.hpp>
+#include <aro/cui/CSAbstractButton.hpp>
 
 namespace aro {
 

@@ -1,6 +1,6 @@
 #include <sstream>
 #include <iostream>
-#include <aro/core/utils/Foreach.h>
+#include <aro/core/utils/Foreach.hpp>
 
 // for use with stringstream
 using namespace std;

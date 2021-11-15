@@ -1,7 +1,7 @@
-#include <aro/aws/Insets.h>
-#include <aro/aws/Graphics.h>
-#include <aro/aws/Component.h>
-#include <aro/cui/border/TitleBorder.h>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/cui/border/TitleBorder.hpp>
 
 namespace aro {
 

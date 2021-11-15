@@ -1,7 +1,7 @@
-#include <aro/aws/Insets.h>
-#include <aro/aws/Graphics.h>
-#include <aro/cui/CSComponent.h>
-#include <aro/aws/event/KeyEvent.h>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/cui/CSComponent.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
 
 namespace aro {
 

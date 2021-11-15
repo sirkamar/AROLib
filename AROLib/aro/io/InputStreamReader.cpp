@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/io/InputStreamReader.h>
+#include <aro/core.hpp>
+#include <aro/io/InputStreamReader.hpp>
 
 namespace aro {
 

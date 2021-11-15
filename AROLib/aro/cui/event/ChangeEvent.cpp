@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/cui/event/ChangeEvent.h>
+#include <aro/core.hpp>
+#include <aro/cui/event/ChangeEvent.hpp>
 
 namespace aro {
 

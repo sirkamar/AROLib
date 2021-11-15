@@ -1,8 +1,8 @@
 #include <bitset>
 #include <cstdlib>
-#include <aro/core/Long.h>
-#include <aro/core/Double.h>
-#include <aro/core/utils/Foreach.h>
+#include <aro/core/Long.hpp>
+#include <aro/core/Double.hpp>
+#include <aro/core/utils/Foreach.hpp>
 
 namespace aro {
 

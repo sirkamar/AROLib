@@ -1,8 +1,8 @@
-#include <aro/core.h>
-#include <aro/aws/Graphics.h>
-#include <aro/aws/event/KeyEvent.h>
-#include <aro/cui/event/TextEvent.h>
-#include <aro/cui/CSTextComponent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
+#include <aro/cui/event/TextEvent.hpp>
+#include <aro/cui/CSTextComponent.hpp>
 
 namespace aro {
 

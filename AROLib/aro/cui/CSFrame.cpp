@@ -1,5 +1,5 @@
-#include <aro/cui/CSFrame.h>
-#include <aro/aws/event/WindowEvent.h>
+#include <aro/cui/CSFrame.hpp>
+#include <aro/aws/event/WindowEvent.hpp>
 
 namespace aro {
 

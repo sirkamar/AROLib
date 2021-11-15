@@ -1,5 +1,5 @@
-#include <aro/util/Event.h>
-#include <aro/core/Array2D-impl.h>
+#include <aro/util/Event.hpp>
+#include <aro/core/Array2D-impl.hpp>
 
 namespace aro {
 

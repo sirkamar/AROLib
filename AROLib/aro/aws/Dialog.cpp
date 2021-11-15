@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/Dialog.h>
+#include <aro/core.hpp>
+#include <aro/aws/Dialog.hpp>
 
 namespace aro {
 

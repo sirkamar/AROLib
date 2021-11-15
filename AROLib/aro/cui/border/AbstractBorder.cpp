@@ -1,9 +1,9 @@
-#include <aro/core.h>
-#include <aro/aws/Insets.h>
-#include <aro/aws/Rectangle.h>
-#include <aro/aws/Component.h>
-#include <aro/cui/ConsoleGraphics.h>
-#include <aro/cui/border/AbstractBorder.h>
+#include <aro/core.hpp>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/Rectangle.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/cui/ConsoleGraphics.hpp>
+#include <aro/cui/border/AbstractBorder.hpp>
 
 namespace aro {
 

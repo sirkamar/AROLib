@@ -1,14 +1,14 @@
-#include <aro/core.h>
-#include <aro/aws/Point.h>
-#include <aro/aws/Frame.h>
-#include <aro/aws/Dialog.h>
-#include <aro/aws/Window.h>
-#include <aro/aws/Component.h>
-#include <aro/aws/Container.h>
-#include <aro/aws/Rectangle.h>
-#include <aro/aws/FocusPolicy.h>
-#include <aro/aws/FocusManager.h>
-#include <aro/aws/event/all.h>
+#include <aro/core.hpp>
+#include <aro/aws/Point.hpp>
+#include <aro/aws/Frame.hpp>
+#include <aro/aws/Dialog.hpp>
+#include <aro/aws/Window.hpp>
+#include <aro/aws/Component.hpp>
+#include <aro/aws/Container.hpp>
+#include <aro/aws/Rectangle.hpp>
+#include <aro/aws/FocusPolicy.hpp>
+#include <aro/aws/FocusManager.hpp>
+#include <aro/aws/event/all.hpp>
 
 namespace aro {
 

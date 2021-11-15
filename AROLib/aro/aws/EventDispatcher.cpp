@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/aws/EventQueue.h>
-#include <aro/aws/EventDispatcher.h>
+#include <aro/core.hpp>
+#include <aro/aws/EventQueue.hpp>
+#include <aro/aws/EventDispatcher.hpp>
 
 namespace aro {
 

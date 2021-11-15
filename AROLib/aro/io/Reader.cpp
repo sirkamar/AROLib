@@ -1,7 +1,7 @@
-#include <aro/core.h>
-#include <aro/core/Math.h>
-#include <aro/io/Reader.h>
-#include <aro/io/IOException.h>
+#include <aro/core.hpp>
+#include <aro/core/Math.hpp>
+#include <aro/io/Reader.hpp>
+#include <aro/io/IOException.hpp>
 
 namespace aro {
 

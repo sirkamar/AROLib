@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/cui/CSPasswordBox.h>
+#include <aro/core.hpp>
+#include <aro/cui/CSPasswordBox.hpp>
 
 namespace aro {
 

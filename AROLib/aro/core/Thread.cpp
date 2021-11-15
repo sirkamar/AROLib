@@ -1,10 +1,10 @@
 #include <exception>
-#include <aro/core/System.h>
-//#include <aro/core/Thread.h>
-#include <aro/core/utils/Foreach.h>
-#include <aro/core/StateException.h>
-#include <aro/core/ThreadException.h>
-#include <aro/core/utils/ThreadLibrary.h>
+#include <aro/core/System.hpp>
+//#include <aro/core/Thread.hpp>
+#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/StateException.hpp>
+#include <aro/core/ThreadException.hpp>
+#include <aro/core/utils/ThreadLibrary.hpp>
 
 namespace aro {
 

@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/io/InputStream.h>
-#include <aro/io/IOException.h>
+#include <aro/core.hpp>
+#include <aro/io/InputStream.hpp>
+#include <aro/io/IOException.hpp>
 
 namespace aro {
 

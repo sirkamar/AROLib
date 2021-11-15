@@ -1,6 +1,6 @@
-#include <aro/core.h>
-#include <aro/aws/event/WindowEvent.h>
-#include <aro/aws/event/WindowAdapter.h>
+#include <aro/core.hpp>
+#include <aro/aws/event/WindowEvent.hpp>
+#include <aro/aws/event/WindowAdapter.hpp>
 
 namespace aro {
 

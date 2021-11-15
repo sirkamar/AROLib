@@ -1,4 +1,4 @@
-#include <aro/cui/CSWindow.h>
+#include <aro/cui/CSWindow.hpp>
 
 namespace aro {
 

@@ -1,5 +1,5 @@
-#include <aro/core/utils/Foreach.h>
-#include <aro/core/StringBuilder.h>
+#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/StringBuilder.hpp>
 
 namespace aro {
 

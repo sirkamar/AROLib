@@ -1,12 +1,12 @@
 #include <iostream>
-#include <aro/core.h>
-#include <aro/io/all.h>
-#include <aro/util/all.h>
-#include <aro/aws/all.h>
-#include <aro/aws/event/all.h>
-#include <aro/cui/border/TitleBorder.h>
-#include <aro/cui/all.h>
-#include "AROTester.h"
+#include <aro/core.hpp>
+#include <aro/io/all.hpp>
+#include <aro/util/all.hpp>
+#include <aro/aws/all.hpp>
+#include <aro/aws/event/all.hpp>
+#include <aro/cui/border/TitleBorder.hpp>
+#include <aro/cui/all.hpp>
+#include "AROTester.hpp"
 
 //#pragma comment( lib, "arolib.dll" )
 

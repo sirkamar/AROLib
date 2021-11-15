@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/io/StringWriter.h>
+#include <aro/core.hpp>
+#include <aro/io/StringWriter.hpp>
 
 namespace aro {
 

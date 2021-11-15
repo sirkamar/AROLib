@@ -1,10 +1,10 @@
-#include <aro/core.h>
-#include <aro/aws/Insets.h>
-#include <aro/aws/Window.h>
-#include <aro/aws/Graphics.h>
-#include <aro/aws/Container.h>
-#include <aro/util/ArrayList.h>
-#include <aro/aws/event/KeyEvent.h>
+#include <aro/core.hpp>
+#include <aro/aws/Insets.hpp>
+#include <aro/aws/Window.hpp>
+#include <aro/aws/Graphics.hpp>
+#include <aro/aws/Container.hpp>
+#include <aro/util/ArrayList.hpp>
+#include <aro/aws/event/KeyEvent.hpp>
 
 namespace aro {
 

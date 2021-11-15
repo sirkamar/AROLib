@@ -1,4 +1,4 @@
-#include <aro/util/StringTokenizer.h>
+#include <aro/util/StringTokenizer.hpp>
 
 namespace aro {
 

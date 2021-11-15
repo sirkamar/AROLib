@@ -81,664 +81,664 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="aro\aws\all.h">
+    <ClInclude Include="aro\aws\all.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\AWSEvent.h">
+    <ClInclude Include="aro\aws\AWSEvent.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\AxisLayout.h">
+    <ClInclude Include="aro\aws\AxisLayout.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Component.h">
+    <ClInclude Include="aro\aws\Component.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Container.h">
+    <ClInclude Include="aro\aws\Container.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\DeckLayout.h">
+    <ClInclude Include="aro\aws\DeckLayout.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\DefaultFocusManager.h">
+    <ClInclude Include="aro\aws\DefaultFocusManager.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\DefaultFocusPolicy.h">
+    <ClInclude Include="aro\aws\DefaultFocusPolicy.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Dialog.h">
+    <ClInclude Include="aro\aws\Dialog.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Dimension.h">
+    <ClInclude Include="aro\aws\Dimension.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\EventDispatcher.h">
+    <ClInclude Include="aro\aws\EventDispatcher.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\EventQueue.h">
+    <ClInclude Include="aro\aws\EventQueue.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\FocusManager.h">
+    <ClInclude Include="aro\aws\FocusManager.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\FocusPolicy.h">
+    <ClInclude Include="aro\aws\FocusPolicy.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Frame.h">
+    <ClInclude Include="aro\aws\Frame.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Graphics.h">
+    <ClInclude Include="aro\aws\Graphics.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\GraphLayout.h">
+    <ClInclude Include="aro\aws\GraphLayout.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Insets.h">
+    <ClInclude Include="aro\aws\Insets.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\KeyStroke.h">
+    <ClInclude Include="aro\aws\KeyStroke.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Layout.h">
+    <ClInclude Include="aro\aws\Layout.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\ListenerList.h">
+    <ClInclude Include="aro\aws\ListenerList.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Point.h">
+    <ClInclude Include="aro\aws\Point.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Rectangle.h">
+    <ClInclude Include="aro\aws\Rectangle.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Selectable.h">
+    <ClInclude Include="aro\aws\Selectable.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\TideLayout.h">
+    <ClInclude Include="aro\aws\TideLayout.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\Window.h">
+    <ClInclude Include="aro\aws\Window.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\ZoneLayout.h">
+    <ClInclude Include="aro\aws\ZoneLayout.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\ActionEvent.h">
+    <ClInclude Include="aro\aws\event\ActionEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\ActionListener.h">
+    <ClInclude Include="aro\aws\event\ActionListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\all.h">
+    <ClInclude Include="aro\aws\event\all.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\ComponentEvent.h">
+    <ClInclude Include="aro\aws\event\ComponentEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\ComponentListener.h">
+    <ClInclude Include="aro\aws\event\ComponentListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\FocusAdapter.h">
+    <ClInclude Include="aro\aws\event\FocusAdapter.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\FocusCausedEvent.h">
+    <ClInclude Include="aro\aws\event\FocusCausedEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\FocusEvent.h">
+    <ClInclude Include="aro\aws\event\FocusEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\FocusListener.h">
+    <ClInclude Include="aro\aws\event\FocusListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\InputEvent.h">
+    <ClInclude Include="aro\aws\event\InputEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\ItemEvent.h">
+    <ClInclude Include="aro\aws\event\ItemEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\ItemListener.h">
+    <ClInclude Include="aro\aws\event\ItemListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\KeyAdapter.h">
+    <ClInclude Include="aro\aws\event\KeyAdapter.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\KeyEvent.h">
+    <ClInclude Include="aro\aws\event\KeyEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\KeyListener.h">
+    <ClInclude Include="aro\aws\event\KeyListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\PaintEvent.h">
+    <ClInclude Include="aro\aws\event\PaintEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\PropertyEvent.h">
+    <ClInclude Include="aro\aws\event\PropertyEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\PropertyListener.h">
+    <ClInclude Include="aro\aws\event\PropertyListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\SelectionEvent.h">
+    <ClInclude Include="aro\aws\event\SelectionEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\SelectionListener.h">
+    <ClInclude Include="aro\aws\event\SelectionListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\StateEvent.h">
+    <ClInclude Include="aro\aws\event\StateEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\StateListener.h">
+    <ClInclude Include="aro\aws\event\StateListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\WindowAdapter.h">
+    <ClInclude Include="aro\aws\event\WindowAdapter.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\WindowEvent.h">
+    <ClInclude Include="aro\aws\event\WindowEvent.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\WindowFocusListener.h">
+    <ClInclude Include="aro\aws\event\WindowFocusListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\event\WindowListener.h">
+    <ClInclude Include="aro\aws\event\WindowListener.hpp">
       <Filter>Header Files\aro\aws\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Array2D.h">
+    <ClInclude Include="aro\core\Array2D.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Array2D-impl.h">
+    <ClInclude Include="aro\core\Array2D-impl.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Base.h">
+    <ClInclude Include="aro\core\Base.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Bool.h">
+    <ClInclude Include="aro\core\Bool.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Boolean.h">
+    <ClInclude Include="aro\core\Boolean.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\CastException.h">
+    <ClInclude Include="aro\core\CastException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Char.h">
+    <ClInclude Include="aro\core\Char.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Character.h">
+    <ClInclude Include="aro\core\Character.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Comparable.h">
+    <ClInclude Include="aro\core\Comparable.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Decimal.h">
+    <ClInclude Include="aro\core\Decimal.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Double.h">
+    <ClInclude Include="aro\core\Double.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Exception.h">
+    <ClInclude Include="aro\core\Exception.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Float.h">
+    <ClInclude Include="aro\core\Float.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\IndexException.h">
+    <ClInclude Include="aro\core\IndexException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Int.h">
+    <ClInclude Include="aro\core\Int.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Integer.h">
+    <ClInclude Include="aro\core\Integer.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Interface.h">
+    <ClInclude Include="aro\core\Interface.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Iterable.h">
+    <ClInclude Include="aro\core\Iterable.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Long.h">
+    <ClInclude Include="aro\core\Long.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Math.h">
+    <ClInclude Include="aro\core\Math.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\NullException.h">
+    <ClInclude Include="aro\core\NullException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Number.h">
+    <ClInclude Include="aro\core\Number.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Object.h">
+    <ClInclude Include="aro\core\Object.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Runnable.h">
+    <ClInclude Include="aro\core\Runnable.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Short.h">
+    <ClInclude Include="aro\core\Short.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\StateException.h">
+    <ClInclude Include="aro\core\StateException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\String.h">
+    <ClInclude Include="aro\core\String.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\StringBuffer.h">
+    <ClInclude Include="aro\core\StringBuffer.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\StringBuilder.h">
+    <ClInclude Include="aro\core\StringBuilder.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\System.h">
+    <ClInclude Include="aro\core\System.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Thread.h">
+    <ClInclude Include="aro\core\Thread.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\ThreadException.h">
+    <ClInclude Include="aro\core\ThreadException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\UnsupportedException.h">
+    <ClInclude Include="aro\core\UnsupportedException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Weak.h">
+    <ClInclude Include="aro\core\Weak.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Weak-impl.h">
+    <ClInclude Include="aro\core\Weak-impl.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\all.h">
+    <ClInclude Include="aro\io\all.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\BufferedInputStream.h">
+    <ClInclude Include="aro\io\BufferedInputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\BufferedOutputStream.h">
+    <ClInclude Include="aro\io\BufferedOutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\BufferedReader.h">
+    <ClInclude Include="aro\io\BufferedReader.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\BufferedWriter.h">
+    <ClInclude Include="aro\io\BufferedWriter.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\ByteArrayInputStream.h">
+    <ClInclude Include="aro\io\ByteArrayInputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\ByteArrayOutputStream.h">
+    <ClInclude Include="aro\io\ByteArrayOutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\DataInputStream.h">
+    <ClInclude Include="aro\io\DataInputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\DataOutputStream.h">
+    <ClInclude Include="aro\io\DataOutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FileInputStream.h">
+    <ClInclude Include="aro\io\FileInputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FileOutputStream.h">
+    <ClInclude Include="aro\io\FileOutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FileReader.h">
+    <ClInclude Include="aro\io\FileReader.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FileWriter.h">
+    <ClInclude Include="aro\io\FileWriter.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FilterInputStream.h">
+    <ClInclude Include="aro\io\FilterInputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FilterOutputStream.h">
+    <ClInclude Include="aro\io\FilterOutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FilterReader.h">
+    <ClInclude Include="aro\io\FilterReader.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\FilterWriter.h">
+    <ClInclude Include="aro\io\FilterWriter.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\InputStream.h">
+    <ClInclude Include="aro\io\InputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\InputStreamReader.h">
+    <ClInclude Include="aro\io\InputStreamReader.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\IOException.h">
+    <ClInclude Include="aro\io\IOException.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\ObjectInputStream.h">
+    <ClInclude Include="aro\io\ObjectInputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\ObjectOutputStream.h">
+    <ClInclude Include="aro\io\ObjectOutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\OutputStream.h">
+    <ClInclude Include="aro\io\OutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\OutputStreamWriter.h">
+    <ClInclude Include="aro\io\OutputStreamWriter.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\PrintStream.h">
+    <ClInclude Include="aro\io\PrintStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\PrintWriter.h">
+    <ClInclude Include="aro\io\PrintWriter.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\Reader.h">
+    <ClInclude Include="aro\io\Reader.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\StringInputStream.h">
+    <ClInclude Include="aro\io\StringInputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\StringOutputStream.h">
+    <ClInclude Include="aro\io\StringOutputStream.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\StringReader.h">
+    <ClInclude Include="aro\io\StringReader.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\StringWriter.h">
+    <ClInclude Include="aro\io\StringWriter.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\Writer.h">
+    <ClInclude Include="aro\io\Writer.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\AbstractCollection.h">
+    <ClInclude Include="aro\util\AbstractCollection.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\AbstractList.h">
+    <ClInclude Include="aro\util\AbstractList.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\AbstractMap.h">
+    <ClInclude Include="aro\util\AbstractMap.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\AbstractSet.h">
+    <ClInclude Include="aro\util\AbstractSet.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\all.h">
+    <ClInclude Include="aro\util\all.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\ArrayList.h">
+    <ClInclude Include="aro\util\ArrayList.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Collection.h">
+    <ClInclude Include="aro\util\Collection.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Comparator.h">
+    <ClInclude Include="aro\util\Comparator.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Date.h">
+    <ClInclude Include="aro\util\Date.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Event.h">
+    <ClInclude Include="aro\util\Event.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\HashMap.h">
+    <ClInclude Include="aro\util\HashMap.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\HashSet.h">
+    <ClInclude Include="aro\util\HashSet.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Iterator.h">
+    <ClInclude Include="aro\util\Iterator.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\LinkedList.h">
+    <ClInclude Include="aro\util\LinkedList.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\List.h">
+    <ClInclude Include="aro\util\List.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Listener.h">
+    <ClInclude Include="aro\util\Listener.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\ListIterator.h">
+    <ClInclude Include="aro\util\ListIterator.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Map.h">
+    <ClInclude Include="aro\util\Map.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Set.h">
+    <ClInclude Include="aro\util\Set.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Stack.h">
+    <ClInclude Include="aro\util\Stack.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\StringTokenizer.h">
+    <ClInclude Include="aro\util\StringTokenizer.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Time.h">
+    <ClInclude Include="aro\util\Time.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Timestamp.h">
+    <ClInclude Include="aro\util\Timestamp.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\Vector.h">
+    <ClInclude Include="aro\util\Vector.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\util\WeakHashMap.h">
+    <ClInclude Include="aro\util\WeakHashMap.hpp">
       <Filter>Header Files\aro\util</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\Console.h">
+    <ClInclude Include="aro\cui\Console.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\ConsoleGraphics.h">
+    <ClInclude Include="aro\cui\ConsoleGraphics.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core.h">
+    <ClInclude Include="aro\core.hpp">
       <Filter>Header Files\aro</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\Arm.h">
+    <ClInclude Include="aro\core\arm\Arm.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\Cfg.h">
+    <ClInclude Include="aro\core\arm\Cfg.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\Ref.h">
+    <ClInclude Include="aro\core\arm\Ref.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\Ref-impl.h">
+    <ClInclude Include="aro\core\arm\Ref-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefArray.h">
+    <ClInclude Include="aro\core\arm\RefArray.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefArray-impl.h">
+    <ClInclude Include="aro\core\arm\RefArray-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefComp.h">
+    <ClInclude Include="aro\core\arm\RefComp.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefNull.h">
+    <ClInclude Include="aro\core\arm\RefNull.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefObject.h">
+    <ClInclude Include="aro\core\arm\RefObject.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefObject-impl.h">
+    <ClInclude Include="aro\core\arm\RefObject-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefStream.h">
+    <ClInclude Include="aro\core\arm\RefStream.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefString.h">
+    <ClInclude Include="aro\core\arm\RefString.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefWeak.h">
+    <ClInclude Include="aro\core\arm\RefWeak.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefWeak-impl.h">
+    <ClInclude Include="aro\core\arm\RefWeak-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Null.h">
+    <ClInclude Include="aro\core\Null.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\Streamable.h">
+    <ClInclude Include="aro\io\Streamable.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\Foreach.h">
+    <ClInclude Include="aro\core\utils\Foreach.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\Utils.h">
+    <ClInclude Include="aro\core\utils\Utils.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\ArrayBase.h">
+    <ClInclude Include="aro\core\ArrayBase.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\ArrayBase-impl.h">
+    <ClInclude Include="aro\core\ArrayBase-impl.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Array.h">
+    <ClInclude Include="aro\core\Array.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Array-impl.h">
+    <ClInclude Include="aro\core\Array-impl.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefArrayBase.h">
+    <ClInclude Include="aro\core\arm\RefArrayBase.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefArrayBase-impl.h">
+    <ClInclude Include="aro\core\arm\RefArrayBase-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\Types.h">
+    <ClInclude Include="aro\core\arm\Types.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\ArgumentException.h">
+    <ClInclude Include="aro\core\ArgumentException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\ObjectFactory.h">
+    <ClInclude Include="aro\core\utils\ObjectFactory.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\all.h">
+    <ClInclude Include="aro\cui\all.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\aws\SystemMonitor.h">
+    <ClInclude Include="aro\aws\SystemMonitor.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefIterator.h">
+    <ClInclude Include="aro\core\arm\RefIterator.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefIterator-impl.h">
+    <ClInclude Include="aro\core\arm\RefIterator-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\Streamable-impl.h">
+    <ClInclude Include="aro\io\Streamable-impl.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\io\StreamBase.h">
+    <ClInclude Include="aro\io\StreamBase.hpp">
       <Filter>Header Files\aro\io</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\ThreadLibrary.h">
+    <ClInclude Include="aro\core\utils\ThreadLibrary.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSButton.h">
+    <ClInclude Include="aro\cui\CSButton.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSCheckBox.h">
+    <ClInclude Include="aro\cui\CSCheckBox.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSDialog.h">
+    <ClInclude Include="aro\cui\CSDialog.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSFrame.h">
+    <ClInclude Include="aro\cui\CSFrame.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSPanel.h">
+    <ClInclude Include="aro\cui\CSPanel.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSWindow.h">
+    <ClInclude Include="aro\cui\CSWindow.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSLabel.h">
+    <ClInclude Include="aro\cui\CSLabel.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSPasswordBox.h">
+    <ClInclude Include="aro\cui\CSPasswordBox.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSProgressBar.h">
+    <ClInclude Include="aro\cui\CSProgressBar.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSRadioButton.h">
+    <ClInclude Include="aro\cui\CSRadioButton.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSTextArea.h">
+    <ClInclude Include="aro\cui\CSTextArea.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSTextBox.h">
+    <ClInclude Include="aro\cui\CSTextBox.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSComponent.h">
+    <ClInclude Include="aro\cui\CSComponent.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\AbstractBorder.h">
+    <ClInclude Include="aro\cui\border\AbstractBorder.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\Border.h">
+    <ClInclude Include="aro\cui\border\Border.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\DualBorder.h">
+    <ClInclude Include="aro\cui\border\DualBorder.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\EmptyBorder.h">
+    <ClInclude Include="aro\cui\border\EmptyBorder.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\FrameBorder.h">
+    <ClInclude Include="aro\cui\border\FrameBorder.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\LineBorder.h">
+    <ClInclude Include="aro\cui\border\LineBorder.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\StarBorder.h">
+    <ClInclude Include="aro\cui\border\StarBorder.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\TitleBorder.h">
+    <ClInclude Include="aro\cui\border\TitleBorder.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\event\TextEvent.h">
+    <ClInclude Include="aro\cui\event\TextEvent.hpp">
       <Filter>Header Files\aro\cui\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\event\TextListener.h">
+    <ClInclude Include="aro\cui\event\TextListener.hpp">
       <Filter>Header Files\aro\cui\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSTextComponent.h">
+    <ClInclude Include="aro\cui\CSTextComponent.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\event\all.h">
+    <ClInclude Include="aro\cui\event\all.hpp">
       <Filter>Header Files\aro\cui\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\border\all.h">
+    <ClInclude Include="aro\cui\border\all.hpp">
       <Filter>Header Files\aro\cui\border</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\event\ChangeListener.h">
+    <ClInclude Include="aro\cui\event\ChangeListener.hpp">
       <Filter>Header Files\aro\cui\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\event\ChangeEvent.h">
+    <ClInclude Include="aro\cui\event\ChangeEvent.hpp">
       <Filter>Header Files\aro\cui\event</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CUIConstants.h">
+    <ClInclude Include="aro\cui\CUIConstants.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSAbstractButton.h">
+    <ClInclude Include="aro\cui\CSAbstractButton.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSList.h">
+    <ClInclude Include="aro\cui\CSList.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\cui\CSButtonGroup.h">
+    <ClInclude Include="aro\cui\CSButtonGroup.hpp">
       <Filter>Header Files\aro\cui</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\SyncLock.h">
+    <ClInclude Include="aro\core\arm\SyncLock.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefTU.h">
+    <ClInclude Include="aro\core\arm\RefTU.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefTU-impl.h">
+    <ClInclude Include="aro\core\arm\RefTU-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Cloneable.h">
+    <ClInclude Include="aro\core\Cloneable.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Cloneable-impl.h">
+    <ClInclude Include="aro\core\Cloneable-impl.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\ObjectFactory-impl.h">
+    <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
   </ItemGroup>
