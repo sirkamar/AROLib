@@ -34,7 +34,7 @@ Constants defined within the ARO Library are declared using all uppercase letter
 
 
 ## Namespaces
-All of the classes and functions in the ARO Library are categorized into groups, i.e. namespaces, to make them easier to identify and to import. Each namespace correspond to a folder on the file system. A namespace folder contains the header files for all the classes and utilities categorized as belonging to a namespace. All users of the library are required to **_“#include <aro/core.hpp>”_** in their header or source files which will automatically include all the class files and related utilities belonging to aro namespace (referred to as the ARO Core).
+All of the classes and functions in the ARO Library are categorized into groups, i.e. namespaces, to make them easier to identify and to import. Each namespace corresponds to a folder on the file system. A namespace folder contains the header files for all the classes and utilities categorized as belonging to that namespace. All users of the library are required to add **_“#include <aro/core.hpp>”_** in their header or source files which will automatically include all the class files and related utilities belonging to aro namespace (referred to as the ARO Core).
 
 Header files in the library are typically named for the classes they contain or the utility they implement. Therefore, for example, one would use the statement **_“#include <aro/util/date.hpp>”_** to import the class `aro::util::Date` into a header or source file, or alternatively use the statement **_“#include <aro/util/all.hpp>”_** to import all the header files belonging to the `aro::util` namespace.
 
@@ -122,7 +122,7 @@ The ARM facility also provides a garbage collector that is responsible for the a
 
 
 ## Reference Type Redefinition
-The ARO Library has adopted a simplified convention for handling reference types by using the C++ **typedef** or **using** syntax. For Example, given a class `CustomClass` the following convention is used:
+The ARO Library has adopted a simplified convention for handling reference types by using the C++ **typedef** or **using** directive. For Example, given a class `CustomClass` the following convention is used:
 
 ```cpp
 1.  #include “MyInterface.h”
@@ -166,7 +166,7 @@ if(obj == nullref)
     System::out->println(“obj is null”);
 ```
 
-As the throwing of a `NullException` is typically a runtime error caused by a flaw in program design rather than as a normal expected possible error condition, it is only listed in the <u>@throws</u> section of function specifications in this API document where it may be explicitly thrown by the function.
+As the throwing of a `NullException` is typically a runtime error caused by a flaw in program design rather than as a normal expected possible error condition, it is only listed in the <u>@throws</u> section of function specifications in the wiki for the repository where it may be explicitly thrown by that function.
 
 
 ## The “this” Reference
@@ -178,7 +178,7 @@ System::out->println(thisref->toString());
 
 
 ## Array References
-The ARO Library has defined the Object-derived template class `Array`, which represents a single dimension array. An `Array` class instance may be of any value type (e.g. `int`, `float`, etc.) or reference type (e.g. `Object`, `String`, etc.), or even an array of array references. The ARO Library has, however, also defined the template class `Array2D` to embody 2 Dimensional arrays (i.e. array of arrays). Note that, similarly to that done for value types, the type parameter for `Array` and `Array2D` instances should be the class or interface name, not the reference type name. For example:
+The ARO Library has defined the `Object`-derived template class `Array`, which represents a single dimension array. An `Array` class instance may be of any value type (e.g. `int`, `float`, etc.) or reference type (e.g. `Object`, `String`, etc.), or even an array of array references. The ARO Library has, however, also defined the template class `Array2D` to embody 2 Dimensional arrays (i.e. array of arrays). Note that, similarly to that done for value types, the type parameter for `Array` and `Array2D` instances should be the class or interface name, not the reference type name. For example:
 
 ```cpp
 Ref<Array<Object>> objArr = new Array<Object>(5); // never use “Array<RObject>”
@@ -219,7 +219,7 @@ It should be noted that, performance wise, it is more efficient to initialize `S
 
 
 ## Operators and References
-For the purpose of convenience, the ARO Library has defined several operator functions that are designed to work in collaboration with references in general or with references to specific types. The following operator functions have been defined.
+For the purpose of convenience, the ARO Library has defined several operator functions that are designed to work in collaboration with references in general or with references to specific types. The following operator functions have been defined:
 
 Operator/Operation | Description | Applies to Reference Types
 ------------------ | ----------- | --------------------------
@@ -235,7 +235,7 @@ type_cast | Type Casting | All
 type_of | Type Checking | All
 sync_lock | Multi-threading Synchronization | All
 
-Note:
+Note:<br/>
 The equality and inequality operators do not actually compare the objects being pointed to by the references but rather the system memory address (i.e. pointer value) of the objects being referenced. As such the operators are used to determine whether or not two references are pointing to the same exact object. See also `Object::equals(RObject)`.
 
 
@@ -281,7 +281,7 @@ RWeak<Object> wobj = obj; // or may use direct reference assignment
 
 obj = nullref; // clear the active reference
 
-if((obj = wobj->get()) != nullref) // get() returns active reference if not deleted
+if((obj = wobj->get()) != nullref) // get() returns an active reference if not deleted
    System::out->println(obj->toString());
 ```
 
