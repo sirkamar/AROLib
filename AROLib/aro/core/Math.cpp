@@ -10,8 +10,6 @@ vbool Math::isSeeded = false;
 const vdouble Math::E = 2.7182818284590452354;
 const vdouble Math::PI = 3.14159265358979323846;
 
-Math::Math() { }
-
 vint Math::abs(vint x)
 {
    return (x<0) ? -x : x;
@@ -36,11 +34,6 @@ vlong Math::abs(vlong x)
 vfloat Math::abs(vfloat x)
 {
    return (x<0) ? -x : x;
-}
-
-vint Math::round(vfloat x)
-{
-   return (vint)floor(x + 0.5);
 }
 
 vfloat Math::ceil(vfloat x)
@@ -83,9 +76,9 @@ vdouble Math::exp(vdouble x)
    return ::exp(x);
 }
 
-vlong Math::round(vdouble x)
+vdouble Math::round(vdouble x)
 {
-   return (vlong)floor(x + 0.5);
+   return round(x, 0);
 }
 
 vint Math::factorial(vint x)
@@ -169,6 +162,13 @@ vdouble Math::maximum(vdouble x, vdouble y)
 vdouble Math::minimum(vdouble x, vdouble y)
 {
    return x < y ? x : y;
+}
+
+vdouble Math::round(vdouble x, vint precision)
+{
+   const vdouble multiplier = std::pow(10.0, precision);
+   
+   return std::round(x * multiplier) / multiplier;
 }
 
 } /* namespace aro */

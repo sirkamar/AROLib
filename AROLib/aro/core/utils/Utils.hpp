@@ -148,7 +148,7 @@ class __FinalEx__ : public Exception {};
 //      or whether or not it was handled. If an excepton wasn't
 //      handled prior to the ex_finally block it will be passed
 //      along after the ex_finally block is executed.
-//
+//      
 //      The ex_finally block must be the last or the only block
 //      within the ex_catch block.
 //      

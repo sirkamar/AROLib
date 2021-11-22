@@ -1,30 +1,23 @@
 #ifndef CORE_STRINGBUILDER_H
 #define CORE_STRINGBUILDER_H
 
-#include <aro/core/String.hpp>
+#include <aro/core/MutableString.hpp>
 
 namespace aro {
 
 class StringBuilder;
 typedef Ref<StringBuilder> RStringBuilder;
 
-class StringBuilder : public Object
+class StringBuilder : public MutableString, public io::Streamable<StringBuilder>
 {
    public:
       StringBuilder();
       StringBuilder(RString str);
       StringBuilder(vint capacity);
       
-      vint length();
-      vint capacity();
-      
-      void trimToSize();
       RString toString();
-      vchar charAt(vint index);
+
       RStringBuilder reverse();
-      void ensureCapacity(vint min);
-      void setLength(vint newLength);
-      void setCharAt(vint index, vchar ch);
       
       RStringBuilder append(char i);
       RStringBuilder append(vint i);
@@ -66,17 +59,10 @@ class StringBuilder : public Object
       
       vint lastIndexOf(RString str);
       vint lastIndexOf(RString str, vint fromIndex);
-      
-      RString substring(vint start);
-      RString substring(vint start, vint end);
-      
-      void getChars(vint srcBegin, vint srcEnd, RArray<vchar> dst, vint dstBegin);
    
    protected:
-      vint count;
-      RArray<vchar> value;
-      
-      void expandCapacity(vint min);
+      void readObject(io::RObjectInputStream is);
+      void writeObject(io::RObjectOutputStream os);
 };
 
 } /* namespace aro */

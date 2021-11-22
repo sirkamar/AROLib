@@ -18,7 +18,6 @@ class Math final : public Object
       static vdouble random(); // Returns a random vdouble in the range 0.0 to 0.9
       static vlong abs(vlong x); // Returns the absoute value of a number |x|
       static vfloat abs(vfloat x); // Returns the absoute value of a number |x|
-      static vint round(vfloat x); // Rounds a number to its nearest whole number
       static vfloat ceil(vfloat x); // Returns the next highest whole number
       static vfloat floor(vfloat x); // Returns the next lowest whole number
       static vdouble abs(vdouble x); // Returns the absoute value of a number |x|
@@ -27,12 +26,12 @@ class Math final : public Object
       static vdouble tan(vdouble x); // Returns the trigonometric tangent of a number
       static vdouble log(vdouble x); // Returns the natural log of a number
       static vdouble exp(vdouble x); // Returns the value of e to a number
-      static vlong round(vdouble x); // Rounds a number to its nearest whole number
       static vint factorial(vint x); // Returns the factorial of a given integer
       static vdouble sqrt(vdouble x); // Returns the square root of a number
       static vdouble ceil(vdouble x); // Returns the next highest whole number
       static vdouble floor(vdouble x); // Returns the next lowest whole number
       static vdouble log10(vdouble x); // Returns the log base 10 of a number
+      static vdouble round(vdouble x); // Rounds a number to a whole number
       static vint maximum(vint x,vint y); // Returns the largest of two integers
       static vint minimum(vint x,vint y); // Returns the smallest of two integers
       static vlong maximum(vlong x,vlong y); // Returns the largest of two integers
@@ -44,11 +43,12 @@ class Math final : public Object
       static vfloat minimum(vfloat x,vfloat y); // Returns the smallest of two doubles
       static vdouble maximum(vdouble x,vdouble y); // Returns the lagest of two doubles
       static vdouble minimum(vdouble x,vdouble y); // Returns the smallest of two doubles
-   
+      static vdouble round(vdouble x, vint precision); // Rounds a number to the specified decimal precision
+
    private:
       static vbool isSeeded; // if srand has been seed
       
-      Math(); // Prevents Instantiation
+      Math() = default; // Prevents Instantiation
 };
 
 } /* namespace aro */

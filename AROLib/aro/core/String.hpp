@@ -115,6 +115,7 @@ class String final : public Object, public Comparable<String>, public Cloneable<
    
    friend class Ref<String>;
    friend class Ref<Object>;
+   friend class StringBuffer;
    friend class Ref<Comparable<String>>;
    friend class Ref<io::Streamable<String>>;
 };

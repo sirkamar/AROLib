@@ -741,6 +741,9 @@
     <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
+    <ClInclude Include="aro\core\MutableString.hpp">
+      <Filter>Header Files\aro\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aro\aws\AWSEvent.cpp">
@@ -1171,6 +1174,9 @@
     </ClCompile>
     <ClCompile Include="aro\core\arm\Types.cpp">
       <Filter>Source Files\aro\core\arm</Filter>
+    </ClCompile>
+    <ClCompile Include="aro\core\MutableString.cpp">
+      <Filter>Source Files\aro\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

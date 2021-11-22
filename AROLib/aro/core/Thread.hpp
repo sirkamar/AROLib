@@ -26,15 +26,16 @@ class Thread : public Object, public Runnable
       Thread(RRunnable aThread);
       Thread(RRunnable aThread, RString name);
 
-      virtual void setPriority(vint priority);
-      virtual void setName(RString name);
-      virtual vint getPriority();
+      virtual void setPriority(vint priority) final;
+      virtual void setName(RString name) final;
+      virtual vbool isJoinable() final;
+      virtual vint getPriority() final;
+      virtual RString getName() final;
+      virtual vbool isRunning() final;
+      virtual void join() final;
+
       virtual RString toString();
-      virtual vbool isJoinable();
-      virtual vbool isRunning();
-      virtual RString getName();
       virtual void start();
-      virtual void join();
       virtual void run();
    
    protected:

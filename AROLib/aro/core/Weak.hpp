@@ -7,7 +7,7 @@
 *             |                                                               *
 * Version     | 1.0                                                           *
 *             |                                                               *
-* Description | The template class RWeak represents a weak reference to an    *
+* Description | The template class Weak represents a weak reference to an    *
 *             | Object. The reference is consider to be weak because the link *
 *             | to an Object is not tracked by the Garbage Collector and thus *
 *             | will not prevent the automatic deletion of memory allocated to*

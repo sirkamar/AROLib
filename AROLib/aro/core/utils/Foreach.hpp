@@ -55,14 +55,23 @@ inline void for_each(RArray<vdouble> array, std::function<void(vdouble)> execute
       execute(array[n]);
 }
 
-template <class T, class U>
+template <class T>
+inline void for_each(RIterable<T> collection, std::function<void(Ref<T>)> execute)
+{
+   util::RIterator<T> iterator = collection->iterator();
+   
+   while(iterator->hasNext())
+      execute(iterator->next());
+}
+
+/*template <class T, class U>
 inline void for_each(T collection, U execute)
 {
    auto iterator = collection->iterator();
 
    while(iterator->hasNext())
       execute(iterator->next());
-}
+}*/
 
 } /* namespace aro */
 

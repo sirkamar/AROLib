@@ -220,6 +220,7 @@
     <ClInclude Include="aro\core\Iterable.hpp" />
     <ClInclude Include="aro\core\Long.hpp" />
     <ClInclude Include="aro\core\Math.hpp" />
+    <ClInclude Include="aro\core\MutableString.hpp" />
     <ClInclude Include="aro\core\utils\ObjectFactory.hpp" />
     <ClInclude Include="aro\core\Null.hpp" />
     <ClInclude Include="aro\core\NullException.hpp" />
@@ -404,6 +405,7 @@
     <ClCompile Include="aro\core\Long.cpp" />
     <ClCompile Include="aro\core\Main.cpp" />
     <ClCompile Include="aro\core\Math.cpp" />
+    <ClCompile Include="aro\core\MutableString.cpp" />
     <ClCompile Include="aro\core\utils\ObjectFactory.cpp" />
     <ClCompile Include="aro\core\NullException.cpp" />
     <ClCompile Include="aro\core\Number.cpp" />

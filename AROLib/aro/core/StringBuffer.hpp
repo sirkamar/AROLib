@@ -1,14 +1,14 @@
 #ifndef CORE_STRINGBUFFER_H
 #define CORE_STRINGBUFFER_H
 
-#include <aro/core/StringBuilder.hpp>
+#include <aro/core/MutableString.hpp>
 
 namespace aro {
 
 class StringBuffer;
 typedef Ref<StringBuffer> RStringBuffer;
 
-class StringBuffer : public StringBuilder
+class StringBuffer : public MutableString, public io::Streamable<StringBuffer>
 {
    public:
       StringBuffer();
@@ -71,6 +71,13 @@ class StringBuffer : public StringBuilder
       RString substring(vint start, vint end);
       
       void getChars(vint srcBegin, vint srcEnd, RArray<vchar> dst, vint dstBegin);
+   
+   protected:
+      void readObject(io::RObjectInputStream is);
+      void writeObject(io::RObjectOutputStream os);
+   
+   private:
+      RArray<vchar> toStringCache;
 };
 
 } /* namespace aro */
