@@ -83,6 +83,7 @@ void System::SysGC::run()
 
 System::SysIn::SysIn()
 {
+   value = 0;
    isTemp = false;
 }
 
@@ -110,6 +111,7 @@ vint System::SysIn::available()
 System::SysOut::SysOut(vbool isErr)
    :out(isErr ? std::wcerr : std::wcout)
 {
+   value = 0;
    isTemp = false;
 }
 

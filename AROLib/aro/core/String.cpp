@@ -12,10 +12,9 @@ const RArray<vchar> String::empty = new Array<vchar>(0);
 const RString String::EMPTY_STRING = new String("");
 
 String::String()
+	:String(EMPTY_STRING)
 {
-   hash = 0;
-   initCString();
-   value = empty;
+   
 }
 
 String::String(RString str)
@@ -32,7 +31,6 @@ String::String(RArray<vchar> arr)
 }
 
 String::String(RArray<vchar> arr, vint offset, vint count)
-   :String()
 {
 	if (count < 0)
 		ex_throw new IndexException("String Index out of Bounds: ", count);

@@ -18,48 +18,6 @@ using RLinkedList = Ref<LinkedList<T>>;
 template <class T>
 class LinkedList : public AbstractList<T>
 {
-   // forward declaration
-   class Node;
-   typedef Ref<Node> RNode;
-   
-   // Node class for list elements
-   class Node : public Object
-   {
-      public:
-         Ref<T> data; // node's data
-         RNode next; // next node
-         RNode prev; // previous node
-         
-         Node(Ref<T>,RNode,RNode); // node constructor
-   };
-   
-   // A ListIterator for class list
-   class ListItr : public Object, public ListIterator<T>
-   {
-      public:
-         ListItr(RLinkedList<T>,vint); // ListItr constructor
-         
-         Ref<T> next(); // returns the next element in list
-         void add(Ref<T>); // adds an object after the last returned
-         void set(Ref<T>); // replaces the data value of last returned
-         Ref<T> previous(); // returns the previous element in list
-         void remove(); // removes last element returned by nextElement()
-         vbool hasNext(); // checks if not at end of list
-         vint nextIndex(); // returns the index of the next element
-         vbool hasPrevious(); // checks if not at start of list
-         vint previousIndex(); // returns the index of the previous element
-      
-      private:
-         vint nxtIndex; // index of next node to be returned
-         RNode cur, nxt; // the last, and next node returned
-         RLinkedList<T> list; // reference to the backing list
-         vint expectedModCount; // No. of list changes before iterator creation
-         
-         void checkForComodification(); // determines if backing list has changed
-   };
-   
-   friend class ListItr;
-   
    public:
       LinkedList();
       
@@ -92,6 +50,21 @@ class LinkedList : public AbstractList<T>
       virtual vbool addAll(vint index, RCollection<T> c); // adds all the elements of c to list at index
    
    protected:
+      // forward declaration
+      class Node;
+      typedef Ref<Node> RNode;
+
+      // Node class for list elements
+      class Node : public Object
+      {
+      public:
+         Ref<T> data; // node's data
+         RNode next; // next node
+         RNode prev; // previous node
+
+         Node(Ref<T>, RNode, RNode); // node constructor
+      };
+
       Ref<T> unlink(RNode); // removes a node
       virtual void finalize(); // list finalizer
    
@@ -106,6 +79,33 @@ class LinkedList : public AbstractList<T>
       Ref<T> unlinkLast(RNode); // removes node at tail
       Ref<T> unlinkFirst(RNode); // removes node at head
       RNode linkBefore(Ref<T>, RNode); // insets before node
+
+      // A ListIterator for class list
+      class ListItr : public Object, public ListIterator<T>
+      {
+         public:
+            ListItr(RLinkedList<T>, vint); // ListItr constructor
+
+            Ref<T> next(); // returns the next element in list
+            void add(Ref<T>); // adds an object after the last returned
+            void set(Ref<T>); // replaces the data value of last returned
+            Ref<T> previous(); // returns the previous element in list
+            void remove(); // removes last element returned by nextElement()
+            vbool hasNext(); // checks if not at end of list
+            vint nextIndex(); // returns the index of the next element
+            vbool hasPrevious(); // checks if not at start of list
+            vint previousIndex(); // returns the index of the previous element
+         
+         private:
+            vint nxtIndex; // index of next node to be returned
+            RNode cur, nxt; // the last, and next node returned
+            RLinkedList<T> list; // reference to the backing list
+            vint expectedModCount; // No. of list changes before iterator creation
+
+            void checkForComodification(); // determines if backing list has changed
+      };
+
+   friend class ListItr;
 };
 
 
