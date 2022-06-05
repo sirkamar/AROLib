@@ -8,7 +8,9 @@ namespace aro {
 namespace aws {
 
 class AWSEvent;
+class FocusManager;
 typedef Ref<AWSEvent> RAWSEvent;
+
 
 class AWSEvent : public util::Event
 {

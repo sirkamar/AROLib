@@ -1,7 +1,7 @@
 #ifndef CORE_ARRAY2D_IMPL_H
 #define CORE_ARRAY2D_IMPL_H
 
-#include <aro/core/Array-impl.hpp>
+#include <aro/core/impl/Array-impl.hpp>
 #include <aro/core/Array2D.hpp>
 
 namespace aro {

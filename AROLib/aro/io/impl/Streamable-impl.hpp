@@ -1,7 +1,7 @@
 #ifndef IO_STREAMABLE_IMPL_H
 #define IO_STREAMABLE_IMPL_H
 
-#include <aro/core/Cloneable-impl.hpp>
+#include <aro/core/impl/Cloneable-impl.hpp>
 
 namespace aro {
 

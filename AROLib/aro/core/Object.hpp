@@ -1,7 +1,7 @@
 #ifndef CORE_OBJECT_H
 #define CORE_OBJECT_H
 
-#include <aro/core/Base.hpp>
+#include <aro/core/arm/Base.hpp>
 
 namespace aro {
 

@@ -91,12 +91,16 @@ RStringBuilder StringBuilder::append(RString str)
 
 RStringBuilder StringBuilder::append(const char* str)
 {
-   return append(String::valueOf(str));
+   MutableString::append(String::valueOf(str));
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::append(const vchar* str)
 {
-   return append(String::valueOf(str));
+   MutableString::append(String::valueOf(str));
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::append(RArray<vchar> arr)
@@ -108,7 +112,9 @@ RStringBuilder StringBuilder::append(RArray<vchar> arr)
 
 RStringBuilder StringBuilder::append(RStringBuilder sb)
 {
-   MutableString::append(RMutableString(sb));
+   RMutableString rms = sb;
+   
+   MutableString::append(rms);
    
    return thisref;
 }
@@ -122,47 +128,65 @@ RStringBuilder StringBuilder::append(RArray<vchar> arr, vint offset, vint len)
 
 RStringBuilder StringBuilder::insert(vint index, char c)
 {
-   return insert(index, String::valueOf(c));
+   MutableString::insert(index, c);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, vint i)
 {
-   return insert(index, String::valueOf(i));
+   MutableString::insert(index, i);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, vbool b)
 {
-   return insert(index, String::valueOf(b));
+   MutableString::insert(index, b);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, vchar c)
 {
-   return insert(index, String::valueOf(c));
+   MutableString::insert(index, c);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, vlong l)
 {
-   return insert(index, String::valueOf(l));
+   MutableString::insert(index, l);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, vfloat f)
 {
-   return insert(index, String::valueOf(f));
+   MutableString::insert(index, f);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, vshort s)
 {
-   return insert(index, String::valueOf(s));
+   MutableString::insert(index, s);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, vdouble d)
 {
-   return insert(index, String::valueOf(d));
+   MutableString::insert(index, d);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, RObject obj)
 {
-   return insert(index, String::valueOf(obj));
+   MutableString::insert(index, obj);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, RString str)
@@ -174,12 +198,16 @@ RStringBuilder StringBuilder::insert(vint index, RString str)
 
 RStringBuilder StringBuilder::insert(vint index, const char* str)
 {
-   return insert(index, String::valueOf(str));
+   MutableString::insert(index, str);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, const vchar* str)
 {
-   return insert(index, String::valueOf(str));
+   MutableString::insert(index, str);
+   
+   return thisref;
 }
 
 RStringBuilder StringBuilder::insert(vint index, RArray<vchar> arr)

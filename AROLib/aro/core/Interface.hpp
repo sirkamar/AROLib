@@ -1,7 +1,7 @@
 #ifndef CORE_INTERFACE_H
 #define CORE_INTERFACE_H
 
-#include <aro/core/Base.hpp>
+#include <aro/core/arm/Base.hpp>
 
 namespace aro {
 

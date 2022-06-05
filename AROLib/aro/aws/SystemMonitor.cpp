@@ -76,7 +76,7 @@ const RArray<SystemMonitor::Key> SystemMonitor::KEYS =
    new Key(VK_LCONTROL), new Key(VK_RCONTROL), new Key(VK_LMENU), new Key(VK_RMENU),
    new Key(VK_OEM_1,';',':'), new Key(VK_OEM_PLUS,'=','+'), new Key(VK_OEM_COMMA,',','<'), new Key(VK_OEM_MINUS,'-','_'),
    new Key(VK_OEM_PERIOD,'.','>'), new Key(VK_OEM_2,'/','?'), new Key(VK_OEM_3,'`','~'), new Key(VK_OEM_4,'[','{'),
-   new Key(VK_OEM_5,'\\','|'), new Key(VK_OEM_6,'/','?'), new Key(VK_OEM_7,'\'','"'), new Key(VK_OEM_6,'/','?')
+   new Key(VK_OEM_5,'\\','|'), new Key(VK_OEM_6,']','}'), new Key(VK_OEM_7,'\'','"'), new Key(VK_OEM_8,'/','?')
 };
 
 // now created by the aws::Window upon displaying first window
@@ -100,7 +100,7 @@ void SystemMonitor::run()
    vint location = 0;
    vint modifiers = 0;
    
-   while(isRunning())
+   while(monitorRunning)
    {
       //for_each(RKey key, KEYS)
       for (int n=0; n<KEYS->length; n++)
@@ -277,10 +277,10 @@ void SystemMonitor::run()
    }
 }
 
-vbool SystemMonitor::isRunning()
-{
-   return monitorRunning;
-}
+//vbool SystemMonitor::isRunning()
+//{
+//   return monitorRunning;
+//}
 
 void SystemMonitor::finalize()
 {

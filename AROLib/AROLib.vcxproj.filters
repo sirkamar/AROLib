@@ -79,6 +79,12 @@
     <Filter Include="Source Files\aro\cui\event">
       <UniqueIdentifier>{1b44b9b4-6c8c-4196-8b8d-37be3be52239}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\aro\core\impl">
+      <UniqueIdentifier>{bd04cdba-1d4f-4264-b8e1-d411b10943e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\aro\io\impl">
+      <UniqueIdentifier>{f4976e08-9d89-4f53-bc6c-c1f4429ea1b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aro\aws\all.hpp">
@@ -243,12 +249,6 @@
     <ClInclude Include="aro\core\Array2D.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Array2D-impl.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\Base.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
     <ClInclude Include="aro\core\Bool.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
@@ -340,9 +340,6 @@
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Weak.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\Weak-impl.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\io\all.hpp">
@@ -582,13 +579,7 @@
     <ClInclude Include="aro\core\ArrayBase.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\ArrayBase-impl.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
     <ClInclude Include="aro\core\Array.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\Array-impl.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\RefArrayBase.hpp">
@@ -617,9 +608,6 @@
     </ClInclude>
     <ClInclude Include="aro\core\arm\RefIterator-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\io\Streamable-impl.hpp">
-      <Filter>Header Files\aro\io</Filter>
     </ClInclude>
     <ClInclude Include="aro\io\StreamBase.hpp">
       <Filter>Header Files\aro\io</Filter>
@@ -735,14 +723,32 @@
     <ClInclude Include="aro\core\Cloneable.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Cloneable-impl.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
     <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\MutableString.hpp">
       <Filter>Header Files\aro\core</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\impl\Array2D-impl.hpp">
+      <Filter>Header Files\aro\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\impl\ArrayBase-impl.hpp">
+      <Filter>Header Files\aro\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\impl\Array-impl.hpp">
+      <Filter>Header Files\aro\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\impl\Cloneable-impl.hpp">
+      <Filter>Header Files\aro\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\impl\Weak-impl.hpp">
+      <Filter>Header Files\aro\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\arm\Base.hpp">
+      <Filter>Header Files\aro\core\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\io\impl\Streamable-impl.hpp">
+      <Filter>Header Files\aro\io\impl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -894,9 +900,6 @@
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
     <ClCompile Include="aro\core\Long.cpp">
-      <Filter>Source Files\aro\core</Filter>
-    </ClCompile>
-    <ClCompile Include="aro\core\Main.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
     <ClCompile Include="aro\core\Math.cpp">
@@ -1176,6 +1179,9 @@
       <Filter>Source Files\aro\core\arm</Filter>
     </ClCompile>
     <ClCompile Include="aro\core\MutableString.cpp">
+      <Filter>Source Files\aro\core</Filter>
+    </ClCompile>
+    <ClCompile Include="aro\core\Main.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
   </ItemGroup>

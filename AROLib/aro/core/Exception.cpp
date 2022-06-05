@@ -17,8 +17,10 @@ Exception::Exception()
 }
 
 Exception::Exception(RString msg)
-   :message(msg)
 {
+   message = msg;
+   
+   // generate stack trace
    char* stackTrace[MAXSHORT];
    HANDLE process = GetCurrentProcess();
    SymInitialize(process, NULL, TRUE);
@@ -34,7 +36,7 @@ Exception::Exception(RString msg)
    line->SizeOfStruct = sizeof(IMAGEHLP_LINE64);
 
    RString newLine = "\n";
-   RStringBuilder sb = new StringBuffer(newLine);
+   RStringBuilder sb = new StringBuilder(newLine);
    for(vint n=0; n<frames-(USHORT)12; n++)
    {
       SymFromAddr(process, (DWORD64)stackTrace[n], NULL, symbol);
@@ -43,13 +45,14 @@ Exception::Exception(RString msg)
       if(symName->endsWith("Exception") || symName->indexOf("Ref<") >= 0)
          continue;
       
-      sb->append("at " + symName);
+      sb->append("at ")->append(symName);
       
       if(SymGetLineFromAddr64(process, (DWORD64)stackTrace[n], &displacement, line))
       {
          RString fileName = line->FileName;
          
-         sb->append("("+fileName->substring(fileName->lastIndexOf('\\')+1) + ":" + String::valueOf((vlong)line->LineNumber) + ")");
+         sb->append("(")->append(fileName->substring(fileName->lastIndexOf('\\') + 1))
+             ->append(":")->append(String::valueOf((vlong)line->LineNumber))->append(")");
       }
       
       sb->append(newLine);

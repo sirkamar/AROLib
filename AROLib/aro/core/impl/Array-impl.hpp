@@ -2,7 +2,7 @@
 #define CORE_ARRAY_IMPL_H
 
 //#include <aro/core/Array.hpp>
-#include <aro/core/ArrayBase-impl.hpp>
+#include <aro/core/impl/ArrayBase-impl.hpp>
 
 namespace aro {
 

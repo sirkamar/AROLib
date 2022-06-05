@@ -211,7 +211,10 @@ void Ref<T>::clear()
 }
 
 template <template <class> class U, class V>
-typename RefItr<V> getRefItr(const Ref<U<V>>& itr) { return class RefItr<V>(itr); }
+typename RefItr<V> getRefItr(const Ref<U<V>>& itr)
+{
+    return class RefItr<V>(itr);
+}
 
 template <class T>
 auto Ref<T>::begin() const

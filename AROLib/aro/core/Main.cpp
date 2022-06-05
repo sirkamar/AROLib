@@ -1,7 +1,7 @@
 #include <exception>
 #include <aro/core/System.hpp>
-#include <aro/core/Array2D-impl.hpp>
 #include <aro/core/StateException.hpp>
+#include <aro/core/impl/Array2D-impl.hpp>
 #include <aro/core/utils/ThreadLibrary.hpp>
 
 namespace aro {
@@ -61,11 +61,11 @@ int main(int argc, char **argv)
    
    Ref<MainThread> mainThread = new MainThread(args);
    
-   // start main thread and wait for it to finish
+   // start main thread
    mainThread->start();
-   
-   //mainThread->join();
 
+   // wait for mainThread and all other threads to finish
+   // (program terminates when this function exits)
    ThreadLibrary::waitForAllThreads();
    
    if(mainThread->getError())

@@ -2,7 +2,7 @@
 #define CORE_FOREACH_H
 
 #include <aro/core/Iterable.hpp>
-#include <aro/core/Array2D-impl.hpp>
+#include <aro/core/impl/Array2D-impl.hpp>
 
 namespace aro {
 

@@ -1,7 +1,7 @@
 #ifndef CORE_CLONEABLE_IMPL_H
 #define CORE_CLONEABLE_IMPL_H
 
-#include <aro/core/Weak-impl.hpp>
+#include <aro/core/impl/Weak-impl.hpp>
 #include <aro/core/utils/ObjectFactory-impl.hpp>
 
 namespace aro {

@@ -28,19 +28,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CTP|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -174,6 +174,7 @@
     <ClInclude Include="aro\core.hpp" />
     <ClInclude Include="aro\core\ArgumentException.hpp" />
     <ClInclude Include="aro\core\arm\Arm.hpp" />
+    <ClInclude Include="aro\core\arm\Base.hpp" />
     <ClInclude Include="aro\core\arm\Cfg.hpp" />
     <ClInclude Include="aro\core\arm\Ref.hpp" />
     <ClInclude Include="aro\core\arm\Ref-impl.hpp" />
@@ -197,22 +198,22 @@
     <ClInclude Include="aro\core\Array.hpp" />
     <ClInclude Include="aro\core\ArrayBase.hpp" />
     <ClInclude Include="aro\core\Array2D.hpp" />
-    <ClInclude Include="aro\core\Array2D-impl.hpp" />
-    <ClInclude Include="aro\core\ArrayBase-impl.hpp" />
-    <ClInclude Include="aro\core\Array-impl.hpp" />
-    <ClInclude Include="aro\core\Base.hpp" />
     <ClInclude Include="aro\core\Bool.hpp" />
     <ClInclude Include="aro\core\Boolean.hpp" />
     <ClInclude Include="aro\core\CastException.hpp" />
     <ClInclude Include="aro\core\Char.hpp" />
     <ClInclude Include="aro\core\Character.hpp" />
     <ClInclude Include="aro\core\Cloneable.hpp" />
-    <ClInclude Include="aro\core\Cloneable-impl.hpp" />
     <ClInclude Include="aro\core\Comparable.hpp" />
     <ClInclude Include="aro\core\Decimal.hpp" />
     <ClInclude Include="aro\core\Double.hpp" />
     <ClInclude Include="aro\core\Exception.hpp" />
     <ClInclude Include="aro\core\Float.hpp" />
+    <ClInclude Include="aro\core\impl\Array-impl.hpp" />
+    <ClInclude Include="aro\core\impl\Array2D-impl.hpp" />
+    <ClInclude Include="aro\core\impl\ArrayBase-impl.hpp" />
+    <ClInclude Include="aro\core\impl\Cloneable-impl.hpp" />
+    <ClInclude Include="aro\core\impl\Weak-impl.hpp" />
     <ClInclude Include="aro\core\IndexException.hpp" />
     <ClInclude Include="aro\core\Int.hpp" />
     <ClInclude Include="aro\core\Integer.hpp" />
@@ -242,7 +243,6 @@
     <ClInclude Include="aro\core\utils\ThreadLibrary.hpp" />
     <ClInclude Include="aro\core\utils\Utils.hpp" />
     <ClInclude Include="aro\core\Weak.hpp" />
-    <ClInclude Include="aro\core\Weak-impl.hpp" />
     <ClInclude Include="aro\cui\CSAbstractButton.hpp" />
     <ClInclude Include="aro\cui\all.hpp" />
     <ClInclude Include="aro\cui\border\AbstractBorder.hpp" />
@@ -295,6 +295,7 @@
     <ClInclude Include="aro\io\FilterOutputStream.hpp" />
     <ClInclude Include="aro\io\FilterReader.hpp" />
     <ClInclude Include="aro\io\FilterWriter.hpp" />
+    <ClInclude Include="aro\io\impl\Streamable-impl.hpp" />
     <ClInclude Include="aro\io\InputStream.hpp" />
     <ClInclude Include="aro\io\InputStreamReader.hpp" />
     <ClInclude Include="aro\io\IOException.hpp" />
@@ -307,7 +308,6 @@
     <ClInclude Include="aro\io\Reader.hpp" />
     <ClInclude Include="aro\io\StreamBase.hpp" />
     <ClInclude Include="aro\io\Streamable.hpp" />
-    <ClInclude Include="aro\io\Streamable-impl.hpp" />
     <ClInclude Include="aro\io\StringInputStream.hpp" />
     <ClInclude Include="aro\io\StringOutputStream.hpp" />
     <ClInclude Include="aro\io\StringReader.hpp" />

@@ -1,10 +1,10 @@
-/********************************************************************
-*           Advanced References & Objects (ARO) Library             *
-*********************************************************************
-* Includes all of the core classes & utilities clients need to use  *
+/**********************************************************************
+*           Advanced References & Objects (ARO) Library               *
+***********************************************************************
+* Includes all of the core classes & utility functions needed to use  *
 * the library. All non-core class files should include <aro/core.hpp> *
-* into their source or header files.                                *
-********************************************************************/
+* into their header or source files.                                  *
+**********************************************************************/
 #ifndef ARO_CORE_H
 #define ARO_CORE_H
 

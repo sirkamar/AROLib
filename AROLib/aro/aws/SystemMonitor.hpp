@@ -17,7 +17,7 @@ class SystemMonitor final : public Thread
    typedef Ref<Key> RKey;
    
    public:
-      vbool isRunning();
+      //vbool isRunning();
       virtual void run();
    
    protected:
