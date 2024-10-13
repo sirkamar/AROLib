@@ -293,7 +293,7 @@ if(type_of<String>(obj))
 The template class `Weak` is provided by the ARO Core as a wrapper object that maintains a weak reference to an instance of a class. The reference is considered as “weak” because it is not monitored by the _ARM facility_. Therefore, the existence of a weak reference to an object will not prevent the automatic deletion of memory allocated to that object. This is useful especially as it relates to preventing the circular reference problem (where two or more objects each hold active references to the other and therefore prevents any of them from being finalized and deleted even where none of them is ever otherwise actively referenced again within the program). In such instances it is more appropriate to use weak references.
 
 ```cpp
-RObject obj = new Object();
+RObject obj = new Object(); // create active reference
 
 // RWeak<Object> wobj = new Weak<Object>(obj); // may use constructor
 RWeak<Object> wobj = obj; // or may use direct reference assignment
@@ -365,7 +365,7 @@ The `ex_try` keyword marks the beginning of an exception monitoring block.
 
 The `ex_throw` operator causes a reference to an exception object to be thrown. An unhandled exception will cause the program (or the currently executing thread) to immediately enter finalization and then terminate.
 
-The `ex_catch` keywork marks the end of the exception monitoring block and the beginning of the exception handling block. 
+The `ex_catch` keyword marks the end of the exception monitoring block and the beginning of the exception handling block. 
 
 An `ex_handle` block must be specified inside of the `ex_catch` block in order to handle a specific exception type (or one of its derived types) otherwise the exception will remain unhandled and will be passed out into to the next enclosing function block. The `ex_handle` operator takes as its parameter the exception class type name. It also implicitly declares a reference variable `ex_var` of the exception class type specified.
 
