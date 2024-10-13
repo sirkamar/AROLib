@@ -23,7 +23,7 @@ typedef Ref<ObjectOutputStream> RObjectOutputStream;
 interface StreamBase : Interface
 {
    protected:
-       virtual vlong getObjectVersion() { return 1L; };
+      virtual vlong getObjectVersion() { return 1L; };
       
       virtual void readObject(RObjectInputStream is)=0;
       

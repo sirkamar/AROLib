@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2027
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AROLib", "AROLib.vcxproj", "{CFFCB27E-C562-40EE-BB0F-384E878BD479}"
 EndProject
@@ -27,16 +27,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96B0F193-5C29-4F8D-BB12-6B7E0BAAA4EA}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://sirkamar.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = AROLib.vcxproj
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = ..\\AROTest\\AROTest.vcxproj
-		SccProjectName2 = ../AROTest
-		SccLocalPath2 = ..\\AROTest
 	EndGlobalSection
 EndGlobal

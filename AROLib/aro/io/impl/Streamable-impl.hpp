@@ -16,12 +16,6 @@ Streamable<T>::Streamable()
 	BUILDER.init();
 }
 
-//template <class T>
-//vlong Streamable<T>::getObjectVersion()
-//{
-//	return 1L;
-//}
-
 template <class T>
 Streamable<T>::Builder::Builder()
 {

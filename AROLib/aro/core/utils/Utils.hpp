@@ -116,8 +116,8 @@ class __FinalEx__ : public Exception {};
 /* Used to implement the ARO Library's exception handling facility */
 #define ARO_EX_TRY          try{
 #define ARO_EX_THROW        throw aro::ExceptionWrapper(__FILE__,__LINE__) =
-#define ARO_EX_CATCH        /*throw RException(new __FinalEx__());*/         \
-                              }catch(RException __aro_ex){                   \
+#define ARO_EX_CATCH        throw RException(new __FinalEx__());             \
+                              }catch(RException& __aro_ex){                  \
                               bool ex_hndle=false,ex_final=false;            \
                               if(type_of<__FinalEx__>(__aro_ex))             \
                               ex_hndle=true;if(ex_hndle)

@@ -225,12 +225,13 @@ Operator/Operation | Description | Applies to Reference Types
 ------------------ | ----------- | --------------------------
 = | Assignment | All
 -> | Member Access | All
-!= | Inequality | All
 == | Equality | All
+!= | Inequality | All
 \+ | Concatenation | String
 += | Concatenate and Assign | String
 [] | Subscript | Array
 for(:) | Collection Iteration | Array and Iterable
+for_each | Customised Collection Iteration |  Array and Iterable
 type_cast | Type Casting | All
 type_of | Type Checking | All
 sync_lock | Multi-threading Synchronization | All
@@ -240,7 +241,7 @@ The equality and inequality operators do not actually compare the objects being 
 
 
 ## Collection Iteration
-For ease of use, the ARO Library has included support for the “range-based for” iteration to allow for simplified traversal over the elements of an `Array`, or an interable collection (i.e. any class that implements the `Iterable` interface), such as `ArrayList`, `LinkedList`, `Vector` or several other collection implementations within the ARO Utilities namespace. Please note: the “range-based for” iteration provides a <u>read-only</u> view of the elements within a collection.
+For ease of use, the ARO Library has included support for the “range-based for” iteration to allow for simplified traversal over the elements of an `Array`, or an iterable collection (i.e. any class that implements the `Iterable` interface), such as `ArrayList`, `LinkedList`, `Vector` or several other collection implementations within the ARO Utilities namespace. Please note: the “range-based for” iteration provides a <u>read-only</u> view of the elements within a collection.
 
 ```cpp
 RArray<int> intArr = {1, 2, 3, 4, 5};
@@ -252,6 +253,24 @@ strVec->add(“A String”);
 strVec->add(“Another”);
 for(RString str : strVec)
    System::out->println(str);
+```
+
+Additionally, the `for_each` operation allows for the execution of a specified function for each element in an array or iterable collection.
+
+```cpp
+void printInt(int num)
+{
+   System::out->println(num);
+}
+
+for_each(intArr, printOut); // calls the printInt function for each item in the array
+
+void printObject(Robject obj)
+{
+   System::out->println(obj->getType() + '[' + obj + ']');
+}
+
+for_each(strVec, printObject); // calls the printObject function for each element in the collection
 ```
 
 
@@ -342,15 +361,19 @@ To handle exceptions that may be thrown within a function, users of the ARO Libr
 33.
 ```
 
+The `ex_try` keyword marks the beginning of an exception monitoring block.
+
 The `ex_throw` operator causes a reference to an exception object to be thrown. An unhandled exception will cause the program (or the currently executing thread) to immediately enter finalization and then terminate.
 
-An `ex_catch` block does not automatically handle exceptions. An `ex_handle` block must be specified inside of the `ex_catch` block in order to handle a specific exception type (or one of its derived types) otherwise the exception will remain unhandled and will be passed out into to the next enclosing function block. The `ex_handle` operator takes as its parameter the exception class type name. It also implicitly declares a reference variable `ex_var` of the exception class type specified.
+The `ex_catch` keywork marks the end of the exception monitoring block and the beginning of the exception handling block. 
 
-The `ex_finally` block doesn't handle exceptions. It is merely a mechanism to allow for carrying out of activities that must occur whether or not an exception occurs, or whether or not it was handled. If an exception wasn't handled prior to the `ex_finally` block it will be passed along after the `ex_finally` block has executed. The `ex_finally` block must be the last or the only block within the `ex_catch` block.
+An `ex_handle` block must be specified inside of the `ex_catch` block in order to handle a specific exception type (or one of its derived types) otherwise the exception will remain unhandled and will be passed out into to the next enclosing function block. The `ex_handle` operator takes as its parameter the exception class type name. It also implicitly declares a reference variable `ex_var` of the exception class type specified.
+
+The `ex_finally` block doesn't handle exceptions. It is merely a mechanism to allow for the carrying out of activities that must occur whether or not an exception occurs, or whether or not it was handled. If an exception wasn't handled prior to the `ex_finally` block it will be passed along after the `ex_finally` block has executed. The `ex_finally` block must be the last or the only block within the `ex_catch` block.
 
 An `ex_rethrow` statement causes an exception being handled to be passed along. The `ex_rethrow` may only be used in an `ex_handle` block; it has no effect in the `ex_finally` block.
 
-The `ex_end` statement marks the end of the exception handling block and must always be specified.
+The `ex_end` keyword marks the end of the exception handling block and must always be specified.
 
 
 ## Data and Object Streaming
@@ -420,7 +443,7 @@ The ARO Library provides support for data and object streaming via its Streaming
 61.	      RObject obj = ins->readObject();
 62.	      ins->close(); // also closes FileInputStream
 63.	
-64.	      System::out->println(obj); //calls obj->toString()
+64.	      System::out->println(obj); // calls obj->toString()
 65.	
 66.	      Ref<StreamObject> rso2 = type_cast<StreamObject>(obj);
 67.	      System::out->println(rso2);

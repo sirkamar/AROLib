@@ -30,8 +30,6 @@ be a pseudo-constructor. */
 template <class T>
 interface Streamable : virtual StreamBase
 {
-   //vlong getObjectVersion(); // default 1L
-   
    void readObject(RObjectInputStream is) = 0;
    
    void writeObject(RObjectOutputStream os) = 0;

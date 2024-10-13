@@ -8,7 +8,14 @@ namespace aro {
 
 ExceptionWrapper::ExceptionWrapper(RString file, vint line)
 {
-   fileName = file->substring(file->lastIndexOf("\\"));
+   vint index = file->lastIndexOf("\\");
+   if (index < 0)
+       index = file->lastIndexOf("/");
+
+   if (index < 0)
+       fileName = file;
+   else
+    fileName = file->substring(index);
    
    lineNo = line;
 }
