@@ -263,9 +263,9 @@ void printInt(int num)
    System::out->println(num);
 }
 
-for_each(intArr, printOut); // calls the printInt function for each item in the array
+for_each(intArr, printInt); // calls the printInt function for each item in the array
 
-void printObject(Robject obj)
+void printObject(RObject obj)
 {
    System::out->println(obj->getType() + '[' + obj + ']');
 }
