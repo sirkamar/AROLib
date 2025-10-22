@@ -41,7 +41,7 @@ Ref<Weak<T>>::Ref(const Ref<T> &tRef)
 }
 
 template <class T>
-Ref<Weak<T>>::Ref(Ref<Weak<T>>&& tRef)
+Ref<Weak<T>>::Ref(Ref<Weak<T>>&& tRef) noexcept
 {
    ref = tRef.ref;
 
@@ -103,7 +103,7 @@ Ref<Weak<T>>& Ref<Weak<T>>::operator=(const Ref<T>& tRef)
 }
 
 template <class T>
-Ref<Weak<T>>& Ref<Weak<T>>::operator=(Ref<Weak<T>>&& wRef)
+Ref<Weak<T>>& Ref<Weak<T>>::operator=(Ref<Weak<T>>&& wRef) noexcept
 {
    if (this != &wRef)
    {

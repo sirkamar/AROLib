@@ -373,6 +373,7 @@
     <ClCompile Include="aro\aws\KeyStroke.cpp" />
     <ClCompile Include="aro\aws\ListenerList.cpp" />
     <ClCompile Include="aro\aws\Point.cpp" />
+    <ClCompile Include="aro\aws\Rectange2D.cpp" />
     <ClCompile Include="aro\aws\Rectangle.cpp" />
     <ClCompile Include="aro\aws\SystemMonitor.cpp" />
     <ClCompile Include="aro\aws\TideLayout.cpp" />

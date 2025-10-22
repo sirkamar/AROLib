@@ -16,7 +16,7 @@ class Dimension : public Object, public io::Streamable<Dimension>
       vint width;
       vint height;
       
-	   Dimension();
+	  Dimension();
       Dimension(RDimension size);
       Dimension(vint width,vint height);
       

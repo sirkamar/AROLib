@@ -19,6 +19,7 @@ interface List : virtual Collection<T>
    // from Collection
    virtual vint size() = 0;
    virtual void clear() = 0;
+   virtual vint hashCode() = 0;
    virtual vbool isEmpty() = 0;
    virtual RArray<T> toArray() = 0;
    virtual vbool add(Ref<T> obj) = 0;

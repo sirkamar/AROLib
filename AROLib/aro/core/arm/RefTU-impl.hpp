@@ -138,7 +138,7 @@ Ref<T<U>>& Ref<T<U>>::operator=(const Ref<V>& vRef)
 }
 
 template <template <typename> class T, class U>
-Ref<T<U>>& Ref<T<U>>::operator=(Ref<T<U>>&& tRef)
+Ref<T<U>>& Ref<T<U>>::operator=(Ref<T<U>>&& tRef) noexcept
 {
    if(this != &tRef)
    {

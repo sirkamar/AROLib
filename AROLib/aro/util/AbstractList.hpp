@@ -68,6 +68,7 @@ class AbstractList : public AbstractCollection<T>, public List<T>
       virtual Ref<T> get(vint index)=0;
       
       virtual void clear();
+      virtual vint hashCode();
       virtual vbool isEmpty();
       virtual RArray<T> toArray();
       virtual vbool add(Ref<T> obj);
@@ -284,6 +285,17 @@ template <class T>
 AbstractList<T>::AbstractList()
 {
    modCount = 0;
+}
+
+template <class T>
+vint AbstractList<T>::hashCode()
+{
+    int hashCode = 1;
+
+    for (Ref<T> t : thisref)
+        hashCode = 31 * hashCode + (t == nullref ? 0 : t->hashCode());
+
+    return hashCode;
 }
 
 template <class T>

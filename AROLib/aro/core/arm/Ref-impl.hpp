@@ -52,7 +52,7 @@ Ref<T>::Ref(Ref<T>&& tRef) noexcept
 }
 
 template <class T> template <class U>
-Ref<T>::Ref(Ref<U>&& uRef)
+Ref<T>::Ref(Ref<U>&& uRef) noexcept
 {
    ref = uRef.ref;
 

@@ -121,7 +121,7 @@ class Ref : public RefBase
       virtual ~Ref();
       Ref(Ref&& tRef) noexcept;
       template <class U>
-      Ref(Ref<U>&& uRef);
+      Ref(Ref<U>&& uRef) noexcept;
       Ref(const Ref& tRef);
       template <class U>
       Ref(const Ref<U>& uRef);

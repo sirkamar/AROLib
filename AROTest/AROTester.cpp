@@ -51,3 +51,48 @@ void AROTester::start_main(RArray<String> args)
    
    System::out->println("end AROTester::start_main");
 }
+
+TestBase::TestBase(vint val)
+{
+    value = val;
+}
+
+RString TestBase::toString()
+{
+    return "Value: " + String::valueOf(value);
+}
+
+void TestBase::readObject(io::RObjectInputStream in)
+{
+    value = in->readInt();
+}
+
+void TestBase::writeObject(io::RObjectOutputStream out)
+{
+    out->writeInt(value);
+}
+
+TestDerived::TestDerived(vint val, vfloat amt)
+    :TestBase(val)
+{
+    amount = amt;
+}
+
+RString TestDerived::toString()
+{
+    return TestBase::toString() + ", Amount: " + String::valueOf(amount);
+}
+
+void TestDerived::readObject(io::RObjectInputStream in)
+{
+    TestBase::readObject(in);
+
+    amount = in->readFloat();
+}
+
+void TestDerived::writeObject(io::RObjectOutputStream out)
+{
+    TestBase::writeObject(out);
+
+    out->writeFloat(amount);
+}

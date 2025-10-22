@@ -475,7 +475,7 @@ RString String::valueOf(vdouble val)
 
 RString String::valueOf(RObject obj)
 {
-	return obj == nullref ? "null" : obj->toString();
+	return obj == nullref ? L"null" : obj->toString();
 }
 
 RString String::valueOf(const char* str)

@@ -750,6 +750,18 @@
     <ClInclude Include="aro\io\impl\Streamable-impl.hpp">
       <Filter>Header Files\aro\io\impl</Filter>
     </ClInclude>
+    <ClInclude Include="aro\aws\Shape2D.h">
+      <Filter>Header Files\aro\aws</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\aws\Shape3D.h">
+      <Filter>Header Files\aro\aws</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\aws\Shape.h">
+      <Filter>Header Files\aro\aws</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\aws\Rectange2D.h">
+      <Filter>Header Files\aro\aws</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aro\aws\AWSEvent.cpp">
@@ -1183,6 +1195,8 @@
     </ClCompile>
     <ClCompile Include="aro\core\Main.cpp">
       <Filter>Source Files\aro\core</Filter>
+    <ClCompile Include="aro\aws\Rectange2D.cpp">
+      <Filter>Source Files\aro\aws</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

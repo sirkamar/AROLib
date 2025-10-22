@@ -27,11 +27,13 @@ interface Map : Interface
    
    virtual vint size()=0;
    virtual void clear()=0;
+   virtual vint hashCode()=0;
    virtual vbool isEmpty()=0;
    virtual RSet<K> keySet()=0;
    virtual RSet<Node> nodeSet()=0;
    virtual RCollection<V> values()=0;
    virtual Ref<V> get(RObject key)=0;
+   virtual vbool equals(RObject obj)=0;
    virtual Ref<V> remove(RObject key)=0;
    virtual void putAll(RMap<K,V> map)=0;
    virtual vbool containsKey(RObject key)=0;

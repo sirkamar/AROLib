@@ -27,7 +27,7 @@ class Ref<T<U>> : public RefBase
       
       //assignment operator
       Ref& operator=(T<U>* tPtr);
-      Ref& operator=(Ref&& tRef);
+      Ref& operator=(Ref&& tRef) noexcept;
       template <class V>
       Ref& operator=(const Ref<V>& vRef);
       //template <class V>

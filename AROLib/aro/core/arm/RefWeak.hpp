@@ -13,7 +13,7 @@ class Ref<Weak<T>> : public RefBase
       virtual ~Ref();
       Ref(Weak<T>* wPtr);
       Ref(const Ref<T>& tRef);
-      Ref(Ref<Weak<T>>&& wRef);
+      Ref(Ref<Weak<T>>&& wRef) noexcept;
       Ref(const Ref<Null>& nRef);
       Ref(const Ref<Weak<T>>& wRef);
 
@@ -21,7 +21,7 @@ class Ref<Weak<T>> : public RefBase
       
       Ref<Weak<T>>& operator=(Weak<T>* tPtr);
       Ref<Weak<T>>& operator=(const Ref<T>& tRef);
-      Ref<Weak<T>>& operator=(Ref<Weak<T>>&& wRef);
+      Ref<Weak<T>>& operator=(Ref<Weak<T>>&& wRef) noexcept;
       Ref<Weak<T>>& operator=(const Ref<Null>& nRef);
       Ref<Weak<T>>& operator=(const Ref<Weak<T>>& wRef);
       
