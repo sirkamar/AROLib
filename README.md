@@ -7,7 +7,8 @@ The Advanced References and Objects Library (AROLib) for C++
 - [What is ARO?](#what-is-aro)
 - [Naming Convention](#naming-convention)
 - [Namespaces](#namespaces)
-- [Value Types and Reference Types](#value-types-and-reference-types)
+- [Data Types](#data-types)
+- [Primitives](#primitives)
 - [Classes and Interfaces](#classes-and-interfaces)
 - [Automatic Reference Management](#automatic-reference-management)
 - [Reference Type Redefinition](#reference-type-redefinition)
@@ -50,11 +51,6 @@ header files for all the classes and utilities categorized as belonging to that 
 required to add **_“#include <aro/core.hpp>”_** in their header or source files which will automatically include
 all the class files and related utilities belonging to aro namespace (referred to as the ARO Core).
 
-ARO Library namespaces correspond to folders on the file system. The folders contain the header files for all the classes
-and utilities categorized as belonging to a namespace. All users of the library are required to
-**_“#include <aro/core.hpp>”_** in their header or source files which will automatically include all the class files and
-related utilities belonging to aro namespace (also called the ARO Core).
-
 Header files in the library are typically named for the classes they contain or the utility they implement. Therefore,
 for example, one would use the statement **_“#include <aro/util/date.hpp>”_** to import the class `aro::util::Date` into
 a header or source file, or alternatively use the statement **_“#include <aro/util/all.hpp>”_** to import all the header
@@ -67,21 +63,36 @@ code snippets and examples.
 
 The wiki for the repository provides a detailed description of each of the library's namespaces and their members.
 
-## Value Types and Reference Types
+## Data Types
 
-Data types in the ARO Library fall into one of two categories: value types or reference types. The value types
-(i.e. `int`, `char`, `bool`, `long`, `short`, `float` and `double`) are copied when making function calls while
-reference types (see below) enable functions to directly access the original object, i.e. instances are passed by reference.
+Data types in the ARO Library fall into one of two categories: value types or reference types. The value types are copied
+when assigned to variables or passed as parameters to functions, i.e. instances are passed by value, while reference types
+enable functions to directly access the original object, i.e. instances are passed by reference.
+
+## Primitives
+
+The ARO Library defines several value (or primitives) types. These are as follows:
+
+Type Name | Type Description | C++ Equivalent | Bit Size
+--------- | ---------------- | -------------- | --------
+vint | Integer | long | 4
+vchar | Character | wchar_t | 2
+vbool | Boolean | bool | 1
+vlong | Long integer | long long | 8
+vshort | Short integer | short | 2
+vfloat | Floating-point | float | 16
+vdouble | Double-precision floating-point | double | 32
+
 
 ## Classes and Interfaces
 
 Reference types in the ARO Library are divided along two separate hierarchies: the class hierarchy and the interface
-hierarchy, each implemented using the **class** and **interface** keywords, respectively. Each represents a different
+hierarchy, each implemented using the **_class_** and **_interface_** keywords, respectively. Each represents a different
 tool in the development process and are both integral to the library’s design.
 
 A class (also called an “object class”) is an implementation of the properties and behaviours (i.e. data members and
 member functions) of a certain type of object. An interface, however, is a general specification of behaviours that
-a set of object classes must implement. All object classes in the library have class `Object` as their direct or
+a set of object classes must implement. All object classes in the ARO Library have class `Object` as their direct or
 indirect base class, while all interfaces inherit from the interface `Interface` directly or otherwise inherit one
 or more existing interfaces.
 
@@ -129,14 +140,20 @@ the syntax illustrated below.
 12. 
 ```
 
-Additionally, all interfaces implicitly include access to the public member functions from class `Object`, as such
-they can be invoked directly from references to interface types.
+Additionally, all interfaces implicitly include virtual access to the public member functions from class `Object`,
+as such they can be invoked directly from references to interface types.
 
 ## Automatic Reference Management
 
-All objects created from the classes contained within or derived from the ARO Library are required to be dynamically
+All object instances created from ARO Library classes or classes derived from them, are required to be dynamically
 instantiated using the C++ **new** operator. As such, the library provides an Automatic Reference Management (ARM)
-facility to simplify memory management and monitoring. The ARM facility defines the template `Ref` that is used to
+facility to simplify memory management and monitoring. The ARM facility includes a garbage collector that is
+responsible for the automatic deallocation of memory when it determines that no active references to an object
+remains within an application. As such users of the ARO Library should _never_ explicitly use the **delete**
+operator on any object instance created from a class defined by or derived from a class in the library. 
+
+
+The ARM facility defines the template `Ref` that is used to
 manage raw pointers from the **new** operator.
 
 ```cpp
@@ -145,7 +162,7 @@ Ref<Object> obj = new Object();
 
 The above statement is read: “reference to an Object, obj, is assigned a new instance of class Object”. The template
 `Ref` represents a reference (i.e. a smart pointer) and allows access to the referenced object by dereferencing it
-using `->`, i.e. the C++ arrow operator. For the purpose of clarity, unless otherwise specified, all instances of
+using the C++ arrow operator, i.e. `->`. For the purpose of clarity, unless otherwise specified, all instances of
 the term “reference” or “references” within this document shall hereinafter be interpreted to mean an instance or
 instances, respectively, of the template `Ref`.
 
@@ -169,10 +186,7 @@ str->toUpperCase();
 rnew<String>("Text")->toUpperCase();
 ```
 
-The ARM facility also provides a garbage collector that is responsible for the automatic deallocation of memory when
-it determines that no active references to an object remains within an application. As such users of the ARO Library
-should _never_ explicitly use the **delete** operator on any class object defined by or derived from a class in
-the library. The ARM facility is included as a part of the ARO Core.
+The ARM facility is included as a part of the ARO Core.
 
 ## Reference Type Redefinition
 
@@ -488,14 +502,15 @@ The `ex_end` keyword marks the end of the exception handling block and must alwa
 ## Data and Object Streaming
 
 The ARO Library provides support for data and object streaming via its Streaming API available in the
-Input/Output namespace (i.e. `aro::io`). The library provides built-in support for streaming of the native
-types `int`, `bool`, `char`, `long`, `short`, `float` and `double`. It also offers streaming capabilities for
-class objects via the `Streamable` template interface. By implementing the `Streamable` interface a class enables
+Input/Output namespace (i.e. `aro::io`). The library provides built-in support for streaming of the primitive
+types `vint`, `vbool`, `vchar`, `vlong`, `vshort`, `vfloat` and `vdouble`. It also offers streaming capabilities
+for class objects via the `Streamable` template interface. By implementing the `Streamable` interface a class enables
 its instances to be written to an `ObjectOutputStream` and read from an `ObjectInputStream`. The ARO Core classes
 `Array`, `Array2D`, `String`, and the wrapper classes `Int`, `Bool`, `Char`, `Long`, `Short`, `Float` and `Double`
-all implement the `Streamable` interface. An attempt to transmit an object for a class that does not implement
-the `Streamable` template interface will result in an `IOException` being thrown indicating that the object
-is not a valid `Streamable` instance.
+all implement the `Streamable` interface.
+
+Note: An attempt to transmit an object instance for a class that does not implement the `Streamable` interface
+will result in an `IOException` being thrown indicating that the object is not a valid `Streamable` instance.
 
 ```cpp
 1. #include <aro/core.hpp>
@@ -580,7 +595,7 @@ is not a valid `Streamable` instance.
 80. 
 ```
 
-All classes that implement the `Streamable` template interface are required to define the `writeObject` and `readObject`
+All classes that implement the `Streamable` interface are required to define the `writeObject` and `readObject`
 member functions. It is recommended that these be made **protected** or **private**. Additionally, all `Streamable`
 classes must provide a no-argument constructor. If a class doesn’t wish for a no-argument constructor to be made
 available to clients, then it may declare it as protected or private, but it must then, of necessity, declare

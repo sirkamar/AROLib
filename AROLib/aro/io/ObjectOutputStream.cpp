@@ -22,8 +22,8 @@ void ObjectOutputStream::writeObject(RObject obj)
    {
       vint typeId = obj->getType()->hashCode();
       
-      if(!type_of<StreamBase>(obj))
-         ex_throw new IOException("Class of object not Streamable");
+      if(ObjectFactory::containsFunc<ObjectFactory::newfunc>(typeId))
+         ex_throw new IOException("Class not Streamable");
       
       RStreamBase rs = type_cast<StreamBase>(obj);
       

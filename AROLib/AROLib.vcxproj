@@ -404,9 +404,9 @@
     <ClCompile Include="aro\core\Int.cpp" />
     <ClCompile Include="aro\core\Integer.cpp" />
     <ClCompile Include="aro\core\Long.cpp" />
-    <ClCompile Include="aro\core\Main.cpp" />
     <ClCompile Include="aro\core\Math.cpp" />
     <ClCompile Include="aro\core\MutableString.cpp" />
+    <ClCompile Include="aro\core\utils\Main.cpp" />
     <ClCompile Include="aro\core\utils\ObjectFactory.cpp" />
     <ClCompile Include="aro\core\NullException.cpp" />
     <ClCompile Include="aro\core\Number.cpp" />
