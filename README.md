@@ -23,6 +23,7 @@ The Advanced References and Objects Library (AROLib) for C++
 - [The Main Function](#the-main-function)
 - [Exception Handling](#exception-handling)
 - [Data and Object Streaming](#data-and-object-streaming)
+- [Multithreading Synchronization](#multithreading-synchronization)
 
 ## What is ARO?
 
@@ -99,9 +100,9 @@ An interface typically includes only “pure virtual” (i.e. abstract) function
 static constant data members. **_Note: It is against the contract of the ARO Library to include concrete
 member functions or non-static non-constant data members in interface declarations._**
 
-The default access type for all member functions and data members declared in an interface is public while, the
-defailt access type for class members is private. As a general rule, all public and protected member functions
-of object classes and interfaces should be declared as virtual functions.
+The default access type for all member functions and data members declared in an interface is **public**, while the
+default access type for class members is **private**. As a general rule, all public and protected member functions
+of object classes and interfaces should be declared as virtual functions to enable polymorphic operations.
 
 The general contract of the ARO Library is that all object classes **_must_** inherit (i.e. extend) a single object
 class but **_may_** inherit (i.e. implement) as many interfaces as is necessary or none at all.
@@ -113,7 +114,7 @@ class but **_may_** inherit (i.e. implement) as many interfaces as is necessary 
 4.  
 5.  interface MyInterface : Interface
 6.  {
-7.    static const int CONST_VARIABLE = 25; // static constant data member
+7.    static const vint CONST_VARIABLE = 25; // static constant data member
 8.    
 9.    virtual void requiredFunction() = 0; // pure virtual (abstract) function
 10. };
@@ -134,7 +135,7 @@ the syntax illustrated below.
 9.      virtual void requiredFunction(); // from MyInterface
 8.    
 9.    private:
-10.     int variableName; // data member
+10.     vint variableName; // data member
 11. };
 12. 
 ```
@@ -243,13 +244,18 @@ if(obj == nullref)
 
 As the throwing of a `NullException` is typically a runtime error caused by a flaw in program design rather than as
 a normal expected possible error condition, it is only listed in the _@throws_ section of function specifications
-in this API document where it may be explicitly thrown by the function.
+in the repository's wiki, where it may be explicitly thrown by the function.
+
+Performance wise, it is helpful to clear references that are no longer needed by assigning them the null reference. This
+enables the ARM facility to more quickly identify objects that are no longer actively referenced and therefore eligible for
+automatic memory deallocation.
 
 ## The “this” Reference
 
 The C++ “this” pointer is an implicit raw pointer to an instance of a class. To avoid situations where the pointer
 could be improperly used, the library defines a macro constant `thisref` that evaluates to a reference to the object
-pointed to by the “this” pointer. It may be used in all contexts where the “this” pointer may be legally used.
+pointed to by the “this” pointer. It may be used in all contexts where the “this” pointer may be legally used. It is
+recommended that users of the ARO Library always use `thisref` instead of the “this” pointer. For example:
 
 ```cpp
 System::out->println(thisref->toString());
@@ -258,7 +264,7 @@ System::out->println(thisref->toString());
 ## Array References
 
 The ARO Library has defined the `Object`-derived template class `Array`, which represents a single dimension array.
-An `Array` class instance may be of any value type (e.g. `int`, `float`, etc.) or reference type (e.g. `Object`,
+An `Array` class instance may be of any value type (e.g. `vint`, `vfloat`, etc.) or reference type (e.g. `Object`,
 `String`, etc.), or even an array of array references. The ARO Library has, however, also defined the template class
 `Array2D` to embody 2 Dimensional arrays (i.e. array of arrays). Note that, similarly to that done for value types,
 the type parameter for `Array` and `Array2D` instances should be the class or interface name, not the reference type name.
@@ -272,17 +278,17 @@ Similar to that done for other classes, `Ref<Array>` and `Ref<Array2D>` have als
 `RArray2D`, respectively. The following examples demonstrate how to declare references to arrays:
 
  ```cpp
-// creates a 5-element array of ints
-RArray<int> intArr = new Array<int>(5); 
+// creates a 5-element array of integers
+RArray<vint> intArr = new Array<vint>(5); 
 
-// creates and initializes a 4-element array of chars
-RArray<char> charArr = {'A', 'B', 'C', 'D'};
+// creates and initializes a 4-element array of characters
+RArray<vchar> charArr = {'A', 'B', 'C', 'D'};
 
 // creates a 10-element array of Object references (i.e. Refs, not actual objects)
 RArray<Object> objArr = new Array<Object>(10);
 
 // creates a 3-row by 2-column (2 dimensional) array of long integers
-RArray2D<long> lngArr = new Array2D<long>(3, 2);
+RArray2D<vlong> lngArr = new Array2D<vlong>(3, 2);
 
 // creates and initializes a mixed-length 2-dimensional array of Strings
 RArray2D<String> strArr = { {"1", "2", "3", "4"}, {"6", "7"}, {"8", "9", "10"} };
@@ -321,7 +327,7 @@ Operator/Operation | Description | Applies to Reference Types
 != | Inequality | All
 \+ | Concatenation | String
 += | Concatenate and Assign | String
-[] | Subscript | Array
+[ ] | Subscript | Array
 for(:) | Collection Iteration | Array and Iterable
 for_each | Customised Collection Iteration |  Array and Iterable
 type_cast | Type Casting | All
@@ -331,19 +337,21 @@ sync_lock | Multi-threading Synchronization | All
 Note:  
 The equality and inequality operators do not actually compare the objects being pointed to by the references but
 rather the system memory address (i.e. pointer value) of the objects being referenced. As such the operators are
-used to determine whether or not two references are pointing to the same exact object. See also `Object::equals(RObject)`.
+used to determine whether or not two references are pointing to the same exact object. This is also the default
+implementation of the `Object::equals(RObject)` member function. Derived classes may, however, override the `equals`
+member function to provide a value-based equality comparison.
 
 ## Collection Iteration
 
-For ease of use, the ARO Library has included support for the “range-based for” iteration to allow for simplified
-traversal over the elements of an `Array`, or an iterable collection (i.e. any class that implements the
-`Iterable` interface), such as `ArrayList`, `LinkedList`, `Vector` or several other collection implementations within
-the ARO Utilities namespace. Please note: the “range-based for” iteration provides a _read-only_ view of the elements
-within a collection.
+For ease of use, the ARO Library has included support for the “range-based for” iteration operation to allow for
+simplified traversal over the elements of an `Array` instance, or an iterable collection (i.e. any class that
+implements the `Iterable` interface), such as `ArrayList`, `LinkedList`, `Vector` or several other collection
+implementations within the ARO Utilities namespace. Please note: the “range-based for” iteration provides a
+_read-only_ view of an Array or an iterable collection.
 
 ```cpp
-RArray<int> intArr = {1, 2, 3, 4, 5};
-for(int n : intArr)
+RArray<vint> intArr = {1, 2, 3, 4, 5};
+for(vint n : intArr)
    System::out->print(n);
 
 util::RVector<String> strVec = new util::Vector<String>(2);
@@ -353,22 +361,23 @@ for(RString str : strVec)
    System::out->println(str);
 ```
 
-Additionally, the `for_each` operation allows for the execution of a specified function for each element in an array or iterable collection.
+Additionally, the `for_each` operation allows for the execution of a specified function for each element in
+an array or iterable collection.
 
 ```cpp
-void printInt(int num)
+void printInt(vint num)
 {
    System::out->println(num);
 }
 
-for_each(intArr, printInt); // calls the printInt function for each item in the array
+for_each(intArr, printInt); // calls the printInt function for each item in the intArr array
 
 void printObject(RObject obj)
 {
    System::out->println(obj->getType() + '[' + obj + ']');
 }
 
-for_each(strVec, printObject); // calls the printObject function for each element in the collection
+for_each(strVec, printObject); // calls the printObject function for each element in the strVec collection
 ```
 
 ## Reference Type Checking and Casting
@@ -379,8 +388,8 @@ be directly assigned to each other.
 
 The ARO Library has provided the `type_cast` operator for explicitly converting between reference types. Reference type
 casting is performed along hierarchies. Attempting to cast a reference to an unrelated type causes a `CastException`
-to be thrown. As such the `type_of` operator is provided to check if a referenced object is of a specific type (or one
-of its derived types). Both operators require that the destination class or type name be given in angle brackets.
+to be thrown. As such the `type_of` operator is provided to check if a referenced object is of a specific type
+(or one of its derived types). The target class or type name be specified in angle brackets.
 
 ```cpp
 RString str = "a string text"; // create a String object
@@ -398,14 +407,14 @@ instance of a class. The reference is considered as “weak” because it is not
 Therefore, the existence of a weak reference to an object will not prevent the automatic deletion of memory allocated
 to that object. This is useful especially as it relates to preventing the circular reference problem (where two or
 more objects each hold active references to the other and therefore prevents any of them from being finalized and
-deleted even where none of them is ever otherwise actively referenced again within the program). In such instances
+deleted, even where none of them is ever otherwise actively referenced again within the program). In such instances
 it is more appropriate to use weak references.
 
 ```cpp
 RObject obj = new Object(); // create active reference
 
-// RWeak<Object> wobj = new Weak<Object>(obj); // may use constructor
-RWeak<Object> wobj = obj; // or may use direct reference assignment
+RWeak<Object> wobj = new Weak<Object>(obj); // may use constructor
+\\ RWeak<Object> wobj = obj; // or may use direct reference assignment
 
 obj = nullref; // clear the active reference
 
@@ -520,7 +529,7 @@ will result in an `IOException` being thrown indicating that the object is not a
 6. class StreamObject : public Object, public io::Streamable<StreamObject>
 7. {
 8.    public:
-9.       StreamObject(int id=0, RString str="", float bal=0.0f)
+9.       StreamObject(vint id=0, RString str="", vfloat bal=0.0f)
 10.       {
 11.          idNo=id;
 12.          name=str;
@@ -551,9 +560,9 @@ will result in an `IOException` being thrown indicating that the object is not a
 37.       }
 38. 
 39.    private:
-40.       int idNo;
+40.       vint idNo;
 41.       RString name;
-42.       float balance;
+42.       vfloat balance;
 43. };
 44. 
 45. void appStart(RArray<String> args)
@@ -600,8 +609,8 @@ classes must provide a no-argument constructor. If a class doesn’t wish for a 
 available to clients, then it may declare it as protected or private, but it must then, of necessity, declare
 `io::Streamable<T>` as a friend, where `T` is the class name.
 
-To provide object streaming version control, `Streamable` classes may provide a `getObjectVersion` member function
-that returns a version number value as a `long`. If a `getObjectVersion` member function is not provided the
+To provide object streaming version control, `Streamable` classes may provide a `getObjectVersion()` member function
+that returns a version number value as a `vlong`. If a `getObjectVersion` member function is not provided the
 Streaming API assumes a default object version of `1L`. When deserializing (i.e. reading) an object from a stream,
 if the class’ object version is different from the one in the stream, an `IOException` is thrown indicating
 a `Streamable` object version mismatch.
@@ -620,7 +629,7 @@ data from a stream is a logic error and will most likely lead to data corruption
 3. class StreamDerived : public StreamObject, public io::Streamable<StreamDerived>
 4. {
 5.    public:
-6.       StreamDerived(int id=0, RString str="", float bal=0.0f, RString type, long version)
+6.       StreamDerived(vint id=0, RString str="", vfloat bal=0.0f, RString type, vlong version)
 7.          :StreamObject(id, str, bal)
 8.       {
 9.          systemType = type;
@@ -652,7 +661,35 @@ data from a stream is a logic error and will most likely lead to data corruption
 35.    
 36.   private:
 37.      RString systemType;
-38.      long installedVersion;
+38.      vlong installedVersion;
 39. }
 40. 
 ```
+
+## Multithreading Synchronization
+
+The ARO Library provides support for multithreading synchronization via the `sync_lock` operator. The operator
+enables a reference to be locked for exclusive access by the current thread. Other threads attempting to lock
+the same reference will be blocked until the reference is unlocked. The reference is automatically unlocked
+when the current thread exits the scope in which the `sync_lock` operator was applied.
+
+```cpp
+1.  #include <aro/core.hpp>
+2.
+3.  using namespace aro;
+4.
+5.  void updateObject(RObject obj)
+6.  {
+7.     sync_lock(obj) // lock obj for exclusive access
+8.     {
+9.        // perform update operations on obj here
+10.    } // obj is automatically unlocked here
+11. }
+12.
+13. main_function = appStart;
+14.
+15. 
+```
+The `sync_lock` operator may be applied to any reference type. It is recommended that the operator be used
+whenever shared objects are being accessed or modified by multiple threads.
+
