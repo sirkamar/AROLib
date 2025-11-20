@@ -35,10 +35,9 @@ class ArmList
       Node *next, *prev;
 
       Node(const ObjectInfo& info, Node* next, Node* prev)
+          : data(info), next(next), prev(prev)
       {
-         data = info;
-         this->next = next;
-         this->prev = prev;
+         
       }
    };
    
@@ -53,7 +52,7 @@ class ArmList
          Itr(Node* n)
             :cur(n)
          {
-            //cur = n;
+            
          }
 
          Itr operator++()
@@ -217,7 +216,7 @@ std::recursive_mutex* armMutex = nullptr;
 // determined by the compiler/runtime and
 // could potentially cause the ARM functions
 // to fail due to an attempt to access memory
-// locations that have not yet be initialized.
+// locations that have not yet been initialized.
 std::recursive_mutex& getArmMutex()
 {
    if(armMutex == nullptr)
@@ -331,7 +330,7 @@ void Arm::finalize()
       
       finalizing = true; // flag as finalizing
       
-      if(!armList->empty()) // references exists
+      if(!armList->empty()) // references exist
       {
          // mark all references for finalization
          for(auto& info : *armList)

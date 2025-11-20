@@ -15,7 +15,7 @@
 *             | allocated to an Object when there are no more Refs pointing   *
 *             | to that Object.                                               *
 *             |                                                               *
-*             | A Ref must point to a class Object or Object-Derived instance *
+*             | A Ref must point to a class Object or Object-derived instance *
 *             | dynamically allocated with the 'new' operator. Even when the  *
 *             | Ref type is a class Interface derived type the Ref must point *
 *             | to an instance of a class that inherits class Object.         *
@@ -48,8 +48,8 @@
 
 namespace aro {
 
-template <class T>
-class Ref;
+//template <class T>
+//class Ref;
 class Base;
 template <class T>
 class Weak;

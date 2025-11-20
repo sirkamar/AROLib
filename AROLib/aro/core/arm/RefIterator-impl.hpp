@@ -165,9 +165,9 @@ Ref<util::Iterator<T>>& Ref<util::Iterator<T>>::operator=(const Ref<U>& uRef)
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
-      
+   
    ref = uRef.ref;
-      
+   
    if(ref != nullptr)
       Arm::add(ref, this);
    

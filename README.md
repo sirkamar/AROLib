@@ -37,7 +37,7 @@ derived (i.e. inherit) from class _Object_ or one of its derived classes in orde
 The ARO Library uses a very easily understood naming convention that makes reading the code much simpler. All created type
 names such as classes begin with an uppercase letter, while the names of all variables, functions and namespaces begin with
 a lowercase letter. If the name of a class, function, variable or namespace is composed of multiple words each of the
-subsequent words begin with an uppercase letter.
+subsequent words begin with an uppercase letter (e.g. CustomClassName, or varFunctName).
 
 Constants defined within the ARO Library are declared using all uppercase letters, while macro-based operators use
 all lowercase letters. If the name of a constant or macro-based operator is composed of multiple words, each word
@@ -49,16 +49,16 @@ All of the classes and functions in the ARO Library are categorized into groups,
 to identify and to import. Each namespace corresponds to a folder on the file system. A namespace folder contains the
 header files for all the classes and utilities categorized as belonging to that namespace. All users of the library are
 required to add **_“#include <aro/core.hpp>”_** in their header or source files which will automatically include
-all the class files and related utilities belonging to aro namespace (referred to as the ARO Core).
+all the class files and related utilities belonging to the aro namespace (referred to as the ARO Core).
 
 Header files in the library are typically named for the classes they contain or the utility they implement. Therefore,
 for example, one would use the statement **_“#include <aro/util/date.hpp>”_** to import the class `aro::util::Date` into
 a header or source file, or alternatively use the statement **_“#include <aro/util/all.hpp>”_** to import all the header
 files belonging to the `aro::util` namespace.
 
-When a class is being used by other classes and functions that are not members of the same namespace, then the class name
-must be preceded by its namespace specifier (e.g. `aro::Object`) or the C++ **_using_** directive must be employed.
-For simplicity, this API document will hereinafter assume that the **_using namespace aro_** directive is applied to all
+When a class is being used by other classes and functions that are not members of the same namespace, the class name
+must be preceded by its namespace specifier (e.g. `aro::Object`), or the C++ **_using_** directive must be employed.
+For simplicity, this document will hereinafter assume that the **_using namespace aro_** directive is applied to all
 code snippets and examples.
 
 The wiki for the repository provides a detailed description of each of the library's namespaces and their members.
@@ -71,24 +71,23 @@ enable functions to directly access the original object, i.e. instances are pass
 
 ## Primitives
 
-The ARO Library defines several value (or primitives) types. These are as follows:
+The ARO Library defines several value types (also called primitives). These are as follows:
 
-Type Name | Type Description | C++ Equivalent | Bit Size
---------- | ---------------- | -------------- | --------
-vint | Integer | long | 4
-vchar | Character | wchar_t | 2
-vbool | Boolean | bool | 1
-vlong | Long integer | long long | 8
-vshort | Short integer | short | 2
-vfloat | Floating-point | float | 16
-vdouble | Double-precision floating-point | double | 32
-
+Type Name | Type Description | Byte Size
+--------- | ---------------- | ---------
+vint | Integer | 4
+vchar | Character | 2
+vbool | Boolean | 1
+vlong | Long integer | 8
+vshort | Short integer | 2
+vfloat | Floating-point | 16
+vdouble | Double-precision floating-point | 32
 
 ## Classes and Interfaces
 
-Reference types in the ARO Library are divided along two separate hierarchies: the class hierarchy and the interface
-hierarchy, each implemented using the **_class_** and **_interface_** keywords, respectively. Each represents a different
-tool in the development process and are both integral to the library’s design.
+Reference types in the ARO Library are divided along two hierarchies: the class hierarchy and the interface hierarchy,
+implemented using the **_class_** and **_interface_** keywords, respectively. Each represents a different tool in the
+development process and are both integral to the library’s design.
 
 A class (also called an “object class”) is an implementation of the properties and behaviours (i.e. data members and
 member functions) of a certain type of object. An interface, however, is a general specification of behaviours that
@@ -125,7 +124,7 @@ Interfaces _must_ be applied to `Object`-derived classes. A class that is implem
 the syntax illustrated below.
 
 ```cpp
-1.  #include “MyInterface.h”
+1.  #include "MyInterface.h"
 2.  
 3.  class CustomClass : public Object, public MyInterface
 4.  {
@@ -194,7 +193,7 @@ The ARO Library has adopted a simplified convention for handling reference types
 **using** directive. For Example, given a class `CustomClass` the following convention is used:
 
 ```cpp
-1.  #include “MyInterface.h”
+1.  #include "MyInterface.h"
 2.  
 3.  class CustomClass; // forward declaration
 4.  typedef Ref<CustomClass> RCustomClass; // reference type
@@ -239,7 +238,7 @@ RObject obj = new Object(); // declare and initialize obj
 obj = nullref; // clear obj from pointing to the Object instance
 
 if(obj == nullref)
-    System::out->println(“obj is null”);
+    System::out->println("obj is null");
 ```
 
 As the throwing of a `NullException` is typically a runtime error caused by a flaw in program design rather than as
@@ -277,7 +276,7 @@ Similar to that done for other classes, `Ref<Array>` and `Ref<Array2D>` have als
 RArray<int> intArr = new Array<int>(5); 
 
 // creates and initializes a 4-element array of chars
-RArray<char> charArr = {‘A’, ‘B’, ‘C’, ‘D’};
+RArray<char> charArr = {'A', 'B', 'C', 'D'};
 
 // creates a 10-element array of Object references (i.e. Refs, not actual objects)
 RArray<Object> objArr = new Array<Object>(10);
@@ -286,7 +285,7 @@ RArray<Object> objArr = new Array<Object>(10);
 RArray2D<long> lngArr = new Array2D<long>(3, 2);
 
 // creates and initializes a mixed-length 2-dimensional array of Strings
-RArray2D<String> strArr = { {“1”, “2”, “3”, “4”}, {“6”, “7”}, {“8”, “9”, “10”} };
+RArray2D<String> strArr = { {"1", "2", "3", "4"}, {"6", "7"}, {"8", "9", "10"} };
 ```
 
 ## String References
@@ -299,10 +298,10 @@ access any class `String` member functions.
 
 ```cpp
 // initialize explicitly via call to constructor
-RString str = new String(“a string text”);
+RString str = new String("a string text");
 
 // initialize implicitly via direct assignment
-RString str2 = “another string”;
+RString str2 = "another string";
 ```
 
 It should be noted that, performance wise, it is more efficient to initialize `String` references via direct assignment
@@ -348,8 +347,8 @@ for(int n : intArr)
    System::out->print(n);
 
 util::RVector<String> strVec = new util::Vector<String>(2);
-strVec->add(“A String”);
-strVec->add(“Another”);
+strVec->add("A String");
+strVec->add("Another");
 for(RString str : strVec)
    System::out->println(str);
 ```
@@ -384,7 +383,7 @@ to be thrown. As such the `type_of` operator is provided to check if a reference
 of its derived types). Both operators require that the destination class or type name be given in angle brackets.
 
 ```cpp
-RString str = “a string text”; // create a String object
+RString str = "a string text"; // create a String object
 
 RObject obj = str; // direct assignment to base class reference
 
@@ -452,7 +451,7 @@ retrieve the exception message, and respond appropriately.
 9.     {
 10.       // execute the body of your code here
 11.       if(args->length == 0)
-12.         ex_throw new StateException(“Args required”);
+12.         ex_throw new StateException("Args required");
 13.    }
 14.    ex_catch
 15.    {
@@ -466,7 +465,7 @@ retrieve the exception message, and respond appropriately.
 23.       }
 24.       ex_finally
 25.       {
-26.          System::err->println(“Always executed”);
+26.          System::err->println("Always executed");
 27.       }
 28.    }
 29.    ex_end 
@@ -521,7 +520,7 @@ will result in an `IOException` being thrown indicating that the object is not a
 6. class StreamObject : public Object, public io::Streamable<StreamObject>
 7. {
 8.    public:
-9.       StreamObject(int id=0, RString str=“”, float bal=0.0f)
+9.       StreamObject(int id=0, RString str="", float bal=0.0f)
 10.       {
 11.          idNo=id;
 12.          name=str;
@@ -532,8 +531,8 @@ will result in an `IOException` being thrown indicating that the object is not a
 17. 
 18.       RString toString()
 19.       {
-20.          return “ID#:” + String::valueOf(idNo) +
-21.                 “, Name:” + name + “, Balance:” + String::valueOf(balance);
+20.          return "ID#:" + String::valueOf(idNo) +
+21.                 ", Name:" + name + ", Balance:" + String::valueOf(balance);
 22.       }
 23. 
 24.    protected:
@@ -561,16 +560,16 @@ will result in an `IOException` being thrown indicating that the object is not a
 46. {
 47.    ex_try
 48.    {
-49.       Ref<StreamObject> rso = new StreamObject(11, “John Doe”, 125.7f);
+49.       Ref<StreamObject> rso = new StreamObject(11, "John Doe", 125.7f);
 50.       System::out->println(rso); // calls the toString() member function
 51. 
-52.       io::RFileOutputStream fos = new io::FileOutputStream(“filename.dat”);
+52.       io::RFileOutputStream fos = new io::FileOutputStream("filename.dat");
 53.       io::RObjectOutputStream outs = new io::ObjectOutputStream(fos);
 54.    
 55.       outs->writeObject(rso);
 56.       outs->close(); // also closes the FileOutputStream
 57. 
-58.       io::RFileInputStream fis = new io::FileInputStream(“filename.dat”);
+58.       io::RFileInputStream fis = new io::FileInputStream("filename.dat");
 59.       io::RObjectInputStream ins = new io::ObjectInputStream(fis);
 60. 
 61.       RObject obj = ins->readObject();
@@ -621,39 +620,39 @@ data from a stream is a logic error and will most likely lead to data corruption
 3. class StreamDerived : public StreamObject, public io::Streamable<StreamDerived>
 4. {
 5.    public:
-6.       StreamDerived(int id=0, RString str=“”, float bal=0.0f, RString type, long version)
+6.       StreamDerived(int id=0, RString str="", float bal=0.0f, RString type, long version)
 7.          :StreamObject(id, str, bal)
 8.       {
 9.          systemType = type;
-10.          installedVersion = version;
-11.       }
+10.         installedVersion = version;
+11.      }
 12.       
-13.       // setters and getters
+13.      // setters and getters
 14.       
-15.       RString toString()
-16.       {
-17.          return StreamObject::toString() + ", System Type: " + systemType
-18.             + ", Installed Version: " + String::valueOf(installedVersion);
-19.       }
+15.      RString toString()
+16.      {
+17.         return StreamObject::toString() + ", System Type: " + systemType
+18.            + ", Installed Version: " + String::valueOf(installedVersion);
+19.      }
 20.    
-21.    protected:
-22.       void writeObject(io::RObjectOutputStream os)
-23.       {
-24.          StreamObject::writeObject(os); // call to base class
-25.          os->writeObject(systemType);
-26.          os->writeLong(installedVersion);
-27.       }
+21.   protected:
+22.      void writeObject(io::RObjectOutputStream os)
+23.      {
+24.         StreamObject::writeObject(os); // call to base class
+25.         os->writeObject(systemType);
+26.         os->writeLong(installedVersion);
+27.      }
 28. 
-29.       void readObject(io::RObjectInputStream is)
-30.       {
-31.          StreamObject::readObject(is); // call to base class
-32.          systemType = type_cast<String>(is->readObject());
-33.          installedVersion = is->readLong();
-34.       }
+29.      void readObject(io::RObjectInputStream is)
+30.      {
+31.         StreamObject::readObject(is); // call to base class
+32.         systemType = type_cast<String>(is->readObject());
+33.         installedVersion = is->readLong();
+34.      }
 35.    
-36.    private:
-37.       RString systemType;
-38.       long installedVersion;
+36.   private:
+37.      RString systemType;
+38.      long installedVersion;
 39. }
 40. 
 ```
