@@ -12,25 +12,25 @@ namespace aro {
 class ThreadLibrary final
 {
 	RObject mutex;
-   
-   ThreadLibrary();
+	
+	ThreadLibrary();
    
 	friend class Thread;
-   
-   void joinAllThreads();
-   
-   vbool listChanged = false;
-   
+	
+	void joinAllThreads();
+	
+	vbool listChanged = false;
+	
 	void insert(RThread thread);
 	
 	void remove(RThread thread);
 	
 	RThread get(std::thread::id id);
-   
-   static void waitForAllThreads();
+	
+	static void waitForAllThreads();
 	
 	util::RVector<Thread> threadList;
-   
+	
 	static ThreadLibrary& getThreadLibrary();
 
 	friend int ::main(int argc, char **argv);

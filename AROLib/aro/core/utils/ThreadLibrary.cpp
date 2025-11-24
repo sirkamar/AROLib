@@ -44,11 +44,11 @@ void ThreadLibrary::insert(RThread thread)
 {
    sync_lock(mutex)
    {
-	   threadList->addElement(thread);
+		threadList->addElement(thread);
       
-      listChanged = true;
+		listChanged = true;
       
-      mutex->notify();
+		mutex->notify();
    }
 }
 
@@ -62,11 +62,11 @@ void ThreadLibrary::remove(RThread thread)
 	   {
 		   if (itr->next()->id == thread->id)
 		   {
-			   itr->remove();
+				itr->remove();
             
-            listChanged = true;
+				listChanged = true;
             
-			   break;
+				break;
 		   }
 	   }
       
@@ -92,7 +92,7 @@ RThread ThreadLibrary::get(std::thread::id id)
 
 void ThreadLibrary::waitForAllThreads()
 {
-   getThreadLibrary().joinAllThreads();
+	getThreadLibrary().joinAllThreads();
 }
 
 ThreadLibrary& ThreadLibrary::getThreadLibrary()
