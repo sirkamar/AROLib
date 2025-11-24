@@ -21,4 +21,4 @@ the ARO Library are derived either from the class `aro::Object` or from other
 
 ## API Documentaion
 
-Available via the repository's wiki. [Click Here](wiki)
+Available via the repository's wiki. [Click Here](../../wiki)
