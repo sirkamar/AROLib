@@ -1,26 +1,26 @@
 #include <aro/core/utils/Foreach.hpp>
 
-/**********************************************************************
-*              Ref<Comparable<String>> Implementation                 *
-**********************************************************************/
+/***********************************************************************
+*                Ref<Cloneable<String>> Implementation                 *
+***********************************************************************/
 
 namespace aro {
 
 //template <>
-Ref<Comparable<String>>::Ref()
+Ref<Cloneable<String>>::Ref()
 {
    ref = nullptr;
 }
 
 //template <>
-Ref<Comparable<String>>::~Ref()
+Ref<Cloneable<String>>::~Ref()
 {
    if(ref != nullptr && !Arm::isFinalizing())
       Arm::remove(ref, this);
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(const char* chStr)
+Ref<Cloneable<String>>::Ref(const char* chStr)
 {
    ref = new String(chStr);
    
@@ -29,7 +29,7 @@ Ref<Comparable<String>>::Ref(const char* chStr)
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(const wchar_t* chStr)
+Ref<Cloneable<String>>::Ref(const wchar_t* chStr)
 {
     ref = new String(chStr);
 
@@ -38,21 +38,21 @@ Ref<Comparable<String>>::Ref(const wchar_t* chStr)
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(Ref<String>&& strRef) noexcept
+Ref<Cloneable<String>>::Ref(Ref<String>&& strRef) noexcept
 {
    ref = strRef.ref;
-
+   
    strRef.ref = nullptr;
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(const Ref<Null>& nRef)
+Ref<Cloneable<String>>::Ref(const Ref<Null>& nRef)
 {
    ref = nullptr;
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(const Ref<String>& strRef)
+Ref<Cloneable<String>>::Ref(const Ref<String>& strRef)
 {
    ref = strRef.ref;
 
@@ -61,7 +61,7 @@ Ref<Comparable<String>>::Ref(const Ref<String>& strRef)
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(Comparable<String>* strPtr)
+Ref<Cloneable<String>>::Ref(Cloneable<String>* strPtr)
 {
    if(strPtr == nullptr)
       throw RException(new NullException("Reference null pointer initialization"));
@@ -72,7 +72,7 @@ Ref<Comparable<String>>::Ref(Comparable<String>* strPtr)
       
       throw RException(new CastException("Reference requires " + str + " be an Object-derived class"));
    }
-
+   
    ref = strPtr;
 
    if(ref != nullptr)
@@ -80,7 +80,7 @@ Ref<Comparable<String>>::Ref(Comparable<String>* strPtr)
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(Ref<Comparable<String>>&& strRef) noexcept
+Ref<Cloneable<String>>::Ref(Ref<Cloneable<String>>&& strRef) noexcept
 {
    ref = strRef.ref;
 
@@ -88,7 +88,7 @@ Ref<Comparable<String>>::Ref(Ref<Comparable<String>>&& strRef) noexcept
 }
 
 //template <>
-Ref<Comparable<String>>::Ref(const Ref<Comparable<String>>& strRef)
+Ref<Cloneable<String>>::Ref(const Ref<Cloneable<String>>& strRef)
 {
    ref = strRef.ref;
    
@@ -97,7 +97,7 @@ Ref<Comparable<String>>::Ref(const Ref<Comparable<String>>& strRef)
 }
 
 //template <>
-Comparable<String>* Ref<Comparable<String>>::operator->() const
+Cloneable<String>* Ref<Cloneable<String>>::operator->() const
 {
    if(ref == nullptr)
       throw RException(new NullException());
@@ -106,7 +106,7 @@ Comparable<String>* Ref<Comparable<String>>::operator->() const
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const char* chStr)
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(const char* chStr)
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -120,7 +120,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const char* chStr)
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const wchar_t* chStr)
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(const wchar_t* chStr)
 {
     if (ref != nullptr)
         Arm::remove(ref, this);
@@ -134,7 +134,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const wchar_t* chStr
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(Ref<String>&& strRef) noexcept
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(Ref<String>&& strRef) noexcept
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -147,7 +147,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(Ref<String>&& strRef
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const Ref<Null>& nRef)
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(const Ref<Null>& nRef)
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -158,7 +158,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const Ref<Null>& nRe
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const Ref<String>& strRef)
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(const Ref<String>& strRef)
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -172,7 +172,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const Ref<String>& s
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(Comparable<String>* strPtr)
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(Cloneable<String>* strPtr)
 {
    if(strPtr == nullptr)
       throw RException(new NullException("Reference null pointer initialization"));
@@ -186,7 +186,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(Comparable<String>* 
    
    if(ref != nullptr)
       Arm::remove(ref, this);
-   
+
    ref = strPtr;
 
    if(ref != nullptr)
@@ -196,7 +196,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(Comparable<String>* 
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(Ref<Comparable<String>>&& strRef) noexcept
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(Ref<Cloneable<String>>&& strRef) noexcept
 {
    if(this != &strRef)
    {
@@ -212,7 +212,7 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(Ref<Comparable<Strin
 }
 
 //template <>
-Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const Ref<Comparable<String>>& strRef)
+Ref<Cloneable<String>>& Ref<Cloneable<String>>::operator=(const Ref<Cloneable<String>>& strRef)
 {
    if(this != &strRef)
    {
@@ -229,25 +229,25 @@ Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const Ref<Comparable
 }
 
 //template <>
-bool Ref<Comparable<String>>::operator==(const Ref<Object>& objRef) const
+bool Ref<Cloneable<String>>::operator==(const Ref<Object>& objRef) const
 {
-   return Ref<Object>(*this) == objRef;
+   return dynamic_cast<Object*>(ref) == objRef.ref;
 }
 
 //template <>
-bool Ref<Comparable<String>>::operator!=(const Ref<Object>& objRef) const
+bool Ref<Cloneable<String>>::operator!=(const Ref<Object>& objRef) const
 {
-   return Ref<Object>(*this) != objRef;
+   return dynamic_cast<Object*>(ref) != objRef.ref;
 }
 
 //template <>
-Base* Ref<Comparable<String>>::ptr() const
+Base* Ref<Cloneable<String>>::ptr() const
 {
    return ref;
 }
 
 //template <>
-void Ref<Comparable<String>>::clear()
+void Ref<Cloneable<String>>::clear()
 {
    ref = nullptr;
 }

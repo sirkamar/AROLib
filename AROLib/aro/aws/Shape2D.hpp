@@ -1,7 +1,7 @@
 #ifndef AWS_SHAPE2D_H
 #define AWS_SHAPE2D_H
 
-#include <aro/aws/Shape.h>
+#include <aro/aws/Shape.hpp>
 
 namespace aro {
 
@@ -12,7 +12,7 @@ typedef Ref<Shape2D> RShape2D;
 
 interface Shape2D : Shape
 {
-	virtual vdouble getPerimeter() = 0;
+	virtual vdouble calculatePerimeter() = 0;
 };
 
 } /* namespace aws */

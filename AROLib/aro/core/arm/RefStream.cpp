@@ -29,7 +29,16 @@ Ref<io::Streamable<String>>::Ref(const char* chStr)
 }
 
 //template <>
-Ref<io::Streamable<String>>::Ref(Ref<String>&& strRef)
+Ref<io::Streamable<String>>::Ref(const wchar_t* chStr)
+{
+    ref = new String(chStr);
+
+    if (ref != nullptr)
+        Arm::add(ref, this);
+}
+
+//template <>
+Ref<io::Streamable<String>>::Ref(Ref<String>&& strRef) noexcept
 {
    ref = strRef.ref;
    
@@ -71,7 +80,7 @@ Ref<io::Streamable<String>>::Ref(io::Streamable<String>* strPtr)
 }
 
 //template <>
-Ref<io::Streamable<String>>::Ref(Ref<io::Streamable<String>>&& strRef)
+Ref<io::Streamable<String>>::Ref(Ref<io::Streamable<String>>&& strRef) noexcept
 {
    ref = strRef.ref;
 
@@ -111,7 +120,21 @@ Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(const char* 
 }
 
 //template <>
-Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(Ref<String>&& strRef)
+Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(const wchar_t* chStr)
+{
+    if (ref != nullptr)
+        Arm::remove(ref, this);
+
+    ref = new String(chStr);
+
+    if (ref != nullptr)
+        Arm::add(ref, this);
+
+    return *this;
+}
+
+//template <>
+Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(Ref<String>&& strRef) noexcept
 {
    if(ref != nullptr)
       Arm::remove(ref, this);
@@ -173,7 +196,7 @@ Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(io::Streamab
 }
 
 //template <>
-Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(Ref<io::Streamable<String>>&& strRef)
+Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(Ref<io::Streamable<String>>&& strRef) noexcept
 {
    if(this != &strRef)
    {

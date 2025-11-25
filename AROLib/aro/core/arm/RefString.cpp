@@ -50,7 +50,7 @@ Ref<String>::Ref(const wchar_t* chStr)
 }
 
 //template <>
-Ref<String>::Ref(Ref<String>&& strRef)
+Ref<String>::Ref(Ref<String>&& strRef) noexcept
 {
    ref = strRef.ref;
 
@@ -147,7 +147,7 @@ Ref<String>& Ref<String>::operator=(const wchar_t* chStr)
 }
 
 //template <>
-Ref<String>& Ref<String>::operator=(Ref<String>&& strRef)
+Ref<String>& Ref<String>::operator=(Ref<String>&& strRef) noexcept
 {
    if (this != &strRef)
    {

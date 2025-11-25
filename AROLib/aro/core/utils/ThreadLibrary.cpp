@@ -23,7 +23,7 @@ void ThreadLibrary::joinAllThreads()
          listChanged = false;
          
          //search for a joinable thread in vector
-		   for(auto thread : threadList->iterator())
+		   for(auto thread : threadList)
 		   {
 			   if(thread->isJoinable())
 			   {
@@ -78,7 +78,7 @@ RThread ThreadLibrary::get(std::thread::id id)
 {
 	sync_lock(mutex)
 	{
-	   for(auto thread : threadList->iterator())
+	   for(auto thread : threadList)
 	   {
 		   if(thread->st.get_id() == id)
 		   {

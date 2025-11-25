@@ -17,12 +17,13 @@ interface Collection : Iterable<T>
 {
    virtual vint size() = 0;
    virtual void clear() = 0;
-   virtual vint hashCode() = 0;
+   //virtual vint hashCode() = 0;
    virtual vbool isEmpty() = 0;
    virtual RArray<T> toArray() = 0;
    virtual vbool add(Ref<T> e) = 0;
-   virtual vbool remove(RObject o) = 0;
    virtual RIterator<T> iterator() = 0;
+   virtual vbool remove(RObject o) = 0;
+   //virtual vbool equals(RObject o) = 0;
    virtual vbool contains(RObject o) = 0;
    virtual vbool addAll(RCollection<T> c) = 0;
    virtual vbool removeAll(RCollection<T> c) = 0;

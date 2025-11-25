@@ -1,7 +1,7 @@
 #ifndef AWS_SHAPE_H
 #define AWS_SHAPE_H
 
-#include <aro/core/Interface.h>
+#include <aro/core/Interface.hpp>
 
 namespace aro {
 
@@ -12,8 +12,7 @@ typedef Ref<Shape> RShape;
 
 interface Shape : Interface
 {
-	virtual vdouble getArea() = 0;
-
+	virtual vdouble calculateArea() = 0;
 };
 
 } /* namespace aws */

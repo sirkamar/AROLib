@@ -3,6 +3,7 @@
 
 #include <aro/core/arm/Ref.hpp>
 #include <aro/core/arm/Arm.hpp>
+#include <aro/core/Iterable.hpp>
 #include <aro/core/CastException.hpp>
 #include <aro/core/NullException.hpp>
 

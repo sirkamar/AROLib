@@ -118,6 +118,7 @@
   <ItemGroup>
     <ClCompile Include="aromain.cpp" />
     <ClCompile Include="AROTester.cpp" />
+    <ClCompile Include="SyncCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AROLib\AROLib.vcxproj">
@@ -126,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AROTester.hpp" />
+    <ClInclude Include="SyncCounter.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

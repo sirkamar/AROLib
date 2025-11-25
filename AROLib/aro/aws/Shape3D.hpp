@@ -1,7 +1,7 @@
 #ifndef AWS_SHAPE3D_H
 #define AWS_SHAPE3D_H
 
-#include <aro/aws/Shape.h>
+#include <aro/aws/Shape.hpp>
 
 namespace aro {
 
@@ -12,7 +12,8 @@ typedef Ref<Shape3D> RShape3D;
 
 interface Shape3D : Shape
 {
-	virtual vdouble getSurfaceArea() = 0;
+	virtual vdouble calculateVolume() = 0;
+	virtual vdouble calculateSurfaceArea() = 0;
 };
 
 } /* namespace aws */

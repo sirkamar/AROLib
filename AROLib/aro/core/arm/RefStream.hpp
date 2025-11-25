@@ -23,11 +23,12 @@ class Ref<io::Streamable<String>> : public RefBase
       Ref();
       virtual ~Ref();
       Ref(const char* chStr);
-      Ref(Ref<String>&& strRef);
+      Ref(const wchar_t* chStr);
+      Ref(Ref<String>&& strRef) noexcept;
       Ref(const Ref<Null>& nRef);
       Ref(const Ref<String>& strRef);
       Ref(io::Streamable<String>* strPtr);
-      Ref(Ref<io::Streamable<String>>&& strRef);
+      Ref(Ref<io::Streamable<String>>&& strRef) noexcept;
       Ref(const Ref<io::Streamable<String>>& strRef);
 
       //dereference operator
@@ -35,11 +36,12 @@ class Ref<io::Streamable<String>> : public RefBase
       
       //assignment operator
       Ref<io::Streamable<String>>& operator=(const char* chStr);
-      Ref<io::Streamable<String>>& operator=(Ref<String>&& strRef);
+      Ref<io::Streamable<String>>& operator=(const wchar_t* chStr);
+      Ref<io::Streamable<String>>& operator=(Ref<String>&& strRef) noexcept;
       Ref<io::Streamable<String>>& operator=(const Ref<Null>& nRef);
       Ref<io::Streamable<String>>& operator=(const Ref<String>& strRef);
       Ref<io::Streamable<String>>& operator=(io::Streamable<String>* strPtr);
-      Ref<io::Streamable<String>>& operator=(Ref<io::Streamable<String>>&& strRef);
+      Ref<io::Streamable<String>>& operator=(Ref<io::Streamable<String>>&& strRef) noexcept;
       Ref<io::Streamable<String>>& operator=(const Ref<io::Streamable<String>>& strRef);
 
       //equality/inequality operator

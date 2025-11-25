@@ -30,7 +30,7 @@ class Array<Array<T>> final : public ArrayBase<RArray<T>>, public Cloneable<Arra
       virtual void readObject(io::RObjectInputStream is);
       virtual void writeObject(io::RObjectOutputStream os);
    
-   friend class Ref<Array<Array<T>>>;
+   friend class Ref<Array2D<T>>;
    friend class RefArrayBase<RArray<T>>;
    friend interface io::Streamable<Array2D<T>>;
 };

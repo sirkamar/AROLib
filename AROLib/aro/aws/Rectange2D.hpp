@@ -1,7 +1,7 @@
 #ifndef AWS_RECTANGLE2D_H
 #define AWS_RECTANGLE2D_H
 
-#include <aro/aws/Shape2D.h>
+#include <aro/aws/Shape2D.hpp>
 
 namespace aro {
 
@@ -22,8 +22,8 @@ class Rectangle2D : public Object, public Shape2D, public io::Streamable<Rectang
 	  virtual vdouble getLength();
 	  virtual vdouble getWidth();
       
-	  virtual vdouble getArea();
-	  virtual vdouble getPerimeter();
+	  virtual vdouble calculateArea();
+	  virtual vdouble calculatePerimeter();
 
 	  virtual vint hashCode();
 	  virtual RString toString();

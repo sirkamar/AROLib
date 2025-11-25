@@ -165,8 +165,12 @@
     <ClInclude Include="aro\aws\Layout.hpp" />
     <ClInclude Include="aro\aws\ListenerList.hpp" />
     <ClInclude Include="aro\aws\Point.hpp" />
+    <ClInclude Include="aro\aws\Rectange2D.hpp" />
     <ClInclude Include="aro\aws\Rectangle.hpp" />
     <ClInclude Include="aro\aws\Selectable.hpp" />
+    <ClInclude Include="aro\aws\Shape.hpp" />
+    <ClInclude Include="aro\aws\Shape2D.hpp" />
+    <ClInclude Include="aro\aws\Shape3D.hpp" />
     <ClInclude Include="aro\aws\SystemMonitor.hpp" />
     <ClInclude Include="aro\aws\TideLayout.hpp" />
     <ClInclude Include="aro\aws\Window.hpp" />
@@ -182,9 +186,8 @@
     <ClInclude Include="aro\core\arm\RefArrayBase.hpp" />
     <ClInclude Include="aro\core\arm\RefArrayBase-impl.hpp" />
     <ClInclude Include="aro\core\arm\RefArray-impl.hpp" />
+    <ClInclude Include="aro\core\arm\RefClone.hpp" />
     <ClInclude Include="aro\core\arm\RefComp.hpp" />
-    <ClInclude Include="aro\core\arm\RefIterator.hpp" />
-    <ClInclude Include="aro\core\arm\RefIterator-impl.hpp" />
     <ClInclude Include="aro\core\arm\RefNull.hpp" />
     <ClInclude Include="aro\core\arm\RefObject.hpp" />
     <ClInclude Include="aro\core\arm\RefObject-impl.hpp" />
@@ -383,6 +386,7 @@
     <ClCompile Include="aro\core\arm\Arm.cpp" />
     <ClCompile Include="aro\core\arm\Cfg.cpp" />
     <ClCompile Include="aro\core\arm\RefArray.cpp" />
+    <ClCompile Include="aro\core\arm\RefClone.cpp" />
     <ClCompile Include="aro\core\arm\RefComp.cpp" />
     <ClCompile Include="aro\core\arm\RefNull.cpp" />
     <ClCompile Include="aro\core\arm\RefObject.cpp" />

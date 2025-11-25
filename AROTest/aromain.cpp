@@ -7,6 +7,7 @@
 #include <aro/cui/border/TitleBorder.hpp>
 #include <aro/cui/all.hpp>
 #include "AROTester.hpp"
+#include "SyncCounter.hpp"
 
 //#pragma comment( lib, "arolib.dll" )
 
@@ -75,7 +76,7 @@ void aromain(RArray<String> args)
 
    //System::out->println("Orig: " + str + ", clone: " + str2);
    
-
+   /*
    //Testing the Console User Interface API
    cui::RCSFrame win = new cui::CSFrame("Test Title");
    
@@ -101,6 +102,21 @@ void aromain(RArray<String> args)
    
    //win->requestFocus();
    txt->requestFocus();
+   */
+
+   //Testing multi-threading synchronization
+    RSyncCounter counter = new SyncCounter();
+
+    RThread thread1 = new Runner(counter);
+    RThread thread2 = new Runner(counter);
+
+    thread1->start();
+    thread2->start();
+
+    thread1->join();
+    thread2->join();
+
+    System::out->println("Final count:" + String::valueOf(counter->getCount()));
 }
 
 main_function = aromain;

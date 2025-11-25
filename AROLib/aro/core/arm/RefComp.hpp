@@ -1,7 +1,7 @@
 #ifndef ARO_ARM_COMPREF_H
 #define ARO_ARM_COMPREF_H
 
-#include <aro/core/arm/RefIterator.hpp>
+#include <aro/core/arm/RefClone.hpp>
 
 namespace aro {
 
@@ -21,11 +21,12 @@ class Ref<Comparable<String>> : public RefBase
       Ref();
       virtual ~Ref();
       Ref(const char* chStr);
-      Ref(Ref<String>&& strRef);
+      Ref(const wchar_t* chStr);
+      Ref(Ref<String>&& strRef) noexcept;
       Ref(const Ref<Null>& nRef);
       Ref(const Ref<String>& strRef);
       Ref(Comparable<String>* strPtr);
-      Ref(Ref<Comparable<String>>&& strRef);
+      Ref(Ref<Comparable<String>>&& strRef) noexcept;
       Ref(const Ref<Comparable<String>>& strRef);
       
       //dereference operator
@@ -33,11 +34,12 @@ class Ref<Comparable<String>> : public RefBase
       
       //assignment operator
       Ref<Comparable<String>>& operator=(const char* chStr);
-      Ref<Comparable<String>>& operator=(Ref<String>&& strRef);
+      Ref<Comparable<String>>& operator=(const wchar_t* chStr);
+      Ref<Comparable<String>>& operator=(Ref<String>&& strRef) noexcept;
       Ref<Comparable<String>>& operator=(const Ref<Null>& nRef);
       Ref<Comparable<String>>& operator=(const Ref<String>& strRef);
       Ref<Comparable<String>>& operator=(Comparable<String>* strPtr);
-      Ref<Comparable<String>>& operator=(Ref<Comparable<String>>&& strRef);
+      Ref<Comparable<String>>& operator=(Ref<Comparable<String>>&& strRef) noexcept;
       Ref<Comparable<String>>& operator=(const Ref<Comparable<String>>& strRef);
       
       //equality/inequality operator

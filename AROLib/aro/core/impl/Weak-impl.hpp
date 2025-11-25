@@ -1,7 +1,7 @@
 #ifndef CORE_WEAK_IMPL_H
 #define CORE_WEAK_IMPL_H
 
-#include <aro/core/arm/RefIterator-impl.hpp>
+#include <aro/core/arm/RefArray-impl.hpp>
 
 namespace aro {
 

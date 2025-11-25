@@ -436,6 +436,9 @@
     <ClCompile Include="aro\core\utils\Main.cpp">
       <Filter>Source Files\aro\core\utils</Filter>
     </ClCompile>
+    <ClCompile Include="aro\core\arm\RefClone.cpp">
+      <Filter>Source Files\aro\core\arm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aro\util\all.hpp">
@@ -503,9 +506,6 @@
     </ClInclude>
     <ClInclude Include="aro\aws\AxisLayout.hpp">
       <Filter>Header Files\aro\aws</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\arm\Base.hpp">
-      <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Bool.hpp">
       <Filter>Header Files\aro\core</Filter>
@@ -760,12 +760,6 @@
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\Ref-impl.hpp">
-      <Filter>Header Files\aro\core\arm</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\arm\RefIterator.hpp">
-      <Filter>Header Files\aro\core\arm</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\arm\RefIterator-impl.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\arm\RefNull.hpp">
@@ -1100,6 +1094,24 @@
     </ClInclude>
     <ClInclude Include="aro\core\arm\SyncLock.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\arm\Base.hpp">
+      <Filter>Header Files\aro\core\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\arm\RefClone.hpp">
+      <Filter>Header Files\aro\core\arm</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\aws\Rectange2D.hpp">
+      <Filter>Header Files\aro\aws</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\aws\Shape.hpp">
+      <Filter>Header Files\aro\aws</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\aws\Shape2D.hpp">
+      <Filter>Header Files\aro\aws</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\aws\Shape3D.hpp">
+      <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

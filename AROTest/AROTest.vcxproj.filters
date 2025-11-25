@@ -21,9 +21,15 @@
     <ClCompile Include="AROTester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SyncCounter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AROTester.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SyncCounter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

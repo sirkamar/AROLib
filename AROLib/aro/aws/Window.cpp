@@ -181,7 +181,7 @@ void Window::hide()
 {
    sync_lock(ownedWindowList)
    {
-      for(RWeak<Window> rw : ownedWindowList->iterator())
+      for(RWeak<Window> rw : ownedWindowList)
       {
          RWindow child = rw->get();
          if(child != nullref && child->visible)
@@ -219,7 +219,7 @@ void Window::show()
       if(visibleWindowCount == 1)
          sysMonitor = new SystemMonitor();
       
-      for(RWeak<Window> rw: ownedWindowList->iterator())
+      for(RWeak<Window> rw: ownedWindowList)
       {
          RWindow child = rw->get();
          if(child != nullref)

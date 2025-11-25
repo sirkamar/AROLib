@@ -1,5 +1,5 @@
-#include <aro/core.h>
-#include <aro/aws/Rectange2D.h>
+#include <aro/core.hpp>
+#include <aro/aws/Rectange2D.hpp>
 
 namespace aro {
 
@@ -52,12 +52,12 @@ vdouble Rectangle2D::getWidth()
 	return this->width;
 }
 
-vdouble Rectangle2D::getArea()
+vdouble Rectangle2D::calculateArea()
 {
 	return length * width;
 }
 
-vdouble Rectangle2D::getPerimeter()
+vdouble Rectangle2D::calculatePerimeter()
 {
 	return 2 * (length + width);
 }
@@ -69,7 +69,7 @@ vint Rectangle2D::hashCode()
 
 RString Rectangle2D::toString()
 {
-	return "";
+	return "Rectangle2D[Length=" + String::valueOf(length) + ",width=" + String::valueOf(width) + "]";
 }
 
 vbool Rectangle2D::equals(RObject obj)

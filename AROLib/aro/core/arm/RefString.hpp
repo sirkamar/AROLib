@@ -18,7 +18,7 @@ class Ref<String> : public RefBase
       Ref(String* strPtr);
       Ref(const char* chStr);
       Ref(const wchar_t* chStr);
-      Ref(Ref<String>&& strRef);
+      Ref(Ref<String>&& strRef) noexcept;
       Ref(const Ref<Null>& nRef);
       Ref(const Ref<String>& strRef);
       
@@ -32,7 +32,7 @@ class Ref<String> : public RefBase
       Ref<String>& operator=(String* str);
       Ref<String>& operator=(const char* chStr);
       Ref<String>& operator=(const wchar_t* chStr);
-      Ref<String>& operator=(Ref<String>&& strRef);
+      Ref<String>& operator=(Ref<String>&& strRef) noexcept;
       Ref<String>& operator=(const Ref<Null>& nRef);
       Ref<String>& operator=(const Ref<String>& strRef);
       
