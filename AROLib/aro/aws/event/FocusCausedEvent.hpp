@@ -12,7 +12,7 @@ namespace event {
 class FocusCausedEvent;
 typedef Ref<FocusCausedEvent> RFocusCausedEvent;
 
-class FocusCausedEvent : public FocusEvent
+class FocusCausedEvent extends public FocusEvent
 {
    public:
       class Cause;

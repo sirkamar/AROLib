@@ -10,7 +10,7 @@ namespace aws {
 class Rectangle2D;
 typedef Ref<Rectangle2D> RRectangle2D;
 
-class Rectangle2D : public Object, public Shape2D, public io::Streamable<Rectangle2D>
+class Rectangle2D extends public Object implements public Shape2D, public io::Streamable<Rectangle2D>
 {
 	public:
 	  Rectangle2D();

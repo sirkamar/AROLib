@@ -27,9 +27,9 @@ void ThreadLibrary::joinAllThreads()
 		   {
 			   if(thread->isJoinable())
 			   {
-               subject = thread;
-               
-               break; //for
+				  subject = thread;
+                  
+                  break; //for
 			   }
 		   }
       }

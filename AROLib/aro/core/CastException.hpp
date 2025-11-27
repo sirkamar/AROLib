@@ -8,7 +8,7 @@ namespace aro {
 class CastException; // forward declaration
 typedef Ref<CastException> RCastException;
 
-class CastException : public Exception
+class CastException extends public Exception
 {
    public:
       CastException();

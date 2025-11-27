@@ -10,7 +10,7 @@ namespace io {
 class StringInputStream;
 typedef Ref<StringInputStream> RStringInputStream;
 
-class StringInputStream : public InputStream
+class StringInputStream extends public InputStream
 {
    public:
       StringInputStream(RString s);

@@ -8,7 +8,7 @@ namespace aro {
 class Decimal;
 typedef Ref<Decimal> RDecimal;
 
-class Decimal : public Number, public Comparable<Decimal>, public Cloneable<Decimal>, public io::Streamable<Decimal>
+class Decimal extends public Number implements public Comparable<Decimal>, public Cloneable<Decimal>, public io::Streamable<Decimal>
 {
    public:
       //static const vdouble POSITIVE_INFINITY;

@@ -11,7 +11,7 @@ namespace cui {
 class CSList;
 typedef Ref<CSList> RCSList;
 
-class CSList : public CSComponent
+class CSList extends public CSComponent
 {
    public:
       CSList();

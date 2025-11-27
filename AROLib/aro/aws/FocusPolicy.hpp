@@ -10,7 +10,7 @@ namespace aws {
 interface FocusPolicy;
 typedef Ref<FocusPolicy> RFocusPolicy;
 
-interface FocusPolicy : Interface
+interface FocusPolicy extends Interface
 {
    virtual RComponent getLast(RContainer parent)=0;
    virtual RComponent getFirst(RContainer parent)=0;

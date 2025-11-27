@@ -10,7 +10,7 @@ namespace io {
 class OutputStream;
 typedef Ref<OutputStream> ROutputStream;
 
-class OutputStream : public Object
+class OutputStream extends public Object
 {
    public:
       virtual void close(); // closes the stream for Output

@@ -8,7 +8,7 @@ namespace aro {
 class ThreadException; // forward declaration
 typedef Ref<ThreadException> RThreadException;
 
-class ThreadException :  public Exception
+class ThreadException extends public Exception
 {
    public:
       ThreadException();

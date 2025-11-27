@@ -8,7 +8,7 @@ namespace aro {
 /** The abstract Math class, dispite being a bonified
  * subclass of Object, provides only public static
  * member functions and CANNOT be inherited */
-class Math final : public Object
+class Math final extends public Object
 {
    public:
       static const vdouble E; // The value of e (the base of natural logarithms)

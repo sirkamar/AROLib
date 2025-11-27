@@ -9,7 +9,7 @@ template <class T>
 using RComparable = Ref<Comparable<T>>;
 
 template <class T>
-interface Comparable : Interface
+interface Comparable extends Interface
 {
    virtual vint compareTo(Ref<T> val)=0;
 };

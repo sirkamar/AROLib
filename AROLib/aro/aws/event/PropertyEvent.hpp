@@ -12,7 +12,7 @@ namespace event {
 class PropertyEvent;
 typedef Ref<PropertyEvent> RPropertyEvent;
 
-class PropertyEvent : public AWSEvent
+class PropertyEvent extends public AWSEvent
 {
    public:
       static const vint PROPERTY_CHANGED     = 1001016;

@@ -16,7 +16,7 @@ using RVector = Ref<Vector<T>>;
  * Vector class template declaration
  */ 
 template <class T>
-class Vector : public AbstractList<T>
+class Vector extends public AbstractList<T>
 {
    public:
       Vector();

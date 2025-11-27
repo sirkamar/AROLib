@@ -13,7 +13,7 @@ template <class T>
 using RComparator = Ref<Comparator<T>>;
 
 template <class T>
-interface Comparator : Interface
+interface Comparator extends Interface
 {
    virtual vint compareTo(Ref<T> item1, Ref<T> item2)=0;
 };

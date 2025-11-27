@@ -10,7 +10,7 @@ namespace util {
 class Event;
 typedef Ref<Event> REvent;
 
-class Event : public Object
+class Event extends public Object
 {
    public:
       virtual void setSource(RObject source);

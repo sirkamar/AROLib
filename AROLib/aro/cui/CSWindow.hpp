@@ -10,7 +10,7 @@ namespace cui {
 class CSWindow;
 typedef Ref<CSWindow> RCSWindow;
 
-class CSWindow :  public aws::Window
+class CSWindow extends public aws::Window
 {
    public:
       CSWindow();

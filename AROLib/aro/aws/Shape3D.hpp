@@ -10,7 +10,7 @@ namespace aws {
 interface Shape3D;
 typedef Ref<Shape3D> RShape3D;
 
-interface Shape3D : Shape
+interface Shape3D extends Shape
 {
 	virtual vdouble calculateVolume() = 0;
 	virtual vdouble calculateSurfaceArea() = 0;

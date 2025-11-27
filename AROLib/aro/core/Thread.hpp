@@ -9,7 +9,7 @@ namespace aro {
 class Thread;
 
 typedef Ref<Thread> RThread;
-class Thread : public Object, public Runnable
+class Thread extends public Object implements public Runnable
 {
    public:
       static const vint PRIORITY_LOWEST;

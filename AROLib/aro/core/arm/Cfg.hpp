@@ -25,6 +25,12 @@
 #define interface ARO_INTERFACE
 #endif
 
+#define ARO_EXTENDS :
+#define extends ARO_EXTENDS
+
+#define ARO_IMPLEMENTS ,
+#define implements ARO_IMPLEMENTS
+
 /* Include necessary standard headers */
 #include <condition_variable>
 #include <initializer_list>

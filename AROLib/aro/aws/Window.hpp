@@ -15,7 +15,7 @@ interface FocusPolicy;
 typedef Ref<Window> RWindow;
 typedef Ref<FocusPolicy> RFocusPolicy;
 
-class Window : public Container
+class Window extends public Container
 {
    public:
       Window();

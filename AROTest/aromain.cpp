@@ -13,7 +13,7 @@
 
 using namespace aro;
 
-class Listener : public Object, public aws::event::ActionListener
+class Listener extends public Object implements public aws::event::ActionListener
 {
    public:
       aws::RWindow owner;
@@ -41,6 +41,25 @@ void aromain(RArray<String> args)
    //   System::out->print(s + " ");
    //
    //System::out->println("\n");
+   
+   /* Test Array and for_each */
+   RArray<vint> intArr = { 1, 2, 3, 4, 5 };
+   vint total = 0;
+   
+   for_each(intArr, [&total](vint num) {
+        System::out->println("Total: " + String::valueOf(total) + ", Num: " + String::valueOf(num));
+        total = total + num;
+   });
+   
+   System::out->println("Final Total: " + String::valueOf(total));
+
+   util::RVector<String> strVec = new util::Vector<String>(2);
+   strVec->add("A String");
+   strVec->add("Another");
+
+   for_each(strVec, [](RObject obj) {
+       System::out->println(obj->getType() + "[" + obj + "]");
+   });
 
    
    /* Stream input and output with inheritance */
@@ -103,7 +122,8 @@ void aromain(RArray<String> args)
    //win->requestFocus();
    txt->requestFocus();
    */
-
+   
+   /*
    //Testing multi-threading synchronization
     RSyncCounter counter = new SyncCounter();
 
@@ -117,6 +137,7 @@ void aromain(RArray<String> args)
     thread2->join();
 
     System::out->println("Final count:" + String::valueOf(counter->getCount()));
+    */
 }
 
 main_function = aromain;

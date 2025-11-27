@@ -12,7 +12,7 @@ namespace border {
 class StarBorder;
 typedef Ref<StarBorder> RStarBorder;
 
-class StarBorder : public AbstractBorder
+class StarBorder extends public AbstractBorder
 {
    public:
       virtual aws::RInsets getInsets(aws::RInsets insets);

@@ -13,7 +13,7 @@ namespace event {
 class PaintEvent;
 typedef Ref<PaintEvent> RPaintEvent;
 
-class PaintEvent : public ComponentEvent
+class PaintEvent extends public ComponentEvent
 {
    public:
       static const vint PAINT    = 1001014;

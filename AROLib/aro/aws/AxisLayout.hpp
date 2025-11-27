@@ -10,7 +10,7 @@ namespace aws {
 class AxisLayout;
 typedef Ref<AxisLayout> RAxisLayout;
 
-class AxisLayout : public Object, public Layout
+class AxisLayout extends public Object implements public Layout
 {
    public:
       static const vint X_AXIS;

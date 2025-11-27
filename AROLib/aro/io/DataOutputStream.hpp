@@ -10,7 +10,7 @@ namespace io {
 class DataOutputStream;
 typedef Ref<DataOutputStream> RDataOutputStream;
 
-class DataOutputStream : public FilterOutputStream
+class DataOutputStream extends public FilterOutputStream
 {
    public:
       DataOutputStream(ROutputStream os);

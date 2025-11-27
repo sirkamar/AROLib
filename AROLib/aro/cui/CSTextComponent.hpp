@@ -11,7 +11,7 @@ namespace cui {
 class CSTextComponent;
 typedef Ref<CSTextComponent> RTextComponent;
 
-class CSTextComponent : public CSComponent
+class CSTextComponent extends public CSComponent
 {
    public:
       CSTextComponent(RString text);

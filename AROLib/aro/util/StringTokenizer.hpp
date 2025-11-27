@@ -10,7 +10,7 @@ namespace util {
 class StringTokenizer;
 typedef Ref<StringTokenizer> RStringTokenizer;
 
-class StringTokenizer : public Object
+class StringTokenizer extends public Object
 {
    public:
       StringTokenizer(RString str);

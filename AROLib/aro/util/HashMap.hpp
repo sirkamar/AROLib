@@ -16,7 +16,7 @@ using RHashMap = Ref<HashMap<K,V>>;
  * HashMap class template declaration
  */ 
 template <class K, class V>
-class HashMap : public AbstractMap<K,V>
+class HashMap extends public AbstractMap<K,V>
 {
    public:
       HashMap();

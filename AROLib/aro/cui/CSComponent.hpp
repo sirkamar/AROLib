@@ -10,7 +10,7 @@ namespace cui {
 
 using namespace border;
 
-class CSComponent : public aws::Container
+class CSComponent extends public aws::Container
 {
    public:
       CSComponent();

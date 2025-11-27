@@ -8,7 +8,7 @@ namespace aro {
 class IndexException; // forward declaration
 typedef Ref<IndexException> RIndexException;
 
-class IndexException : public Exception
+class IndexException extends public Exception
 {
    public:
       IndexException();

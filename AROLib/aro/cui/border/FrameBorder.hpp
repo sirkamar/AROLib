@@ -11,7 +11,7 @@ namespace border {
 class FrameBorder;
 typedef Ref<FrameBorder> RFrameBorder;
 
-class FrameBorder : public AbstractBorder
+class FrameBorder extends public AbstractBorder
 {
    public:
       virtual aws::RInsets getInsets(aws::RInsets insets);

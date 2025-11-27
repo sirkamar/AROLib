@@ -10,7 +10,7 @@ namespace io {
 class Writer;
 typedef Ref<Writer> RWriter;
 
-class Writer : public Object
+class Writer extends public Object
 {
    public:
       virtual void write(vint c);

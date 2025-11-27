@@ -16,7 +16,7 @@ class StateEvent;
 typedef Ref<StateEvent> RStateEvent;
 
 /** This is akin to the ItemEvent class */
-class StateEvent : public AWSEvent
+class StateEvent extends public AWSEvent
 {
    public:
       static const vint STATE_CHANGED = 1001018;

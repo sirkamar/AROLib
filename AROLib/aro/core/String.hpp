@@ -6,7 +6,7 @@
 
 namespace aro {
 
-class String final : public Object, public Comparable<String>, public Cloneable<String>, public io::Streamable<String>
+class String final extends public Object implements public Comparable<String>, public Cloneable<String>, public io::Streamable<String>
 {
    public:
       static const RString EMPTY_STRING;
@@ -17,12 +17,14 @@ class String final : public Object, public Comparable<String>, public Cloneable<
       String(RArray<vchar> arr, vint offset, vint count);
       
       virtual vint length();
-      
+
+      virtual RString trim();
+
 	  virtual vint hashCode();
       
       virtual vbool isEmpty();
 
-      virtual RString trim();
+      virtual RObject clone();
       
       virtual RString toString();
       
@@ -83,8 +85,6 @@ class String final : public Object, public Comparable<String>, public Cloneable<
       
       static vint lastIndexOf(RArray<vchar> source, vint sourceOffset, vint sourceCount,
                  RArray<vchar> target, vint targetOffset, vint targetCount, vint fromIndex);
-      
-      virtual RObject clone();
    
    protected:
       virtual void finalize();

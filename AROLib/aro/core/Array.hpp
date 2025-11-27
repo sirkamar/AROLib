@@ -15,7 +15,7 @@ using RArray = Ref<Array<T>>;
 * the built-in value types or reference types.
 * E.g. RArray<vint> arr = new Array<vint>(5); */
 template <class T>
-class Array final : public ArrayBase<Ref<T>>, public Cloneable<Array<T>>, public io::Streamable<Array<T>>
+class Array final extends public ArrayBase<Ref<T>> implements public Cloneable<Array<T>>, public io::Streamable<Array<T>>
 {
    public:
       Array(vint size);
@@ -40,7 +40,7 @@ class Array final : public ArrayBase<Ref<T>>, public Cloneable<Array<T>>, public
 
 
 template<>
-class Array<vint> final : public ArrayBase<vint>, public Cloneable<Array<vint>>, public io::Streamable<Array<vint>>
+class Array<vint> final extends public ArrayBase<vint> implements public Cloneable<Array<vint>>, public io::Streamable<Array<vint>>
 {
    public:
       Array(vint size);
@@ -65,7 +65,7 @@ class Array<vint> final : public ArrayBase<vint>, public Cloneable<Array<vint>>,
 
 
 template<>
-class Array<vchar> final : public ArrayBase<vchar>, public Cloneable<Array<vchar>>, public io::Streamable<Array<vchar>>
+class Array<vchar> final extends public ArrayBase<vchar> implements public Cloneable<Array<vchar>>, public io::Streamable<Array<vchar>>
 {
    public:
       Array(vint size);
@@ -90,7 +90,7 @@ class Array<vchar> final : public ArrayBase<vchar>, public Cloneable<Array<vchar
 
 
 template<>
-class Array<vbool> final : public ArrayBase<vbool>, public Cloneable<Array<vbool>>, public io::Streamable<Array<vbool>>
+class Array<vbool> final extends public ArrayBase<vbool> implements public Cloneable<Array<vbool>>, public io::Streamable<Array<vbool>>
 {
    public:
       Array(vint size);
@@ -115,7 +115,7 @@ class Array<vbool> final : public ArrayBase<vbool>, public Cloneable<Array<vbool
 
 
 template<>
-class Array<vlong> final : public ArrayBase<vlong>, public Cloneable<Array<vlong>>, public io::Streamable<Array<vlong>>
+class Array<vlong> final extends public ArrayBase<vlong> implements public Cloneable<Array<vlong>>, public io::Streamable<Array<vlong>>
 {
    public:
       Array(vint size);
@@ -140,7 +140,7 @@ class Array<vlong> final : public ArrayBase<vlong>, public Cloneable<Array<vlong
 
 
 template<>
-class Array<vfloat> final : public ArrayBase<vfloat>, public Cloneable<Array<vfloat>>, public io::Streamable<Array<vfloat>>
+class Array<vfloat> final extends public ArrayBase<vfloat> implements public Cloneable<Array<vfloat>>, public io::Streamable<Array<vfloat>>
 {
    public:
       Array(vint size);
@@ -165,7 +165,7 @@ class Array<vfloat> final : public ArrayBase<vfloat>, public Cloneable<Array<vfl
 
 
 template<>
-class Array<vshort> final : public ArrayBase<vshort>, public Cloneable<Array<vshort>>, public io::Streamable<Array<vshort>>
+class Array<vshort> final extends public ArrayBase<vshort> implements public Cloneable<Array<vshort>>, public io::Streamable<Array<vshort>>
 {
    public:
       Array(vint size);
@@ -190,7 +190,7 @@ class Array<vshort> final : public ArrayBase<vshort>, public Cloneable<Array<vsh
 
 
 template<>
-class Array<vdouble> final : public ArrayBase<vdouble>, public Cloneable<Array<vdouble>>, public io::Streamable<Array<vdouble>>
+class Array<vdouble> final extends public ArrayBase<vdouble> implements public Cloneable<Array<vdouble>>, public io::Streamable<Array<vdouble>>
 {
    public:
       Array(vint size);

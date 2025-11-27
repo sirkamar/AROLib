@@ -12,7 +12,7 @@ namespace event {
 class SelectionEvent;
 typedef Ref<SelectionEvent> RSelectionEvent;
 
-class SelectionEvent : public AWSEvent
+class SelectionEvent extends public AWSEvent
 {
    public:
       static const vint VALUE_CHANGED     = 1001017;

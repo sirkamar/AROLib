@@ -12,7 +12,7 @@ namespace event {
 class ChangeEvent;
 typedef Ref<ChangeEvent> RChangeEvent;
 
-class ChangeEvent : public util::Event
+class ChangeEvent extends public util::Event
 {
    public:
       ChangeEvent(RObject source);

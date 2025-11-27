@@ -11,7 +11,7 @@ namespace cui {
 class CSLabel;
 typedef Ref<CSLabel> RCSLabel;
 
-class CSLabel : public CSComponent, public CUIConstants
+class CSLabel extends public CSComponent implements public CUIConstants
 {
    public:
       CSLabel();

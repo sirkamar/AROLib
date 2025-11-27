@@ -12,7 +12,7 @@ class Rectangle;
 typedef Ref<Point> RPoint;
 typedef Ref<class Rectangle> RRectangle;
 
-class Rectangle : public Object, public io::Streamable<Rectangle>
+class Rectangle extends public Object implements public io::Streamable<Rectangle>
 {
    public:
       vint x, y;

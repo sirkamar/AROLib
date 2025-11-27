@@ -10,7 +10,7 @@ namespace io {
 class BufferedInputStream;
 typedef Ref<BufferedInputStream> RBufferedInputStream;
 
-class BufferedInputStream : public FilterInputStream
+class BufferedInputStream extends public FilterInputStream
 {
    public:
       BufferedInputStream(RInputStream is);

@@ -10,7 +10,7 @@ namespace aws {
 class Frame;
 typedef Ref<Frame> RFrame;
 
-class Frame : public Window
+class Frame extends public Window
 {
    public:
       Frame();

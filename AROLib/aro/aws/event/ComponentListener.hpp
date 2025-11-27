@@ -14,7 +14,7 @@ interface ComponentListener;
 typedef Ref<ComponentEvent> RComponentEvent;
 typedef Ref<ComponentListener> RComponentListener;
 
-interface ComponentListener : util::Listener
+interface ComponentListener extends util::Listener
 {
    public:
       virtual void componentMoved(RComponentEvent e)=0;

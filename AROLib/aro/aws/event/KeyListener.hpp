@@ -14,7 +14,7 @@ interface KeyListener;
 typedef Ref<KeyEvent> RKeyEvent;
 typedef Ref<KeyListener> RKeyListener;
 
-interface KeyListener : util::Listener
+interface KeyListener extends util::Listener
 {
    virtual void keyTyped(RKeyEvent e)=0;
    virtual void keyPressed(RKeyEvent e)=0;

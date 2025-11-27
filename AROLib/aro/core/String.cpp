@@ -9,10 +9,10 @@ namespace aro {
 
 const RArray<vchar> String::empty = new Array<vchar>(0);
 
-const RString String::EMPTY_STRING = new String("");
+const RString String::EMPTY_STRING = new String();
 
 String::String()
-	:String(EMPTY_STRING)
+	:String(empty, true)
 {
    
 }

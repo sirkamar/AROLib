@@ -10,7 +10,7 @@ namespace io {
 class ByteArrayInputStream;
 typedef Ref<ByteArrayInputStream> RByteArrayInputStream;
 
-class ByteArrayInputStream : public InputStream
+class ByteArrayInputStream extends public InputStream
 {
    public:
       ByteArrayInputStream(RArray<vint> buf);

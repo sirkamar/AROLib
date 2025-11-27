@@ -12,7 +12,7 @@ namespace aws {
 class ListenerList;
 typedef Ref<ListenerList> RListenerList;
 
-class ListenerList : public Object
+class ListenerList extends public Object
 {
    public:
       ListenerList();

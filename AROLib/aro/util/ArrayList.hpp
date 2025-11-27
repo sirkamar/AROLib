@@ -16,7 +16,7 @@ using RArrayList = Ref<ArrayList<T>>;
  * ArrayList class template declaration
  */ 
 template <class T>
-class ArrayList : public AbstractList<T>
+class ArrayList extends public AbstractList<T>
 {
    public:
       ArrayList();

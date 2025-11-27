@@ -10,7 +10,7 @@ namespace io {
 class FileWriter;
 typedef Ref<FileWriter> RFileWriter;
 
-class FileWriter : public OutputStreamWriter
+class FileWriter extends public OutputStreamWriter
 {
    public:
       FileWriter(RString file);

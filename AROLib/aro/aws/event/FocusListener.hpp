@@ -14,7 +14,7 @@ interface FocusListener;
 typedef Ref<FocusEvent> RFocusEvent;
 typedef Ref<FocusListener> RFocusListener;
 
-interface FocusListener : util::Listener
+interface FocusListener extends util::Listener
 {
    virtual void gotFocus(RFocusEvent e)=0;
    virtual void lostFocus(RFocusEvent e)=0;

@@ -10,7 +10,7 @@ namespace aws {
 class DefaultFocusPolicy;
 typedef Ref<DefaultFocusPolicy> RDefaultFocusPolicy;
 
-class DefaultFocusPolicy : public Object, public FocusPolicy
+class DefaultFocusPolicy extends public Object implements public FocusPolicy
 {
    class MutableBool : public Object
    {

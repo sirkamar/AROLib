@@ -11,7 +11,7 @@ namespace io {
 class StringsWriter;
 typedef Ref<StringsWriter> RStringsWriter;
 
-class StringsWriter :  public Writer
+class StringsWriter extends public Writer
 {
    public:
       StringsWriter();

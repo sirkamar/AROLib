@@ -17,7 +17,7 @@ using RAbstractMap = Ref<AbstractMap<K,V>>;
  * AbstractMap class template declaration
  */ 
 template <class K, class V>
-class AbstractMap : public Object, public Map<K,V>
+class AbstractMap extends public Object implements public Map<K,V>
 {
    public:
       virtual vint size();

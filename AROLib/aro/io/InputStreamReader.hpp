@@ -11,7 +11,7 @@ namespace io {
 class InputStreamReader;
 typedef Ref<InputStreamReader> RInputStreamReader;
 
-class InputStreamReader : public Reader
+class InputStreamReader extends public Reader
 {
    public:
       InputStreamReader(RInputStream in);

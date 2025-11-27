@@ -10,7 +10,7 @@ namespace io {
 class BufferedReader;
 typedef Ref<BufferedReader> RBufferedReader;
 
-class BufferedReader :  public Reader
+class BufferedReader extends public Reader
 {
    public:
       BufferedReader(RReader in);

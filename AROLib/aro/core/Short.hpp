@@ -8,7 +8,7 @@ namespace aro {
 class Short;
 typedef Ref<Short> RShort;
 
-class Short final : public Number, public Comparable<Short>, public Cloneable<Short>, public io::Streamable<Short>
+class Short final extends public Number implements public Comparable<Short>, public Cloneable<Short>, public io::Streamable<Short>
 {
    public:
       Short();

@@ -10,7 +10,7 @@ namespace aws {
 interface Shape2D;
 typedef Ref<Shape2D> RShape2D;
 
-interface Shape2D : Shape
+interface Shape2D extends Shape
 {
 	virtual vdouble calculatePerimeter() = 0;
 };

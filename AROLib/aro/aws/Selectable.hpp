@@ -12,7 +12,7 @@ namespace aws {
 interface Selectable;
 typedef Ref<Selectable> RSelectable;
 
-interface Selectable : Interface
+interface Selectable extends Interface
 {
    virtual RArray<Object> getSelectedObjects()=0;
    virtual void addItemListener(event::RItemListener l)=0;

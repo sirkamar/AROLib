@@ -13,7 +13,7 @@ template <class T>
 using RListIterator = Ref<ListIterator<T>>;
 
 template <class T>
-interface ListIterator : Iterator<T>
+interface ListIterator extends Iterator<T>
 {
    virtual Ref<T> next() = 0;
    virtual void remove() = 0;

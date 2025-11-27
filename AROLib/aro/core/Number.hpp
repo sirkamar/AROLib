@@ -8,7 +8,7 @@ namespace aro {
 class Number;
 typedef Ref<Number> RNumber;
 
-class Number : public Object
+class Number extends public Object
 {
    public:
       virtual vshort shortValue();

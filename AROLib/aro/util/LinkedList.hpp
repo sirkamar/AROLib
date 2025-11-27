@@ -16,7 +16,7 @@ using RLinkedList = Ref<LinkedList<T>>;
  * LinkedList class template declaration
  */ 
 template <class T>
-class LinkedList : public AbstractList<T>
+class LinkedList extends public AbstractList<T>
 {
    public:
       LinkedList();

@@ -14,7 +14,7 @@ interface ActionListener;
 typedef Ref<ActionEvent> RActionEvent;
 typedef Ref<ActionListener> RActionListener;
 
-interface ActionListener : util::Listener
+interface ActionListener extends util::Listener
 {
    virtual void actionOccurred(RActionEvent e)=0;
 };

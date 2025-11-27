@@ -8,7 +8,7 @@ namespace aro {
 class Float;
 typedef Ref<Float> RFloat;
 
-class Float final : public Number, public Comparable<Float>, public Cloneable<Float>, public io::Streamable<Float>
+class Float final extends public Number implements public Comparable<Float>, public Cloneable<Float>, public io::Streamable<Float>
 {
    public:
       Float();

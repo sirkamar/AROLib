@@ -10,7 +10,7 @@ namespace io {
 class BufferedWriter;
 typedef Ref<BufferedWriter> RBufferedWriter;
 
-class BufferedWriter :  public Writer
+class BufferedWriter extends public Writer
 {
    public:
       BufferedWriter(RWriter out);

@@ -13,7 +13,7 @@ namespace event {
 class WindowAdapter;
 typedef Ref<WindowAdapter> RWindowAdapter;
 
-class WindowAdapter : public Object, public WindowListener, public WindowFocusListener
+class WindowAdapter extends public Object implements public WindowListener, public WindowFocusListener
 {
    public:
       virtual void windowOpened(RWindowEvent e);

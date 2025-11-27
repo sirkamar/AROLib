@@ -15,7 +15,7 @@ namespace event {
 class ComponentEvent;
 typedef Ref<ComponentEvent> RComponentEvent;
 
-class ComponentEvent : public AWSEvent
+class ComponentEvent extends public AWSEvent
 {
    public:
       static const vint COMPONENT_MOVED   = 1001002;

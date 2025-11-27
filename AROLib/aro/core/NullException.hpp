@@ -8,7 +8,7 @@ namespace aro {
 class NullException; // forward declaration
 typedef Ref<NullException> RNullException;
 
-class NullException : public Exception
+class NullException extends public Exception
 {
    public:
       NullException();

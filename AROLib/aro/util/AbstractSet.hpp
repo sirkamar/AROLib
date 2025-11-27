@@ -17,7 +17,7 @@ using RAbstractSet = Ref<AbstractSet<T>>;
  * AbstractSet class template declaration
  */ 
 template <class T>
-class AbstractSet : public AbstractCollection<T>, public Set<T>
+class AbstractSet extends public AbstractCollection<T> implements public Set<T>
 {
    public:
       virtual vint size()=0;

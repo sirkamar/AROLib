@@ -16,7 +16,7 @@ using RHashSet = Ref<HashSet<T>>;
  * HashSet class template declaration
  */ 
 template <class T>
-class HashSet : public AbstractSet<T>
+class HashSet extends public AbstractSet<T>
 {
    public:
       HashSet();

@@ -2,11 +2,11 @@
 #define CORE_ARRAYBASE_IMPL_H
 
 #include <aro/core/Math.hpp>
-#include <aro/core/utils/Utils.hpp>
-#include <aro/core/ArgumentException.hpp>
 #include <aro/core/IndexException.hpp>
+#include <aro/core/utils/CoreUtils.hpp>
 #include <aro/io/ObjectInputStream.hpp>
 #include <aro/io/ObjectOutputStream.hpp>
+#include <aro/core/ArgumentException.hpp>
 
 namespace aro {
 

@@ -18,7 +18,14 @@ RObject Object::clone()
 
 RString Object::getType()
 {
-	return typeid(*this).name();
+	RString type = typeid(*this).name();
+
+	vint pos = type->lastIndexOf(' ');
+
+	if(pos >= 0)
+		return type->substring(pos+1);
+
+	return type;
 }
 
 RString Object::toString()

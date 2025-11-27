@@ -12,7 +12,7 @@ namespace border {
 class LineBorder;
 typedef Ref<LineBorder> RLineBorder;
 
-class LineBorder : public AbstractBorder
+class LineBorder extends public AbstractBorder
 {
    public:
       LineBorder();

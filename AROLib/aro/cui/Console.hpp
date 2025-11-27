@@ -12,7 +12,7 @@ typedef Ref<Dimension> RDimension;
 
 namespace cui {
 
-class Console final : public Object
+class Console final extends public Object
 {
    public:
       static void clear();

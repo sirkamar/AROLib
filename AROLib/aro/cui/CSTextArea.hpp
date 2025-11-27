@@ -10,7 +10,7 @@ namespace cui {
 class CSTextArea;
 typedef Ref<CSTextArea> RCSTextArea;
 
-class CSTextArea : public CSTextComponent
+class CSTextArea extends public CSTextComponent
 {
    public:
       static const vint NO_WRAP = 0;

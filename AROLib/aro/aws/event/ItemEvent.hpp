@@ -15,7 +15,7 @@ namespace event {
 class ItemEvent;
 typedef Ref<ItemEvent> RItemEvent;
 
-class ItemEvent : public AWSEvent
+class ItemEvent extends public AWSEvent
 {
    public:
       static const vint SELECTED              = 1001008;

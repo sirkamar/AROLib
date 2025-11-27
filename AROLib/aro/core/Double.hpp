@@ -8,7 +8,7 @@ namespace aro {
 class Double;
 typedef Ref<Double> RDouble;
 
-class Double final : public Number, public Comparable<Double>, public Cloneable<Double>, public io::Streamable<Double>
+class Double final extends public Number implements public Comparable<Double>, public Cloneable<Double>, public io::Streamable<Double>
 {
    public:
       /*static const vdouble POSITIVE_INFINITY;

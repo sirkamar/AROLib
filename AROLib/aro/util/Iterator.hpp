@@ -13,7 +13,7 @@ template <class T>
 using RIterator = Ref<Iterator<T>>;
 
 template <class T>
-interface Iterator : Interface
+interface Iterator extends Interface
 {
    virtual vbool hasNext() = 0;
    virtual Ref<T> next() = 0;

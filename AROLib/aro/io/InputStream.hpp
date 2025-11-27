@@ -10,7 +10,7 @@ namespace io {
 class InputStream;
 typedef Ref<InputStream> RInputStream;
 
-class InputStream : public Object
+class InputStream extends public Object
 {
    public:
       virtual void close(); // closes the input stream

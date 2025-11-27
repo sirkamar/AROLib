@@ -10,7 +10,7 @@ namespace io {
 class ObjectInputStream;
 typedef Ref<ObjectInputStream> RObjectInputStream;
 
-class ObjectInputStream : public DataInputStream
+class ObjectInputStream extends public DataInputStream
 {
    public:
      ObjectInputStream(RInputStream is);

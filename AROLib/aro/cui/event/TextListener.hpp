@@ -14,7 +14,7 @@ interface TextListener;
 typedef Ref<TextEvent> RTextEvent;
 typedef Ref<TextListener> RTextListener;
 
-interface TextListener : util::Listener
+interface TextListener extends util::Listener
 {
    virtual void textChanged(RTextEvent e)=0;
 };

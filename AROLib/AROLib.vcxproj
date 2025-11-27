@@ -244,7 +244,7 @@
     <ClInclude Include="aro\core\arm\Types.hpp" />
     <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp" />
     <ClInclude Include="aro\core\utils\ThreadLibrary.hpp" />
-    <ClInclude Include="aro\core\utils\Utils.hpp" />
+    <ClInclude Include="aro\core\utils\CoreUtils.hpp" />
     <ClInclude Include="aro\core\Weak.hpp" />
     <ClInclude Include="aro\cui\CSAbstractButton.hpp" />
     <ClInclude Include="aro\cui\all.hpp" />
@@ -495,6 +495,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

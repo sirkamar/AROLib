@@ -12,7 +12,7 @@ namespace event {
 class KeyAdapter;
 typedef Ref<KeyAdapter> RKeyAdpter;
 
-class KeyAdapter : public Object, public KeyListener
+class KeyAdapter extends public Object implements public KeyListener
 {
    public:
       virtual void keyTyped(RKeyEvent e);

@@ -5,7 +5,7 @@
 
 namespace aro {
 
-class Null final : public Object
+class Null final extends public Object
 {
    Null() = default;
    

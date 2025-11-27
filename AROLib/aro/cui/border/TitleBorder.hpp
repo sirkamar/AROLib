@@ -12,7 +12,7 @@ namespace border {
 class TitleBorder;
 typedef Ref<TitleBorder> RTitleBorder;
 
-class TitleBorder : public AbstractBorder
+class TitleBorder extends public AbstractBorder
 {
    public:
       TitleBorder();

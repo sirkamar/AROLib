@@ -12,7 +12,7 @@ namespace event {
 class KeyEvent;
 typedef Ref<KeyEvent> RKeyEvent;
 
-class KeyEvent : public InputEvent
+class KeyEvent extends public InputEvent
 {
    public:
       /* KeyEvent constansts */

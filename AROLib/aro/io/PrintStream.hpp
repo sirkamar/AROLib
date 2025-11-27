@@ -10,7 +10,7 @@ namespace io {
 class PrintStream;
 typedef Ref<PrintStream> RPrintStream;
 
-class PrintStream : public FilterOutputStream
+class PrintStream extends public FilterOutputStream
 {
    public:
       PrintStream(RString file);

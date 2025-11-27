@@ -13,7 +13,7 @@ typedef Ref<Listener> RListener;
 /** The Listener interface is merely used
  * to identify an interface as an event
  * listener interface type. */
-interface Listener : Interface
+interface Listener extends Interface
 {
    
 };

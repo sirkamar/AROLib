@@ -4,7 +4,7 @@
 
 using namespace aro;
 
-class AROTester : public Thread
+class AROTester extends public Thread
 {
    public:
       AROTester();
@@ -22,7 +22,7 @@ class AROTester : public Thread
       RArray<String> strArr;
 };
 
-class TestBase : public Object, public io::Streamable<TestBase>
+class TestBase extends public Object implements public io::Streamable<TestBase>
 {
     public:
         TestBase(vint val);
@@ -42,7 +42,7 @@ class TestBase : public Object, public io::Streamable<TestBase>
     friend interface io::Streamable<TestBase>;
 };
 
-class TestDerived : public TestBase, public io::Streamable<TestDerived>
+class TestDerived extends public TestBase implements public io::Streamable<TestDerived>
 {
     public:
         TestDerived(vint val, vfloat amt);
@@ -60,4 +60,3 @@ class TestDerived : public TestBase, public io::Streamable<TestDerived>
 
     friend interface io::Streamable<TestDerived>;
 };
-

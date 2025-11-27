@@ -12,7 +12,7 @@ namespace event {
 class InputEvent;
 typedef Ref<InputEvent> RInputEvent;
 
-class InputEvent : public ComponentEvent
+class InputEvent extends public ComponentEvent
 {
    public:
       InputEvent(RComponent source, vint id, vlong when, vint modifiers);

@@ -11,7 +11,7 @@ namespace io {
 class PrintWriter;
 typedef Ref<PrintWriter> RPrintWriter;
 
-class PrintWriter : public Writer
+class PrintWriter extends public Writer
 {
    public:
       PrintWriter(RWriter out);

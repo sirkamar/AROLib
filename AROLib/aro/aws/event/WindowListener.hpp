@@ -14,7 +14,7 @@ interface WindowListener;
 typedef Ref<WindowEvent> RWindowEvent;
 typedef Ref<WindowListener> RWindowListener;
 
-interface WindowListener : util::Listener
+interface WindowListener extends util::Listener
 {
    virtual void windowOpened(RWindowEvent e)=0;
    virtual void windowClosed(RWindowEvent e)=0;

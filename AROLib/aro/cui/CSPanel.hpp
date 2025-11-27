@@ -10,7 +10,7 @@ namespace cui {
 class CSPanel;
 typedef Ref<CSPanel> RCSPanel;
 
-class CSPanel : public CSComponent
+class CSPanel extends public CSComponent
 {
    public:
       CSPanel();

@@ -798,7 +798,7 @@
     <ClInclude Include="aro\core\Iterable.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\utils\Utils.hpp">
+    <ClInclude Include="aro\core\utils\CoreUtils.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\utils\Foreach.hpp">
@@ -1201,6 +1201,7 @@
     <None Include="..\README.md">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt">

@@ -16,7 +16,7 @@ typedef Ref<PaintEvent> RPaintEvent;
 class EventQueue;
 typedef Ref<EventQueue> REventQueue;
 
-class EventQueue : public Object
+class EventQueue extends public Object
 {
    class QueueItem;
    typedef Ref<QueueItem> RQueueItem;

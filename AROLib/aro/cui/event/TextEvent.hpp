@@ -12,7 +12,7 @@ namespace event {
 class TextEvent;
 typedef Ref<TextEvent> RTextEvent;
 
-class TextEvent : public aws::AWSEvent
+class TextEvent extends public aws::AWSEvent
 {
    public:
       static const vint TEXT_CHANGED      = 1001019;

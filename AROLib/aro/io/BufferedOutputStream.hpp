@@ -10,7 +10,7 @@ namespace io {
 class BufferedOutputStream;
 typedef Ref<BufferedOutputStream> RBufferedOutputStream;
 
-class BufferedOutputStream : public FilterOutputStream
+class BufferedOutputStream extends public FilterOutputStream
 {
    public:
       BufferedOutputStream(ROutputStream os);

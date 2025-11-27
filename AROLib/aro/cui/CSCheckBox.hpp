@@ -10,7 +10,7 @@ namespace cui {
 class CSCheckBox;
 typedef Ref<CSCheckBox> RCSCheckBox;
 
-class CSCheckBox : public CSAbstractButton
+class CSCheckBox extends public CSAbstractButton
 {
    public:
       CSCheckBox();

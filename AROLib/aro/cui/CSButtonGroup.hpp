@@ -13,7 +13,7 @@ class CSAbstractButton;
 typedef Ref<CSButtonGroup> RCSButtonGroup;
 typedef Ref<CSAbstractButton> RCSAbstractButton;
 
-class CSButtonGroup : public Object
+class CSButtonGroup extends public Object
 {
    public:
       CSButtonGroup();

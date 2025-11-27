@@ -10,7 +10,7 @@ namespace io {
 class ByteArrayOutputStream;
 typedef Ref<ByteArrayOutputStream> RByteArrayOutputStream;
 
-class ByteArrayOutputStream : public OutputStream
+class ByteArrayOutputStream extends public OutputStream
 {
    public:
       ByteArrayOutputStream();

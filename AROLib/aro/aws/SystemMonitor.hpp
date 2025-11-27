@@ -10,7 +10,7 @@ namespace aws {
 class SystemMonitor;
 typedef Ref<SystemMonitor> RSystemMonitor;
 
-class SystemMonitor final : public Thread
+class SystemMonitor final extends public Thread
 {
    class Key;
    

@@ -12,7 +12,7 @@ template <class T>
 using RArray2D = Ref<Array2D<T>>;
 
 template <class T>
-class Array<Array<T>> final : public ArrayBase<RArray<T>>, public Cloneable<Array2D<T>>, public io::Streamable<Array2D<T>>
+class Array<Array<T>> final extends public ArrayBase<RArray<T>> implements public Cloneable<Array2D<T>>, public io::Streamable<Array2D<T>>
 {
    public:
       Array(vint rows);

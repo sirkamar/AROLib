@@ -12,7 +12,7 @@ namespace event {
 class FocusAdapter;
 typedef Ref<FocusAdapter> RFocusAdapter;
 
-class FocusAdapter : public Object, public FocusListener
+class FocusAdapter extends public Object implements public FocusListener
 {
    public:
       virtual void gotFocus(RFocusEvent e);

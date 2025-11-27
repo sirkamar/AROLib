@@ -10,7 +10,7 @@ namespace io {
 class FileReader;
 typedef Ref<FileReader> RFileReader;
 
-class FileReader : public InputStreamReader
+class FileReader extends public InputStreamReader
 {
    public:
       FileReader(RString file);

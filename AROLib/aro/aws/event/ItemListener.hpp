@@ -14,7 +14,7 @@ interface ItemListener;
 typedef Ref<ItemEvent> RItemEvent;
 typedef Ref<ItemListener> RItemListener;
 
-interface ItemListener : util::Listener
+interface ItemListener extends util::Listener
 {
    virtual void itemStateChanged(RItemEvent e)=0;
 };

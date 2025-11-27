@@ -16,7 +16,7 @@ using RAbstarctCollection = Ref<AbstractCollection<T>>;
  * AbstractCollection class template declaration
  */ 
 template< class T>
-class AbstractCollection : public Object, public virtual Collection<T>
+class AbstractCollection extends public Object implements public virtual Collection<T>
 {
    public:
       virtual vint size() = 0;

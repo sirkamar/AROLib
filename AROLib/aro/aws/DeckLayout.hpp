@@ -11,7 +11,7 @@ namespace aws {
 class DeckLayout;
 typedef Ref<DeckLayout> RDeckLayout;
 
-class DeckLayout : public Object, public Layout
+class DeckLayout extends public Object implements public Layout
 {
    class Card;
    typedef Ref<Card> RCard;

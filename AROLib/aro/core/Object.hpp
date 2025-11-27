@@ -11,7 +11,7 @@ namespace aro {
    non-abstract class within the Library
    is inherited from the Object class
    either directly or indirectly. */
-class Object : public virtual Base
+class Object extends public virtual Base
 {
    public:
       Object() = default;

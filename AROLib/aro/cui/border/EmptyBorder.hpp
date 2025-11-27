@@ -12,7 +12,7 @@ namespace border {
 class EmptyBorder;
 typedef Ref<EmptyBorder> REmptyBorder;
 
-class EmptyBorder : public AbstractBorder
+class EmptyBorder extends public AbstractBorder
 {
    public:
       EmptyBorder(aws::RInsets insets);

@@ -13,7 +13,7 @@ template <class K, class V>
 using RMap = Ref<Map<K,V>>;
 
 template <class K, class V>
-interface Map : Interface
+interface Map extends Interface
 {
    interface Node;
    typedef Ref<Node> RNode;

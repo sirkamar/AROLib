@@ -10,7 +10,7 @@ namespace cui {
 interface CUIConstants;
 typedef Ref<CUIConstants> RCUIConstants;
 
-interface CUIConstants : Interface
+interface CUIConstants extends Interface
 {
    // used for both compass-direction
    // as well as box-orientation

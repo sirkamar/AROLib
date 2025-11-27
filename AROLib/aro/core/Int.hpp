@@ -8,7 +8,7 @@ namespace aro {
 class Int;
 typedef Ref<Int> RInt;
 
-class Int final : public Number, public Comparable<Int>, public Cloneable<Int>, public io::Streamable<Int>
+class Int final extends public Number implements public Comparable<Int>, public Cloneable<Int>, public io::Streamable<Int>
 {
    public:
       static const vint MAX_VALUE;

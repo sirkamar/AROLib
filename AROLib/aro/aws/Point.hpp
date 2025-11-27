@@ -10,7 +10,7 @@ namespace aws {
 class Point;
 typedef Ref<Point> RPoint;
 
-class Point : public Object, public io::Streamable<Point>
+class Point extends public Object, public io::Streamable<Point>
 {
    public:
       vint x, y;

@@ -10,7 +10,7 @@ namespace aws {
 class DefaultFocusManager;
 typedef Ref<DefaultFocusManager> RDefaultFocusManager;
 
-class DefaultFocusManager : public FocusManager
+class DefaultFocusManager extends public FocusManager
 {
    class TypeAheadMarker;
    typedef Ref<TypeAheadMarker> RTypeAheadMarker;

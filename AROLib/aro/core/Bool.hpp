@@ -8,7 +8,7 @@ namespace aro {
 class Bool;
 typedef Ref<Bool> RBool;
 
-class Bool final : public Object, public Comparable<Bool>, public io::Streamable<Bool>
+class Bool final extends public Object implements public Comparable<Bool>, public io::Streamable<Bool>
 {
    public:
       static const RBool IS_FALSE;

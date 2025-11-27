@@ -10,7 +10,7 @@ namespace io {
 class ObjectOutputStream;
 typedef Ref<ObjectOutputStream> RObjectOutputStream;
 
-class ObjectOutputStream : public DataOutputStream
+class ObjectOutputStream extends public DataOutputStream
 {
    public:
       ObjectOutputStream(ROutputStream os);

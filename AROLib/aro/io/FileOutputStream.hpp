@@ -11,7 +11,7 @@ namespace io {
 class FileOutputStream;
 typedef Ref<FileOutputStream> RFileOutputStream;
 
-class FileOutputStream : public OutputStream
+class FileOutputStream extends public OutputStream
 {
    public:
       FileOutputStream(RString file);

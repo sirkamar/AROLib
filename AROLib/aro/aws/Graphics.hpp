@@ -17,7 +17,7 @@ typedef Ref<Component> RComponent;
   * Each GUI type will need to provide its own
   * graphics implementation to enable visual
   * output (i.e. drawing) of components. */
-interface Graphics : Interface
+interface Graphics extends Interface
 {
    virtual void clear()=0;
    virtual void initBounds(RComponent comp)=0;

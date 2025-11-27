@@ -10,7 +10,7 @@ namespace cui {
 class CSRadioButton;
 typedef Ref<CSRadioButton> RCSRadioButton;
 
-class CSRadioButton : public CSAbstractButton
+class CSRadioButton extends public CSAbstractButton
 {
    public:
       CSRadioButton();

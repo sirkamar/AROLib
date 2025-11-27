@@ -20,7 +20,7 @@ typedef Ref<ObjectOutputStream> RObjectOutputStream;
 /* A private interface used
  internally by the streaming API.
  Clients should use Streamable<T>. */
-interface StreamBase : Interface
+interface StreamBase extends Interface
 {
    protected:
       virtual vlong getObjectVersion() { return 1L; };

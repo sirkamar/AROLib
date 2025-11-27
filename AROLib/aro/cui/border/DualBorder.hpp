@@ -12,7 +12,7 @@ namespace border {
 class DualBorder;
 typedef Ref<DualBorder> RDualBorder;
 
-class DualBorder : public AbstractBorder
+class DualBorder extends public AbstractBorder
 {
    public:
       DualBorder();

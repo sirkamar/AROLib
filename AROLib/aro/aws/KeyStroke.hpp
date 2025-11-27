@@ -21,7 +21,7 @@ typedef Ref<KeyEvent> RKeyEvent;
 class KeyStroke;
 typedef Ref<KeyStroke> RKeyStroke;
 
-class KeyStroke : public Object
+class KeyStroke extends public Object
 {
    public:
       static RKeyStroke getKeyStroke(vchar keyChar);

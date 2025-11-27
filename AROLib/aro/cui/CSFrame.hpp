@@ -10,7 +10,7 @@ namespace cui {
 class CSFrame;
 typedef Ref<CSFrame> RCSFrame;
 
-class CSFrame :  public aws::Frame
+class CSFrame extends public aws::Frame
 {
    public:
       CSFrame();

@@ -10,7 +10,7 @@ namespace io {
 class StringsReader;
 typedef Ref<StringsReader> RStringsReader;
 
-class StringsReader :  public Reader
+class StringsReader extends public Reader
 {
    public:
       StringsReader(RString str);

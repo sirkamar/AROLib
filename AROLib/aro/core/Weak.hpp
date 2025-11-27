@@ -60,7 +60,7 @@ template <class T>
 using RWeak = Ref<Weak<T>>;
 
 template <class T>
-class Weak : public Object
+class Weak extends public Object
 {
    public:
       Weak(const Ref<T>& ref);

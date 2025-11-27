@@ -16,7 +16,7 @@ using RWeakHashMap = Ref<WeakHashMap<K,V>>;
  * WeakHashMap class template declaration
  */ 
 template <class K, class V>
-class WeakHashMap : public AbstractMap<K,V>
+class WeakHashMap extends public AbstractMap<K,V>
 {
    public:
       class Node;

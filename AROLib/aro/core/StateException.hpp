@@ -8,7 +8,7 @@ namespace aro {
 class StateException; // forward declaration
 typedef Ref<StateException> RStateException;
 
-class StateException : public Exception
+class StateException extends public Exception
 {
    public:
       StateException();

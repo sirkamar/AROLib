@@ -8,7 +8,7 @@ namespace aro {
 class StringBuffer;
 typedef Ref<StringBuffer> RStringBuffer;
 
-class StringBuffer : public MutableString, public io::Streamable<StringBuffer>
+class StringBuffer extends public MutableString implements public io::Streamable<StringBuffer>
 {
    public:
       StringBuffer();

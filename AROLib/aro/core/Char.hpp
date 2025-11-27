@@ -8,7 +8,7 @@ namespace aro {
 class Char;
 typedef Ref<Char> RChar;
 
-class Char final : public Object, public Comparable<Char>, public Cloneable<Char>, public io::Streamable<Char>
+class Char final extends public Object implements public Comparable<Char>, public Cloneable<Char>, public io::Streamable<Char>
 {
    public:
       static const vint MAX_VALUE;

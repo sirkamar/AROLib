@@ -16,7 +16,7 @@ using RStack = Ref<Stack<T>>;
  * Stack class template declaration
  */ 
 template <class T>
-class Stack : public Vector<T>
+class Stack extends public Vector<T>
 {
    public:
       Ref<T> pop();

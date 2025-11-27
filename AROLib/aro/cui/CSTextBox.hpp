@@ -12,7 +12,7 @@ namespace cui {
 class CSTextBox;
 typedef Ref<CSTextBox> RCSTextBox;
 
-class CSTextBox : public CSTextComponent, public CUIConstants
+class CSTextBox extends public CSTextComponent implements public CUIConstants
 {
    public:
       CSTextBox();

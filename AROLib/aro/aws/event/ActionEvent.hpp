@@ -12,7 +12,7 @@ namespace event {
 class ActionEvent;
 typedef Ref<ActionEvent> RActionEvent;
 
-class ActionEvent : public AWSEvent
+class ActionEvent extends public AWSEvent
 {
    public:
       static const vint ACTION_OCCURRED = 1001001;

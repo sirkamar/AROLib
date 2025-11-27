@@ -20,7 +20,7 @@ access, however, in such case
 interface Cloneable<T> must
 be a friend. */
 template <class T>
-interface Cloneable : Interface
+interface Cloneable extends Interface
 {
    protected:
       Cloneable();

@@ -12,7 +12,7 @@ class FocusManager;
 typedef Ref<AWSEvent> RAWSEvent;
 
 
-class AWSEvent : public util::Event
+class AWSEvent extends public util::Event
 {
    public:
       AWSEvent(RObject source, vint eventID);

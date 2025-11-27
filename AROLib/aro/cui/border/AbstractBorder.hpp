@@ -12,7 +12,7 @@ namespace border {
 class AbstractBorder;
 typedef Ref<AbstractBorder> RAbstractBorder;
 
-class AbstractBorder : public Object, public Border
+class AbstractBorder extends public Object implements public Border
 {
    public:
       AbstractBorder();

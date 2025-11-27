@@ -12,7 +12,7 @@ class EventDispatcher;
 typedef Ref<EventQueue> REventQueue;
 typedef Ref<EventDispatcher> REventDispatcher;
 
-class EventDispatcher : public Thread
+class EventDispatcher extends public Thread
 {
    public:
       virtual void run();

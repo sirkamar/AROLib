@@ -12,7 +12,7 @@ namespace event {
 class FocusEvent;
 typedef Ref<FocusEvent> RFocusEvent;
 
-class FocusEvent : public ComponentEvent
+class FocusEvent extends public ComponentEvent
 {
    public:
       static const vint GOT_FOCUS   = 1001006;

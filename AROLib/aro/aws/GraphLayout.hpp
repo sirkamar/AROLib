@@ -10,7 +10,7 @@ namespace aws {
 class GraphLayout;
 typedef Ref<GraphLayout> RGraphLayout;
 
-class GraphLayout : public Object, public Layout
+class GraphLayout extends public Object implements public Layout
 {
    public:
 	   GraphLayout();

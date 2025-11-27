@@ -8,7 +8,7 @@ namespace aro {
 class UnsupportedException;
 typedef Ref<UnsupportedException> RUnsupportedException;
 
-class UnsupportedException : public Exception
+class UnsupportedException extends public Exception
 {
    public:
       UnsupportedException();

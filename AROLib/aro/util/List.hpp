@@ -14,7 +14,7 @@ template <class T>
 using RList = Ref<List<T>>;
 
 template <class T>
-interface List : virtual Collection<T>
+interface List extends virtual Collection<T>
 {
    // from Collection
    virtual vint size() = 0;

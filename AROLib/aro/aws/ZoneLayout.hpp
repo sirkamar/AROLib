@@ -10,7 +10,7 @@ namespace aws {
 class ZoneLayout;
 typedef Ref<ZoneLayout> RZoneLayout;
 
-class ZoneLayout : public Object, public Layout
+class ZoneLayout extends public Object implements public Layout
 {
    public:
       static const RString TOP;

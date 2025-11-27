@@ -10,7 +10,7 @@ namespace io {
 class Reader;
 typedef Ref<Reader> RReader;
 
-class Reader :  public Object
+class Reader extends public Object
 {
    public:
       virtual vint read();

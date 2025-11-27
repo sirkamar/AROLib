@@ -11,7 +11,7 @@ namespace io {
 class OutputStreamWriter;
 typedef Ref<OutputStreamWriter> ROutputStreamWriter;
 
-class OutputStreamWriter : public Writer
+class OutputStreamWriter extends public Writer
 {
    public:
       OutputStreamWriter(ROutputStream out);

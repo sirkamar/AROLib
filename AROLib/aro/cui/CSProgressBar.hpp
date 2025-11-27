@@ -10,7 +10,7 @@ namespace cui {
 class CSProgressBar;
 typedef Ref<CSProgressBar> RCSProgressBar;
 
-class CSProgressBar : public CSComponent
+class CSProgressBar extends public CSComponent
 {
    public:
       static const int HORIZONTAL;

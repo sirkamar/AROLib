@@ -10,7 +10,7 @@ namespace aws {
 class TideLayout;
 typedef Ref<TideLayout> RTideLayout;
 
-class TideLayout : public Object, public Layout
+class TideLayout extends public Object implements public Layout
 {
    public:
 	   TideLayout();

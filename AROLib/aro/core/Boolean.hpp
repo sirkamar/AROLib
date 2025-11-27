@@ -8,7 +8,7 @@ namespace aro {
 class Boolean;
 typedef Ref<Boolean> RBoolean;
 
-class Boolean : public Object, public Comparable<Boolean>, public io::Streamable<Boolean>
+class Boolean extends public Object implements public Comparable<Boolean>, public io::Streamable<Boolean>
 {
    public:
       Boolean();

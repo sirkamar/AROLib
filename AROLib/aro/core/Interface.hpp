@@ -5,7 +5,7 @@
 
 namespace aro {
 
-interface Interface : virtual Base
+interface Interface extends virtual Base
 {
    
 };

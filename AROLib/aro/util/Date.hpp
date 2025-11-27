@@ -7,7 +7,7 @@ namespace util {
 class Date;                             // forward declaration
 typedef Ref<Date> RDate;                // reference declaration
 
-class Date : public Object
+class Date extends public Object
 {
    public:
       Date();

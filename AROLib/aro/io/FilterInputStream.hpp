@@ -10,7 +10,7 @@ namespace io {
 class FilterInputStream;
 typedef Ref<FilterInputStream> RFilterInputStream;
 
-class FilterInputStream : public InputStream
+class FilterInputStream extends public InputStream
 {
    public:
       virtual void close();

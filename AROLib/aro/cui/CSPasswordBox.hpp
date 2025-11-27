@@ -10,7 +10,7 @@ namespace cui {
 class CSPasswordBox;
 typedef Ref<CSPasswordBox> RCSPasswordBox;
 
-class CSPasswordBox : public CSTextBox
+class CSPasswordBox extends public CSTextBox
 {
    public:
       CSPasswordBox();

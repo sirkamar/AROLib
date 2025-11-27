@@ -14,7 +14,7 @@ interface WindowFocusListener;
 typedef Ref<WindowEvent> RWindowEvent;
 typedef Ref<WindowFocusListener> RWindowFocusListener;
 
-interface WindowFocusListener : util::Listener
+interface WindowFocusListener extends util::Listener
 {
    virtual void windowGotFocus(RWindowEvent e)=0;
    virtual void windowLostFocus(RWindowEvent e)=0;

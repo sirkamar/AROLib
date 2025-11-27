@@ -13,7 +13,7 @@ typedef Ref<IOException> RIOException;
 /** IOExceptions are thrown to indicate
  * that an error has occured while
  * performing an I/O operation. */
-class IOException : public Exception
+class IOException extends public Exception
 {
    public:
       IOException();

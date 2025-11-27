@@ -36,7 +36,7 @@ typedef Ref<Rectangle> RRectangle;
  * labels and textboxes of a typical gui.
  * The Component class is the base class
  * of all of the user interface classes. */
-class Component : public Object
+class Component extends public Object
 {
    public:
       virtual void requestFocus();

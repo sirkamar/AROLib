@@ -10,7 +10,7 @@ namespace util {
 class Time;
 typedef Ref<Time> RTime;
 
-class Time : public Object
+class Time extends public Object
 {
    public:
       Time(void);

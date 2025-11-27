@@ -17,7 +17,7 @@ namespace cui {
 class CSAbstractButton;
 typedef Ref<CSAbstractButton> RCSAbstractButton;
 
-class CSAbstractButton : public CSComponent, public aws::Selectable, public CUIConstants
+class CSAbstractButton extends public CSComponent implements public aws::Selectable, public CUIConstants
 {
    public:
       static const vint ENABLED;

@@ -8,7 +8,7 @@ namespace aro {
 interface Runnable;
 typedef Ref<Runnable> RRunnable;
 
-interface Runnable : Interface
+interface Runnable extends Interface
 {
    virtual void run()=0;
 };

@@ -1,5 +1,5 @@
-#ifndef CORE_UTILS_H
-#define CORE_UTILS_H
+#ifndef CORE_UTILS_COREUTILS_H
+#define CORE_UTILS_COREUTILS_H
 
 #include <aro/io/impl/Streamable-impl.hpp>
 
@@ -32,23 +32,21 @@ inline Ref<T> type_cast(Object*const obj)
 template <class T>
 inline Ref<T> type_cast(const RObject& obj)
 {
-   if(obj.ref != nullptr)
+   if(obj.ref == nullptr)
+       return Ref<T>();
+   
+   T* tPtr = dynamic_cast<T*>(obj.ref);
+   
+   if(tPtr == nullptr) // cast failed
    {
-      T* tPtr = dynamic_cast<T*>(obj.ref);
-
-      if(tPtr == nullptr)
-      {
-         Ref<String> type = typeid(T).name();
-         int space = type->lastIndexOf(" ") + 1;
-         if(space>0) type = type->substring(space);
+      Ref<String> type = typeid(T).name();
+      int space = type->lastIndexOf(" ") + 1;
+      if(space>0) type = type->substring(space);
          throw RException(new CastException(obj->getType() +
             " cannot be converted to " + type));
-      }
-
-      return tPtr;
    }
    
-   return Ref<T>();
+   return tPtr;   
 }
 
 /* Checks if an object is an "instance of" or
@@ -92,7 +90,7 @@ struct ExceptionWrapper final
 };
 
 /* Used to implement the ex_finally facilty */
-class __FinalEx__ : public Exception {};
+class __FinalEx__ final : public Exception {};
 
 } /* namespace aro */
 
@@ -104,8 +102,8 @@ class __FinalEx__ : public Exception {};
 //#define type_cast ARO_TYPE_CAST // usage: type_cast<toTypeName>(srcObject)
 
 /* Used as a type safe reference in place of "this" */
-#define aro_this_ref aro::thisRef(this)
-#define thisref aro_this_ref // usage: if(obj==thisref)return true;
+#define ARO_THISREF aro::thisRef(this)
+#define thisref ARO_THISREF // usage: if(obj==thisref)return true;
 
 
 /* Used to create a multi-threading safe sychronized block */
@@ -173,4 +171,4 @@ class __FinalEx__ : public Exception {};
 /* The C++ standard program entry point */
 int main(int argc, char** argv);
 
-#endif /* CORE_UTILS_H */
+#endif /* CORE_UTILS_COREUTILS_H */

@@ -10,7 +10,7 @@ namespace aws {
 class Dialog;
 typedef Ref<Dialog> RDialog;
 
-class Dialog : public Window
+class Dialog extends public Window
 {
    public:
       Dialog();

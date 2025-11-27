@@ -10,7 +10,7 @@ namespace util {
 class Timestamp;
 typedef Ref<Timestamp> RTimestamp;
 
-class Timestamp : public Object, public io::Streamable<Timestamp>
+class Timestamp extends public Object implements public io::Streamable<Timestamp>
 {
    public:
       Timestamp();

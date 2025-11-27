@@ -15,7 +15,7 @@ interface PropertyListener;
 typedef Ref<PropertyEvent> RPropertyEvent;
 typedef Ref<PropertyListener> RPropertyListener;
 
-interface PropertyListener : util::Listener
+interface PropertyListener extends util::Listener
 {
    virtual void propertyChanged(RPropertyEvent e)=0;
 };

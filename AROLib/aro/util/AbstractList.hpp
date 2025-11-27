@@ -19,7 +19,7 @@ using RAbstractList = Ref<AbstractList<T>>;
  * AbstractList class template declaration
  */ 
 template <class T>
-class AbstractList : public AbstractCollection<T>, public List<T>
+class AbstractList extends public AbstractCollection<T> implements public List<T>
 {
    class Itr : public Object, public Iterator<T>
    {

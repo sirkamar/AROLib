@@ -14,7 +14,7 @@ interface ChangeListener;
 typedef Ref<ChangeEvent> RChangeEvent;
 typedef Ref<ChangeListener> RChangeListener;
 
-interface ChangeListener : util::Listener
+interface ChangeListener extends util::Listener
 {
    virtual void stateChanged(RChangeEvent e)=0;
 };

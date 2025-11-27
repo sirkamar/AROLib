@@ -10,7 +10,7 @@ typedef Ref<ArgumentException> RArgumentException;
 
 /** An ArgumentException is thrown to indicate that
  * an argument (i.e. parameter) is not valid */
-class ArgumentException : public Exception
+class ArgumentException extends public Exception
 {
    public:
       ArgumentException();

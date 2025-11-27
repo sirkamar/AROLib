@@ -16,7 +16,7 @@ typedef Ref<PrintWriter> RPrintWriter;
 class Exception;
 typedef Ref<Exception> RException;
 
-class Exception : public Object
+class Exception extends public Object
 {
    public:
       Exception();

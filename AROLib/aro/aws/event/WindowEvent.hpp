@@ -13,7 +13,7 @@ namespace event {
 class WindowEvent;
 typedef Ref<WindowEvent> RWindowEvent;
 
-class WindowEvent : public AWSEvent
+class WindowEvent extends public AWSEvent
 {
    public:
       static const vint WINDOW_OPENED        = 1001020;

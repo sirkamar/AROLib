@@ -11,7 +11,7 @@ namespace io {
 class StringOutputStream;
 typedef Ref<StringOutputStream> RStringOutputStream;
 
-class StringOutputStream : public OutputStream
+class StringOutputStream extends public OutputStream
 {
    public:
       StringOutputStream();

@@ -20,7 +20,7 @@ typedef Ref<Container> RContainer;
 
 /** A Layout is a scheme for arranging
  * components within a container. */
-interface Layout : Interface
+interface Layout extends Interface
 {
    virtual void layoutContainer(RContainer target)=0;
    virtual void removeLayoutComponent(RComponent comp)=0;

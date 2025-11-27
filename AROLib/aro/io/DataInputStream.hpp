@@ -10,7 +10,7 @@ namespace io {
 class DataInputStream;
 typedef Ref<DataInputStream> RDataInputStream;
 
-class DataInputStream : public FilterInputStream
+class DataInputStream extends public FilterInputStream
 {
    public:
       DataInputStream(RInputStream in);

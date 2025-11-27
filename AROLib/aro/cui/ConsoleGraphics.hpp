@@ -20,7 +20,7 @@ namespace cui {
 class ConsoleGraphics;
 typedef Ref<ConsoleGraphics> RConsoleGraphics;
 
-class ConsoleGraphics : public Object, public aws::Graphics
+class ConsoleGraphics extends public Object implements public aws::Graphics
 {
    public:
       ConsoleGraphics(aws::event::RPaintEvent e);

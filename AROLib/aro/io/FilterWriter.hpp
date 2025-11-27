@@ -10,7 +10,7 @@ namespace io {
 class FilterWriter;
 typedef Ref<FilterWriter> RFilterWriter;
 
-class FilterWriter :  public Writer
+class FilterWriter extends public Writer
 {
    public:
       FilterWriter(RWriter out);

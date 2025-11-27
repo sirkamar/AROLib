@@ -8,7 +8,7 @@ namespace aro {
 class Long;
 typedef Ref<Long> RLong;
 
-class Long final : public Number, public Comparable<Long>, public Cloneable<Long>, public io::Streamable<Long>
+class Long final extends public Number implements public Comparable<Long>, public Cloneable<Long>, public io::Streamable<Long>
 {
    public:
       static const vlong MAX_VALUE;

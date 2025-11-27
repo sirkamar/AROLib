@@ -10,7 +10,7 @@ namespace cui {
 class CSButton;
 typedef Ref<CSButton> RCSButton;
 
-class CSButton : public CSAbstractButton
+class CSButton extends public CSAbstractButton
 {
    public:
       CSButton();

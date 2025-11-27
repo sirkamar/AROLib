@@ -10,19 +10,17 @@
 
 #ifdef ARO_GRAPHICS_CLASS
 
-//#ifndef ARO_GRAPHICS_FILE
-//#error "The ARO_""GRAPHICS_""FILE for the ARO_""GRAPHICS_""CLASS must be defined"
-//#endif
-//
-//#include "ARO_GRAPHICS_FILE"
+#ifndef ARO_GRAPHICS_FILE
+#error "The ARO_""GRAPHICS_""FILE for the ARO_""GRAPHICS_""CLASS must be defined"
+#endif
 
-#include "ARO_GRAPHICS_CLASS.h"
+#include "ARO_GRAPHICS_FILE"
 
 #endif
 
 namespace aro {
 
-class System final : public Object
+class System final extends public Object
 {
    public:
       static const io::RInputStream in; // System standad input stream

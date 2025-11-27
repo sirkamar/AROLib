@@ -16,7 +16,7 @@ class KeyStroke;
 class FocusManager;
 typedef Ref<FocusManager> RFocusManager;
 
-class FocusManager : public Object
+class FocusManager extends public Object
 {
    public:
       static const vint FOCUS_NEXT_KEYS;

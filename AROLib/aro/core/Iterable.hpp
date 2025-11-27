@@ -12,7 +12,7 @@ template <class T>
 using RIterable = Ref<Iterable<T>>;
 
 template <class T>
-interface Iterable : Interface
+interface Iterable extends Interface
 {
    virtual util::RIterator<T> iterator()=0;
 };

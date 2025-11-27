@@ -14,7 +14,7 @@ interface SelectionListener;
 typedef Ref<SelectionEvent> RSelectionEvent;
 typedef Ref<SelectionListener> RSelectionListener;
 
-interface SelectionListener : util::Listener
+interface SelectionListener extends util::Listener
 {
    virtual void selectionChanged(RSelectionEvent e)=0;
 };

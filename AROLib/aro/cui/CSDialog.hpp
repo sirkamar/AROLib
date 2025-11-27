@@ -7,7 +7,7 @@ namespace aro {
 
 namespace cui {
 
-class CSDialog :  public aws::Dialog
+class CSDialog extends  public aws::Dialog
 {
    public:
       CSDialog();

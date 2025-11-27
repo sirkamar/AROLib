@@ -23,7 +23,7 @@ namespace border {
 interface Border;
 typedef Ref<Border> RBorder;
 
-interface Border : Interface
+interface Border extends Interface
 {
    public:
       virtual aws::RInsets getInsets()=0;

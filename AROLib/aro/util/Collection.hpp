@@ -13,7 +13,7 @@ template <class T>
 using RCollection = Ref<Collection<T>>;
 
 template <class T>
-interface Collection : Iterable<T>
+interface Collection extends Iterable<T>
 {
    virtual vint size() = 0;
    virtual void clear() = 0;

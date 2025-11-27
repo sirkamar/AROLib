@@ -11,7 +11,7 @@ namespace io {
 class FileInputStream;
 typedef Ref<FileInputStream> RFileInputStream;
 
-class FileInputStream : public InputStream
+class FileInputStream extends public InputStream
 {
    public:
       FileInputStream(RString file);

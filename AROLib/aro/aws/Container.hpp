@@ -15,7 +15,7 @@ typedef Ref<Insets> RInsets;
 
 /** Class Container is a holder for components that
  * are to be displayed on the screen. */
-class Container : public Component
+class Container extends public Component
 {
    public:
       virtual void add(RComponent comp); // adds component to container

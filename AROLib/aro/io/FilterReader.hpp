@@ -10,7 +10,7 @@ namespace io {
 class FilterReader;
 typedef Ref<FilterReader> RFilterReader;
 
-class FilterReader :  public Reader
+class FilterReader extends public Reader
 {
    public:
       virtual vint read();

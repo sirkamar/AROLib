@@ -10,7 +10,7 @@ namespace aws {
 class Insets;
 typedef Ref<Insets> RInsets;
 
-class Insets : public Object, public io::Streamable<Insets>
+class Insets extends public Object implements public io::Streamable<Insets>
 {
    public:
       vint top, left;

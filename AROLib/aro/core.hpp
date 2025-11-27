@@ -24,7 +24,7 @@
 //#include <aro/core/Runnable.hpp>             // Runnable interface declaration
 //#include <aro/core/Comparable.hpp>           // Comparable interface declaration
 
-/* Wrapper Classes - Type A: One class for each built-in type used */
+/* Wrapper Classes - Type A: One class for each primitive type used */
 #include <aro/core/Int.hpp>                  // Int wrapper class declaration
 #include <aro/core/Bool.hpp>                 // Bool wrapper class declaration
 #include <aro/core/Char.hpp>                 // Char wrapper class declaration
@@ -33,7 +33,7 @@
 #include <aro/core/Short.hpp>                // Short wrapper class declaration
 #include <aro/core/Double.hpp>               // Double wrapper class declaration
 
-/* Wrapper Classes - Type B: One class for each built-in type group used */
+/* Wrapper Classes - Type B: One class for each primitive type group used */
 //#include <aro/core/Boolean.hpp>              // Boolean wrapper class declaration
 //#include <aro/core/Decimal.hpp>              // Decimal wrapper class declaration
 //#include <aro/core/Integer.hpp>              // Integer wrapper class declaration
@@ -52,7 +52,7 @@
 #include <aro/core/ThreadException.hpp>      // ThreadException class declaration
 #include <aro/core/UnsupportedException.hpp> // UnsupportedException class declaration
 
-//#include <aro/core/utils/Utils.hpp>          // common utilities macro definitions
-#include <aro/core/utils/Foreach.hpp>        // for_each utility macro definition
+//#include <aro/core/utils/Utils.hpp>          // core utilities definitions
+#include <aro/core/utils/Foreach.hpp>        // for_each utility definition
 
 #endif /* ARO_CORE_H */

@@ -7,7 +7,7 @@ using namespace aro;
 class SyncCounter;
 typedef Ref<SyncCounter> RSyncCounter;
 
-class SyncCounter :  public Object
+class SyncCounter extends public Object
 {
 	public:
 		virtual void increment();
@@ -18,7 +18,7 @@ class SyncCounter :  public Object
 		vint count = 0;
 };
 
-class Runner : public Thread
+class Runner extends public Thread
 {
 	public:
 		Runner(RSyncCounter count);

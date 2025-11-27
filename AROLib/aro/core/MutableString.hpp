@@ -8,7 +8,7 @@ namespace aro {
 class MutableString;
 typedef Ref<MutableString> RMutableString;
 
-class MutableString : public Object
+class MutableString extends public Object
 {
    public:
       vint length();

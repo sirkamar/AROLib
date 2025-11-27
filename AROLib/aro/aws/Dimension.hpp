@@ -10,7 +10,7 @@ namespace aws {
 class Dimension;
 typedef Ref<Dimension> RDimension;
 
-class Dimension : public Object, public io::Streamable<Dimension>
+class Dimension extends public Object implements public io::Streamable<Dimension>
 {
    public:
       vint width;

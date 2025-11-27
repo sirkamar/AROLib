@@ -13,7 +13,7 @@ template <class T>
 using RSet = Ref<Set<T>>;
 
 template <class T>
-interface Set : virtual Collection<T>
+interface Set extends virtual Collection<T>
 {
    virtual vint size()=0;
    virtual void clear()=0;

@@ -14,7 +14,7 @@ interface StateListener;
 typedef Ref<StateEvent> RStateEvent;
 typedef Ref<StateListener> RStateListener;
 
-interface StateListener : util::Listener
+interface StateListener extends util::Listener
 {
    virtual void stateChanged(RStateEvent e)=0;
 };

@@ -6,7 +6,7 @@
 namespace aro {
 
 template <class T>
-class ArrayBase : public Object
+class ArrayBase extends public Object
 {
    public:
       const vint length;

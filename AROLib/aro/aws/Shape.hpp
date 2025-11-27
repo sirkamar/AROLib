@@ -10,7 +10,7 @@ namespace aws {
 interface Shape;
 typedef Ref<Shape> RShape;
 
-interface Shape : Interface
+interface Shape extends Interface
 {
 	virtual vdouble calculateArea() = 0;
 };
