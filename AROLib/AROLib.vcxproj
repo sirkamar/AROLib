@@ -319,6 +319,7 @@
     <ClInclude Include="aro\util\AbstractCollection.hpp" />
     <ClInclude Include="aro\util\AbstractList.hpp" />
     <ClInclude Include="aro\util\AbstractMap.hpp" />
+    <ClInclude Include="aro\util\AbstractQueue.hpp" />
     <ClInclude Include="aro\util\AbstractSet.hpp" />
     <ClInclude Include="aro\util\all.hpp" />
     <ClInclude Include="aro\util\ArrayList.hpp" />
@@ -334,6 +335,7 @@
     <ClInclude Include="aro\util\Listener.hpp" />
     <ClInclude Include="aro\util\ListIterator.hpp" />
     <ClInclude Include="aro\util\Map.hpp" />
+    <ClInclude Include="aro\util\Queue.hpp" />
     <ClInclude Include="aro\util\Set.hpp" />
     <ClInclude Include="aro\util\Stack.hpp" />
     <ClInclude Include="aro\util\StringTokenizer.hpp" />

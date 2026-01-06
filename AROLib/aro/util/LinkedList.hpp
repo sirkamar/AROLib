@@ -13,10 +13,14 @@ template <class T>
 using RLinkedList = Ref<LinkedList<T>>;
 
 /**
- * LinkedList class template declaration
- */ 
+ A doubly-linked list implementation of the List interfaces.
+ Implements all optional list operations, and permits all
+ elements (including null).
+
+ This class is a member of the AROLib Collections Framework.
+ */
 template <class T>
-class LinkedList extends public AbstractList<T>
+class LinkedList extends public AbstractList<T> implements Cloneable<LinkedList<T>>
 {
    public:
       LinkedList();
@@ -26,6 +30,7 @@ class LinkedList extends public AbstractList<T>
       virtual vint size(); // returns list size
       virtual void clear(); // clears the list
       virtual vbool isEmpty(); // checks if list is empty
+      virtual RObject clone(); // returns a copy of this list
       virtual Ref<T> getLast(); // returns last element in list
       virtual Ref<T> getFirst(); // returns first element in list
       virtual Ref<T> removeLast(); // removes & returns last element in list
@@ -115,16 +120,12 @@ template <class T>
 LinkedList<T>::LinkedList()
 {
    count = 0;
-   //head = new Node(nullref,nullref,nullref);
-   //head->next = head->prev = head;
 }
 
 template <class T>
 LinkedList<T>::LinkedList(RCollection<T> c)
 {
    count = 0;
-   //head = new Node(nullref,nullref,nullref);
-   //head->next = head->prev = head;
    
    addAll(c);
 }
@@ -133,6 +134,21 @@ template <class T>
 vbool LinkedList<T>::isEmpty()
 {
    return count == 0;
+}
+
+template <class T>
+RObject LinkedList<T>::clone()
+{
+    LinkedList<T> list = type_cast<LinkedList<T>>(AbstractList<T>::clone());
+
+    list->head = list->tail = nullref;
+    list->size = 0;
+    list->modCount = 0;
+
+    for(RNode x = head; x != nullref; x = x->next)
+        list->add(x->data);
+
+    return list;
 }
 
 template <class T>
@@ -234,7 +250,7 @@ vbool LinkedList<T>::remove(RObject obj)
 template <class T>
 void LinkedList<T>::clear()
 {
-   // strictly unnecessary, but helps with GC
+   // strictly unnecessary, but helps with ARM (garbage collection)
    for(RNode n = head; n != nullref; )
    {
       RNode next = n->next;

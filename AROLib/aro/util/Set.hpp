@@ -12,6 +12,13 @@ template <class T> interface Set;
 template <class T>
 using RSet = Ref<Set<T>>;
 
+/*
+ A Set is a collection that contains no duplicate elements,
+ and at most one null element.  As implied by its name, this
+ interface models the mathematical set abstraction.
+
+ This interface is a member of the AROLib Collections Framework.
+*/
 template <class T>
 interface Set extends virtual Collection<T>
 {

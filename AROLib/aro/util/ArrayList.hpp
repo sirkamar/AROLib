@@ -13,10 +13,13 @@ template <class T>
 using RArrayList = Ref<ArrayList<T>>;
 
 /**
- * ArrayList class template declaration
- */ 
+ ArrayList is a resizable-array based implementation
+ of the List interface.
+
+ This class is a member of the AROLib Collections Framework.
+ */
 template <class T>
-class ArrayList extends public AbstractList<T>
+class ArrayList extends public AbstractList<T> implements Cloneable<ArrayList<T>>, io::Streamable<ArrayList<T>>
 {
    public:
       ArrayList();
@@ -26,6 +29,7 @@ class ArrayList extends public AbstractList<T>
       virtual vint size();
       virtual void clear();
       virtual vbool isEmpty();
+      virtual RObject clone();
       virtual void trimToSize();
       virtual RArray<T> toArray();
       virtual vbool add(Ref<T> obj);
@@ -44,6 +48,9 @@ class ArrayList extends public AbstractList<T>
    
    protected:
       virtual void removeRange(vint fromIndex, vint toIndex);
+
+      virtual void readObject(io::RObjectInputStream io);
+      virtual void writeObject(io::RObjectOutputStream io);
    
    private:
       vint count;
@@ -60,8 +67,7 @@ template <class T>
 ArrayList<T>::ArrayList()
    :ArrayList(10)
 {
-   //count = 0;
-   //data = new Array<Ref<T>>(10);
+	// Do nothing
 }
 
 template <class T>
@@ -80,6 +86,15 @@ ArrayList<T>::ArrayList(RCollection<T> c)
    :ArrayList(c->size())
 {
    addAll(c);
+}
+
+template <class T>
+RObject ArrayList<T>::clone()
+{
+    RArrayList<T> list = type_cast<ArrayList<T>>(AbstractList<T>::clone());
+    list->data = data->copyOf(size);
+    list->modCount = 0;
+    return list;
 }
 
 template <class T>
@@ -211,7 +226,7 @@ Ref<T> ArrayList<T>::remove(vint index)
    vint numMoved = count-index-1;
    if(numMoved > 0)
       data->copy(index, data, index+1, numMoved);
-   data[--count] = nullref; // Let gc do its work
+   data[--count] = nullref; // Let ARM do its work
    return oldVal;
 }
 
@@ -251,7 +266,7 @@ void ArrayList<T>::clear()
 {
    modCount++;
    
-   // Let gc do its work
+   // Let ARM do its work
    for(vint i=0; i<count; i++)
       data[i] = nullref;
    
@@ -262,16 +277,6 @@ template <class T>
 vbool ArrayList<T>::addAll(RCollection<T> c)
 {
    return addAll(count, c);
-   //RArray<Ref<T>> a = c->toArray();
-   //vint newNum = a->length;
-   //
-   //ensureCapacity(count + newNum);
-   //
-   //data->copy(count, a, 0, newNum);
-   //
-   //count += newNum;
-   //
-   //return newNum != 0;
 }
 
 template <class T>
@@ -301,10 +306,9 @@ void ArrayList<T>::removeRange(vint fromIndex, vint toIndex)
    vint numMoved = count-toIndex;
    data->copy(fromIndex, data, toIndex, numMoved);
    
-   // Let gc do its work
    vint newSize = count - (toIndex-fromIndex);
    while(count != newSize)
-      data[--count] = nullref;
+      data[--count] = nullref; // Let ARM do its work
 }
 
 template <class T>
@@ -314,7 +318,7 @@ void ArrayList<T>::fastRemove(vint index)
    vint numMoved = count-index-1;
    if(numMoved > 0)
       data->copy(index, data, index+1, numMoved);
-   data[--count] = nullref; // Let gc do its work
+   data[--count] = nullref; // Let ARM do its work
 }
 
 template <class T>
@@ -324,6 +328,35 @@ void ArrayList<T>::rangeCheck(vint index)
       ex_throw new IndexException("Index: "+String::valueOf(index)+
                ", Size: "+String::valueOf(count));
 }
+
+template <class T>
+void ArrayList<T>::readObject(io::RObjectInputStream io)
+{
+    size = io->readInt();
+
+    if(size > 0)
+    {
+        ensureCapacity(size);
+
+        for(vint i=0; i<size; i++)
+            data[i] = io->readObject();
+    }
+}
+
+template <class T>
+void ArrayList<T>::writeObject(io::RObjectOutputStream io)
+{
+    vint expectedModCount = modCount;
+
+    io->writeInt(size);
+
+    for(vint i=0; i<size; i++)
+        io->writeObject(data[i]);
+
+    if(modCount != expectedModCount)
+        ex_throw new StateException("Concurrent modification");
+}
+
 
 } /* namespace util */
 

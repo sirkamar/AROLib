@@ -13,6 +13,17 @@ template <class T> interface List;
 template <class T>
 using RList = Ref<List<T>>;
 
+/*
+ A List represents an ordered collection (also known as a sequence).
+ Users of this interface have precise control over where in the list
+ each element is inserted. A user can access elements by their integer
+ index (position in the list), and search for elements in the list.
+
+ Unlike sets, however, lists typically allow duplicate elements,
+ including multiple null elements (if they allow null elements at all).
+
+ This interface is a member of the AROLib Collections Framework.
+ */
 template <class T>
 interface List extends virtual Collection<T>
 {

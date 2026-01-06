@@ -13,7 +13,13 @@ template <class K, class V>
 using RHashMap = Ref<HashMap<K,V>>;
 
 /**
- * HashMap class template declaration
+  A hash table based implementation of the Map interface.
+  
+  This class makes no guarantees as to the order of the map;
+  in particular, it does not guarantee that the order will
+  remain constant over time.
+  
+  This class is a member of the AROLib Collections Framework.
  */ 
 template <class K, class V>
 class HashMap extends public AbstractMap<K,V>
@@ -54,8 +60,8 @@ class HashMap extends public AbstractMap<K,V>
             virtual Ref<K> getKey();
          
          protected:
-            void recordAccess(RHashMap<K, V> m);
-            void recordRemoval(RHashMap<K, V> m);
+             virtual void recordAccess(RHashMap<K, V> m);
+             virtual void recordRemoval(RHashMap<K, V> m);
          
          private:
             RNode next;
@@ -64,16 +70,16 @@ class HashMap extends public AbstractMap<K,V>
             const Ref<K> key;
       };
 
-      void init();
-      static vint hash(vint h);
-      void resize(vint newCapacity);
-      RNode getNode(RObject key) final;
-      void transfer(RArray<Node> newTable);
-      RNode removeMapping(RObject obj) final;
-      static vint indexFor(vint h, vint length);
-      RNode removeNodeForKey(RObject key) final;
-      void addNode(vint hash, Ref<K> key, Ref<V> value, vint bucketIndex);
-      void createNode(vint hash, Ref<K> key, Ref<V> value, vint bucketIndex);
+      virtual void init();
+      virtual static vint hash(vint h);
+      virtual void resize(vint newCapacity);
+      virtual RNode getNode(RObject key) final;
+      virtual void transfer(RArray<Node> newTable);
+      virtual RNode removeMapping(RObject obj) final;
+      virtual static vint indexFor(vint h, vint length);
+      virtual RNode removeNodeForKey(RObject key) final;
+      virtual void addNode(vint hash, Ref<K> key, Ref<V> value, vint bucketIndex);
+      virtual void createNode(vint hash, Ref<K> key, Ref<V> value, vint bucketIndex);
 
       virtual RIterator<K> newKeyIterator();
       virtual RIterator<V> newValueIterator();
@@ -227,7 +233,7 @@ template <class K, class V>
 HashMap<K,V>::HashMap(vint initialCapacity)
 {
    if(initialCapacity < 0)
-      ex_throw new ArgumentException("Illegal initial capacity:" +
+      ex_throw new ArgumentException("Illegal initial capacity: " +
                                     String::valueOf(initialCapacity));
 
    if(initialCapacity > MAXIMUM_CAPACITY)
@@ -251,14 +257,14 @@ template <class K, class V>
 HashMap<K,V>::HashMap(vint initialCapacity, vfloat loadFactor)
 {
    if(initialCapacity < 0)
-      ex_throw new ArgumentException("Illegal initial capacity:" +
+      ex_throw new ArgumentException("Illegal initial capacity: " +
                                     String::valueOf(initialCapacity));
 
    if(initialCapacity > MAXIMUM_CAPACITY)
       initialCapacity = MAXIMUM_CAPACITY;
 
    if(loadFactor <= 0.0f)
-      ex_throw new ArgumentException("Illegal load factor:" +
+      ex_throw new ArgumentException("Illegal load factor: " +
                                     String::valueOf(loadFactor));
 
    // Find a power of 2 >= initialCapacity
@@ -710,13 +716,11 @@ void HashMap<K,V>::addNode(vint h, Ref<K> key, Ref<V> value, vint bucketIndex)
       resize(2 * table->length);
 }
 
-//template <class K, class V>
-//void HashMap<K,V>::addNode(vint h, Ref<K> key, Ref<V> value, vint bucketIndex)
-//{
-//   RNode n = table[bucketIndex];
-//   table[bucketIndex] = new Node(h, key, value, n);
-//   count++;
-//}
+template <class K, class V>
+void HashMap<K,V>::createNode(vint hash, Ref<K> key, Ref<V> value, vint bucketIndex)
+{
+    return addNode(hash, key, value, bucketIndex);
+}
 
 template <class K, class V> template <class T>
 HashMap<K,V>::HashIterator<T>::HashIterator(RHashMap<K,V> m)

@@ -11,6 +11,11 @@ interface Iterable;
 template <class T>
 using RIterable = Ref<Iterable<T>>;
 
+/*
+ Implementing this interface allows an object to be
+ the target of the "range-based for" statement, or
+ the aro::for_each utility.
+*/
 template <class T>
 interface Iterable extends Interface
 {

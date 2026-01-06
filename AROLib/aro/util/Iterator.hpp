@@ -12,6 +12,13 @@ template <class T> interface Iterator;
 template <class T>
 using RIterator = Ref<Iterator<T>>;
 
+/*
+ This interface represents an iterator over a collection.
+ An iterator takes the place of a cursor in a collection
+ of elements.
+
+ This interface is a member of the AROLib Collections Framework.
+*/
 template <class T>
 interface Iterator extends Interface
 {

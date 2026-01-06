@@ -16,8 +16,11 @@ template< class T>
 using RAbstractList = Ref<AbstractList<T>>;
 
 /**
- * AbstractList class template declaration
- */ 
+ This class provides a skeletal implementation of the List
+ interface to minimize the effort required to implement the interface.
+
+ This class is a member of the AROLib Collections Framework.
+ */
 template <class T>
 class AbstractList extends public AbstractCollection<T> implements public List<T>
 {

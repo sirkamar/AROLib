@@ -12,6 +12,13 @@ template <class K, class V> interface Map;
 template <class K, class V>
 using RMap = Ref<Map<K,V>>;
 
+/*
+ A Map specifies an object that maps keys to values.
+ A map cannot contain duplicate keys; each key can 
+ map to at most one value.
+
+ This interface is a member of the AROLib Collections Framework.
+*/
 template <class K, class V>
 interface Map extends Interface
 {
@@ -41,8 +48,8 @@ interface Map extends Interface
    virtual Ref<V> put(Ref<K> key, Ref<V> val)=0;
 };
 
-} /* namespace util */
+} // namespace util
 
-} /* namespace aro */
+} // namespace aro
 
 #endif /* UTIL_MAP_H */

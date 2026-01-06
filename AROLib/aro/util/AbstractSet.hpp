@@ -14,8 +14,12 @@ template <class T>
 using RAbstractSet = Ref<AbstractSet<T>>;
 
 /**
- * AbstractSet class template declaration
- */ 
+ This class provides a skeletal implementation of the Set
+ interface to minimize the effort required to implement the
+ interface.
+
+ This class is a member of the AROLib Collections Framework.
+ */
 template <class T>
 class AbstractSet extends public AbstractCollection<T> implements public Set<T>
 {

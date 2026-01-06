@@ -13,7 +13,17 @@ template <class K, class V>
 using RWeakHashMap = Ref<WeakHashMap<K,V>>;
 
 /**
- * WeakHashMap class template declaration
+ A hash table based implementation of the Map interface, with <em>weak keys</em>.
+
+ An entry in a WeakHashMap will automatically be removed when its key is
+ no longer in ordinary use. More precisely, the presence of a mapping for
+ a given key will not prevent the key from being discarded by the ARM facility
+ (garbage collector) that is, made finalizable, finalized, and then deleted.
+
+ When a key has been discarded its entry is effectively removed from the map,
+ so this class behaves somewhat differently from other Map implementations.
+
+ This class is a member of the AROLib Collections Framework.
  */ 
 template <class K, class V>
 class WeakHashMap extends public AbstractMap<K,V>

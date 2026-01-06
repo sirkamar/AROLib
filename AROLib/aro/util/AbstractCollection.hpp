@@ -13,8 +13,11 @@ template< class T>
 using RAbstarctCollection = Ref<AbstractCollection<T>>;
 
 /**
- * AbstractCollection class template declaration
- */ 
+ This class provides a skeletal implementation of the Collection
+ interface, to minimize the effort required to implement the interface.
+
+ This class is a member of the AROLib Collections Framework.
+ */
 template< class T>
 class AbstractCollection extends public Object implements public virtual Collection<T>
 {

@@ -1113,6 +1113,12 @@
     <ClInclude Include="aro\aws\Shape3D.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
+    <ClInclude Include="aro\util\Queue.hpp">
+      <Filter>Header Files\aro\util</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\util\AbstractQueue.hpp">
+      <Filter>Header Files\aro\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

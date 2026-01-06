@@ -14,8 +14,11 @@ template <class K, class V>
 using RAbstractMap = Ref<AbstractMap<K,V>>;
 
 /**
- * AbstractMap class template declaration
- */ 
+ This class provides a skeletal implementation of the Map interface,
+ to minimize the effort required to implement the interface.
+
+ This class is a member of the AROLib Collections Framework.
+ */
 template <class K, class V>
 class AbstractMap extends public Object implements public Map<K,V>
 {
