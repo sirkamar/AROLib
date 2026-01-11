@@ -92,7 +92,7 @@ template <class T>
 RObject ArrayList<T>::clone()
 {
     RArrayList<T> list = type_cast<ArrayList<T>>(AbstractList<T>::clone());
-    list->data = data->copyOf(size);
+    list->data = data->copyOf(count);
     list->modCount = 0;
     return list;
 }
@@ -332,14 +332,14 @@ void ArrayList<T>::rangeCheck(vint index)
 template <class T>
 void ArrayList<T>::readObject(io::RObjectInputStream io)
 {
-    size = io->readInt();
+    count = io->readInt();
 
-    if(size > 0)
+    if(count > 0)
     {
-        ensureCapacity(size);
+        ensureCapacity(count);
 
-        for(vint i=0; i<size; i++)
-            data[i] = io->readObject();
+        for(vint i=0; i<count; i++)
+            data[i] = type_cast<T>(io->readObject());
     }
 }
 
@@ -348,9 +348,9 @@ void ArrayList<T>::writeObject(io::RObjectOutputStream io)
 {
     vint expectedModCount = modCount;
 
-    io->writeInt(size);
+    io->writeInt(count);
 
-    for(vint i=0; i<size; i++)
+    for(vint i=0; i<count; i++)
         io->writeObject(data[i]);
 
     if(modCount != expectedModCount)

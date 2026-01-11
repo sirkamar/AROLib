@@ -139,10 +139,10 @@ vbool LinkedList<T>::isEmpty()
 template <class T>
 RObject LinkedList<T>::clone()
 {
-    LinkedList<T> list = type_cast<LinkedList<T>>(AbstractList<T>::clone());
+    RLinkedList<T> list = type_cast<LinkedList<T>>(AbstractList<T>::clone());
 
     list->head = list->tail = nullref;
-    list->size = 0;
+    list->count = 0;
     list->modCount = 0;
 
     for(RNode x = head; x != nullref; x = x->next)

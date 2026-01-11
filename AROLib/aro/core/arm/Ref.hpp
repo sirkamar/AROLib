@@ -65,8 +65,8 @@ interface Iterator;
 }
 
 
-template <template <class> class U, class V>
-RefItr<V> getRefItr(const Ref<U<V>>& itr);
+template <template <class> class T, class U>
+RefItr<U> getRefItr(const Ref<T<U>>& itr);
 
 
 template <class U>
@@ -83,8 +83,8 @@ class RefItr
       RefItr(const Ref<util::Iterator<U>>&);
    
    template <class T> friend class Ref;
-   template <template <class> class U, class V>
-   friend RefItr<V> getRefItr(const Ref<U<V>>&);
+   template <template <class> class T, U>
+   friend RefItr<U> getRefItr(const Ref<T<U>>&);
 };
 
 
@@ -144,9 +144,11 @@ class Ref : public RefBase
       bool operator==(const Ref<Object>& objRef) const;
       bool operator!=(const Ref<Object>& objRef) const;
       
-      auto begin() const;
+      template <class U>
+      RefItr<U> begin() const;
       
-      auto end() const;
+      template <class U>
+      RefItr<U> end() const;
    
    protected:
       Base* ptr() const;

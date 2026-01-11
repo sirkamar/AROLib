@@ -69,6 +69,13 @@ bool type_of(Object*const obj)
    return type_of(Ref<Object>(obj))
 }
 
+template <class T, class U>
+void for_each(T collection, U execute)
+{
+   for(auto element : collection)
+      execute(element);
+}
+
 
 /* Type definition of the ARO Libray's entry point */
 typedef void(*MainFunction)(RArray<String> args);
@@ -160,10 +167,8 @@ class __FinalEx__ final : public Exception {};
 
 
 /* Used to specify the function that is the program's main function */
-#define ARO_MAIN_FUNCTION   struct MF { static const MF mf;   \
-                             MF(aro::MainFunction m)          \
-                             {aro::mainFunction=m;}           \
-                             }; const MF MF::mf
+#define ARO_MAIN_FUNCTION   struct MF { MF(aro::MainFunction m)  \
+                            {aro::mainFunction=m;} } mf
 
 /* usage: main_function = functName; */
 #define main_function      ARO_MAIN_FUNCTION 

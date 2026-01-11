@@ -5,6 +5,7 @@
 
 namespace aro {
 
+/* Private base class for Array and Array2D */
 template <class T>
 class ArrayBase extends public Object
 {
@@ -13,16 +14,14 @@ class ArrayBase extends public Object
       
       virtual RObject clone();
 
-      virtual vint getLenth() final;
+      virtual RString toString();
       
       virtual T get(vint index) final;
       virtual void set(vint index, T item) final;
    
    protected:
-      virtual void finalize() final; // ArrayBase class finalizer
-	   
       virtual T& item(vint index) final; // allows inserting item into Array
-      virtual void setLength(vint length) final; // used by Array<T>::readObject 
+      virtual void resize(vint length) final; // used by Array<T>::readObject 
       virtual const T& item(vint index) const final; // retrieve item from Array
       
       virtual void copyItems(vint offset, Ref<ArrayBase<T>> src, vint srcOffset, vint num) final;
@@ -34,10 +33,10 @@ class ArrayBase extends public Object
       ArrayBase(std::initializer_list<T> elems); // ArrayBase sequence constructor
    
    private:
-      T* data; // ArrayBase data of type T
+      // ArrayBase data of type T
+      std::shared_ptr<T[]> data;
       
       void init(); // allocate required memory
-      void freeMemory(); // free allocated memory
       void checkIndex(vint) const; // check for valid index
    
    //template <class U> friend class ArrayBase;

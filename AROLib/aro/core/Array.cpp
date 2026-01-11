@@ -55,7 +55,7 @@ void Array<vint>::copy(vint dPos, RArray<vint> src, vint sPos, vint num)
 //template<>
 void Array<vint>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+   ArrayBase<vint>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
       item(n) = is->readInt();
@@ -125,7 +125,7 @@ void Array<vbool>::copy(vint dPos, RArray<vbool> src, vint sPos, vint num)
 //template<>
 void Array<vbool>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+   ArrayBase<vbool>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
       item(n) = is->readBool();
@@ -194,7 +194,7 @@ void Array<vchar>::copy(vint dPos, RArray<vchar> src, vint sPos, vint num)
 //template<>
 void Array<vchar>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+   ArrayBase<vchar>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
       item(n) = is->readChar();
@@ -263,7 +263,7 @@ void Array<vlong>::copy(vint dPos, RArray<vlong> src, vint sPos, vint num)
 //template<>
 void Array<vlong>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+   ArrayBase<vlong>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
       item(n) = is->readLong();
@@ -332,7 +332,7 @@ void Array<vshort>::copy(vint dPos, RArray<vshort> src, vint sPos, vint num)
 //template<>
 void Array<vshort>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+   ArrayBase<vshort>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
       item(n) = is->readShort();
@@ -401,7 +401,7 @@ void Array<vfloat>::copy(vint dPos, RArray<vfloat> src, vint sPos, vint num)
 //template<>
 void Array<vfloat>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+   ArrayBase<vfloat>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
       item(n) = is->readFloat();
@@ -470,7 +470,7 @@ void Array<vdouble>::copy(vint dPos, RArray<vdouble> src, vint sPos, vint num)
 //template<>
 void Array<vdouble>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+   ArrayBase<vdouble>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
       item(n) = is->readDouble();

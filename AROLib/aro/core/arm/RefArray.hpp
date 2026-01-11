@@ -391,6 +391,7 @@ class Ref<Array<vdouble>> : public RefArrayBase<vdouble>
    template <class T> friend class Ref;
 };
 
+/* Make uninstantiable */
 template <class T>
 class Ref<Array<Ref<T>>>
 {

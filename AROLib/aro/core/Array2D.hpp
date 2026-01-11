@@ -24,14 +24,16 @@ class Array<Array<T>> final extends public ArrayBase<RArray<T>> implements publi
       virtual void copy(vint offset, RArray2D<T> src, vint srcOffset, vint num);
    
    protected:
-      Array(); // Reserved for ObjectInputStream
-      Array(std::initializer_list<RArray<T>> elems);
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
+       Array(); // Reserved for ObjectInputStream
+       Array(std::initializer_list<RArray<T>> elems);
    
    friend class Ref<Array2D<T>>;
    friend class RefArrayBase<RArray<T>>;
+   friend interface Cloneable<Array2D<T>>;
    friend interface io::Streamable<Array2D<T>>;
 };
 

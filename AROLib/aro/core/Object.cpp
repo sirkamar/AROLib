@@ -8,10 +8,10 @@ using namespace std;
 
 RObject Object::clone()
 {
-   RObject obj = ObjectFactory::cloneObject(this);
+   RObject obj = ObjectFactory::cloneObject(thisref);
    
    if(obj == nullref)
-      ex_throw new UnsupportedException("Class not cloneable");
+      ex_throw new UnsupportedException("Class not cloneable: " + getType());
    
    return obj;
 }
@@ -39,38 +39,17 @@ RString Object::toString()
 
 void Object::wait()
 {
-   try
-   {
-	   monitor.wait();
-   }
-   catch(std::system_error e)
-   {
-      ex_throw new ThreadException(e.what());
-   }
+   monitor.wait();
 }
 
 void Object::notify()
 {
-   try
-   {
-      monitor.notify();
-   }
-   catch(std::system_error e)
-   {
-      ex_throw new ThreadException(e.what());
-   }
+   monitor.notify();
 }
 
 void Object::notifyAll()
 {
-   try
-   {
-      monitor.notifyAll();
-   }
-   catch(std::system_error e)
-   {
-      ex_throw new ThreadException(e.what());
-   }
+   monitor.notifyAll();
 }
 
 vbool Object::equals(RObject obj)
@@ -89,42 +68,7 @@ vint Object::hashCode()
 
 void Object::finalize()
 {
-   
-}
-
-Object::Object(const Object& obj)
-{
-
-}
-
-void Object::Monitor::lock()
-{
-   mutex.lock();
-}
-
-void Object::Monitor::wait()
-{
-   cva.wait(mutex);
-}
-
-void Object::Monitor::unlock()
-{
-   mutex.unlock();
-}
-
-void Object::Monitor::notify()
-{
-   cva.notify_one();
-}
-
-void Object::Monitor::notifyAll()
-{
-   cva.notify_all();
-}
-
-Object::Monitor& Object::Monitor::operator=(const Object::Monitor&)
-{
-   return *this;
+   // default implementation does nothing
 }
 
 } /* namespace aro */

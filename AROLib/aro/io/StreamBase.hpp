@@ -29,7 +29,7 @@ interface StreamBase extends Interface
       
       virtual void writeObject(RObjectOutputStream os)=0;
    
-   protected:
+   private:
       StreamBase() = default;
    
    template <class T>

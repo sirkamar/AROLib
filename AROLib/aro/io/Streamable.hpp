@@ -28,7 +28,7 @@ since it is in essence "constructing" the object.
 As such the readObject() function is considered to
 be a pseudo-constructor. */
 template <class T>
-interface Streamable extends virtual StreamBase
+interface Streamable extends StreamBase
 {
    void readObject(RObjectInputStream is) = 0;
    

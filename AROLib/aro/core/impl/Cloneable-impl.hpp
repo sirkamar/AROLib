@@ -28,7 +28,7 @@ Cloneable<T>::Builder::Builder()
 template <class T>
 void Cloneable<T>::Builder::init() const
 {
-	// do nothing
+   // does nothing (ensures template is compiled)
 }
 
 template <class T>

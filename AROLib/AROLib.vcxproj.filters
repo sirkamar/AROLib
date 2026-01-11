@@ -439,6 +439,9 @@
     <ClCompile Include="aro\core\arm\RefClone.cpp">
       <Filter>Source Files\aro\core\arm</Filter>
     </ClCompile>
+    <ClCompile Include="aro\core\utils\ObjectMonitor.cpp">
+      <Filter>Source Files\aro\core\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aro\util\all.hpp">
@@ -1118,6 +1121,9 @@
     </ClInclude>
     <ClInclude Include="aro\util\AbstractQueue.hpp">
       <Filter>Header Files\aro\util</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\utils\ObjectMonitor.hpp">
+      <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -29,7 +29,7 @@ Streamable<T>::Builder::Builder()
 template <class T>
 void Streamable<T>::Builder::init() const
 {
-   // do nothing
+   // does nothing (ensures template is compiled)
 }
 
 template <class T>

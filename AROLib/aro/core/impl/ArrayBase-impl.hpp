@@ -54,12 +54,6 @@ ArrayBase<T>::ArrayBase(std::initializer_list<T> elems)
 }
 
 template <class T>
-vint ArrayBase<T>::getLenth()
-{
-   return length;
-}
-
-template <class T>
 T ArrayBase<T>::get(vint index)
 {
    return item(index);
@@ -84,16 +78,28 @@ RObject ArrayBase<T>::clone()
    return array;
 }
 
+template <class T>
+RString ArrayBase<T>::toString()
+{
+    RStringBuilder buf = new StringBuilder(length * 13);
+
+	buf->append("[");
+
+    vbool afterFirst = false;
+    for (vint i = 0; i < length; i++)
+    {
+        if (afterFirst)
+            buf->append(", ");
+        else
+            afterFirst = true;
+
+        buf->append(String::valueOf(data[i]));
+    }
+
+    return buf->append("]")->toString();
+}
 
 /* Protected Member Functions */
-
-template <class T>
-void ArrayBase<T>::finalize()
-{
-   freeMemory();
-   
-   Object::finalize();
-}
 
 template <class T>
 T& ArrayBase<T>::item(vint index)
@@ -112,13 +118,11 @@ const T& ArrayBase<T>::item(vint index) const
 }
 
 template <class T>
-void ArrayBase<T>::setLength(vint len)
+void ArrayBase<T>::resize(vint len)
 {
    const_cast<vint&>(length) = len;
    
-   freeMemory();
-   
-   init();
+   init(); // reinitalize data array
 }
 
 template <class T>
@@ -145,13 +149,7 @@ void ArrayBase<T>::copyItems(vint dPos, Ref<ArrayBase<T>> src, vint sPos, vint n
 template <class T>
 void ArrayBase<T>::init()
 {
-   data = new T[length];
-}
-
-template <class T>
-void ArrayBase<T>::freeMemory()
-{
-   delete [] data;
+   data.reset(new T[length]);
 }
 
 template <class T>

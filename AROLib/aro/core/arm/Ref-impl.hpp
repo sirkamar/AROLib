@@ -9,6 +9,40 @@
 
 namespace aro {
 
+template <class U>
+const Ref<U>& RefItr<U>::operator*() const
+{
+   return cur;
+}
+
+template <class U>
+typename RefItr<U>& RefItr<U>::operator++()
+{
+   cur = list->hasNext() ? list->next() : nullref;
+
+   return *this;
+}
+
+template <class U>
+RefItr<U>::RefItr(const Ref<util::Iterator<U>>& lst)
+   :list(lst)
+{
+   cur = (list != nullref && list->hasNext() ? list->next() : nullref);
+}
+
+template <class U>
+bool RefItr<U>::operator!=(typename const RefItr<U>& itr) const
+{
+   return (cur != itr.cur || (list != nullref && list->hasNext()));
+}
+
+template <template <class> class T, class U>
+typename RefItr<U> getRefItr(const Ref<T<U>>& itr)
+{
+   return class RefItr<U>(itr);
+}
+
+
 /************************************************************************
 *                          Ref<T> Implementation                        *
 ************************************************************************/
@@ -211,55 +245,22 @@ void Ref<T>::clear()
    ref = nullptr;
 }
 
-template <template <class> class U, class V>
-typename RefItr<V> getRefItr(const Ref<U<V>>& itr)
+template <class T> template <class U>
+RefItr<U> Ref<T>::begin() const
 {
-    return class RefItr<V>(itr);
-}
-
-template <class T>
-auto Ref<T>::begin() const
-{
-   auto list = (*this)->iterator();;
+   auto list = (*this)->iterator();
    
    return getRefItr(list);
 }
 
-template <class T>
-auto Ref<T>::end() const
+template <class T> template <class U>
+RefItr<U> Ref<T>::end() const
 {
    auto list = (*this)->iterator();
    
    list = nullref;
    
    return getRefItr(list);
-}
-
-template <class U>
-const Ref<U>& RefItr<U>::operator*() const
-{
-   return cur;
-}
-
-template <class U>
-typename RefItr<U>& RefItr<U>::operator++()
-{
-   cur = list->hasNext() ? list->next() : nullref;
-
-   return *this;
-}
-
-template <class U>
-RefItr<U>::RefItr(const Ref<util::Iterator<U>>& lst)
-   :list(lst)
-{
-   cur = list != nullref && list->hasNext() ? list->next() : nullref;
-}
-
-template <class U>
-bool RefItr<U>::operator!=(typename const RefItr<U>& itr) const
-{
-   return (cur != itr.cur || (list != nullref && list->hasNext()));
 }
 
 } /* namespace aro */

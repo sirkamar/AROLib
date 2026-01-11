@@ -26,12 +26,13 @@ class Array final extends public ArrayBase<Ref<T>> implements public Cloneable<A
       virtual void copy(vint offset, RArray<T> src, vint srcOffset, vint num);
    
    protected:
-      Array(); // reserved for ObjectInputStream
-      Array(std::initializer_list<Ref<T>> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
    
+   private:
+       Array(); // reserved for ObjectInputStream
+       Array(std::initializer_list<Ref<T>> elems); // Array sequence constructor
+      
    friend class Ref<Array<T>>;
    friend class RefArrayBase<T>;
    friend interface Cloneable<Array<T>>;
@@ -51,11 +52,12 @@ class Array<vint> final extends public ArrayBase<vint> implements public Cloneab
       virtual void copy(vint offset, RArray<vint> src, vint srcOffset, vint num);
    
    protected:
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
       Array(); // reserved for ObjectInputStream
       Array(std::initializer_list<vint> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
    
    friend class Ref<Array<vint>>;
    friend class RefArrayBase<vint>;
@@ -76,11 +78,12 @@ class Array<vchar> final extends public ArrayBase<vchar> implements public Clone
       virtual void copy(vint offset, RArray<vchar> src, vint srcOffset, vint num);
    
    protected:
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
       Array(); // reserved for ObjectInputStream
       Array(std::initializer_list<vchar> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
    
    friend class Ref<Array<vchar>>;
    friend class RefArrayBase<vchar>;
@@ -101,11 +104,12 @@ class Array<vbool> final extends public ArrayBase<vbool> implements public Clone
       virtual void copy(vint offset, RArray<vbool> src, vint srcOffset, vint num);
    
    protected:
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
       Array(); // reserved for ObjectInputStream
       Array(std::initializer_list<vbool> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
    
    friend class Ref<Array<vbool>>;
    friend class RefArrayBase<vbool>;
@@ -126,11 +130,12 @@ class Array<vlong> final extends public ArrayBase<vlong> implements public Clone
       virtual void copy(vint offset, RArray<vlong> src, vint srcOffset, vint num);
    
    protected:
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
       Array(); // reserved for ObjectInputStream
       Array(std::initializer_list<vlong> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
    
    friend class Ref<Array<vlong>>;
    friend class RefArrayBase<vlong>;
@@ -151,11 +156,12 @@ class Array<vfloat> final extends public ArrayBase<vfloat> implements public Clo
       virtual void copy(vint offset, RArray<vfloat> src, vint srcOffset, vint num);
    
    protected:
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
       Array(); // reserved for ObjectInputStream
       Array(std::initializer_list<vfloat> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
    
    friend class Ref<Array<vfloat>>;
    friend class RefArrayBase<vfloat>;
@@ -176,11 +182,12 @@ class Array<vshort> final extends public ArrayBase<vshort> implements public Clo
       virtual void copy(vint offset, RArray<vshort> src, vint srcOffset, vint num);
    
    protected:
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
       Array(); // reserved for ObjectInputStream
       Array(std::initializer_list<vshort> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
    
    friend class Ref<Array<vshort>>;
    friend class RefArrayBase<vshort>;
@@ -201,11 +208,12 @@ class Array<vdouble> final extends public ArrayBase<vdouble> implements public C
       virtual void copy(vint offset, RArray<vdouble> src, vint srcOffset, vint num);
    
    protected:
+       virtual void readObject(io::RObjectInputStream is);
+       virtual void writeObject(io::RObjectOutputStream os);
+   
+   private:
       Array(); // reserved for ObjectInputStream
       Array(std::initializer_list<vdouble> elems); // Array sequence constructor
-      
-      virtual void readObject(io::RObjectInputStream is);
-      virtual void writeObject(io::RObjectOutputStream os);
    
    friend class Ref<Array<vdouble>>;
    friend class RefArrayBase<vdouble>;

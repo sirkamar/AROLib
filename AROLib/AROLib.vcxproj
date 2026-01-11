@@ -28,19 +28,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CTP|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -243,6 +243,7 @@
     <ClInclude Include="aro\core\utils\Foreach.hpp" />
     <ClInclude Include="aro\core\arm\Types.hpp" />
     <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp" />
+    <ClInclude Include="aro\core\utils\ObjectMonitor.hpp" />
     <ClInclude Include="aro\core\utils\ThreadLibrary.hpp" />
     <ClInclude Include="aro\core\utils\CoreUtils.hpp" />
     <ClInclude Include="aro\core\Weak.hpp" />
@@ -426,6 +427,7 @@
     <ClCompile Include="aro\core\Thread.cpp" />
     <ClCompile Include="aro\core\ThreadException.cpp" />
     <ClCompile Include="aro\core\UnsupportedException.cpp" />
+    <ClCompile Include="aro\core\utils\ObjectMonitor.cpp" />
     <ClCompile Include="aro\core\utils\ThreadLibrary.cpp" />
     <ClCompile Include="aro\cui\CSAbstractButton.cpp" />
     <ClCompile Include="aro\cui\border\AbstractBorder.cpp" />

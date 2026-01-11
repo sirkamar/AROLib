@@ -39,7 +39,7 @@ vint ListenerList::getListenerCount()
 {
    vint count = 0;
 
-   for_each(util::RListener l, listeners)
+   for(util::RListener l : listeners)
    {
       if(type_of<T>(l))
          count++;
@@ -75,35 +75,15 @@ void ListenerList::remove(Ref<T> listener)
 template <class T>
 RArray<T> ListenerList::getListeners()
 {
-   util::RIterator<util::Listener> it = listeners->iterator();
-
    util::RList<T> tList = new util::ArrayList<T>();
-
-   while(it->hasNext())
+   
+   for(util::RListener lsnr : listeners)
    {
-      util::RListener lsnr = it->next();
-
       if(type_of<T>(lsnr))
-         tList->add(type_cast<T>(lsnr));
+           tList->add(type_cast<T>(lsnr));
    }
-
+   
    return tList->toArray();
-
-   //RArray<T> arr = new Array<T>(getListenerCount<T>());
-   //
-   //vint arrIndex = 0;
-   //
-   //RIterable<util::Listener> it = listeners;
-   //
-   //for_each(util::RListener l, listeners)
-   //{
-   //   if(type_of<T>(l))
-   //   {
-   //      arr[arrIndex++] = type_cast<T>(l);
-   //   }
-   //}
-   //
-   //return arr;
 }
 
 } /* namespace aws */

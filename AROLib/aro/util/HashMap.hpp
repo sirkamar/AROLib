@@ -71,12 +71,12 @@ class HashMap extends public AbstractMap<K,V>
       };
 
       virtual void init();
-      virtual static vint hash(vint h);
+      static vint hash(vint h);
       virtual void resize(vint newCapacity);
       virtual RNode getNode(RObject key) final;
+      static vint indexFor(vint h, vint length);
       virtual void transfer(RArray<Node> newTable);
       virtual RNode removeMapping(RObject obj) final;
-      virtual static vint indexFor(vint h, vint length);
       virtual RNode removeNodeForKey(RObject key) final;
       virtual void addNode(vint hash, Ref<K> key, Ref<V> value, vint bucketIndex);
       virtual void createNode(vint hash, Ref<K> key, Ref<V> value, vint bucketIndex);

@@ -8,7 +8,7 @@ SyncLock::SyncLock(const Ref<Object>& obj)
    :subject(obj)
 {
    if(subject == nullref)
-      ex_throw new ArgumentException("Cannot sync lock null object");
+      ex_throw new ArgumentException("Cannot sync_lock null object");
    
    try
    {

@@ -17,13 +17,13 @@ class Listener extends public Object implements public aws::event::ActionListene
 {
    public:
       aws::RWindow owner;
-      
+
       Listener(aws::RWindow win)
          :owner(win)
       {
-         
+
       }
-      
+
       void actionOccurred(aws::event::RActionEvent e) override
       {
          if(e->getCommand()->equals("Exit"))
@@ -32,7 +32,7 @@ class Listener extends public Object implements public aws::event::ActionListene
 };
 
 
-void aromain(RArray<String> args)
+static void aromain(RArray<String> args)
 {
    /* Print commandline arguments */
    //System::out->print("Program Args: ");

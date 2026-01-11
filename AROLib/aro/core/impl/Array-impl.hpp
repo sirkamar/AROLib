@@ -59,10 +59,10 @@ void Array<T>::copy(vint dPos, RArray<T> src, vint sPos, vint num)
 template <class T>
 void Array<T>::readObject(io::RObjectInputStream is)
 {
-   setLength(is->readInt());
+    ArrayBase<Ref<T>>::resize(is->readInt());
    
    for(vint n=0; n<length; n++)
-      item(n) = type_cast<T>(is->readObject());
+       ArrayBase<Ref<T>>::item(n) = type_cast<T>(is->readObject());
 }
 
 template <class T>
