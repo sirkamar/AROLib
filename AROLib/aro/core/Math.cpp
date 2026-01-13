@@ -1,7 +1,7 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 

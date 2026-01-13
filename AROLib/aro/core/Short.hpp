@@ -8,21 +8,19 @@ namespace aro {
 class Short;
 typedef Ref<Short> RShort;
 
-class Short final extends public Number implements public Comparable<Short>, public Cloneable<Short>, public io::Streamable<Short>
+class Short final extends public Number implements public Comparable<Short>, public io::Streamable<Short>
 {
    public:
-      Short();
       Short(vshort val);
-      Short(RShort num);
       
       virtual vint intValue();
       virtual vlong longValue();
-	   virtual vshort shortValue();
+	  virtual vshort shortValue();
       virtual vfloat floatValue();
       virtual vdouble doubleValue();
       
       virtual vint hashCode();
-	   virtual RString toString();
+	  virtual RString toString();
       virtual vbool equals(RObject obj);
       virtual vint compareTo(RShort val);
       
@@ -38,7 +36,11 @@ class Short final extends public Number implements public Comparable<Short>, pub
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
+      Short();
+      
       const vshort value;
+   
+   friend interface io::Streamable<Short>;
 };
 
 } /* namespace aro */

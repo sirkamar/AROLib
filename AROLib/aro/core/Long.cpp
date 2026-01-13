@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <aro/core/Int.hpp>
 #include <aro/core/Long.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
@@ -17,12 +17,6 @@ Long::Long()
 
 Long::Long(vlong val)
    :value(val)
-{
-   
-}
-
-Long::Long(RLong val)
-   :value(val->value)
 {
    
 }

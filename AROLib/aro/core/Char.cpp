@@ -1,6 +1,6 @@
 #include <cctype>
 #include <aro/core/Char.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
@@ -9,19 +9,13 @@ const vint Char::MAX_VALUE = 127;
 const vint Char::MIN_VALUE = 0;
 
 Char::Char()
-   :value(0)
+   :Char(0)
 {
    
 }
 
 Char::Char(vchar ch)
    :value(ch)
-{
-   
-}
-
-Char::Char(RChar c)
-   :value(c->value)
 {
    
 }
@@ -114,6 +108,9 @@ vbool Char::isControl(vchar ch)
 
 RChar Char::valueOf(vchar ch)
 {
+   if(ch <= MAX_VALUE)
+	   return charCache->cache[static_cast<vint>(ch)];
+
    return new Char(ch);
 }
 
@@ -141,5 +138,17 @@ vint Char::compareTo(RChar c)
 {
    return value - c->value;
 }
+
+Char::CharCache::CharCache()
+{
+   cache = new Array<Char>(MAX_VALUE + 1);
+
+   for(vint i=MIN_VALUE; i<=MAX_VALUE; i++)
+   {
+      cache[i] = new Char(static_cast<vchar>(i));
+   }
+}
+
+const Ref<Char::CharCache> Char::charCache = new Char::CharCache();
 
 } /* namespace aro */

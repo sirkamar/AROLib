@@ -1,6 +1,6 @@
 #include <aro/core/Int.hpp>
 #include <aro/core/Short.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
@@ -16,12 +16,6 @@ Short::Short()
 
 Short::Short(vshort val)
    :value(val)
-{
-   
-}
-
-Short::Short(RShort val)
-   :value(val->value)
 {
    
 }

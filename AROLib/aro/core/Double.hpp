@@ -8,7 +8,7 @@ namespace aro {
 class Double;
 typedef Ref<Double> RDouble;
 
-class Double final extends public Number implements public Comparable<Double>, public Cloneable<Double>, public io::Streamable<Double>
+class Double final extends public Number implements public Comparable<Double>, public io::Streamable<Double>
 {
    public:
       /*static const vdouble POSITIVE_INFINITY;
@@ -19,11 +19,9 @@ class Double final extends public Number implements public Comparable<Double>, p
       static const vdouble MIN_VALUE;
       /*static const vdouble NaN;*/
       
-      Double();
       Double(vdouble val);
-      Double(RDouble num);
       
-	   virtual vint hashCode();
+	  virtual vint hashCode();
       virtual vint intValue();
       virtual vlong longValue();
       virtual vfloat floatValue();
@@ -45,7 +43,11 @@ class Double final extends public Number implements public Comparable<Double>, p
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
+      Double();
+      
       const vdouble value;
+   
+   friend interface io::Streamable<Double>;
 };
 
 } /* namespace aro */

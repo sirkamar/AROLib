@@ -8,14 +8,12 @@ namespace aro {
 class Float;
 typedef Ref<Float> RFloat;
 
-class Float final extends public Number implements public Comparable<Float>, public Cloneable<Float>, public io::Streamable<Float>
+class Float final extends public Number implements public Comparable<Float>, public io::Streamable<Float>
 {
    public:
-      Float();
       Float(vfloat val);
-      Float(RFloat num);
       
-	   virtual vint hashCode();
+	  virtual vint hashCode();
       virtual vint intValue();
       virtual vlong longValue();
       virtual vfloat floatValue();
@@ -45,7 +43,11 @@ class Float final extends public Number implements public Comparable<Float>, pub
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
+      Float();
+      
       const vfloat value;
+   
+   friend interface io::Streamable<Float>;
 };
 
 } /* namespace aro */

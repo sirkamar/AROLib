@@ -1,7 +1,7 @@
 #include <ctime>
 #include <iostream>
 #include <aro/core/System.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 #include <aro/cui/ConsoleGraphics.hpp>
 #include <aro/io/BufferedInputStream.hpp>
 #include <aro/io/BufferedOutputStream.hpp>

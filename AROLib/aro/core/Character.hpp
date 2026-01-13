@@ -8,7 +8,7 @@ namespace aro {
 class Character;
 typedef Ref<Character> RCharacter;
 
-class Character final extends public Object implements public Comparable<Character>, public Cloneable<Character>, public io::Streamable<Character>
+class Character final extends public Object implements public Comparable<Character>, public io::Streamable<Character>
 {
    public:
       static const vint MIN_RADIX;

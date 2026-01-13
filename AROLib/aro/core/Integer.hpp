@@ -3,12 +3,14 @@
 
 #include <aro/core/Number.hpp>
 
+// TODO: convert to BigInteger
+
 namespace aro {
 
 class Integer;
 typedef Ref<Integer> RInteger;
 
-class Integer extends public Number implements public Comparable<Integer>, public Cloneable<Integer>, public io::Streamable<Integer>
+class Integer extends public Number implements public Comparable<Integer>, public io::Streamable<Integer>
 {
    public:
       static const vint INT_MAX_VALUE;

@@ -8,17 +8,15 @@ namespace aro {
 class Long;
 typedef Ref<Long> RLong;
 
-class Long final extends public Number implements public Comparable<Long>, public Cloneable<Long>, public io::Streamable<Long>
+class Long final extends public Number implements public Comparable<Long>, public io::Streamable<Long>
 {
    public:
       static const vlong MAX_VALUE;
       static const vlong MIN_VALUE;
       
-      Long();
       Long(vlong val);
-      Long(RLong num);
       
-	   virtual vint hashCode();
+	  virtual vint hashCode();
       virtual vint intValue();
       virtual vlong longValue();
       virtual vfloat floatValue();
@@ -39,7 +37,11 @@ class Long final extends public Number implements public Comparable<Long>, publi
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
+      Long();
+      
       const vlong value;
+   
+   friend interface io::Streamable<Long>;
 };
 
 } /* namespace aro */

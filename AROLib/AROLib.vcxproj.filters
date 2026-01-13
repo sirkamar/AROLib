@@ -13,16 +13,10 @@
     <ClCompile Include="aro\core\Bool.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
-    <ClCompile Include="aro\core\Boolean.cpp">
-      <Filter>Source Files\aro\core</Filter>
-    </ClCompile>
     <ClCompile Include="aro\core\CastException.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
     <ClCompile Include="aro\core\Char.cpp">
-      <Filter>Source Files\aro\core</Filter>
-    </ClCompile>
-    <ClCompile Include="aro\core\Character.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
     <ClCompile Include="aro\core\Decimal.cpp">
@@ -513,16 +507,10 @@
     <ClInclude Include="aro\core\Bool.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Boolean.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
     <ClInclude Include="aro\core\CastException.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Char.hpp">
-      <Filter>Header Files\aro\core</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\Character.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Cloneable.hpp">
@@ -802,9 +790,6 @@
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\utils\CoreUtils.hpp">
-      <Filter>Header Files\aro\core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\utils\Foreach.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\UnsupportedException.hpp">
@@ -1124,6 +1109,9 @@
     </ClInclude>
     <ClInclude Include="aro\core\utils\ObjectMonitor.hpp">
       <Filter>Header Files\aro\core\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\impl\All.hpp">
+      <Filter>Header Files\aro\core\impl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

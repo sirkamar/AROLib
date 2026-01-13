@@ -14,7 +14,7 @@
 //#include <aro/core/Weak.hpp>                 // Weak class declaration
 //#include <aro/core/Array.hpp>                // Array class declaration
 //#include <aro/core/Array2D.hpp>              // Array2D class declaration
-#include <aro/core/String.hpp>               // String class declaration
+//#include <aro/core/String.hpp>               // String class declaration
 
 //#include <aro/core/Math.hpp>                 // Math class declaration
 #include <aro/core/Number.hpp>               // Number class declaration
@@ -22,9 +22,9 @@
 
 //#include <aro/core/Iterable.hpp>             // Iterable interface declaration
 //#include <aro/core/Runnable.hpp>             // Runnable interface declaration
+//#include <aro/core/Cloneable.hpp>            // Cloneable interface declaration
 //#include <aro/core/Comparable.hpp>           // Comparable interface declaration
 
-/* Wrapper Classes - Type A: One class for each primitive type used */
 #include <aro/core/Int.hpp>                  // Int wrapper class declaration
 #include <aro/core/Bool.hpp>                 // Bool wrapper class declaration
 #include <aro/core/Char.hpp>                 // Char wrapper class declaration
@@ -33,11 +33,8 @@
 #include <aro/core/Short.hpp>                // Short wrapper class declaration
 #include <aro/core/Double.hpp>               // Double wrapper class declaration
 
-/* Wrapper Classes - Type B: One class for each primitive type group used */
-//#include <aro/core/Boolean.hpp>              // Boolean wrapper class declaration
-//#include <aro/core/Decimal.hpp>              // Decimal wrapper class declaration
-//#include <aro/core/Integer.hpp>              // Integer wrapper class declaration
-//#include <aro/core/Character.hpp>            // Character wrapper class declaration
+//#include <aro/core/BigFloat.hpp>             // BigFloat class declaration
+//#include <aro/core/BigInteger.hpp>           // BigInteger class declaration
 
 #include <aro/core/Thread.hpp>               // Thread class declaration
 #include <aro/core/StringBuffer.hpp>         // StringBuffer class declaration
@@ -52,7 +49,7 @@
 #include <aro/core/ThreadException.hpp>      // ThreadException class declaration
 #include <aro/core/UnsupportedException.hpp> // UnsupportedException class declaration
 
-//#include <aro/core/utils/Utils.hpp>          // core utilities definitions
-#include <aro/core/utils/Foreach.hpp>        // for_each utility definition
+//#include <aro/core/utils/CoreUtils.hpp>      // Core Utilities definitions
+#include <aro/core/impl/All.hpp>			 // All mandatory template implementations
 
 #endif /* ARO_CORE_H */

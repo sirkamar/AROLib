@@ -8,17 +8,15 @@ namespace aro {
 class Int;
 typedef Ref<Int> RInt;
 
-class Int final extends public Number implements public Comparable<Int>, public Cloneable<Int>, public io::Streamable<Int>
+class Int final extends public Number implements public Comparable<Int>, public io::Streamable<Int>
 {
    public:
       static const vint MAX_VALUE;
       static const vint MIN_VALUE;
       
-      Int();
       Int(vint val);
-      Int(RInt num);
       
-	   virtual vint hashCode();
+	  virtual vint hashCode();
       virtual vint intValue();
       virtual vlong longValue();
       virtual vfloat floatValue();
@@ -39,7 +37,11 @@ class Int final extends public Number implements public Comparable<Int>, public 
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
+      Int();
+      
       const vint value;
+   
+   friend interface io::Streamable<Int>;
 };
 
 } /* namespace aro */

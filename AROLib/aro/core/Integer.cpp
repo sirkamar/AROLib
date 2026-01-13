@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <aro/core/Integer.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 

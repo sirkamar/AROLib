@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <aro/core/Long.hpp>
 #include <aro/core/Double.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
@@ -21,19 +21,13 @@ const vdouble Double::MAX_EXPONENT = 1023;
 //const vdouble Double::NaN = 0.0 / 0.0;
 
 Double::Double()
-   :value(0)
+   :Double(0.0)
 {
    
 }
 
 Double::Double(vdouble val)
    :value(val)
-{
-   
-}
-
-Double::Double(RDouble val)
-   :value(val->value)
 {
    
 }

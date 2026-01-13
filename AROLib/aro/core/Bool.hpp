@@ -11,14 +11,13 @@ typedef Ref<Bool> RBool;
 class Bool final extends public Object implements public Comparable<Bool>, public io::Streamable<Bool>
 {
    public:
-      static const RBool IS_FALSE;
-      static const RBool IS_TRUE;
+      static const RBool FALSE_REF;
+      static const RBool TRUE_REF;
       
-      Bool();
       Bool(vbool b);
-      Bool(RBool b);
+	  Bool(RString s);
       
-	   virtual vint hashCode();
+	  virtual vint hashCode();
       virtual vbool boolValue();
       virtual RString toString();
       virtual vint compareTo(RBool b);
@@ -33,9 +32,13 @@ class Bool final extends public Object implements public Comparable<Bool>, publi
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
+      Bool();
+      
       const vbool value;
       
       static vbool toBool(RString str);
+   
+   friend interface io::Streamable<Bool>;
 };
 
 } /* namespace aro */

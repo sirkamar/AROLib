@@ -8,17 +8,15 @@ namespace aro {
 class Char;
 typedef Ref<Char> RChar;
 
-class Char final extends public Object implements public Comparable<Char>, public Cloneable<Char>, public io::Streamable<Char>
+class Char final extends public Object implements public Comparable<Char>, public io::Streamable<Char>
 {
    public:
       static const vint MAX_VALUE;
       static const vint MIN_VALUE;
       
-      Char();
       Char(vchar c);
-      Char(RChar ch);
       
-	   virtual vint hashCode();
+	  virtual vint hashCode();
       virtual vchar charValue();
       virtual RString toString();
       
@@ -48,7 +46,21 @@ class Char final extends public Object implements public Comparable<Char>, publi
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
+      Char();
+      
       const vchar value;
+      
+      class CharCache final extends Object
+      {
+         public:
+            CharCache();
+            
+            RArray<Char> cache;
+	  };
+
+	  static const Ref<CharCache> charCache;
+   
+   friend interface io::Streamable<Char>;
 };
 
 } /* namespace aro */

@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <aro/core/Int.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
@@ -16,12 +16,6 @@ Int::Int()
 
 Int::Int(vint val)
    :value(val)
-{
-   
-}
-
-Int::Int(RInt val)
-   :value(val->value)
 {
    
 }

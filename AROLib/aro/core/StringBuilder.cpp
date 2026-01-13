@@ -1,4 +1,4 @@
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 #include <aro/core/StringBuilder.hpp>
 
 namespace aro {

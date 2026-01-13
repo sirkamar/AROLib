@@ -202,16 +202,15 @@
     <ClInclude Include="aro\core\ArrayBase.hpp" />
     <ClInclude Include="aro\core\Array2D.hpp" />
     <ClInclude Include="aro\core\Bool.hpp" />
-    <ClInclude Include="aro\core\Boolean.hpp" />
     <ClInclude Include="aro\core\CastException.hpp" />
     <ClInclude Include="aro\core\Char.hpp" />
-    <ClInclude Include="aro\core\Character.hpp" />
     <ClInclude Include="aro\core\Cloneable.hpp" />
     <ClInclude Include="aro\core\Comparable.hpp" />
     <ClInclude Include="aro\core\Decimal.hpp" />
     <ClInclude Include="aro\core\Double.hpp" />
     <ClInclude Include="aro\core\Exception.hpp" />
     <ClInclude Include="aro\core\Float.hpp" />
+    <ClInclude Include="aro\core\impl\All.hpp" />
     <ClInclude Include="aro\core\impl\Array-impl.hpp" />
     <ClInclude Include="aro\core\impl\Array2D-impl.hpp" />
     <ClInclude Include="aro\core\impl\ArrayBase-impl.hpp" />
@@ -240,7 +239,6 @@
     <ClInclude Include="aro\core\Thread.hpp" />
     <ClInclude Include="aro\core\ThreadException.hpp" />
     <ClInclude Include="aro\core\UnsupportedException.hpp" />
-    <ClInclude Include="aro\core\utils\Foreach.hpp" />
     <ClInclude Include="aro\core\arm\Types.hpp" />
     <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp" />
     <ClInclude Include="aro\core\utils\ObjectMonitor.hpp" />
@@ -399,10 +397,8 @@
     <ClCompile Include="aro\core\arm\Types.cpp" />
     <ClCompile Include="aro\core\Array.cpp" />
     <ClCompile Include="aro\core\Bool.cpp" />
-    <ClCompile Include="aro\core\Boolean.cpp" />
     <ClCompile Include="aro\core\CastException.cpp" />
     <ClCompile Include="aro\core\Char.cpp" />
-    <ClCompile Include="aro\core\Character.cpp" />
     <ClCompile Include="aro\core\Decimal.cpp" />
     <ClCompile Include="aro\core\Double.cpp" />
     <ClCompile Include="aro\core\Exception.cpp" />

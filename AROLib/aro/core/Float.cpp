@@ -1,7 +1,7 @@
 #include <bitset>
 #include <cstdlib>
 #include <aro/core/Float.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
@@ -27,12 +27,6 @@ Float::Float()
 
 Float::Float(vfloat val)
    :value(val)
-{
-   
-}
-
-Float::Float(RFloat val)
-   :value(val->value)
 {
    
 }

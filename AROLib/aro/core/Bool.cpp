@@ -1,14 +1,14 @@
 #include <aro/core/Bool.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
-const RBool Bool::IS_FALSE = new Bool(false);
+const RBool Bool::TRUE_REF = new Bool(true);
 
-const RBool Bool::IS_TRUE = new Bool(true);
+const RBool Bool::FALSE_REF = new Bool(false);
 
 Bool::Bool()
-   :value(false)
+   :Bool(false)
 {
    
 }
@@ -19,10 +19,10 @@ Bool::Bool(vbool val)
    
 }
 
-Bool::Bool(RBool val)
-   :value(val->value)
+Bool::Bool(RString str)
+    :Bool(toBool(str))
 {
-   
+
 }
 
 vint Bool::hashCode()
@@ -42,7 +42,7 @@ vbool Bool::parse(RString str)
 
 vbool Bool::toBool(RString str)
 {
-   return str->equalsIgnoreCase("true");
+   return (str != nullref && str->equalsIgnoreCase("true"));
 }
 
 RString Bool::toString()
@@ -63,12 +63,12 @@ void Bool::writeObject(io::RObjectOutputStream os)
 
 RBool Bool::valueOf(vbool b)
 {
-   return b ? IS_TRUE : IS_FALSE;
+   return b ? TRUE_REF : FALSE_REF;
 }
 
 RBool Bool::valueOf(RString str)
 {
-   return toBool(str) ? IS_TRUE : IS_FALSE;
+   return toBool(str) ? TRUE_REF : FALSE_REF;
 }
 
 vint Bool::compareTo(RBool b)

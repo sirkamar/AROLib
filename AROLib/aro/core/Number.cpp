@@ -1,5 +1,5 @@
 #include <aro/core/Number.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 

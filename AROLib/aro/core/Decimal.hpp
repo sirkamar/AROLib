@@ -3,12 +3,14 @@
 
 #include <aro/core/Number.hpp>
 
+// TODO: convert to class BigFloat
+
 namespace aro {
 
 class Decimal;
 typedef Ref<Decimal> RDecimal;
 
-class Decimal extends public Number implements public Comparable<Decimal>, public Cloneable<Decimal>, public io::Streamable<Decimal>
+class Decimal extends public Number implements public Comparable<Decimal>, public io::Streamable<Decimal>
 {
    public:
       //static const vdouble POSITIVE_INFINITY;

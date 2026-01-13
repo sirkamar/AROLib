@@ -3,7 +3,7 @@
 #include <process.h>
 #include <windows.h>
 #include <DbgHelp.h>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 #include <aro/io/PrintWriter.hpp>
 
 #pragma comment( lib, "dbghelp.lib" )

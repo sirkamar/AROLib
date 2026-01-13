@@ -1,6 +1,6 @@
 #include <sstream>
 #include <iostream>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 // for use with stringstream
 using namespace std;
@@ -363,15 +363,6 @@ vbool String::equalsIgnoreCase(RString str)
 vint String::compareToIgnoreCase(RString str)
 {
 	return toLowerCase()->compareTo(str->toLowerCase());
-}
-
-RObject String::clone()
-{
-    RString str = type_cast<String>(Object::clone());
-
-    str->initCString();
-
-    return str;
 }
 
 void String::getChars(RArray<vchar> dst, vint dstBegin)

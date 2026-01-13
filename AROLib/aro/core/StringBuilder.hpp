@@ -8,7 +8,7 @@ namespace aro {
 class StringBuilder;
 typedef Ref<StringBuilder> RStringBuilder;
 
-class StringBuilder extends public MutableString implements public io::Streamable<StringBuilder>
+class StringBuilder final extends public MutableString implements public io::Streamable<StringBuilder>
 {
    public:
       StringBuilder();

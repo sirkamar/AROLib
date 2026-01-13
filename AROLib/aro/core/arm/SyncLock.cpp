@@ -1,5 +1,5 @@
 #include <aro/core/arm/SyncLock.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 #include <aro/core/ThreadException.hpp>
 
 namespace aro {

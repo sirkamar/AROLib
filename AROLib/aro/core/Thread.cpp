@@ -1,7 +1,7 @@
 #include <exception>
 #include <aro/core/System.hpp>
 //#include <aro/core/Thread.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 #include <aro/core/StateException.hpp>
 #include <aro/core/ThreadException.hpp>
 #include <aro/core/utils/ThreadLibrary.hpp>

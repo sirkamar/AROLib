@@ -1,7 +1,7 @@
 #include <bitset>
 #include <cstdlib>
 #include <aro/core/Decimal.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <aro/core/arm/Arm.hpp>
-#include <aro/core/utils/Foreach.hpp>
+#include <aro/core/impl/All.hpp>
 
 namespace aro {
 
