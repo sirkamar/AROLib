@@ -10,45 +10,54 @@ namespace aro {
 /**********************************************************************
 *                     RefArrayBase<T> Implementation                  *
 **********************************************************************/
-template <class T>
-RefArrayBase<T>::RefArrayBase()
+template <class T, class V>
+RefArrayBase<T,V>::RefArrayBase()
+{
+   ref = nullptr;
+}
+
+template <class T, class V>
+RefArrayBase<T,V>::~RefArrayBase()
 {
    
 }
 
-template <class T>
-RefArrayBase<T>::~RefArrayBase()
-{
-   
-}
-
-template <class T>
-typename RefArrayBase<T>::Itr RefArrayBase<T>::end() const
+template <class T, class V>
+typename RefArrayBase<T,V>::Itr RefArrayBase<T,V>::end() const
 {
    return Itr(*this, size());
 }
 
-template <class T>
-typename RefArrayBase<T>::Itr RefArrayBase<T>::begin() const
+template <class T, class V>
+typename RefArrayBase<T,V>::Itr RefArrayBase<T,V>::begin() const
 {
    return Itr(*this, 0);
 }
 
-template <class T>
-const T& RefArrayBase<T>::Itr::operator*() const
+template <class T, class V>
+typename Array<T>* RefArrayBase<T,V>::operator->() const
+{
+   if(ref == nullptr)
+      throw RException(new NullException());
+   
+   return ref;
+}
+
+template <class T, class V>
+const V& RefArrayBase<T,V>::Itr::operator*() const
 {
    return arr[pos];
 }
 
-template <class T>
-RefArrayBase<T>::Itr::Itr(const RefArrayBase<T>& ra, int p)
+template <class T, class V>
+RefArrayBase<T,V>::Itr::Itr(const RefArrayBase<T,V>& ra, int p)
    :arr(ra)
 {
    pos = p;
 }
 
-template <class T>
-typename RefArrayBase<T>::Itr& RefArrayBase<T>::Itr::operator++()
+template <class T, class V>
+typename RefArrayBase<T,V>::Itr& RefArrayBase<T,V>::Itr::operator++()
 {
    if(pos < arr.size())
       pos++;
@@ -56,8 +65,8 @@ typename RefArrayBase<T>::Itr& RefArrayBase<T>::Itr::operator++()
    return *this;
 }
 
-template <class T>
-bool RefArrayBase<T>::Itr::operator!=(typename const RefArrayBase<T>::Itr& itr) const
+template <class T, class V>
+bool RefArrayBase<T,V>::Itr::operator!=(typename const RefArrayBase<T,V>::Itr& itr) const
 {
    return (arr.ptr() != itr.arr.ptr() || pos != itr.pos);
 }

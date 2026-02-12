@@ -14,8 +14,6 @@ template <class T>
 Ref<Array<T>>::Ref()
 {
    ref = nullptr;
-   
-   crossAssigned = false;
 }
 
 template <class T>
@@ -34,16 +32,12 @@ Ref<Array<T>>::Ref(Array<T>* arrPtr)
    ref = arrPtr;
    
    Arm::add(ref, this);
-   
-   crossAssigned = false;
 }
 
 template <class T>
 Ref<Array<T>>::Ref(const Ref<Null>& nRef)
 {
    ref = nullptr;
-   
-   crossAssigned = false;
 }
 
 template <class T>
@@ -52,8 +46,6 @@ Ref<Array<T>>::Ref(Ref<Array<T>>&& arrRef) noexcept
    ref = arrRef.ref;
    
    arrRef.ref = nullptr;
-   
-   crossAssigned = false;
 }
 
 template <class T>
@@ -63,31 +55,74 @@ Ref<Array<T>>::Ref(const Ref<Array<T>>& arrRef)
    
    if(ref != nullptr)
       Arm::add(ref, this);
-   
-   crossAssigned = false;
 }
 
-template <class T> template <class U>
-Ref<Array<T>>::Ref(const Ref<Array<U>>& arrRef)
-{
-   if(arrRef.ref == nullptr)
-   {
-      ref = nullptr;
-      
-      crossAssigned = false;
-   }
-   else
-   {
-      ref = new Array<T>(arrRef->length);
-      
-      Arm::add(ref, this);
-      
-      crossAssigned = true;
-      
-      for(int n=0; n<ref->length; n++)
-         ref->set(n, arrRef[n]);
-   }
-}
+//template <class T> template <class U, typename std::enable_if<std::is_convertible<U*, T*>::value, int>::type>
+//Ref<Array<T>>::Ref(const Ref<Array<U>>& arrRef)
+//{
+//   if(arrRef.ref == nullptr)
+//      ref = nullptr;
+//   else
+//   {
+//      crossAssigned = true;
+//      
+//      class FilterArray : public ArrayBase<T,Ref<T>>
+//      {
+//         public:
+//            FilterArray(Ref<Array<U>> arrRef)
+//               :ArrayBase<T,Ref<T>>(arrRef->length), arrRef(arrRef)
+//            {}
+//
+//            Ref<Object> clone()
+//            {
+//               return arrRef->clone();
+//            }
+//
+//            Ref<String> toString()
+//            {
+//               return arrRef->toString();
+//            }
+//
+//            void set(vint index, Ref<T> item)
+//            {
+//               arrRef->item(index) = type_cast<U>(item);
+//            }
+//
+//            Ref<T> get(vint index)
+//            {
+//               return arrRef->item(index);
+//            }
+//
+//            Ref<Array<T>> copyOf(vint count)
+//            {
+//               return copyOf(0, count);
+//            }
+//
+//            Ref<Array<T>> copyOf(vint offset, vint count)
+//            {
+//               Ref<Array<T>> newArr = new Array<T>(count);
+//               
+//               for(vint i=0; i<count; i++)
+//                  newArr->item(i) = arrRef->item(offset + i);
+//               
+//               return newArr;
+//            }
+//
+//            void copy(vint dPos, Ref<Array<T>> src, vint sPos, vint num)
+//            {
+//               for(vint i=0; i<num; i++)
+//                  arrRef->item(dPos + i) = type_cast<U>(src->item(sPos + i));
+//            }
+//
+//            private:
+//               Ref<Array<U>> arrRef;
+//      };
+//
+//      RefArrayBase<T,Ref<T>>::ref = new FilterArray(arrRef);
+//      
+//      Arm::add(ref, this);
+//   }
+//}
 
 template <class T>
 Ref<Array<T>>::Ref(std::initializer_list<Ref<T>> elems)
@@ -95,8 +130,6 @@ Ref<Array<T>>::Ref(std::initializer_list<Ref<T>> elems)
    ref = new Array<T>(elems);
 
    Arm::add(ref, this);
-   
-   crossAssigned = false;
 }
 
 template <class T>
@@ -119,14 +152,14 @@ vint Ref<Array<T>>::size() const
    return (*this)->length;
 }
 
-template <class T>
-Array<T>* Ref<Array<T>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-   
-   return dynamic_cast<Array<T>*>(ref);
-}
+//template <class T>
+//Array<T>* Ref<Array<T>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//   
+//   return ref;
+//}
 
 template <class T>
 Ref<T>& Ref<Array<T>>::operator[](int index)
@@ -149,49 +182,51 @@ const Ref<T>& Ref<Array<T>>::operator[](int index) const
 template <class T>
 bool Ref<Array<T>>::operator==(const Ref<Object>& objRef) const
 {
-   if(crossAssigned)
-      return false;
-   
+   if(crossAssigned && objRef.ref != nullptr)
+   {
+      Array<T>* arrPtr = dynamic_cast<Array<T>*>(objRef.ref);
+      
+      if(arrPtr != nullptr)
+      {
+         if(ref->length == arrPtr->length)
+            return true;
+         
+         for(vint i = 0; i < ref->length; i++)
+         {
+            if(ref->get(i) == arrPtr->get(i))
+               return true;
+         }
+         
+         return false;
+      }
+   }
+
    return ref == objRef.ref;
 }
 
 template <class T>
 bool Ref<Array<T>>::operator!=(const Ref<Object>& objRef) const
 {
-   if(crossAssigned)
-      return true;
+   if(crossAssigned && objRef.ref != nullptr)
+   {
+      Array<T>* arrPtr = dynamic_cast<Array<T>*>(objRef.ref);
+      
+      if(arrPtr != nullptr)
+      {
+         if(ref->length != arrPtr->length)
+            return true;
+         
+         for(vint i = 0; i < ref->length; i++)
+         {
+            if(ref->get(i) != arrPtr->get(i))
+               return true;
+         }
+         
+         return false;
+      }
+   }
    
    return ref != objRef.ref;
-}
-
-template <class T> template <class U>
-bool Ref<Array<T>>::operator==(const Ref<Array<U>>& arrRef) const
-{
-   if(crossAssigned && arrRef.ref != nullptr && ref->length == arrRef->length)
-   {
-      for(int n=0; n<ref->length; n++)
-         if(ref->item(n) != arrRef[n])
-            return false;
-      
-      return true;
-   }
-   
-   return false;
-}
-
-template <class T> template <class U>
-bool Ref<Array<T>>::operator!=(const Ref<Array<U>>& arrRef) const
-{
-   if(crossAssigned && arrRef.ref != nullptr && ref->length == arrRef->length)
-   {
-      for(int n=0; n<ref->length; n++)
-         if(ref->item(n) == arrRef[n])
-            return false;
-      
-      return true;
-   }
-   
-   return ref == nullptr ? arrRef.ref != nullptr : true;
 }
 
 template <class T>
@@ -262,32 +297,81 @@ Ref<Array<T>>& Ref<Array<T>>::operator=(const Ref<Array<T>>& arrRef)
    return *this;
 }
 
-template <class T> template <class U>
-Ref<Array<T>>& Ref<Array<T>>::operator=(const Ref<Array<U>>& arrRef)
-{
-   if(ref != nullptr)
-      Arm::remove(ref, this);
-   
-   if(arrRef.ref == nullptr)
-   {
-      ref = nullptr;
-      
-      crossAssigned = false;
-   }
-   else
-   {
-      ref = new Array<T>(arrRef->length);
-      
-      Arm::add(ref, this);
-      
-      crossAssigned = true;
-
-      for(int n=0; n<ref->length; n++)
-         ref->set(n, arrRef[n]);
-   }
-   
-   return *this;
-}
+//template <class T> template <class U, typename std::enable_if<std::is_convertible<U*, T*>::value, int>::type>
+//Ref<Array<T>>& Ref<Array<T>>::operator=(const Ref<Array<U>>& arrRef)
+//{
+//   if(ref != nullptr)
+//      Arm::remove(ref, this);
+//   
+//   if(arrRef.ref == nullptr)
+//   {
+//      ref = nullptr;
+//
+//      crossAssigned = false;
+//   }
+//   else
+//   {
+//      crossAssigned = true;
+//      
+//      class FilterArray : public ArrayBase<T,Ref<T>>
+//      {
+//         public:
+//            FilterArray(Ref<Array<U>> arrRef)
+//               :ArrayBase<T,Ref<T>>(arrRef->length), arrRef(arrRef)
+//            {}
+//
+//            Ref<Object> clone()
+//            {
+//               return arrRef->clone();
+//            }
+//
+//            Ref<String> toString()
+//            {
+//               return arrRef->toString();
+//            }
+//
+//            void set(vint index, Ref<T> item)
+//            {
+//               arrRef->item(index) = type_cast<U>(item);
+//            }
+//
+//            Ref<T> get(vint index)
+//            {
+//               return arrRef->item(index);
+//            }
+//
+//            Ref<Array<T>> copyOf(vint count)
+//            {
+//               return copyOf(0, count);
+//            }
+//
+//            Ref<Array<T>> copyOf(vint offset, vint count)
+//            {
+//               Ref<Array<T>> newArr = new Array<T>(count);
+//               
+//               for(vint i=0; i<count; i++)
+//                  newArr->item(i) = arrRef->item(offset + i);
+//               
+//               return newArr;
+//            }
+//
+//            void copy(vint dPos, Ref<Array<T>> src, vint sPos, vint num)
+//            {
+//               for(vint i=0; i<num; i++)
+//                  arrRef->item(dPos + i) = type_cast<U>(src->item(sPos + i));
+//            }
+//
+//            private:
+//               Ref<Array<U>> arrRef;
+//      };
+//
+//      RefArrayBase<T,Ref<T>>::ref = new FilterArray(arrRef);
+//      
+//      Arm::add(ref, this);
+//   }
+//   
+//   return *this;
+//}
 
 } /* namespace aro */
 

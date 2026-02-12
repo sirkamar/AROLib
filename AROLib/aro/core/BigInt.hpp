@@ -3,14 +3,12 @@
 
 #include <aro/core/Number.hpp>
 
-// TODO: convert to BigInteger
-
 namespace aro {
 
-class Integer;
-typedef Ref<Integer> RInteger;
+class BigInt;
+typedef Ref<BigInt> RBigInt;
 
-class Integer extends public Number implements public Comparable<Integer>, public io::Streamable<Integer>
+class BigInt extends public Number implements public Comparable<BigInt>, public io::Streamable<BigInt>
 {
    public:
       static const vint INT_MAX_VALUE;
@@ -18,9 +16,9 @@ class Integer extends public Number implements public Comparable<Integer>, publi
       static const vlong LONG_MAX_VALUE;
       static const vlong LONG_MIN_VALUE;
       
-      Integer();
-      Integer(vint val);
-      Integer(RInteger val);
+      BigInt();
+      BigInt(vint val);
+      BigInt(RBigInt val);
       
       virtual vint intValue();
       virtual vlong longValue();
@@ -29,10 +27,10 @@ class Integer extends public Number implements public Comparable<Integer>, publi
       
       virtual RString toString();
       virtual vbool equals(RObject obj);
-      virtual vint compareTo(RInteger num);
+      virtual vint compareTo(RBigInt num);
       
-      static RInteger valueOf(RString str);
-      static RInteger valueOf(vlong val);
+      static RBigInt valueOf(RString str);
+      static RBigInt valueOf(vlong val);
       static vint parse(RString str);
 
       static vint urShift(vint val, vint n);

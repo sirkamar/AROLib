@@ -34,7 +34,13 @@ Ref<String>::Ref(String* strPtr)
 //template <>
 Ref<String>::Ref(const char* chStr)
 {
-   ref = new String(chStr);
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
+   if(strcmp(chStr, "") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
    
    if(ref != nullptr)
       Arm::add(ref, this);
@@ -43,8 +49,14 @@ Ref<String>::Ref(const char* chStr)
 //template <>
 Ref<String>::Ref(const wchar_t* chStr)
 {
-   ref = new String(chStr);
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
    
+   if(wcscmp(chStr, L"") == 0)
+       ref = String::EMPTY_STRING.ref;
+   else
+       ref = new String(chStr);
+
    if(ref != nullptr)
       Arm::add(ref, this);
 }
@@ -121,10 +133,16 @@ Ref<String>& Ref<String>::operator=(String* strPtr)
 //template <>
 Ref<String>& Ref<String>::operator=(const char* chStr)
 {
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
    if(ref != nullptr)
       Arm::remove(ref, this);
    
-   ref = new String(chStr);
+   if(strcmp(chStr, "") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
    
    if(ref != nullptr)
       Arm::add(ref, this);
@@ -135,10 +153,16 @@ Ref<String>& Ref<String>::operator=(const char* chStr)
 //template <>
 Ref<String>& Ref<String>::operator=(const wchar_t* chStr)
 {
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
    if(ref != nullptr)
       Arm::remove(ref, this);
 
-   ref = new String(chStr);
+   if(wcscmp(chStr, L"") == 0)
+       ref = String::EMPTY_STRING.ref;
+   else
+       ref = new String(chStr);
 
    if(ref != nullptr)
       Arm::add(ref, this);
@@ -205,7 +229,7 @@ void Ref<String>::clear()
 //template <>
 Ref<String>& Ref<String>::operator+=(const Ref<Object>& objRef)
 {
-   return (*this) = (*this) + objRef;
+   return (*this) = (*this) + objRef; // delegate to operator+
 }
 
 //template <>
@@ -221,16 +245,18 @@ Ref<String> Ref<String>::operator+(const wchar_t* chStr) const
 }
 
 //template <>
+Ref<String> Ref<String>::operator+(const Ref<String>& strRef) const
+{
+   return String::valueOf(*this)->concat(String::valueOf(strRef));
+}
+
+//template <>
 Ref<String> Ref<String>::operator+(const Ref<Object>& objRef) const
 {
    return String::valueOf(*this)->concat(String::valueOf(objRef));
 }
 
-//template <>
-Ref<String> Ref<String>::operator+(const Ref<String>& strRef) const
-{
-   return String::valueOf(*this)->concat(String::valueOf(strRef));
-}
+/* Non-Member String Reference Operator+ Functions */
 
 Ref<String> operator+(const char* chStr, const Ref<Object>& objRef)
 {
@@ -265,6 +291,11 @@ Ref<String> operator+(const Ref<Object>& objRef, const wchar_t* chStr)
 Ref<String> operator+(const Ref<Object>& objRef, const Ref<String>& strRef)
 {
    return String::valueOf(objRef)->concat(String::valueOf(strRef));
+}
+
+Ref<Object> operator+=(Ref<Object>& objRef, const Ref<String>& strRef)
+{
+   return objRef = String::valueOf(objRef)->concat(String::valueOf(strRef));
 }
 
 } /* namespace aro */

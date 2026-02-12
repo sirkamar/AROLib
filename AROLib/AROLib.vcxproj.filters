@@ -19,7 +19,7 @@
     <ClCompile Include="aro\core\Char.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
-    <ClCompile Include="aro\core\Decimal.cpp">
+    <ClCompile Include="aro\core\BigFloat.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
     <ClCompile Include="aro\core\Double.cpp">
@@ -37,7 +37,7 @@
     <ClCompile Include="aro\core\Int.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
-    <ClCompile Include="aro\core\Integer.cpp">
+    <ClCompile Include="aro\core\BigInt.cpp">
       <Filter>Source Files\aro\core</Filter>
     </ClCompile>
     <ClCompile Include="aro\core\Long.cpp">
@@ -430,11 +430,11 @@
     <ClCompile Include="aro\core\utils\Main.cpp">
       <Filter>Source Files\aro\core\utils</Filter>
     </ClCompile>
-    <ClCompile Include="aro\core\arm\RefClone.cpp">
-      <Filter>Source Files\aro\core\arm</Filter>
-    </ClCompile>
     <ClCompile Include="aro\core\utils\ObjectMonitor.cpp">
       <Filter>Source Files\aro\core\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="aro\io\EOFException.cpp">
+      <Filter>Source Files\aro\io</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -516,7 +516,7 @@
     <ClInclude Include="aro\core\Cloneable.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Decimal.hpp">
+    <ClInclude Include="aro\core\BigFloat.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Double.hpp">
@@ -528,7 +528,7 @@
     <ClInclude Include="aro\core\Int.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\Integer.hpp">
+    <ClInclude Include="aro\core\BigInt.hpp">
       <Filter>Header Files\aro\core</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\Interface.hpp">
@@ -802,9 +802,6 @@
       <Filter>Header Files\aro\core\impl</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\impl\Array-impl.hpp">
-      <Filter>Header Files\aro\core\impl</Filter>
-    </ClInclude>
-    <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp">
       <Filter>Header Files\aro\core\impl</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\impl\Weak-impl.hpp">
@@ -1086,9 +1083,6 @@
     <ClInclude Include="aro\core\arm\Base.hpp">
       <Filter>Header Files\aro\core\arm</Filter>
     </ClInclude>
-    <ClInclude Include="aro\core\arm\RefClone.hpp">
-      <Filter>Header Files\aro\core\arm</Filter>
-    </ClInclude>
     <ClInclude Include="aro\aws\Rectange2D.hpp">
       <Filter>Header Files\aro\aws</Filter>
     </ClInclude>
@@ -1111,6 +1105,12 @@
       <Filter>Header Files\aro\core\utils</Filter>
     </ClInclude>
     <ClInclude Include="aro\core\impl\All.hpp">
+      <Filter>Header Files\aro\core\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\io\EOFException.hpp">
+      <Filter>Header Files\aro\io</Filter>
+    </ClInclude>
+    <ClInclude Include="aro\core\impl\ObjectFactory-impl.hpp">
       <Filter>Header Files\aro\core\impl</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1202,6 +1202,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="cpp.hint" />
+    <None Include="License.md">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt">

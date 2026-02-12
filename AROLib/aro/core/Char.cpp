@@ -4,9 +4,15 @@
 
 namespace aro {
 
-const vint Char::MAX_VALUE = 127;
+const vint Char::BYTE_SIZE = 2; // 2 bytes = 16 bits
 
-const vint Char::MIN_VALUE = 0;
+const vint Char::MAX_RADIX = 36;
+
+const vint Char::MIN_RADIX = 2;
+
+const vchar Char::MAX_VALUE = L'\uFFFF'; // 127
+
+const vchar Char::MIN_VALUE = L'\u0000'; // 0
 
 Char::Char()
    :Char(0)
@@ -35,6 +41,26 @@ RString Char::toString()
    return String::valueOf(value);
 }
 
+vint Char::compareTo(RChar c)
+{
+   return value - c->value;
+}
+
+vbool Char::equals(RObject obj)
+{
+   if(obj == thisref)
+      return true;
+   
+   if(type_of<Char>(obj))
+   {
+      RChar val = type_cast<Char>(obj);
+      
+      return value == val->value;
+   }
+   
+   return false;
+}
+
 void Char::readObject(io::RObjectInputStream is)
 {
    //TODO: solving reading from stream to const item
@@ -44,6 +70,24 @@ void Char::readObject(io::RObjectInputStream is)
 void Char::writeObject(io::RObjectOutputStream os)
 {
    os->writeChar(value);
+}
+
+vint Char::hashCode(vchar ch)
+{
+   return static_cast<vint>(ch);
+}
+
+RChar Char::valueOf(vchar ch)
+{
+   if (ch <= MAX_VALUE)
+      return charCache->cache[static_cast<vint>(ch)];
+   
+   return new Char(ch);
+}
+
+RString Char::toString(vchar ch)
+{
+   return String::valueOf(ch);
 }
 
 vbool Char::isDigit(vchar ch)
@@ -104,39 +148,6 @@ vbool Char::isPrinting(vchar ch)
 vbool Char::isControl(vchar ch)
 {
    return iscntrl(ch) ? true : false;
-}
-
-RChar Char::valueOf(vchar ch)
-{
-   if(ch <= MAX_VALUE)
-	   return charCache->cache[static_cast<vint>(ch)];
-
-   return new Char(ch);
-}
-
-RChar Char::valueOf(RString str)
-{
-   return valueOf(str->charAt(0));
-}
-
-vbool Char::equals(RObject obj)
-{
-   if(obj == thisref)
-      return true;
-   
-   if(type_of<Char>(obj))
-   {
-      RChar val = type_cast<Char>(obj);
-      
-      return value == val->value;
-   }
-   
-   return false;
-}
-
-vint Char::compareTo(RChar c)
-{
-   return value - c->value;
 }
 
 Char::CharCache::CharCache()

@@ -2,6 +2,7 @@
 #define CORE_ARRAYBASE_IMPL_H
 
 #include <aro/core/Math.hpp>
+#include <aro/core/StringBuilder.hpp>
 #include <aro/core/IndexException.hpp>
 #include <aro/core/utils/CoreUtils.hpp>
 #include <aro/io/ObjectInputStream.hpp>
@@ -9,6 +10,13 @@
 #include <aro/core/ArgumentException.hpp>
 
 namespace aro {
+
+template <class T>
+ArrayBase<T>::ArrayBase()
+   :length(0)
+{
+   // do not initialize
+}
 
 template <class T>
 ArrayBase<T>::ArrayBase(vint size)
@@ -43,7 +51,7 @@ ArrayBase<T>::ArrayBase(Ref<ArrayBase<T>> arr)
 
 template <class T>
 ArrayBase<T>::ArrayBase(std::initializer_list<T> elems)
-:length(elems.size())
+   :length(elems.size())
 {
    init();
 
@@ -128,15 +136,13 @@ void ArrayBase<T>::resize(vint len)
 template <class T>
 void ArrayBase<T>::copyItems(vint dPos, Ref<ArrayBase<T>> src, vint sPos, vint num)
 {
-   //checkIndex(dPos);
-   if(dPos < 0 || dPos > length)
-      throw RException(new IndexException("Array index out of bounds: ", dPos));
+   src->checkIndex(sPos, true);
+
+   checkIndex(dPos, true);
+
+   checkIndex(num, true);
    
-   //src->checkIndex(sPos);
-   if(sPos < 0 || sPos > src->length)
-      throw RException(new IndexException("Array index out of bounds: ", sPos));
-   
-   if(num > length - dPos || num > src->length - sPos)
+   if(num + dPos > length || num + sPos > src->length)
       throw RException(new ArgumentException("Too many elements to copy: " + String::valueOf(num)));
    
    for(vint i = 0; i<num; i++)
@@ -153,9 +159,9 @@ void ArrayBase<T>::init()
 }
 
 template <class T>
-void ArrayBase<T>::checkIndex(vint index) const
+void ArrayBase<T>::checkIndex(vint index, vbool includeLength) const
 {
-   if(index < 0 || index >= length)
+   if(index < 0 || index > (includeLength ? length : length-1))
       throw RException(new IndexException("Array index out of bounds: ", index));
 }
 

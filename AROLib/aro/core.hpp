@@ -34,7 +34,7 @@
 #include <aro/core/Double.hpp>               // Double wrapper class declaration
 
 //#include <aro/core/BigFloat.hpp>             // BigFloat class declaration
-//#include <aro/core/BigInteger.hpp>           // BigInteger class declaration
+//#include <aro/core/BigInteger.hpp>           // BigInt class declaration
 
 #include <aro/core/Thread.hpp>               // Thread class declaration
 #include <aro/core/StringBuffer.hpp>         // StringBuffer class declaration

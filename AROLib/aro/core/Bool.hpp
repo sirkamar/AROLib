@@ -11,6 +11,7 @@ typedef Ref<Bool> RBool;
 class Bool final extends public Object implements public Comparable<Bool>, public io::Streamable<Bool>
 {
    public:
+      static const vint BYTE_SIZE;
       static const RBool FALSE_REF;
       static const RBool TRUE_REF;
       
@@ -32,7 +33,7 @@ class Bool final extends public Object implements public Comparable<Bool>, publi
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
-      Bool();
+      Bool(); // required by Streamable
       
       const vbool value;
       

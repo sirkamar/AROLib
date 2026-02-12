@@ -12,7 +12,7 @@ template <class T> class Array;
 ************************************************************************/
 
 template <class T>
-class Ref<Array<T>> : public RefArrayBase<Ref<T>>
+class Ref<Array<T>> : public RefArrayBase<T,Ref<T>>
 {
    public:
       Ref();
@@ -21,12 +21,12 @@ class Ref<Array<T>> : public RefArrayBase<Ref<T>>
       Ref(const Ref<Null>& nRef);
       Ref(Ref<Array<T>>&& arrRef) noexcept;
       Ref(const Ref<Array<T>>& arrRef);
-      template <class U>
-      Ref(const Ref<Array<U>>& arrRef);
       Ref(std::initializer_list<Ref<T>> elems);
+      //template <class U, typename std::enable_if<std::is_convertible<U*, T*>::value, int>::type = 0>
+      //Ref(const Ref<Array<U>>& arrRef);
 
       //dereference operator
-      Array<T>* operator->() const;
+      //Array<T>* operator->() const;
 
       //array subscript operator
       Ref<T>& operator[](int index);
@@ -35,18 +35,18 @@ class Ref<Array<T>> : public RefArrayBase<Ref<T>>
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
       bool operator!=(const Ref<Object>& objRef) const;
-      template <class U>
-      bool operator==(const Ref<Array<U>>& arrRef) const;
-      template <class U>
-      bool operator!=(const Ref<Array<U>>& arrRef) const;
+      //template <class U>
+      //bool operator==(const Ref<Array<U>>& arrRef) const;
+      //template <class U>
+      //bool operator!=(const Ref<Array<U>>& arrRef) const;
 
       //assignment operator
       Ref<Array<T>>& operator=(Array<T>* arrPtr);
       Ref<Array<T>>& operator=(const Ref<Null>& nRef);
       Ref<Array<T>>& operator=(Ref<Array<T>>&& arrRef) noexcept;
       Ref<Array<T>>& operator=(const Ref<Array<T>>& arrRef);
-      template <class U>
-      Ref<Array<T>>& operator=(const Ref<Array<U>>& arrRef);
+      //template <class U, typename std::enable_if<std::is_convertible<U*, T*>::value, int>::type = 0>
+      //Ref<Array<T>>& operator=(const Ref<Array<U>>& arrRef);
    
    protected:
       Base* ptr() const;
@@ -54,8 +54,8 @@ class Ref<Array<T>> : public RefArrayBase<Ref<T>>
       void clear();
    
    private:
-      Array<T>* ref;
-      vbool crossAssigned;
+      //Array<T>* ref;
+      vbool crossAssigned = false;
    
    friend class Ref<Object>;
    friend class Weak<Array<T>>;
@@ -64,14 +64,14 @@ class Ref<Array<T>> : public RefArrayBase<Ref<T>>
 
 
 template <>
-class Ref<Array<vint>> : public RefArrayBase<vint>
+class Ref<Array<vint>> : public RefArrayBase<vint,vint>
 {
    public:
       Ref();
       ~Ref();
       Ref(Array<vint>* arr);
       Ref(const Ref<Null>& nRef);
-      Ref(Ref<Array<vint>>&& arrRef);
+      Ref(Ref<Array<vint>>&& arrRef) noexcept;
       Ref(const Ref<Array<vint>>& arrRef);
       //template <class T>
       //Ref(const Ref<Array<T>>& arrRef);
@@ -82,7 +82,7 @@ class Ref<Array<vint>> : public RefArrayBase<vint>
       const vint& operator[](int index) const;
       
       //dereference operator
-      Array<vint>* operator->() const;
+      //Array<vint>* operator->() const;
       
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
@@ -91,7 +91,7 @@ class Ref<Array<vint>> : public RefArrayBase<vint>
       //assignment operator
       Ref<Array<vint>>& operator=(Array<vint>* arrPtr);
       Ref<Array<vint>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<vint>>& operator=(Ref<Array<vint>>&& arrRef);
+      Ref<Array<vint>>& operator=(Ref<Array<vint>>&& arrRef) noexcept;
       Ref<Array<vint>>& operator=(const Ref<Array<vint>>& arrRef);
       //template <class U>
       //Ref<Array<vint>>& operator=(const Ref<Array<U>>& arrRef);
@@ -101,8 +101,8 @@ class Ref<Array<vint>> : public RefArrayBase<vint>
       vint size() const;
       void clear();
    
-   private:
-      Array<vint>* ref;
+   //private:
+   //   Array<vint>* ref;
    
    friend class Ref<Object>;
    friend class Weak<Array<vint>>;
@@ -111,14 +111,14 @@ class Ref<Array<vint>> : public RefArrayBase<vint>
 
 
 template <>
-class Ref<Array<vbool>> : public RefArrayBase<vbool>
+class Ref<Array<vbool>> : public RefArrayBase<vbool,vbool>
 {
    public:
       Ref();
       ~Ref();
       Ref(Array<vbool>* arr);
       Ref(const Ref<Null>& nRef);
-      Ref(Ref<Array<vbool>>&& arrRef);
+      Ref(Ref<Array<vbool>>&& arrRef) noexcept;
       Ref(const Ref<Array<vbool>>& arrRef);
       //template <class T>
       //Ref(const Ref<Array<T>>& arrRef);
@@ -129,7 +129,7 @@ class Ref<Array<vbool>> : public RefArrayBase<vbool>
       const vbool& operator[](int index) const;
       
       //dereference operator
-      Array<vbool>* operator->() const;
+      //Array<vbool>* operator->() const;
       
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
@@ -138,7 +138,7 @@ class Ref<Array<vbool>> : public RefArrayBase<vbool>
       //assignment operator
       Ref<Array<vbool>>& operator=(Array<vbool>* arrPtr);
       Ref<Array<vbool>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<vbool>>& operator=(Ref<Array<vbool>>&& arrRef);
+      Ref<Array<vbool>>& operator=(Ref<Array<vbool>>&& arrRef) noexcept;
       Ref<Array<vbool>>& operator=(const Ref<Array<vbool>>& arrRef);
       //template <class T>
       //Ref<Array<vbool>>& operator=(const Ref<Array<T>>& arrRef);
@@ -148,8 +148,8 @@ class Ref<Array<vbool>> : public RefArrayBase<vbool>
       vint size() const;
       void clear();
    
-   private:
-      Array<vbool>* ref;
+   //private:
+   //   Array<vbool>* ref;
    
    friend class Ref<Object>;
    friend class Weak<Array<vbool>>;
@@ -158,14 +158,14 @@ class Ref<Array<vbool>> : public RefArrayBase<vbool>
 
 
 template <>
-class Ref<Array<vchar>> : public RefArrayBase<vchar>
+class Ref<Array<vchar>> : public RefArrayBase<vchar,vchar>
 {
    public:
       Ref();
       ~Ref();
       Ref(Array<vchar>* arr);
       Ref(const Ref<Null>& nRef);
-      Ref(Ref<Array<vchar>>&& arrRef);
+      Ref(Ref<Array<vchar>>&& arrRef) noexcept;
       Ref(const Ref<Array<vchar>>& arrRef);
       //template <class T>
       //Ref(const Ref<Array<T>>& arrRef);
@@ -176,7 +176,7 @@ class Ref<Array<vchar>> : public RefArrayBase<vchar>
       const vchar& operator[](int index) const;
       
       //dereference operator
-      Array<vchar>* operator->() const;
+      //Array<vchar>* operator->() const;
       
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
@@ -185,7 +185,7 @@ class Ref<Array<vchar>> : public RefArrayBase<vchar>
       //assignment operator
       Ref<Array<vchar>>& operator=(Array<vchar>* arrPtr);
       Ref<Array<vchar>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<vchar>>& operator=(Ref<Array<vchar>>&& arrRef);
+      Ref<Array<vchar>>& operator=(Ref<Array<vchar>>&& arrRef) noexcept;
       Ref<Array<vchar>>& operator=(const Ref<Array<vchar>>& arrRef);
       //template <class T>
       //Ref<Array<vchar>>& operator=(const Ref<Array<T>>& arrRef);
@@ -195,8 +195,8 @@ class Ref<Array<vchar>> : public RefArrayBase<vchar>
       vint size() const;
       void clear();
    
-   private:
-      Array<vchar>* ref;
+   //private:
+   //   Array<vchar>* ref;
    
    friend class Ref<Object>;
    friend class Weak<Array<vchar>>;
@@ -205,14 +205,14 @@ class Ref<Array<vchar>> : public RefArrayBase<vchar>
 
 
 template <>
-class Ref<Array<vlong>> : public RefArrayBase<vlong>
+class Ref<Array<vlong>> : public RefArrayBase<vlong,vlong>
 {
    public:
       Ref();
       ~Ref();
       Ref(Array<vlong>* arr);
       Ref(const Ref<Null>& nRef);
-      Ref(Ref<Array<vlong>>&& arrRef);
+      Ref(Ref<Array<vlong>>&& arrRef) noexcept;
       Ref(const Ref<Array<vlong>>& arrRef);
       //template <class T>
       //Ref(const Ref<Array<T>>& arrRef);
@@ -223,7 +223,7 @@ class Ref<Array<vlong>> : public RefArrayBase<vlong>
       const vlong& operator[](int index) const;
       
       //dereference operator
-      Array<vlong>* operator->() const;
+      //Array<vlong>* operator->() const;
       
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
@@ -232,7 +232,7 @@ class Ref<Array<vlong>> : public RefArrayBase<vlong>
       //assignment operator
       Ref<Array<vlong>>& operator=(Array<vlong>* arrPtr);
       Ref<Array<vlong>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<vlong>>& operator=(Ref<Array<vlong>>&& arrRef);
+      Ref<Array<vlong>>& operator=(Ref<Array<vlong>>&& arrRef) noexcept;
       Ref<Array<vlong>>& operator=(const Ref<Array<vlong>>& arrRef);
       //template <class T>
       //Ref<Array<vlong>>& operator=(const Ref<Array<T>>& arrRef);
@@ -242,8 +242,8 @@ class Ref<Array<vlong>> : public RefArrayBase<vlong>
       vint size() const;
       void clear();
    
-   private:
-      Array<vlong>* ref;
+   //private:
+   //   Array<vlong>* ref;
    
    friend class Ref<Object>;
    friend class Weak<Array<vlong>>;
@@ -252,14 +252,14 @@ class Ref<Array<vlong>> : public RefArrayBase<vlong>
 
 
 template <>
-class Ref<Array<vshort>> : public RefArrayBase<vshort>
+class Ref<Array<vshort>> : public RefArrayBase<vshort,vshort>
 {
    public:
       Ref();
       ~Ref();
       Ref(Array<vshort>* arr);
       Ref(const Ref<Null>& nRef);
-      Ref(Ref<Array<vshort>>&& arrRef);
+      Ref(Ref<Array<vshort>>&& arrRef) noexcept;
       Ref(const Ref<Array<vshort>>& arrRef);
       //template <class T>
       //Ref(const Ref<Array<T>>& arrRef);
@@ -270,7 +270,7 @@ class Ref<Array<vshort>> : public RefArrayBase<vshort>
       const vshort& operator[](int index) const;
       
       //dereference operator
-      Array<vshort>* operator->() const;
+      //Array<vshort>* operator->() const;
       
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
@@ -279,7 +279,7 @@ class Ref<Array<vshort>> : public RefArrayBase<vshort>
       //assignment operator
       Ref<Array<vshort>>& operator=(Array<vshort>* arrPtr);
       Ref<Array<vshort>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<vshort>>& operator=(Ref<Array<vshort>>&& arrRef);
+      Ref<Array<vshort>>& operator=(Ref<Array<vshort>>&& arrRef) noexcept;
       Ref<Array<vshort>>& operator=(const Ref<Array<vshort>>& arrRef);
       //template <class T>
       //Ref<Array<vshort>>& operator=(const Ref<Array<T>>& arrRef);
@@ -289,8 +289,8 @@ class Ref<Array<vshort>> : public RefArrayBase<vshort>
       vint size() const;
       void clear();
    
-   private:
-      Array<vshort>* ref;
+   //private:
+   //   Array<vshort>* ref;
    
    friend class Ref<Object>;
    friend class Weak<Array<vshort>>;
@@ -299,14 +299,14 @@ class Ref<Array<vshort>> : public RefArrayBase<vshort>
 
 
 template <>
-class Ref<Array<vfloat>> : public RefArrayBase<vfloat>
+class Ref<Array<vfloat>> : public RefArrayBase<vfloat,vfloat>
 {
    public:
       Ref();
       ~Ref();
       Ref(Array<vfloat>* arr);
       Ref(const Ref<Null>& nRef);
-      Ref(Ref<Array<vfloat>>&& arrRef);
+      Ref(Ref<Array<vfloat>>&& arrRef) noexcept;
       Ref(const Ref<Array<vfloat>>& arrRef);
       //template <class T>
       //Ref(const Ref<Array<T>>& arrRef);
@@ -317,7 +317,7 @@ class Ref<Array<vfloat>> : public RefArrayBase<vfloat>
       const vfloat& operator[](int index) const;
 
       //dereference operator
-      Array<vfloat>* operator->() const;
+      //Array<vfloat>* operator->() const;
       
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
@@ -326,7 +326,7 @@ class Ref<Array<vfloat>> : public RefArrayBase<vfloat>
       //assignment operator
       Ref<Array<vfloat>>& operator=(Array<vfloat>* arrPtr);
       Ref<Array<vfloat>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<vfloat>>& operator=(Ref<Array<vfloat>>&& arrRef);
+      Ref<Array<vfloat>>& operator=(Ref<Array<vfloat>>&& arrRef) noexcept;
       Ref<Array<vfloat>>& operator=(const Ref<Array<vfloat>>& arrRef);
       //template <class T>
       //Ref<Array<vfloat>>& operator=(const Ref<Array<T>>& arrRef);
@@ -336,8 +336,8 @@ class Ref<Array<vfloat>> : public RefArrayBase<vfloat>
       vint size() const;
       void clear();
    
-   private:
-      Array<vfloat>* ref;
+   //private:
+   //   Array<vfloat>* ref;
    
    friend class Ref<Object>;
    friend class Weak<Array<vfloat>>;
@@ -346,14 +346,14 @@ class Ref<Array<vfloat>> : public RefArrayBase<vfloat>
 
 
 template <>
-class Ref<Array<vdouble>> : public RefArrayBase<vdouble>
+class Ref<Array<vdouble>> : public RefArrayBase<vdouble,vdouble>
 {
    public:
       Ref();
       ~Ref();
       Ref(Array<vdouble>* arr);
       Ref(const Ref<Null>& nRef);
-      Ref(Ref<Array<vdouble>>&& arrRef);
+      Ref(Ref<Array<vdouble>>&& arrRef) noexcept;
       Ref(const Ref<Array<vdouble>>& arrRef);
       //template <class T>
       //Ref(const Ref<Array<T>>& arrRef);
@@ -364,7 +364,7 @@ class Ref<Array<vdouble>> : public RefArrayBase<vdouble>
       const vdouble& operator[](int index) const;
 
       //dereference operator
-      Array<vdouble>* operator->() const;
+      //Array<vdouble>* operator->() const;
       
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
@@ -373,7 +373,7 @@ class Ref<Array<vdouble>> : public RefArrayBase<vdouble>
       //assignment operator
       Ref<Array<vdouble>>& operator=(Array<vdouble>* arrPtr);
       Ref<Array<vdouble>>& operator=(const Ref<Null>& nRef);
-      Ref<Array<vdouble>>& operator=(Ref<Array<vdouble>>&& arrRef);
+      Ref<Array<vdouble>>& operator=(Ref<Array<vdouble>>&& arrRef) noexcept;
       Ref<Array<vdouble>>& operator=(const Ref<Array<vdouble>>& arrRef);
       //template <class T>
       //Ref<Array<vdouble>>& operator=(const Ref<Array<T>>& arrRef);
@@ -383,8 +383,8 @@ class Ref<Array<vdouble>> : public RefArrayBase<vdouble>
       vint size() const;
       void clear();
 
-   private:
-      Array<vdouble>* ref;
+   //private:
+   //   Array<vdouble>* ref;
    
    friend class Ref<Object>;
    friend class Weak<Array<vdouble>>;
@@ -395,7 +395,7 @@ class Ref<Array<vdouble>> : public RefArrayBase<vdouble>
 template <class T>
 class Ref<Array<Ref<T>>>
 {
-   Ref() = default;
+   Ref() = delete;
 };
 
 } /* namespace aro */

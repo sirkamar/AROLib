@@ -2,14 +2,8 @@
 
 namespace aro {
 
-const Ref<Null>& Ref<Null>::get()
-{
-   return REF_NULL;
-}
-
 const Ref<Null> Ref<Null>::REF_NULL;
 
-const Ref<Null>& nullref = Ref<Null>::get();
-
+const Ref<Null>& nullref = Ref<Null>::REF_NULL;
 
 } /* namespace aro */

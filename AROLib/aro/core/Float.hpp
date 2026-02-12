@@ -36,6 +36,7 @@ class Float final extends public Number implements public Comparable<Float>, pub
       static const vfloat MIN_EXPONENT;
       static const vfloat MAX_VALUE;
       static const vfloat MIN_VALUE;
+      static const vint BYTE_SIZE;
       //static const vfloat NaN;
    
    protected:
@@ -43,7 +44,7 @@ class Float final extends public Number implements public Comparable<Float>, pub
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
-      Float();
+      Float(); // required by Streamable
       
       const vfloat value;
    

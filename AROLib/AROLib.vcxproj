@@ -186,7 +186,6 @@
     <ClInclude Include="aro\core\arm\RefArrayBase.hpp" />
     <ClInclude Include="aro\core\arm\RefArrayBase-impl.hpp" />
     <ClInclude Include="aro\core\arm\RefArray-impl.hpp" />
-    <ClInclude Include="aro\core\arm\RefClone.hpp" />
     <ClInclude Include="aro\core\arm\RefComp.hpp" />
     <ClInclude Include="aro\core\arm\RefNull.hpp" />
     <ClInclude Include="aro\core\arm\RefObject.hpp" />
@@ -206,7 +205,7 @@
     <ClInclude Include="aro\core\Char.hpp" />
     <ClInclude Include="aro\core\Cloneable.hpp" />
     <ClInclude Include="aro\core\Comparable.hpp" />
-    <ClInclude Include="aro\core\Decimal.hpp" />
+    <ClInclude Include="aro\core\BigFloat.hpp" />
     <ClInclude Include="aro\core\Double.hpp" />
     <ClInclude Include="aro\core\Exception.hpp" />
     <ClInclude Include="aro\core\Float.hpp" />
@@ -215,10 +214,11 @@
     <ClInclude Include="aro\core\impl\Array2D-impl.hpp" />
     <ClInclude Include="aro\core\impl\ArrayBase-impl.hpp" />
     <ClInclude Include="aro\core\impl\Cloneable-impl.hpp" />
+    <ClInclude Include="aro\core\impl\ObjectFactory-impl.hpp" />
     <ClInclude Include="aro\core\impl\Weak-impl.hpp" />
     <ClInclude Include="aro\core\IndexException.hpp" />
     <ClInclude Include="aro\core\Int.hpp" />
-    <ClInclude Include="aro\core\Integer.hpp" />
+    <ClInclude Include="aro\core\BigInt.hpp" />
     <ClInclude Include="aro\core\Interface.hpp" />
     <ClInclude Include="aro\core\Iterable.hpp" />
     <ClInclude Include="aro\core\Long.hpp" />
@@ -240,7 +240,6 @@
     <ClInclude Include="aro\core\ThreadException.hpp" />
     <ClInclude Include="aro\core\UnsupportedException.hpp" />
     <ClInclude Include="aro\core\arm\Types.hpp" />
-    <ClInclude Include="aro\core\utils\ObjectFactory-impl.hpp" />
     <ClInclude Include="aro\core\utils\ObjectMonitor.hpp" />
     <ClInclude Include="aro\core\utils\ThreadLibrary.hpp" />
     <ClInclude Include="aro\core\utils\CoreUtils.hpp" />
@@ -289,6 +288,7 @@
     <ClInclude Include="aro\io\ByteArrayOutputStream.hpp" />
     <ClInclude Include="aro\io\DataInputStream.hpp" />
     <ClInclude Include="aro\io\DataOutputStream.hpp" />
+    <ClInclude Include="aro\io\EOFException.hpp" />
     <ClInclude Include="aro\io\FileInputStream.hpp" />
     <ClInclude Include="aro\io\FileOutputStream.hpp" />
     <ClInclude Include="aro\io\FileReader.hpp" />
@@ -387,7 +387,6 @@
     <ClCompile Include="aro\core\arm\Arm.cpp" />
     <ClCompile Include="aro\core\arm\Cfg.cpp" />
     <ClCompile Include="aro\core\arm\RefArray.cpp" />
-    <ClCompile Include="aro\core\arm\RefClone.cpp" />
     <ClCompile Include="aro\core\arm\RefComp.cpp" />
     <ClCompile Include="aro\core\arm\RefNull.cpp" />
     <ClCompile Include="aro\core\arm\RefObject.cpp" />
@@ -399,13 +398,13 @@
     <ClCompile Include="aro\core\Bool.cpp" />
     <ClCompile Include="aro\core\CastException.cpp" />
     <ClCompile Include="aro\core\Char.cpp" />
-    <ClCompile Include="aro\core\Decimal.cpp" />
+    <ClCompile Include="aro\core\BigFloat.cpp" />
     <ClCompile Include="aro\core\Double.cpp" />
     <ClCompile Include="aro\core\Exception.cpp" />
     <ClCompile Include="aro\core\Float.cpp" />
     <ClCompile Include="aro\core\IndexException.cpp" />
     <ClCompile Include="aro\core\Int.cpp" />
-    <ClCompile Include="aro\core\Integer.cpp" />
+    <ClCompile Include="aro\core\BigInt.cpp" />
     <ClCompile Include="aro\core\Long.cpp" />
     <ClCompile Include="aro\core\Math.cpp" />
     <ClCompile Include="aro\core\MutableString.cpp" />
@@ -461,6 +460,7 @@
     <ClCompile Include="aro\io\ByteArrayOutputStream.cpp" />
     <ClCompile Include="aro\io\DataInputStream.cpp" />
     <ClCompile Include="aro\io\DataOutputStream.cpp" />
+    <ClCompile Include="aro\io\EOFException.cpp" />
     <ClCompile Include="aro\io\FileInputStream.cpp" />
     <ClCompile Include="aro\io\FileOutputStream.cpp" />
     <ClCompile Include="aro\io\FileReader.cpp" />
@@ -496,6 +496,7 @@
   <ItemGroup>
     <None Include="..\README.md" />
     <None Include="cpp.hint" />
+    <None Include="License.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,41 +2,25 @@
 #define CORE_CLONEABLE_IMPL_H
 
 #include <aro/core/impl/Weak-impl.hpp>
-#include <aro/core/utils/ObjectFactory-impl.hpp>
+#include <aro/core/impl/ObjectFactory-impl.hpp>
 
 namespace aro {
 
 template <class T>
-const typename Cloneable<T>::Builder Cloneable<T>::BUILDER;
+vbool Cloneable<T>::dummy = false;
 
 template <class T>
 Cloneable<T>::Cloneable()
 {
-	BUILDER.init();
-}
+   if (!dummy) {
+      dummy = true;
+      
+      ObjectFactory::add(ObjectFactory::getTypeID<T>(), [](RObject obj) -> RObject {
+         Ref<T> o_tmp = type_cast<T>(obj);
 
-template <class T>
-Cloneable<T>::Builder::Builder()
-{
-	RString name = typeid(T).name();
-
-	vint type = name->hashCode();
-
-	ObjectFactory::add(type, clone);
-}
-
-template <class T>
-void Cloneable<T>::Builder::init() const
-{
-   // does nothing (ensures template is compiled)
-}
-
-template <class T>
-RObject Cloneable<T>::Builder::clone(RObject obj)
-{
-	Ref<T> o_tmp = type_cast<T>(obj);
-
-    return new T((*o_tmp.operator->()));
+         return new T((*o_tmp.operator->()));
+      });
+   }
 }
 
 } /* namespace aro */

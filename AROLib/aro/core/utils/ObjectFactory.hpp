@@ -47,6 +47,12 @@ class ObjectFactory final
    template <class Function>
    static bool containsFunc(int type);
 
+   template <class T>
+   friend class ObjectBuilder;
+
+   template <class T>
+   static vint getTypeID();
+
    friend class io::ObjectInputStream;
    
    friend class io::ObjectOutputStream;

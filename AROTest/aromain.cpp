@@ -42,51 +42,71 @@ static void aromain(RArray<String> args)
    //
    //System::out->println("\n");
    
+
    /* Test Array and for_each */
-   RArray<vint> intArr = { 1, 2, 3, 4, 5 };
-   vint total = 0;
+   //RArray<vint> intArr = { 1, 2, 3, 4, 5 };
+   //vint total = 0;
+   //
+   //for_each(intArr, [&total](vint num) {
+   //     System::out->println("Total: " + String::valueOf(total) + ", Num: " + String::valueOf(num));
+   //     total = total + num;
+   //});
+   //
+   //System::out->println("Final Total: " + String::valueOf(total));
+
+   //util::RVector<String> strVec = new util::Vector<String>(2);
+   //strVec->add("A String");
+   //strVec->add("Another");
+
+   //for_each(strVec, [](RObject obj) {
+   //    System::out->println(obj->getType() + "[" + obj + "]");
+   //});
    
-   for_each(intArr, [&total](vint num) {
-        System::out->println("Total: " + String::valueOf(total) + ", Num: " + String::valueOf(num));
-        total = total + num;
-   });
-   
-   System::out->println("Final Total: " + String::valueOf(total));
-
-   util::RVector<String> strVec = new util::Vector<String>(2);
-   strVec->add("A String");
-   strVec->add("Another");
-
-   for_each(strVec, [](RObject obj) {
-       System::out->println(obj->getType() + "[" + obj + "]");
-   });
-
    
    /* Stream input and output with inheritance */
-   //Ref<TestBase> rtb = new TestBase(15);
-   //Ref<TestBase> rtd = new TestDerived(27, 91.4f);
-   //
-   //io::RByteArrayOutputStream rsos = new io::ByteArrayOutputStream();
-   //io::RObjectOutputStream roos = new io::ObjectOutputStream(rsos);
-   //
-   //roos->writeObject(rtb);
-   //roos->writeObject(rtd);
-   //
-   //roos->close();
-   //
-   //io::RObjectInputStream rois = new io::ObjectInputStream(new io::ByteArrayInputStream(rsos->toByteArray()));
-   //
-   //rtb = type_cast<TestBase>(rois->readObject());
-   //rtd = type_cast<TestDerived>(rois->readObject());
-   //
-   //rois->close();
-   //
-   //System::out->println(rtb);
-   //System::out->println();
-   //System::out->println(rtd);
-   //
-   //System::in->read();
+   Ref<TestBase> rtb = new TestBase(15);
+   Ref<TestBase> rtd = new TestDerived(27, 91.4f);
    
+   io::RByteArrayOutputStream rsos = new io::ByteArrayOutputStream();
+   io::RObjectOutputStream roos = new io::ObjectOutputStream(rsos);
+   
+   roos->writeObject(rtb);
+   roos->writeObject(rtd);
+   
+   roos->close();
+   
+   io::RObjectInputStream rois = new io::ObjectInputStream(new io::ByteArrayInputStream(rsos->toByteArray()));
+   
+   rtb = type_cast<TestBase>(rois->readObject());
+   rtd = type_cast<TestDerived>(rois->readObject());
+   
+   rois->close();
+   
+   System::out->println(rtb);
+   System::out->println();
+   System::out->println(rtd);
+   
+   System::in->read();
+   
+   /* String to number conversion and vice versa */
+   //RString intStr = "12345";
+   //vint intVal = Int::parse(intStr);
+   //System::out->println("String: " + intStr + ", Int: " + String::valueOf(intVal));
+   //System::in->read();
+
+
+   /* Array cross type assignment/conversion */
+   //RArray<String> strArr = { "0", "1", "2" };
+
+   //RArray<Object> objArr = strArr;
+
+   //System::out->println(strArr);
+
+   //System::out->println(objArr);
+
+   //System::in->read();
+
+
 
    //Testing Cloneable Interface
    //RString str = "A test value";

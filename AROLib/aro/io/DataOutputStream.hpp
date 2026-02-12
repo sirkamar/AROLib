@@ -16,20 +16,19 @@ class DataOutputStream extends public FilterOutputStream
       DataOutputStream(ROutputStream os);
       
       virtual void write(RArray<vint> bytes,vint offset,vint num);
-      virtual void write(RArray<vint> bytes);
       virtual void write(vint byte);
       
       virtual void flush();
       
-      void writeDouble(vdouble d);
-      void writeShort(vshort s);
-      void writeFloat(vfloat f);
-      void writeLong(vlong l);
-      void writeChar(vchar c);
-      void writeBool(vbool b);
-      void writeInt(vint i);
+      virtual void writeDouble(vdouble d) final;
+      virtual void writeShort(vshort s) final;
+      virtual void writeFloat(vfloat f) final;
+      virtual void writeLong(vlong l) final;
+      virtual void writeChar(vchar c) final;
+      virtual void writeBool(vbool b) final;
+      virtual void writeInt(vint i) final;
       
-      vint size(); // number of bytes written
+      virtual vint size() final; // number of bytes written
    
    protected:
       vint written;

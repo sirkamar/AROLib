@@ -3,6 +3,8 @@
 
 namespace aro {
 
+const vint Bool::BYTE_SIZE = 1; // 1 byte = 8 bits; technically only 1 bit needed
+
 const RBool Bool::TRUE_REF = new Bool(true);
 
 const RBool Bool::FALSE_REF = new Bool(false);

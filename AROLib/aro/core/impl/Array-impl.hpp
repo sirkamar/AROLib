@@ -8,9 +8,8 @@ namespace aro {
 
 template <class T>
 Array<T>::Array()
-   :Array<T>(0)
 {
-   
+   // reserved for Streamable
 }
 
 template <class T>
@@ -19,6 +18,8 @@ Array<T>::Array(vint size)
 {
    
 }
+
+
 
 template <class T>
 Array<T>::Array(RArray<T> arr)

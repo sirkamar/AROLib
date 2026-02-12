@@ -210,6 +210,7 @@ template <class K, class V>
 WeakHashMap<K,V>::WeakHashMap()
    :loadFactor(DEFAULT_LOAD_FACTOR)
 {
+   count = 0;
    modCount = 0;
    threshold = (vint) DEFAULT_INITIAL_CAPACITY * loadFactor;
 
@@ -223,6 +224,7 @@ WeakHashMap<K,V>::WeakHashMap(RMap<K,V> m)
    vint capacity = Math::maximum((vint) (m->size() / DEFAULT_LOAD_FACTOR) + 1,
                               DEFAULT_INITIAL_CAPACITY);
    
+   count = 0;
    modCount = 0;
    threshold = (vint) capacity * loadFactor;
    
@@ -247,6 +249,7 @@ WeakHashMap<K,V>::WeakHashMap(vint initialCapacity)
    while(capacity < initialCapacity)
       capacity <<= 1;
    
+   count = 0;
    modCount = 0;
    threshold = (vint) capacity * loadFactor;
 
@@ -273,6 +276,7 @@ WeakHashMap<K,V>::WeakHashMap(vint initialCapacity, vfloat loadFactor)
    while(capacity < initialCapacity)
       capacity <<= 1;
 
+   count = 0;
    modCount = 0;
    
    threshold = (vint) capacity * loadFactor;

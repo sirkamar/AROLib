@@ -32,7 +32,7 @@ class Array<Array<T>> final extends public ArrayBase<RArray<T>> implements publi
        Array(std::initializer_list<RArray<T>> elems);
    
    friend class Ref<Array2D<T>>;
-   friend class RefArrayBase<RArray<T>>;
+   friend class RefArrayBase<Array<T>,RArray<T>>;
    friend interface Cloneable<Array2D<T>>;
    friend interface io::Streamable<Array2D<T>>;
 };

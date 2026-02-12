@@ -12,6 +12,7 @@ class Short final extends public Number implements public Comparable<Short>, pub
 {
    public:
       Short(vshort val);
+	  Short(RString str);
       
       virtual vint intValue();
       virtual vlong longValue();
@@ -24,6 +25,10 @@ class Short final extends public Number implements public Comparable<Short>, pub
       virtual vbool equals(RObject obj);
       virtual vint compareTo(RShort val);
       
+      static RString toString(vshort val, vint radix);
+      static RShort valueOf(RString str, vint radix);
+      static vshort parse(RString str, vint radix);
+      static RString toString(vshort val);
       static RShort valueOf(RString str);
       static RShort valueOf(vshort num);
       static vshort parse(RString str);
@@ -36,10 +41,20 @@ class Short final extends public Number implements public Comparable<Short>, pub
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
-      Short();
+      Short(); // required by Streamable
       
       const vshort value;
-   
+
+      class ShortCache final extends public Object
+      {
+         public:
+            ShortCache();
+
+            RArray<Short> cache;
+      };
+
+      static const Ref<ShortCache> shortCache;
+
    friend interface io::Streamable<Short>;
 };
 

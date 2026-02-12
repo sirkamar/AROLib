@@ -42,9 +42,9 @@ class Ref<String> : public RefBase
       //concatenation operator
       Ref<String> operator+(const char* chStr) const;
       Ref<String> operator+(const wchar_t* chStr) const;
-      Ref<String> operator+(const Ref<Object>& objRef) const;
       Ref<String> operator+(const Ref<String>& strRef) const;
-      
+      Ref<String> operator+(const Ref<Object>& objRef) const;
+
       //equality/inequality operator
       bool operator==(const Ref<Object>& objRef) const;
       bool operator!=(const Ref<Object>& objRef) const;
@@ -68,6 +68,7 @@ Ref<String> operator+(const wchar_t* chStr, const Ref<Object>& objRef);
 Ref<String> operator+(const wchar_t* chStr, const Ref<String>& strRef);
 Ref<String> operator+(const Ref<Object>& objRef, const wchar_t* chStr);
 Ref<String> operator+(const Ref<Object>& objRef, const Ref<String>& strRef);
+Ref<Object> operator+=(Ref<Object>& objRef, const Ref<String>& strRef);
 
 } /* namespace aro */
 

@@ -1,71 +1,71 @@
 #include <cstdlib>
-#include <aro/core/Integer.hpp>
+#include <aro/core/BigInt.hpp>
 #include <aro/core/impl/All.hpp>
 
 namespace aro {
 
-const vint Integer::INT_MAX_VALUE = 0x7fffffff; // 2^31-1
+const vint BigInt::INT_MAX_VALUE = 0x7fffffff; // 2^31-1
 
-const vint Integer::INT_MIN_VALUE = 0x80000000; // -2^31
+const vint BigInt::INT_MIN_VALUE = 0x80000000; // -2^31
 
-Integer::Integer()
+BigInt::BigInt()
    :value(0)
 {
    //value = 0;
 }
 
-Integer::Integer(vint val)
+BigInt::BigInt(vint val)
    :value(val)
 {
    //value = val;
 }
 
-Integer::Integer(RInteger val)
+BigInt::BigInt(RBigInt val)
    :value(val->value)
 {
    //value = val->value;
 }
 
-vint Integer::intValue()
+vint BigInt::intValue()
 {
    return value;
 }
 
-vlong Integer::longValue()
+vlong BigInt::longValue()
 {
    return (vlong) value;
 }
 
-vfloat Integer::floatValue()
+vfloat BigInt::floatValue()
 {
    return (vfloat) value;
 }
 
-vdouble Integer::doubleValue()
+vdouble BigInt::doubleValue()
 {
    return (vdouble) value;
 }
 
-RString Integer::toString()
+RString BigInt::toString()
 {
    return String::valueOf(value);
 }
 
-vint Integer::compareTo(RInteger num)
+vint BigInt::compareTo(RBigInt num)
 {
    vint val = num->value;
    
    return (value < val ? -1 : (value > val ? 1 : 0));
 }
 
-vbool Integer::equals(RObject obj)
+vbool BigInt::equals(RObject obj)
 {
    if(obj == thisref)
       return true;
    
-   if(type_of<Integer>(obj))
+   if(type_of<BigInt>(obj))
    {
-      RInteger val = type_cast<Integer>(obj);
+      RBigInt val = type_cast<BigInt>(obj);
       
       return (value == val->value);
    }
@@ -73,27 +73,27 @@ vbool Integer::equals(RObject obj)
    return false;
 }
 
-void Integer::readObject(io::RObjectInputStream is)
+void BigInt::readObject(io::RObjectInputStream is)
 {
    const_cast<vint&>(value) = is->readInt();
 }
 
-void Integer::writeObject(io::RObjectOutputStream os)
+void BigInt::writeObject(io::RObjectOutputStream os)
 {
    os->writeInt(value);
 }
 
-RInteger Integer::valueOf(vlong val)
+RBigInt BigInt::valueOf(vlong val)
 {
-   return new Integer(val);
+   return new BigInt(val);
 }
 
-RInteger Integer::valueOf(RString str)
+RBigInt BigInt::valueOf(RString str)
 {
    return valueOf(parse(str));
 }
 
-vint Integer::parse(RString str)
+vint BigInt::parse(RString str)
 {
    vint offset = 0;
    vint len = str->length();
@@ -119,7 +119,7 @@ vint Integer::parse(RString str)
    return wcstol(&ch[0], nullptr, 0);
 }
 
-vint Integer::urShift(vint val, vint n)
+vint BigInt::urShift(vint val, vint n)
 {
    vint mask = 1 << 31;
 
@@ -134,7 +134,7 @@ vint Integer::urShift(vint val, vint n)
    return val;
 }
 
-vlong Integer::urShift(vlong val, vint n)
+vlong BigInt::urShift(vlong val, vint n)
 {
    vlong mask = 1LL << 63;
 

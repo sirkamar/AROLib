@@ -3,14 +3,12 @@
 
 #include <aro/core/Number.hpp>
 
-// TODO: convert to class BigFloat
-
 namespace aro {
 
-class Decimal;
-typedef Ref<Decimal> RDecimal;
+class BigFloat;
+typedef Ref<BigFloat> RBigFloat;
 
-class Decimal extends public Number implements public Comparable<Decimal>, public io::Streamable<Decimal>
+class BigFloat extends public Number implements public Comparable<BigFloat>, public io::Streamable<BigFloat>
 {
    public:
       //static const vdouble POSITIVE_INFINITY;
@@ -21,9 +19,9 @@ class Decimal extends public Number implements public Comparable<Decimal>, publi
       static const vdouble MIN_VALUE;
       //static const vdouble NaN;
       
-      Decimal();
-      Decimal(vdouble val);
-      Decimal(RDecimal val);
+      BigFloat();
+      BigFloat(vdouble val);
+      BigFloat(RBigFloat val);
       
       vint intValue();
       vlong longValue();
@@ -32,15 +30,15 @@ class Decimal extends public Number implements public Comparable<Decimal>, publi
       
       virtual RString toString();
       virtual vbool equals(RObject obj);
-      virtual vint compareTo(RDecimal obj);
+      virtual vint compareTo(RBigFloat obj);
       
       static vdouble longBitsToDouble(vlong bits);
       static vlong doubleToLongBits(vdouble val);
       static vfloat intBitsToFloat(vint bits);
       static vint floatToIntBits(vfloat val);
       
-      static RDecimal valueOf(RString val); 
-      static RDecimal valueOf(vdouble val);
+      static RBigFloat valueOf(RString val); 
+      static RBigFloat valueOf(vdouble val);
       static vdouble parse(RString val);
    
    protected:

@@ -13,14 +13,12 @@ template <>
 class Ref<Null>
 {
    public:
-      static const Ref<Null>& get();
+      static const Ref<Null> REF_NULL;
    
    private:
       Ref() = default;
       Ref(const Ref<Null>&) = delete;
       Ref<Null>& operator=(const Ref<Null>&) = delete;
-      
-      static const Ref<Null> REF_NULL;
 };
 
 extern const Ref<Null>& nullref;

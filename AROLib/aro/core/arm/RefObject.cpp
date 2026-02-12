@@ -31,17 +31,38 @@ Ref<Object>::Ref(Object* objPtr)
       Arm::add(ref, this);
 }
 
-//template <>
+////template <>
 Ref<Object>::Ref(const char* chPtr)
 {
-   ref = new String(chPtr);
+   if(chPtr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
+   if(strcmp(chPtr, "") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chPtr);
    
    if(ref != nullptr)
       Arm::add(ref, this);
 }
 
+//template <>
+Ref<Object>::Ref(const wchar_t* chPtr)
+{
+   if(chPtr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
+   if(wcscmp(chPtr, L"") == 0)
+       ref = String::EMPTY_STRING.ref;
+   else
+       ref = new String(chPtr);
+
+   if(ref != nullptr)
+      Arm::add(ref, this);
+}
+
 ////template <>
-//Ref<Object>::Ref(Ref<String>&& strRef)
+//Ref<Object>::Ref(Ref<String>&& strRef) noexcept
 //{
 //   ref = strRef.ref;
 //
@@ -64,7 +85,7 @@ Ref<Object>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Object>::Ref(Ref<Object>&& objRef)
+Ref<Object>::Ref(Ref<Object>&& objRef) noexcept
 {
    ref = objRef.ref;
 
@@ -107,12 +128,38 @@ Ref<Object>& Ref<Object>::operator=(Object* objPtr)
 }
 
 //template <>
-Ref<Object>& Ref<Object>::operator=(const char* chptr)
+Ref<Object>& Ref<Object>::operator=(const char* chStr)
 {
+    if (chStr == nullptr)
+        throw RException(new NullException("Reference null pointer initialization"));
+
+    if(ref != nullptr)
+      Arm::remove(ref, this);
+
+   if (strcmp(chStr, "") == 0)
+       ref = String::EMPTY_STRING.ref;
+   else
+       ref = new String(chStr);
+   
+   if(ref != nullptr)
+      Arm::add(ref, this);
+   
+   return *this;
+}
+
+//template <>
+Ref<Object>& Ref<Object>::operator=(const wchar_t* chStr)
+{
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
    if(ref != nullptr)
       Arm::remove(ref, this);
-   
-   ref = new String(chptr);
+
+   if(wcscmp(chStr, L"") == 0)
+       ref = String::EMPTY_STRING.ref;
+   else
+       ref = new String(chStr);
    
    if(ref != nullptr)
       Arm::add(ref, this);
@@ -121,7 +168,7 @@ Ref<Object>& Ref<Object>::operator=(const char* chptr)
 }
 
 ////template <>
-//Ref<Object>& Ref<Object>::operator=(Ref<String>&& strRef)
+//Ref<Object>& Ref<Object>::operator=(Ref<String>&& strRef) noexcept
 //{
 //   if(ref != nullptr)
 //      Arm::remove(ref, this);
@@ -159,7 +206,7 @@ Ref<Object>& Ref<Object>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Object>& Ref<Object>::operator=(Ref<Object>&& objRef)
+Ref<Object>& Ref<Object>::operator=(Ref<Object>&& objRef) noexcept
 {
    if (this != &objRef)
    {

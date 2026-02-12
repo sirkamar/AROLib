@@ -1,7 +1,7 @@
 #ifndef ARO_ARM_COMPREF_H
 #define ARO_ARM_COMPREF_H
 
-#include <aro/core/arm/RefClone.hpp>
+#include <aro/core/arm/RefArray.hpp>
 
 namespace aro {
 

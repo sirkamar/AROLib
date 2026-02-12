@@ -7,9 +7,6 @@ namespace aro {
 
 class String;
 interface Interface;
-template <class T> class RefArrayBase;
-template <class T> bool type_of(const Ref<Object>&);
-template <class T> Ref<T> type_cast(const Ref<Object>&);
 
 /************************************************************************
 *                        Ref<Object> Declaration                        *
@@ -22,14 +19,15 @@ class Ref<Object> : public RefBase
       Ref();
       virtual ~Ref();
       template <class T>
-      Ref(Ref<T>&& tRef);
+      Ref(Ref<T>&& tRef) noexcept;
       Ref(Object* objPtr);
       Ref(const char* chPtr);
-      //Ref(Ref<String>&& strRef);
+      Ref(const wchar_t* chPtr);
+      //Ref(Ref<String>&& strRef) noexcept;
       //Ref(const Ref<String>& strRef);
       template <class T>
       Ref(const Ref<T>& tRef);
-      Ref(Ref<Object>&& objRef);
+      Ref(Ref<Object>&& objRef) noexcept;
       Ref(const Ref<Null>& nRef);
       Ref(const Ref<Object>& objRef);
 
@@ -38,14 +36,15 @@ class Ref<Object> : public RefBase
       
       // assignment operators
       template <class T>
-      Ref<Object>& operator=(Ref<T>&& tRef);
+      Ref<Object>& operator=(Ref<T>&& tRef) noexcept;
       Ref<Object>& operator=(Object* objPtr);
       Ref<Object>& operator=(const char* chPtr);
-      //Ref<Object>& operator=(Ref<String>&& strRef);
+      Ref<Object>& operator=(const wchar_t* chPtr);
+      //Ref<Object>& operator=(Ref<String>&& strRef) noexcept;
       //Ref<Object>& operator=(const Ref<String>& strRef);
       template <class T>
       Ref<Object>& operator=(const Ref<T>& tRef);
-      Ref<Object>& operator=(Ref<Object>&& objRef);
+      Ref<Object>& operator=(Ref<Object>&& objRef) noexcept;
       Ref<Object>& operator=(const Ref<Null>& nRef);
       Ref<Object>& operator=(const Ref<Object>& objRef);
 
@@ -60,16 +59,15 @@ class Ref<Object> : public RefBase
    private:
       Object* ref;
    
-   //friend class ArmSync;
    friend class Weak<Object>;
    template <class T> friend class Ref;
-   template <class T> friend class RefArrayBase;
+   template <class T, class V> friend class RefArrayBase;
    template <class T> friend bool type_of(const Ref<Object>&);
    template <class T> friend Ref<T> type_cast(const Ref<Object>&);
 };
 
-// References to struct Interface are invalid
-template <> class Ref<Interface>{Ref() = default;};
+// References to interface Interface are invalid
+template <> class Ref<Interface>{Ref() = delete;};
 
 } /* namespace aro */
 

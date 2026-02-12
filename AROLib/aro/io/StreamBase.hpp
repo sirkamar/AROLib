@@ -23,14 +23,13 @@ typedef Ref<ObjectOutputStream> RObjectOutputStream;
 interface StreamBase extends Interface
 {
    protected:
-      virtual vlong getObjectVersion() { return 1L; };
-      
-      virtual void readObject(RObjectInputStream is)=0;
-      
-      virtual void writeObject(RObjectOutputStream os)=0;
-   
-   private:
       StreamBase() = default;
+      
+      virtual vlong getStreamVersionID() { return 1L; };
+      
+      virtual void readObject(RObjectInputStream is) = 0;
+      
+      virtual void writeObject(RObjectOutputStream os) = 0;
    
    template <class T>
    friend interface Streamable;

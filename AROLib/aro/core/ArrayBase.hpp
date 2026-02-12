@@ -16,8 +16,12 @@ class ArrayBase extends public Object
 
       virtual RString toString();
       
-      virtual T get(vint index) final;
-      virtual void set(vint index, T item) final;
+      //virtual Ref<ArrayBase<T>> copyOf(vint size) = 0;
+      //virtual Ref<ArrayBase<T>> copyOf(vint offset, vint size) = 0;
+      //virtual void copy(vint offset, Ref<ArrayBase<T>> src, vint srcOffset, vint num) = 0;
+
+      virtual T get(vint index);
+      virtual void set(vint index, T item);
    
    protected:
       virtual T& item(vint index) final; // allows inserting item into Array
@@ -26,6 +30,7 @@ class ArrayBase extends public Object
       
       virtual void copyItems(vint offset, Ref<ArrayBase<T>> src, vint srcOffset, vint num) final;
       
+      ArrayBase(); // used by Ref<Array<T>> to create empty array
       ArrayBase(vint size); // ArrayBase primary constructor
       ArrayBase(Ref<ArrayBase<T>> arr); // ArrayBase copy constructor
       //template <class U>
@@ -37,9 +42,11 @@ class ArrayBase extends public Object
       std::shared_ptr<T[]> data;
       
       void init(); // allocate required memory
-      void checkIndex(vint) const; // check for valid index
+      void checkIndex(vint index, vbool includeLength=false) const; // check for valid index
    
-   //template <class U> friend class ArrayBase;
+   template <class U, class V> friend class RefArrayBase;
+   template <class U> friend class Array;
+   template <class U> friend class Ref;
 };
 
 } /* namespace aro */

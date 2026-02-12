@@ -18,6 +18,7 @@ class Double final extends public Number implements public Comparable<Double>, p
       static const vdouble MAX_VALUE;
       static const vdouble MIN_VALUE;
       /*static const vdouble NaN;*/
+	  static const vint BYTE_SIZE;
       
       Double(vdouble val);
       
@@ -43,7 +44,7 @@ class Double final extends public Number implements public Comparable<Double>, p
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
-      Double();
+      Double(); // required by Streamable
       
       const vdouble value;
    

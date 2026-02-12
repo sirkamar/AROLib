@@ -8,34 +8,18 @@ namespace aro {
 namespace io {
 
 template <class T>
-const typename Streamable<T>::Builder Streamable<T>::BUILDER;
+vbool Streamable<T>::dummy = false;
 
 template <class T>
 Streamable<T>::Streamable()
 {
-	BUILDER.init();
-}
-
-template <class T>
-Streamable<T>::Builder::Builder()
-{
-	RString name = typeid(T).name();
-
-	vint type = name->hashCode();
-
-	ObjectFactory::add(type, create);
-}
-
-template <class T>
-void Streamable<T>::Builder::init() const
-{
-   // does nothing (ensures template is compiled)
-}
-
-template <class T>
-RObject Streamable<T>::Builder::create()
-{
-	return new T();
+   if(!dummy) {
+      dummy = true;
+      
+      ObjectFactory::add(ObjectFactory::getTypeID<T>(), []() -> RObject {
+         return new T();
+      });
+   }
 }
 
 } /* namespace io */

@@ -22,8 +22,8 @@ void ObjectOutputStream::writeObject(RObject obj)
    {
       vint typeId = obj->getType()->hashCode();
       
-      if(ObjectFactory::containsFunc<ObjectFactory::newfunc>(typeId))
-         ex_throw new IOException("Class not Streamable");
+      if(!ObjectFactory::containsFunc<ObjectFactory::newfunc>(typeId))
+         ex_throw new IOException("Class not streamable");
       
       RStreamBase rs = type_cast<StreamBase>(obj);
       
@@ -31,7 +31,7 @@ void ObjectOutputStream::writeObject(RObject obj)
       writeInt(typeId);
       
       // output the class version
-      writeLong(rs->getObjectVersion());
+      writeLong(rs->getStreamVersionID());
       
       // output the object
       rs->writeObject(thisref);

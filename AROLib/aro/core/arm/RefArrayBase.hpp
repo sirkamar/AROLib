@@ -5,13 +5,14 @@
 
 namespace aro {
 
+template <class T> class Array;
 template <class T> class ArrayBase;
 
 /************************************************************************
 *                         RefArrayBase Declaration                      *
 ************************************************************************/
 
-template <class T>
+template <class T, class V>
 class RefArrayBase : public RefBase
 {
    public:
@@ -22,16 +23,21 @@ class RefArrayBase : public RefBase
       //enable range-based-for
       virtual Itr end() const final;
       virtual Itr begin() const final;
+
+      //dereference operator
+      Array<T>* operator->() const;
       
       //subscript operators
-      virtual T& operator[](int) = 0;
-      virtual const T& operator[](int) const = 0;
+      virtual V& operator[](int) = 0;
+      virtual const V& operator[](int) const = 0;
       
       //equality/inequality operators
       virtual bool operator==(const Ref<Object>& objRef) const = 0;
       virtual bool operator!=(const Ref<Object>& objRef) const = 0;
    
    protected:
+      Array<T>* ref;
+
       RefArrayBase();
       
       // nullify pointer
@@ -43,27 +49,27 @@ class RefArrayBase : public RefBase
       //get array size
       virtual vint size() const = 0;
    
-   friend class Itr;
+   friend typename Itr;
    friend class Ref<T>;
    friend class Ref<Object>;
 };
 
-template <class T>
-class RefArrayBase<T>::Itr
+template <class T, class V>
+class RefArrayBase<T,V>::Itr
 {
    public:
       Itr& operator++();
-      const T& operator*() const;
+      const V& operator*() const;
       bool operator!=(const Itr&) const;
    
    private:
       int pos;
 
-      const RefArrayBase<T>& arr;
+      const RefArrayBase<T,V>& arr;
       
-      Itr(const RefArrayBase<T>&, vint);
+      Itr(const RefArrayBase<T,V>&, vint);
    
-   friend class RefArrayBase<T>;
+   friend class RefArrayBase<T,V>;
 };
 
 } /* namespace aro */

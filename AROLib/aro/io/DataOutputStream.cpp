@@ -96,19 +96,20 @@ void DataOutputStream::writeDouble(vdouble v)
 
 void DataOutputStream::write(vint b)
 {
-   out->write(b);
-   incCount(1);
-}
-
-void DataOutputStream::write(RArray<vint> buf)
-{
-   write(buf,0,buf->length);
+   sync_lock(thisref)
+   {
+      out->write(b);
+      incCount(1);
+   }
 }
 
 void DataOutputStream::write(RArray<vint> buf, vint off, vint num)
 {
-   out->write(buf, off, num);
-   incCount(num);
+   sync_lock(thisref)
+   {
+      out->write(buf, off, num);
+      incCount(num);
+   }
 }
 
 } /* namespace io */

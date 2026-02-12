@@ -11,8 +11,11 @@ typedef Ref<Char> RChar;
 class Char final extends public Object implements public Comparable<Char>, public io::Streamable<Char>
 {
    public:
-      static const vint MAX_VALUE;
-      static const vint MIN_VALUE;
+      static const vint BYTE_SIZE;
+      static const vint MAX_RADIX;
+      static const vint MIN_RADIX;
+      static const vchar MAX_VALUE;
+      static const vchar MIN_VALUE;
       
       Char(vchar c);
       
@@ -23,8 +26,9 @@ class Char final extends public Object implements public Comparable<Char>, publi
       virtual vint compareTo(RChar ch);
       virtual vbool equals(RObject obj);
       
+      static vint hashCode(vchar c);
       static RChar valueOf(vchar c);
-      static RChar valueOf(RString str);
+      static RString toString(vchar c);
       
       static vbool isLetterOrDigit(vchar c);
       static vbool isHexDigit(vchar c);
@@ -46,11 +50,11 @@ class Char final extends public Object implements public Comparable<Char>, publi
       virtual void writeObject(io::RObjectOutputStream os);
    
    private:
-      Char();
+      Char(); // required by Streamable
       
       const vchar value;
       
-      class CharCache final extends Object
+      class CharCache final extends public Object
       {
          public:
             CharCache();

@@ -20,6 +20,8 @@ const vdouble Double::MAX_EXPONENT = 1023;
 
 //const vdouble Double::NaN = 0.0 / 0.0;
 
+const vint Double::BYTE_SIZE = 8; // 8 bytes = 64 bits
+
 Double::Double()
    :Double(0.0)
 {

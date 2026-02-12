@@ -11,7 +11,7 @@ namespace aro {
 ************************************************************************/
 
 template <class T>
-Ref<Object>::Ref(Ref<T>&& tRef)
+Ref<Object>::Ref(Ref<T>&& tRef) noexcept
 {
    ref = dynamic_cast<Object*>(tRef.ref);
    
@@ -28,7 +28,7 @@ Ref<Object>::Ref(const Ref<T>& tRef)
 }
 
 template <class T>
-Ref<Object>& Ref<Object>::operator=(Ref<T>&& tRef)
+Ref<Object>& Ref<Object>::operator=(Ref<T>&& tRef) noexcept
 {
    if(ref != nullptr && !Arm::finalizing)
       Arm::remove(ref, this);

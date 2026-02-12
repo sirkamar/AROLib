@@ -22,7 +22,13 @@ Ref<Comparable<String>>::~Ref()
 //template <>
 Ref<Comparable<String>>::Ref(const char* chStr)
 {
-   ref = new String(chStr);
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
+   if(strcmp(chStr, "") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
    
    if(ref != nullptr)
       Arm::add(ref, this);
@@ -31,10 +37,16 @@ Ref<Comparable<String>>::Ref(const char* chStr)
 //template <>
 Ref<Comparable<String>>::Ref(const wchar_t* chStr)
 {
-    ref = new String(chStr);
-
-    if (ref != nullptr)
-        Arm::add(ref, this);
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
+   if(wcscmp(chStr, L"") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
+   
+   if (ref != nullptr)
+      Arm::add(ref, this);
 }
 
 //template <>
@@ -108,10 +120,16 @@ Comparable<String>* Ref<Comparable<String>>::operator->() const
 //template <>
 Ref<Comparable<String>>& Ref<Comparable<String>>::operator=(const char* chStr)
 {
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
    if(ref != nullptr)
       Arm::remove(ref, this);
    
-   ref = new String(chStr);
+   if(strcmp(chStr, "") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
    
    if(ref != nullptr)
       Arm::add(ref, this);

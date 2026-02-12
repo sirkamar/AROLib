@@ -20,6 +20,12 @@ Short::Short(vshort val)
    
 }
 
+Short::Short(RString str)
+    :value(parse(str, 10))
+{
+   
+}
+
 vint Short::intValue()
 {
    return static_cast<vint>(value);
@@ -52,7 +58,7 @@ vint Short::hashCode()
 
 RString Short::toString()
 {
-   return String::valueOf(value);
+   return Int::toString(static_cast<vint>(value));
 }
 
 vbool Short::equals(RObject obj)
@@ -75,6 +81,21 @@ vint Short::compareTo(RShort val)
    return value - val->value;
 }
 
+RString Short::toString(vshort val, vint radix)
+{
+	return Int::toString(static_cast<vint>(val), radix);
+}
+
+RShort Short::valueOf(RString str, vint radix)
+{
+	return valueOf(parse(str, radix));
+}
+
+RString Short::toString(vshort val)
+{
+	return Int::toString(static_cast<vint>(val), 10);
+}
+
 void Short::readObject(io::RObjectInputStream is)
 {
    //TODO: solving reading from stream to const item
@@ -88,22 +109,44 @@ void Short::writeObject(io::RObjectOutputStream os)
 
 RShort Short::valueOf(vshort sh)
 {
-   return new Short(sh);
+    vint shAsInt = sh;
+    if(shAsInt >= -128 && shAsInt <= 127)
+      return shortCache->cache[shAsInt + 128];
+   
+	return new Short(sh);
 }
 
 RShort Short::valueOf(RString str)
 {
-   return valueOf(parse(str));
+   return valueOf(str, 10);
 }
 
 vshort Short::parse(RString str)
 {
-   vint val = Int::parse(str);
+   return parse(str, 10);
+}
+
+vshort Short::parse(RString str, vint radix)
+{
+   vint val = Int::parse(str, radix);
    
    if(val < MIN_VALUE || val > MAX_VALUE)
-	   ex_throw new ArgumentException("short value out of range: \"" + str + "\"");
+	   ex_throw new ArgumentException("short value out of range. Value:\""
+           + str + "\" Radix:" + String::valueOf(radix));
    
    return static_cast<vshort>(val);
 }
+
+Short::ShortCache::ShortCache()
+{
+   cache = new Array<Short>(-(-128) + 127 + 1);
+   
+   for(vint i = 0; i < cache->length; i++)
+   {
+      cache[i] = new Short(static_cast<vshort>(i - 128));
+   }
+}
+
+const Ref<Short::ShortCache> Short::shortCache = new Short::ShortCache();
 
 } /* namespace aro */

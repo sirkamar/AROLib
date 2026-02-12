@@ -12,6 +12,7 @@
 //#include <aro/io/Streamable.hpp>           // Streamable interface declaration
 
 #include <aro/io/IOException.hpp>          // IOException class declaration
+#include <aro/io/EOFException.hpp>         // EOFException class declaration
 
 #include <aro/io/InputStream.hpp>          // InputStream class declaration
 #include <aro/io/DataInputStream.hpp>      // DataInputStream class declaration

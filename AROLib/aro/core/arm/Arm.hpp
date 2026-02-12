@@ -75,7 +75,7 @@ class Arm
    friend struct ThreadMap;
    template <class T> friend class Ref;
    template <class T> friend class Weak;
-   template <class T> friend class RefArrayBase;
+   template <class T, class V> friend class RefArrayBase;
 };
 
 } /* namespace aro */

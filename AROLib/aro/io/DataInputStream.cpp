@@ -1,5 +1,5 @@
 #include <aro/core.hpp>
-#include <aro/io/IOException.hpp>
+#include <aro/io/EOFException.hpp>
 #include <aro/io/DataInputStream.hpp>
 
 namespace aro {
@@ -10,11 +10,6 @@ DataInputStream::DataInputStream(RInputStream is)
    :FilterInputStream(is)
 {
    
-}
-
-vint DataInputStream::read()
-{
-   return in->read();
 }
 
 vint DataInputStream::read(RArray<vint> bytes)
@@ -42,7 +37,7 @@ void DataInputStream::readFully(RArray<vint> arr, vint off, vint num)
    {
       vint count = in->read(arr, off+n, num-n);
       if(count < 0)
-         ex_throw new IOException("End-Of-File");
+         ex_throw new EOFException();
       n += count;
    }
 }
@@ -55,7 +50,7 @@ vint DataInputStream::readInt()
    vint ch4 = in->read();
    
    if((ch1|ch2|ch3|ch4) < 0)
-      ex_throw new IOException("End-Of-File");
+      ex_throw new EOFException();
    
    return ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
 }
@@ -65,7 +60,7 @@ vbool DataInputStream::readBool()
    vint ch = in->read();
    
    if(ch < 0)
-      ex_throw new IOException("End-Of-File");
+      ex_throw new EOFException();
    
    return (ch != 0);
 }
@@ -76,7 +71,7 @@ vchar DataInputStream::readChar()
    vint ch2 = in->read();
    
    if((ch1|ch2) < 0)
-      ex_throw new IOException("End-Of-File");
+      ex_throw new EOFException();
    
    return (vchar)((ch1 << 8) + (ch2 << 0));
 }
@@ -113,7 +108,7 @@ vshort DataInputStream::readShort()
    vint ch2 = in->read();
    
    if((ch1|ch2) < 0)
-      ex_throw new IOException("End-Of-File");
+      ex_throw new EOFException();
    
    return (vshort)((ch1 << 8) + (ch2 << 0));
 }

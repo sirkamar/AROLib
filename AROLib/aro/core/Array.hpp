@@ -10,10 +10,10 @@ template <class T>
 using RArray = Ref<Array<T>>;
 
 /** The template class Array is an encapsulation of
-* the standard Array type into an object type with
-* error checking ability. Can be used for any of
-* the built-in value types or reference types.
-* E.g. RArray<vint> arr = new Array<vint>(5); */
+ the standard array type into an object type with
+ error checking ability. Can be used for any of
+ the built-in value types or reference types.
+ E.g. RArray<vint> arr = new Array<vint>(5); */
 template <class T>
 class Array final extends public ArrayBase<Ref<T>> implements public Cloneable<Array<T>>, public io::Streamable<Array<T>>
 {
@@ -30,11 +30,11 @@ class Array final extends public ArrayBase<Ref<T>> implements public Cloneable<A
        virtual void writeObject(io::RObjectOutputStream os);
    
    private:
-       Array(); // reserved for ObjectInputStream
+       Array(); // required by Streamable
        Array(std::initializer_list<Ref<T>> elems); // Array sequence constructor
-      
+   
    friend class Ref<Array<T>>;
-   friend class RefArrayBase<T>;
+   friend class RefArrayBase<T,Ref<T>>;
    friend interface Cloneable<Array<T>>;
    friend interface io::Streamable<Array<T>>;
 };
@@ -60,7 +60,7 @@ class Array<vint> final extends public ArrayBase<vint> implements public Cloneab
       Array(std::initializer_list<vint> elems); // Array sequence constructor
    
    friend class Ref<Array<vint>>;
-   friend class RefArrayBase<vint>;
+   friend class RefArrayBase<vint,vint>;
    friend interface Cloneable<Array<vint>>;
    friend interface io::Streamable<Array<vint>>;
 };
@@ -86,7 +86,7 @@ class Array<vchar> final extends public ArrayBase<vchar> implements public Clone
       Array(std::initializer_list<vchar> elems); // Array sequence constructor
    
    friend class Ref<Array<vchar>>;
-   friend class RefArrayBase<vchar>;
+   friend class RefArrayBase<vchar,vchar>;
    friend interface Cloneable<Array<vchar>>;
    friend interface io::Streamable<Array<vchar>>;
 };
@@ -112,7 +112,7 @@ class Array<vbool> final extends public ArrayBase<vbool> implements public Clone
       Array(std::initializer_list<vbool> elems); // Array sequence constructor
    
    friend class Ref<Array<vbool>>;
-   friend class RefArrayBase<vbool>;
+   friend class RefArrayBase<vbool,vbool>;
    friend interface Cloneable<Array<vbool>>;
    friend interface io::Streamable<Array<vbool>>;
 };
@@ -138,7 +138,7 @@ class Array<vlong> final extends public ArrayBase<vlong> implements public Clone
       Array(std::initializer_list<vlong> elems); // Array sequence constructor
    
    friend class Ref<Array<vlong>>;
-   friend class RefArrayBase<vlong>;
+   friend class RefArrayBase<vlong,vlong>;
    friend interface Cloneable<Array<vlong>>;
    friend interface io::Streamable<Array<vlong>>;
 };
@@ -164,7 +164,7 @@ class Array<vfloat> final extends public ArrayBase<vfloat> implements public Clo
       Array(std::initializer_list<vfloat> elems); // Array sequence constructor
    
    friend class Ref<Array<vfloat>>;
-   friend class RefArrayBase<vfloat>;
+   friend class RefArrayBase<vfloat,vfloat>;
    friend interface Cloneable<Array<vfloat>>;
    friend interface io::Streamable<Array<vfloat>>;
 };
@@ -190,7 +190,7 @@ class Array<vshort> final extends public ArrayBase<vshort> implements public Clo
       Array(std::initializer_list<vshort> elems); // Array sequence constructor
    
    friend class Ref<Array<vshort>>;
-   friend class RefArrayBase<vshort>;
+   friend class RefArrayBase<vshort,vshort>;
    friend interface Cloneable<Array<vshort>>;
    friend interface io::Streamable<Array<vshort>>;
 };
@@ -216,7 +216,7 @@ class Array<vdouble> final extends public ArrayBase<vdouble> implements public C
       Array(std::initializer_list<vdouble> elems); // Array sequence constructor
    
    friend class Ref<Array<vdouble>>;
-   friend class RefArrayBase<vdouble>;
+   friend class RefArrayBase<vdouble,vdouble>;
    friend interface Cloneable<Array<vdouble>>;
    friend interface io::Streamable<Array<vdouble>>;
 };

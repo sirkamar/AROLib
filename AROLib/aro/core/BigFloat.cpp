@@ -1,72 +1,72 @@
 #include <bitset>
 #include <cstdlib>
-#include <aro/core/Decimal.hpp>
+#include <aro/core/BigFloat.hpp>
 #include <aro/core/impl/All.hpp>
 
 namespace aro {
 
-const vdouble Decimal::MAX_VALUE = 1.7976931348623157E+308;
+const vdouble BigFloat::MAX_VALUE = 1.7976931348623157E+308;
 
-//const vdouble Decimal::NEGATIVE_INFINITY = -1.0 / 0.0;
+//const vdouble BigFloat::NEGATIVE_INFINITY = -1.0 / 0.0;
 
-//const vdouble Decimal::POSITIVE_INFINITY = 1.0 / 0.0;
+//const vdouble BigFloat::POSITIVE_INFINITY = 1.0 / 0.0;
 
-const vdouble Decimal::MIN_VALUE = 4.9E-324;
+const vdouble BigFloat::MIN_VALUE = 4.9E-324;
 
-const vdouble Decimal::MIN_EXPONENT = -1022;
+const vdouble BigFloat::MIN_EXPONENT = -1022;
 
-const vdouble Decimal::MAX_EXPONENT = 1023;
+const vdouble BigFloat::MAX_EXPONENT = 1023;
 
-//const vdouble Decimal::NaN = 0.0 / 0.0;
+//const vdouble BigFloat::NaN = 0.0 / 0.0;
 
-Decimal::Decimal()
+BigFloat::BigFloat()
 {
    value = 0.0;
 }
 
-Decimal::Decimal(vdouble val)
+BigFloat::BigFloat(vdouble val)
 {
    value = val;
 }
 
-Decimal::Decimal(RDecimal val)
+BigFloat::BigFloat(RBigFloat val)
 {
    value = val->value;
 }
 
-vint Decimal::intValue()
+vint BigFloat::intValue()
 {
    return (vint) value;
 }
 
-vlong Decimal::longValue()
+vlong BigFloat::longValue()
 {
    return (vlong) value;
 }
 
-vfloat Decimal::floatValue()
+vfloat BigFloat::floatValue()
 {
    return (vfloat) value;
 }
 
-vdouble Decimal::doubleValue()
+vdouble BigFloat::doubleValue()
 {
    return value;
 }
 
-RString Decimal::toString()
+RString BigFloat::toString()
 {
    return String::valueOf(value);
 }
 
-vbool Decimal::equals(RObject obj)
+vbool BigFloat::equals(RObject obj)
 {
    if(obj == thisref)
       return true;
    
-   if(type_of<Decimal>(obj))
+   if(type_of<BigFloat>(obj))
    {
-      RDecimal val = type_cast<Decimal>(obj);
+      RBigFloat val = type_cast<BigFloat>(obj);
       
       return !(value < val->value || value > val->value);
    }
@@ -74,24 +74,24 @@ vbool Decimal::equals(RObject obj)
    return false;
 }
 
-vint Decimal::compareTo(RDecimal num)
+vint BigFloat::compareTo(RBigFloat num)
 {
    vdouble val = num->doubleValue();
    
    return (value < val ? -1 : (value > val ? 1 : 0));
 }
 
-void Decimal::readObject(io::RObjectInputStream is)
+void BigFloat::readObject(io::RObjectInputStream is)
 {
    value = is->readDouble();
 }
 
-void Decimal::writeObject(io::RObjectOutputStream os)
+void BigFloat::writeObject(io::RObjectOutputStream os)
 {
    os->writeDouble(value);
 }
 
-vdouble Decimal::longBitsToDouble(vlong bits)
+vdouble BigFloat::longBitsToDouble(vlong bits)
 {
    vdouble result;
    
@@ -102,14 +102,14 @@ vdouble Decimal::longBitsToDouble(vlong bits)
    return result;
 }
 
-vlong Decimal::doubleToLongBits(vdouble val)
+vlong BigFloat::doubleToLongBits(vdouble val)
 {
    std::bitset<64> bits = *(vlong*)&val;
    
    return (vlong) bits.to_ulong();
 }
 
-vfloat Decimal::intBitsToFloat(vint bits)
+vfloat BigFloat::intBitsToFloat(vint bits)
 {
    vfloat result;
    
@@ -120,24 +120,24 @@ vfloat Decimal::intBitsToFloat(vint bits)
    return result;
 }
 
-vint Decimal::floatToIntBits(vfloat val)
+vint BigFloat::floatToIntBits(vfloat val)
 {
    std::bitset<32> bits = *(vint*)&val;
    
    return (vint) bits.to_ulong();
 }
 
-RDecimal Decimal::valueOf(vdouble val)
+RBigFloat BigFloat::valueOf(vdouble val)
 {
-   return new Decimal(val);
+   return new BigFloat(val);
 }
 
-RDecimal Decimal::valueOf(RString str)
+RBigFloat BigFloat::valueOf(RString str)
 {
    return valueOf(parse(str));
 }
 
-vdouble Decimal::parse(RString str)
+vdouble BigFloat::parse(RString str)
 {
    vint offset = 0;
    vint len = str->length();

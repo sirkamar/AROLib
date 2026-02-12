@@ -8,7 +8,7 @@
 
 namespace aro {
 
-aws::REventQueue System::queue = new aws::EventQueue();
+aws::REventQueue System::queue;
 
 // since the System streams in, err and out are character streams
 // and we are using two bytes to represent 1 character, set the size
@@ -68,6 +68,9 @@ void System::setOut(io::RPrintStream os)
 
 aws::REventQueue System::getEventQueue()
 {
+   if (queue == nullref)
+      queue = new aws::EventQueue();
+
    return queue;
 }
 

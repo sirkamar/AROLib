@@ -15,7 +15,7 @@ class ObjectOutputStream extends public DataOutputStream
    public:
       ObjectOutputStream(ROutputStream os);
       
-      void writeObject(RObject obj);
+      virtual void writeObject(RObject obj);
 };
 
 } /* namespace io */

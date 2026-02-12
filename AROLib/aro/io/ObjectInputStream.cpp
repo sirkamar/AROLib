@@ -28,8 +28,8 @@ RObject ObjectInputStream::readObject()
    
    RStreamBase rs = type_cast<StreamBase>(obj);
    
-   if(rs->getObjectVersion() != readLong())
-      ex_throw new IOException("Streamable object version mismatch");
+   if(rs->getStreamVersionID() != readLong())
+      ex_throw new IOException("Class streamVersionID mismatch");
    
    rs->readObject(thisref);
    

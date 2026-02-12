@@ -37,7 +37,7 @@ Ref<Array<vint>>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vint>>::Ref(Ref<Array<vint>>&& arrRef)
+Ref<Array<vint>>::Ref(Ref<Array<vint>>&& arrRef) noexcept
 {
    ref = arrRef.ref;
    
@@ -111,13 +111,13 @@ vint Ref<Array<vint>>::size() const
 }
 
 //template <>
-Array<vint>* Ref<Array<vint>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-
-   return ref;
-}
+//Array<vint>* Ref<Array<vint>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//
+//   return ref;
+//}
 
 //template <>
 bool Ref<Array<vint>>::operator==(const Ref<Object>& objRef) const
@@ -159,7 +159,7 @@ Ref<Array<vint>>& Ref<Array<vint>>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vint>>& Ref<Array<vint>>::operator=(Ref<Array<vint>>&& arrRef)
+Ref<Array<vint>>& Ref<Array<vint>>::operator=(Ref<Array<vint>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {
@@ -245,7 +245,7 @@ Ref<Array<vbool>>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vbool>>::Ref(Ref<Array<vbool>>&& arrRef)
+Ref<Array<vbool>>::Ref(Ref<Array<vbool>>&& arrRef) noexcept
 {
    ref = arrRef.ref;
    
@@ -313,13 +313,13 @@ vint Ref<Array<vbool>>::size() const
 }
 
 //template <>
-Array<vbool>* Ref<Array<vbool>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-
-   return ref;
-}
+//Array<vbool>* Ref<Array<vbool>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//
+//   return ref;
+//}
 
 //template <>
 bool Ref<Array<vbool>>::operator==(const Ref<Object>& objRef) const
@@ -361,7 +361,7 @@ Ref<Array<vbool>>& Ref<Array<vbool>>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vbool>>& Ref<Array<vbool>>::operator=(Ref<Array<vbool>>&& arrRef)
+Ref<Array<vbool>>& Ref<Array<vbool>>::operator=(Ref<Array<vbool>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {
@@ -446,7 +446,7 @@ Ref<Array<vchar>>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vchar>>::Ref(Ref<Array<vchar>>&& arrRef)
+Ref<Array<vchar>>::Ref(Ref<Array<vchar>>&& arrRef) noexcept
 {
    ref = arrRef.ref;
    
@@ -514,13 +514,13 @@ vint Ref<Array<vchar>>::size() const
 }
 
 //template <>
-Array<vchar>* Ref<Array<vchar>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-
-   return ref;
-}
+//Array<vchar>* Ref<Array<vchar>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//
+//   return ref;
+//}
 
 //template <>
 bool Ref<Array<vchar>>::operator==(const Ref<Object>& objRef) const
@@ -562,7 +562,7 @@ Ref<Array<vchar>>& Ref<Array<vchar>>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vchar>>& Ref<Array<vchar>>::operator=(Ref<Array<vchar>>&& arrRef)
+Ref<Array<vchar>>& Ref<Array<vchar>>::operator=(Ref<Array<vchar>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {
@@ -647,7 +647,7 @@ Ref<Array<vlong>>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vlong>>::Ref(Ref<Array<vlong>>&& arrRef)
+Ref<Array<vlong>>::Ref(Ref<Array<vlong>>&& arrRef) noexcept
 {
    ref = arrRef.ref;
    
@@ -715,13 +715,13 @@ vint Ref<Array<vlong>>::size() const
 }
 
 //template <>
-Array<vlong>* Ref<Array<vlong>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-
-   return ref;
-}
+//Array<vlong>* Ref<Array<vlong>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//
+//   return ref;
+//}
 
 //template <>
 bool Ref<Array<vlong>>::operator==(const Ref<Object>& objRef) const
@@ -763,7 +763,7 @@ Ref<Array<vlong>>& Ref<Array<vlong>>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vlong>>& Ref<Array<vlong>>::operator=(Ref<Array<vlong>>&& arrRef)
+Ref<Array<vlong>>& Ref<Array<vlong>>::operator=(Ref<Array<vlong>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {
@@ -848,7 +848,7 @@ Ref<Array<vshort>>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vshort>>::Ref(Ref<Array<vshort>>&& arrRef)
+Ref<Array<vshort>>::Ref(Ref<Array<vshort>>&& arrRef) noexcept
 {
    ref = arrRef.ref;
    
@@ -916,13 +916,13 @@ vint Ref<Array<vshort>>::size() const
 }
 
 //template <>
-Array<vshort>* Ref<Array<vshort>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-
-   return ref;
-}
+//Array<vshort>* Ref<Array<vshort>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//
+//   return ref;
+//}
 
 //template <>
 bool Ref<Array<vshort>>::operator==(const Ref<Object>& objRef) const
@@ -964,7 +964,7 @@ Ref<Array<vshort>>& Ref<Array<vshort>>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vshort>>& Ref<Array<vshort>>::operator=(Ref<Array<vshort>>&& arrRef)
+Ref<Array<vshort>>& Ref<Array<vshort>>::operator=(Ref<Array<vshort>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {
@@ -1049,7 +1049,7 @@ Ref<Array<vfloat>>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vfloat>>::Ref(Ref<Array<vfloat>>&& arrRef)
+Ref<Array<vfloat>>::Ref(Ref<Array<vfloat>>&& arrRef) noexcept
 {
    ref = arrRef.ref;
    
@@ -1117,13 +1117,13 @@ vint Ref<Array<vfloat>>::size() const
 }
 
 //template <>
-Array<vfloat>* Ref<Array<vfloat>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-
-   return ref;
-}
+//Array<vfloat>* Ref<Array<vfloat>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//
+//   return ref;
+//}
 
 //template <>
 bool Ref<Array<vfloat>>::operator==(const Ref<Object>& objRef) const
@@ -1165,7 +1165,7 @@ Ref<Array<vfloat>>& Ref<Array<vfloat>>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vfloat>>& Ref<Array<vfloat>>::operator=(Ref<Array<vfloat>>&& arrRef)
+Ref<Array<vfloat>>& Ref<Array<vfloat>>::operator=(Ref<Array<vfloat>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {
@@ -1250,7 +1250,7 @@ Ref<Array<vdouble>>::Ref(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vdouble>>::Ref(Ref<Array<vdouble>>&& arrRef)
+Ref<Array<vdouble>>::Ref(Ref<Array<vdouble>>&& arrRef) noexcept
 {
    ref = arrRef.ref;
    
@@ -1318,13 +1318,13 @@ vint Ref<Array<vdouble>>::size() const
 }
 
 //template <>
-Array<vdouble>* Ref<Array<vdouble>>::operator->() const
-{
-   if(ref == nullptr)
-      throw RException(new NullException());
-
-   return ref;
-}
+//Array<vdouble>* Ref<Array<vdouble>>::operator->() const
+//{
+//   if(ref == nullptr)
+//      throw RException(new NullException());
+//
+//   return ref;
+//}
 
 //template <>
 bool Ref<Array<vdouble>>::operator==(const Ref<Object>& objRef) const
@@ -1366,7 +1366,7 @@ Ref<Array<vdouble>>& Ref<Array<vdouble>>::operator=(const Ref<Null>& nRef)
 }
 
 //template <>
-Ref<Array<vdouble>>& Ref<Array<vdouble>>::operator=(Ref<Array<vdouble>>&& arrRef)
+Ref<Array<vdouble>>& Ref<Array<vdouble>>::operator=(Ref<Array<vdouble>>&& arrRef) noexcept
 {
    if(this != &arrRef)
    {

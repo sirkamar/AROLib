@@ -95,7 +95,7 @@ class RefBase
    template <class T>
    friend class Ref;
    friend struct ObjectInfo;
-   template <class T>
+   template <class T, class V>
    friend class RefArrayBase;
    
    RefBase() = default;

@@ -77,6 +77,8 @@ class String final extends public Object implements public Comparable<String>, p
       static RString valueOf(RObject obj);
       static RString valueOf(const char* obj);
       static RString valueOf(const vchar* obj);
+	  static RString valueOf(RArray<vchar> arr);
+	  static RString valueOf(RArray<vchar> arr, vint offset, vint count);
       
       static vint indexOf(RArray<vchar> source, vint sourceOffset, vint sourceCount,
                  RArray<vchar> target, vint targetOffset, vint targetCount, vint fromIndex);
@@ -85,8 +87,6 @@ class String final extends public Object implements public Comparable<String>, p
                  RArray<vchar> target, vint targetOffset, vint targetCount, vint fromIndex);
    
    protected:
-      virtual void finalize();
-      
       virtual void readObject(io::RObjectInputStream is);
       virtual void writeObject(io::RObjectOutputStream os);
    
@@ -95,14 +95,15 @@ class String final extends public Object implements public Comparable<String>, p
       
       RArray<vchar> value;
       
-      // native string conversion
-      vchar* cString;
-      void initCString();
-      const vchar* toCString();
-      
       // native string constructor
       String(const char* val);
       String(const wchar_t* val);
+      
+      // native string conversion
+      const vchar* toCString();
+      std::unique_ptr<vchar[]> cString;
+      template <class T>
+      void fillArray(const T* ptr, vint size);
       
       static const RArray<vchar> empty;
       
@@ -111,6 +112,8 @@ class String final extends public Object implements public Comparable<String>, p
       
       void getChars(RArray<vchar> dst, vint dstBegin);
    
+   friend class Int;
+   friend class Long;
    friend class Ref<String>;
    friend class Ref<Object>;
    friend class StringBuffer;

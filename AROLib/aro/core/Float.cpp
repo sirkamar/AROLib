@@ -9,15 +9,17 @@ namespace aro {
 
 //const vfloat Float::POSITIVE_INFINITY = 1.0f / 0.0f;
 
-const vfloat Float::MAX_VALUE = 3.4E+38f;
+const vfloat Float::MAX_VALUE = 0x1.fffffeP+127f; // 3.4028235e+38f
 
-const vfloat Float::MIN_VALUE = 1.4E-45f;
+const vfloat Float::MIN_VALUE = 0x0.000002P-126f; // 1.4e-45f
 
 const vfloat Float::MIN_EXPONENT = -126;
 
 const vfloat Float::MAX_EXPONENT = 127;
 
 //const vfloat Float::NaN = 0.0f / 0.0f;
+
+const vint Float::BYTE_SIZE = 4; // 4 bytes = 32 bits
 
 Float::Float()
    :value(0.0)

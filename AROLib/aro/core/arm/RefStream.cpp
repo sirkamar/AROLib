@@ -22,7 +22,13 @@ Ref<io::Streamable<String>>::~Ref()
 //template <>
 Ref<io::Streamable<String>>::Ref(const char* chStr)
 {
-   ref = new String(chStr);
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
+   if(strcmp(chStr, "") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
    
    if(ref != nullptr)
       Arm::add(ref, this);
@@ -31,10 +37,16 @@ Ref<io::Streamable<String>>::Ref(const char* chStr)
 //template <>
 Ref<io::Streamable<String>>::Ref(const wchar_t* chStr)
 {
-    ref = new String(chStr);
-
-    if (ref != nullptr)
-        Arm::add(ref, this);
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
+   if(wcscmp(chStr, L"") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
+   
+   if(ref != nullptr)
+      Arm::add(ref, this);
 }
 
 //template <>
@@ -108,10 +120,16 @@ io::Streamable<String>* Ref<io::Streamable<String>>::operator->() const
 //template <>
 Ref<io::Streamable<String>>& Ref<io::Streamable<String>>::operator=(const char* chStr)
 {
+   if(chStr == nullptr)
+      throw RException(new NullException("Reference null pointer initialization"));
+   
    if(ref != nullptr)
       Arm::remove(ref, this);
    
-   ref = new String(chStr);
+   if(strcmp(chStr, "") == 0)
+      ref = String::EMPTY_STRING.ref;
+   else
+      ref = new String(chStr);
    
    if(ref != nullptr)
       Arm::add(ref, this);

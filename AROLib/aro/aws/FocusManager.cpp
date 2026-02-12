@@ -266,10 +266,10 @@ void FocusManager::setFocusManager(RFocusManager mngr)
    }
    
    if(oldManager != nullref)
-      oldManager->firePropertyChanged("focusManager", Bool::IS_TRUE, Bool::IS_FALSE);
+      oldManager->firePropertyChanged("focusManager", Bool::TRUE_REF, Bool::FALSE_REF);
    
    if(mngr != nullref)
-      mngr->firePropertyChanged("focusManager", Bool::IS_FALSE, Bool::IS_TRUE);
+      mngr->firePropertyChanged("focusManager", Bool::FALSE_REF, Bool::TRUE_REF);
 }
 
 void FocusManager::setCurrentFocusCycleRoot(RContainer root)

@@ -1,5 +1,9 @@
 #include <sstream>
 #include <iostream>
+#include <aro/core/Int.hpp>
+#include <aro/core/Char.hpp>
+#include <aro/core/Long.hpp>
+#include <aro/core/Short.hpp>
 #include <aro/core/impl/All.hpp>
 
 // for use with stringstream
@@ -12,14 +16,13 @@ const RArray<vchar> String::empty = new Array<vchar>(0);
 const RString String::EMPTY_STRING = new String();
 
 String::String()
-	:String(empty, true)
+   :String(empty, true)
 {
    
 }
 
 String::String(RString str)
 {
-   initCString();
    hash = str->hash;
    value = str->value;
 }
@@ -48,7 +51,6 @@ String::String(RArray<vchar> arr, vint offset, vint count)
       value = arr->copyOf(offset, count);
    }
    
-   initCString();
    hash = 0;
 }
 
@@ -95,22 +97,64 @@ vbool String::isEmpty()
 
 RString String::toLowerCase()
 {
-	RArray<vchar> arr = new Array<vchar>(value->length);
+   vint firstLower;
+   vbool allLower = true;
+   vint len = value->length;
+   for(firstLower = 0; firstLower < len;)
+   {
+	  vchar c = value[firstLower];
+	  
+	  if(c != Char::toLowerCase(c))
+	  {
+		 allLower = false;
+         break;
+      }
 
-	for (vint n = 0; n < arr->length; n++)
-		arr[n] = tolower(value[n]);
+	  firstLower++;
+   }
+
+   if(allLower)
+      return thisref; // no change required
+   
+   RArray<vchar> arr = new Array<vchar>(value->length);
+   
+   arr->copy(0, value, 0, firstLower);
+
+   for(vint n = firstLower; n < len; n++)
+		arr[n] = Char::toLowerCase(value[n]);
    
 	return new String(arr, true);
 }
 
 RString String::toUpperCase()
 {
-	RArray<vchar> arr = new Array<vchar>(value->length);
-
-	for (vint n = 0; n < arr->length; n++)
-		arr[n] = toupper(value[n]);
+   vint firstUpper;
+   vbool allUpper = true;
+   vint len = value->length;
+   for(firstUpper = 0; firstUpper < len;)
+   {
+      vchar c = value[firstUpper];
+   	  
+      if(c != Char::toUpperCase(c))
+      {
+         allUpper = false;
+         break;
+      }
+	  
+	  firstUpper++;
+   }
    
-	return new String(arr, true);
+   if(allUpper)
+      return thisref; // no change required
+   
+   RArray<vchar> arr = new Array<vchar>(value->length);
+   
+   arr->copy(0, value, 0, firstUpper);
+   
+   for(vint n = firstUpper; n < len; n++)
+		arr[n] = Char::toUpperCase(value[n]);
+   
+   return new String(arr, true);
 }
 
 RString String::toString()
@@ -300,6 +344,9 @@ RString String::substring(vint from, vint end)
 	if (from == 0 && end == value->length)
 		return thisref;
 
+	if (end - from == 0)
+		return EMPTY_STRING;
+
 	return new String(value, from, end - from);
 }
 
@@ -398,20 +445,21 @@ void String::readObject(io::RObjectInputStream is)
 
 RString String::valueOf(vint val)
 {
-	wstringstream ss;
+	/*wstringstream ss;
 
 	ss << val;
 
-	return ss.str().c_str();
+	return ss.str().c_str();*/
+	return Int::toString(val);
 }
 
 RString String::valueOf(char val)
 {
-   wstringstream ss;
+	vchar ch = (vchar)val;
 
-   ss << val;
+	RArray<vchar> arr = { ch };
 
-   return ss.str().c_str();
+	return new String(arr, true);
 }
 
 RString String::valueOf(vbool val)
@@ -421,20 +469,19 @@ RString String::valueOf(vbool val)
 
 RString String::valueOf(vchar val)
 {
-	wstringstream ss;
+	RArray<vchar> arr = { val };
 
-	ss << val;
-
-	return ss.str().c_str();
+	return new String(arr, true);
 }
 
 RString String::valueOf(vlong val)
 {
-	wstringstream ss;
+	/*wstringstream ss;
 
 	ss << val;
 
-	return ss.str().c_str();
+	return ss.str().c_str();*/
+	return Long::toString(val);
 }
 
 RString String::valueOf(vfloat val)
@@ -448,11 +495,12 @@ RString String::valueOf(vfloat val)
 
 RString String::valueOf(vshort val)
 {
-	wstringstream ss;
+	/*wstringstream ss;
 
 	ss << val;
 
-	return ss.str().c_str();
+	return ss.str().c_str();*/
+	return Short::toString(val);
 }
 
 RString String::valueOf(vdouble val)
@@ -477,6 +525,16 @@ RString String::valueOf(const char* str)
 RString String::valueOf(const vchar* str)
 {
    return new String(str);
+}
+
+RString String::valueOf(RArray<vchar> arr)
+{
+   return new String(arr);
+}
+
+RString String::valueOf(RArray<vchar> arr, vint offset, vint count)
+{
+   return new String(arr, offset, count);
 }
 
 vint String::indexOf(RArray<vchar> source, vint sourceOffset, vint sourceCount,
@@ -570,12 +628,20 @@ vint String::lastIndexOf(RArray<vchar> source, vint sourceOffset, vint sourceCou
 	}
 }
 
-void String::finalize()
+template<class T>
+inline void String::fillArray(const T* val, vint len)
 {
-   if(cString != nullptr)
-      delete[] cString;
-   
-   Object::finalize();
+	if (len == 0)
+		value = empty;
+	else
+	{
+		value = new Array<vchar>(len);
+
+		for (vint n = 0; n < len; n++)
+			value[n] = val[n];
+	}
+
+	hash = 0;
 }
 
 String::String(const wchar_t* val)
@@ -585,51 +651,24 @@ String::String(const wchar_t* val)
    
    vint len = (vint)wcslen(val);
 
-   if(len == 0)
-      value = empty;
-   else
-   {
-      value = new Array<vchar>(len);
-      
-      for(vint n = 0; n < len; n++)
-         value[n] = val[n];
-   }
-   
-   initCString();
-   hash = 0;
+   fillArray<vchar>(val, len);
 }
 
 String::String(const char* val)
 {
-   if (val == nullptr)
-      ex_throw new ArgumentException("Null string literal");
-   
-   vint len = (vint)strlen(val);
-   
-   if(len == 0)
-      value = empty;
-   else
-   {
-      value = new Array<vchar>(len);
-      
-      for(vint n = 0; n < len; n++)
-         value[n] = val[n];
-   }
-   
-   initCString();
-   hash = 0;
-}
+	if (val == nullptr)
+		ex_throw new ArgumentException(L"Null string literal");
 
-void String::initCString()
-{
-   cString = nullptr;
+	vint len = (vint)strlen(val);
+
+	fillArray<char>(val, len);
 }
 
 const vchar* String::toCString()
 {
-   if(cString == nullptr)
+   if(!cString)
    {
-      cString = new vchar[value->length+1];
+      cString.reset(new vchar[value->length+1]);
       
       for(vint n = 0; n < value->length; n++)
          cString[n] = value[n];
@@ -637,13 +676,12 @@ const vchar* String::toCString()
       cString[value->length] = L'\0';
    }
    
-   return cString;
+   return cString.get();
 }
 
 // private constructor which shares array for speed
 String::String(RArray<vchar> arr, vbool shared)
 {
-   initCString();
    value = arr;
    hash = 0;
 }

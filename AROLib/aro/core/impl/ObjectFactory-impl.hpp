@@ -78,6 +78,19 @@ bool ObjectFactory::containsFunc(int type)
    return false;
 }
 
+template <class T>
+vint ObjectFactory::getTypeID()
+{
+   RString name = typeid(T).name();
+
+   vint pos = name->lastIndexOf(' ');
+
+   if (pos >= 0)
+      name = name->substring(pos + 1);
+
+   return name->hashCode();
+}
+
 } /* namespace aro */
 
 #endif /* CORE_UTILS_OBJECTFACTORY_IMPL_H */

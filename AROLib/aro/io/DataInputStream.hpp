@@ -15,20 +15,19 @@ class DataInputStream extends public FilterInputStream
    public:
       DataInputStream(RInputStream in);
       
-      virtual vint read(RArray<vint> bytes,vint offset,vint num);
-      virtual vint read(RArray<vint> bytes);
-      virtual vint read();
+      virtual vint read(RArray<vint> bytes,vint offset,vint num) final;
+      virtual vint read(RArray<vint> bytes) final;
       
-      void readFully(RArray<vint> bytes);
-      void readFully(RArray<vint> bytes,vint offset,vint num);
+      virtual void readFully(RArray<vint> bytes) final;
+      virtual void readFully(RArray<vint> bytes,vint offset,vint num) final;
       
-      vdouble readDouble();
-      vshort readShort();
-      vfloat readFloat();
-      vlong readLong();
-      vchar readChar();
-      vbool readBool();
-      vint readInt();
+      virtual vdouble readDouble() final;
+      virtual vshort readShort() final;
+      virtual vfloat readFloat() final;
+      virtual vlong readLong() final;
+      virtual vchar readChar() final;
+      virtual vbool readBool() final;
+      virtual vint readInt() final;
 };
 
 } /* namespace io */

@@ -28,24 +28,18 @@ since it is in essence "constructing" the object.
 As such the readObject() function is considered to
 be a pseudo-constructor. */
 template <class T>
-interface Streamable extends StreamBase
+interface Streamable extends virtual StreamBase
 {
-   void readObject(RObjectInputStream is) = 0;
-   
-   void writeObject(RObjectOutputStream os) = 0;
-   
    protected:
-      Streamable();
+      virtual void readObject(RObjectInputStream is) = 0;
+      
+      virtual void writeObject(RObjectOutputStream os) = 0;
    
    private:
-      struct Builder
-      {
-          Builder();
-          void init() const;
-          static RObject create();
-      };
+      static vbool dummy;
 
-      static const Builder BUILDER;
+   protected:
+      Streamable();
 };
 
 } /* namespace io */
